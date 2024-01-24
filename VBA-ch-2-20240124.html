@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
+		</script>
+
+		<meta charset="utf-8">
+	</head>
+
+<body>
+
+<h1>VBA-ch-2-20240124</h1>
+
+<p>
+
+Sub find() '填入任意數字，數出每個數字出現幾次'	<br />
+	<br />
+&emsp;Dim strfile As String	<br />
+&emsp;&emsp;strfile = Application.ActiveWorkbook.Name '本檔案的檔名	<br />
+&emsp;&emsp;Workbooks(strfile).Activate	<br />
+&emsp;&emsp;ActiveWorkbook.Save	<br />
+&emsp;'Workbooks(strfile).Sheets(3).Cells.Clear	<br />
+&emsp;Workbooks(strfile).Sheets(1).Range("B:Z").Clear	<br />
+&emsp;	<br />
+&emsp;Dim array_for_storage_data(1000) As String	<br />
+&emsp;Dim array_for_count(1000) As Integer	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;Dim row As Integer	<br />
+&emsp;Dim column As Integer	<br />
+&emsp;	<br />
+&emsp;For i = 1 To 100 '用for迴圈把array'	<br />
+&emsp;&emsp;array_for_storage_data(i) = ""	<br />
+&emsp;&emsp;array_for_count(i) = 0	<br />
+&emsp;Next i	<br />
+&emsp;	<br />
+&emsp;Dim type_count As Integer '紀錄遇到幾種	<br />
+&emsp;type_count = 0	<br />
+&emsp;	<br />
+&emsp;Dim is_find As Boolean '告訴程式是否已經找到	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;row = 1	<br />
+&emsp;Do Until Workbooks(strfile).Sheets(1).Cells(row, 1) = "" '程式讀到沒東西為止	<br />
+&emsp;&emsp;is_find = False '開始時設為沒找到'	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;For i = 1 To type_count '判斷比對cell中間的數字是哪個數字	<br />
+&emsp;&emsp;&emsp;If array_for_storage_data(i) = Workbooks(strfile).Sheets(1).Cells(row, 1) Then  '判斷比對cell中間的數字是哪個數字	<br />
+&emsp;&emsp;&emsp;&emsp;array_for_count(i) = array_for_count(i) + 1&emsp;&emsp;&emsp;&emsp;&emsp;'對應的數字計數加一	<br />
+&emsp;&emsp;&emsp;&emsp;is_find = True '有找到設為true'	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;Next i	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;If is_find = False Then '	<br />
+&emsp;&emsp;&emsp;type_count = type_count + 1	<br />
+&emsp;&emsp;&emsp;array_for_storage_data(i) = Workbooks(strfile).Sheets(1).Cells(row, 1)	<br />
+&emsp;&emsp;&emsp;array_for_count(type_count) = array_for_count(type_count) + 1	<br />
+&emsp;&emsp;End If	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;row = row + 1	<br />
+&emsp;Loop	<br />
+&emsp;	<br />
+&emsp;i = 1	<br />
+&emsp;Workbooks(strfile).Sheets(1).Cells(i, 3) = "什麼東西"	<br />
+&emsp;Workbooks(strfile).Sheets(1).Cells(i, 4) = "有幾個"	<br />
+&emsp;For i = 1 To type_count '用for迴圈把array印出來'	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, 3) = array_for_storage_data(i)	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, 4) = array_for_count(i)	<br />
+&emsp;Next i	<br />
+&emsp;	<br />
+End Sub	<br />
+
+</p>
+<img src="./picture/VBA 2024-01-24.png" alt="取代文字" width="800" height="auto"><br>
+
+
+</body>
+</html>
