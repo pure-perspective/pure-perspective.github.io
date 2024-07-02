@@ -2917,7 +2917,9 @@ input, select, textarea {
 	@media screen and (max-width: 1280px) {
 
 		/* Basic */
-
+			html, body {
+				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
+			}
 			body, input, select, textarea {
 				font-size: 11pt;
 			}
@@ -3115,7 +3117,9 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
-
+			html, body {
+				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
+			}
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
@@ -3260,10 +3264,12 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		/* Basic */
-
 			html, body {
-				min-width: 320px;
+				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
 			}
+			<!--html, body {
+				min-width: 320px;
+			}-->
 
 			body, input, select, textarea {
 				font-size: 12pt;
