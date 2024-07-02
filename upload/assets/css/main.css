@@ -1710,6 +1710,10 @@ input, select, textarea {
 		margin: 0 auto;
 		max-width: calc(100% - 8em);
 		width: 55em;
+		img {
+			<!--object-fit:scale-down;-->
+			<!--width:100%-->
+		}<!--新增圖片適應20240702-->
 	}
 
 		.container.xsmall {
@@ -2943,7 +2947,7 @@ input, select, textarea {
 		/* Basic */
 
 			html, body {
-				overflow-x: hidden;
+				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
 			}
 
 			body, input, select, textarea {
