@@ -92,8 +92,7 @@
 <header class="major">
 	<h2><li>前言</li></h2>
 </header>
-\(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
-\(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
+
 <p style="text-align:justify">現代的物理學發展的框架下，喜歡從作用量Action S出發，當物理學家寫下Action後（根據實驗、物理現象和限制等等猜出），針對Action做變分\(\delta S\)（Variation）後，在最小作用量原理（Principle of least action）\(\delta S=0\)的要求下，就可以得到物理遵守的運動方程，後續就根據不同的物理系統求滿足運動方程的物理量變化。
 古典力學的發展上，由d' Alembert利用虛功原理可以得到
 $${d \over dt}{\partial L \over \partial \dot{x}_i}-{\partial L \over \partial x_i}=0$$
@@ -119,7 +118,10 @@ $${d \over dt}{\partial L \over \partial \dot{x}}-{\partial L \over \partial x}=
 	如果今天，一個泛函（Functional）的積分問題
 $$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt$$
 其中，\(x=x(t)\)、\( \dot{x}=dx \over dt\)，固定\(a\)、\(b\)下改變軌跡\(x(t)\)的形式會對積分S造成影響，我們想找到S的極值（Extreme value，不論極大或極小）下，軌跡\(x(t)\)會是什麼形式？或是\(F(x,\dot{x},t)\)該滿足什麼條件？根據微積分的概念，在\(f(x)\)極值\(x_0\)附近做微小的變化\(x_0 + \varepsilon\)時，\(f(x)\)是不會有變化的，即\(df=0\)。類似的想法，\(S\)在極值附近時，\(x(t)\)稍微改變形式，\(\delta S=0\)。我們可以將積分問題簡單的用圖像表達，不同\(x(t)\)的函數形式表示不同的路徑連結\(a\)到\(b\)點。<br>
- 
+
+<table cellpadding="1" border="1">
+<tr><td><a href="./Image/P27.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P28.png" alt="取代文字" width=98% height="auto"></a></td></tr>
+</table>
 
 如果\(x(t)\)是滿足\(S\)的極值，那麼如果加入微小的任意函數\(\varepsilon \eta (t)\)，\( \eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，使\(a\)、\(b\)兩點\(F(x,\dot{x},t)\)不變。在加入微小的任意函數\(\varepsilon \eta (t)\)後
 $$x(t)→x(t)+\varepsilon \eta (t)$$
@@ -149,8 +151,7 @@ $${\delta \dot{x}\over\delta \varepsilon} ={\delta\over\delta \varepsilon}(\dot{
 $${\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta +{\partial F\over \partial \dot{x}} \dot{\eta} dt=\int_a^b {\partial F\over\partial x} \eta +{\partial F\over\partial \dot{x}}  {d\eta \over dt} dt=\int_a^b {\partial F\over\partial x} \eta dt+ \int_a^b {\partial F\over \partial \dot{x}} {d\eta\over dt} dt$$
 我們針對最後一項做分部積分
 $$\int_a^b {\partial F\over\partial \dot{x} } {d\eta \over dt} dt={\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b}}-\int_a^b {d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
-注意紅色這一項，因為我們要求\(\eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，所以
-$${ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0$$
+注意<font color="red">紅色</font>這一項，因為我們要求\(\eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，所以\(\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0}\)
 $$∴{\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta dt-\int_a^b{d\over dt}{\partial F\over\partial \dot{x}}\eta dt=\int_a^b \left({\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}\right)\eta dt=0$$
 因為\(\eta (t)\)是任意的，所以
 $${\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}=0$$ 
@@ -170,9 +171,12 @@ Euler-Lagrange equation
 
 <p style="text-align:justify">
 
-第一部分介紹了簡單的變分法概念，但是需要引入任意的函數\(\eta (t)\)，手法上稍嫌煩瑣，不利於後續操作。第二部分以相同的概念，採用比較抽象的想法但相同的數學手法，演示一次變分法的操作。有點像將變分的操作類同於微分操作。
+前一部分介紹了簡單的變分法概念，但是需要引入任意的函數\(\eta (t)\)，手法上稍嫌煩瑣，不利於後續操作。第二部分以相同的概念，採用比較抽象的想法但相同的數學手法，演示一次變分法的操作。有點像將變分的操作類同於微分操作。
+<table cellpadding="1" border="1">
+<tr><td><a href="./Image/P29.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P30.png" alt="取代文字" width=98% height="auto"></a></td></tr>
+</table>
  
- 
+
 針對同一種泛函（Functional）的積分問題
 $$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt $$
 當我們針對\(x\)做變分， 
@@ -187,28 +191,42 @@ $$F(x,\dot{x},t)→F(x+\delta x,\dot{x}(x)+\delta \dot{x},t)=F(x,\dot{x},t)+\del
 $$\delta S=\delta \int _a^b Fdt=\int _a^b \delta Fdt=0$$
 概念上很好理解的是，\(\delta F\)的變化和\(\delta x\)、\(\delta \dot{x}\)有關，所以將\(\delta F\)展開
 $$\delta S=\int _a^b \delta Fdt=\int _a^b { \partial F\over\partial x }\delta x+{\partial F\over \partial \dot{x} } \delta \dot{x} dt $$
-進階：Thm.1 :微分與變分對調
+
+<table cellpadding="1" border="1">
+<tr><td>
+進階：Thm.1 :微分與變分對調<br>
 如果今天微分與變分針對的對象不同，如對t微分 \(d \over dt\)、對x變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
 $$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
-將\(\delta \dot{x}\)對調 \({d \over dt} \delta x\)
+</td></tr>
+</table>
+
+將\(\delta \dot{x}\)對調 \({d \over dt} \delta x\)<br>
 $$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt+  \int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt $$
 同樣的手法對第二項做分部積分
-$$\int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt =  {\partial F\over \partial \dot{x} }  \delta x \Big|_a^b-\int _a^b  {d \over dt}   {\partial F\over \partial \dot{x} } \delta xdt$$
-注意紅色這一項，因為我們要求變分\(\delta x\)滿足\(\delta x(a)=\delta x(b)=0\)，所以\( {\partial F\over \partial \dot{x} }  \delta x\Big|_a^b=0\)
+$$\int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt =  \color{red}{{\partial F\over \partial \dot{x} }  \delta x \Big|_a^b}-\int _a^b  {d \over dt}   {\partial F\over \partial \dot{x} } \delta xdt$$
+注意<font color="red">紅色</font>這一項，因為我們要求變分\(\delta x\)滿足\(\delta x(a)=\delta x(b)=0\)，所以\( \color{red}{{\partial F\over \partial \dot{x} }  \delta x\Big|_a^b=0}\)
 $$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt-\int _a^b \left( {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt =\int _a^b \left( {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt=0$$
 
 \(\delta x \) is arbitrary.
 
 $$ {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } =0$$ 
 Euler-Lagrange equation <br>
-
+<table cellpadding="1" border="1">
+<tr><td>
 進階：Thm.2:變分的Chain rule
 $$\delta (FG)={\partial (FG)\over\partial x} \delta x+{\partial (FG)\over \partial \dot{x} } \delta \dot{x}=\left( {\partial F\over\partial x} G+F {\partial G\over\partial x}\right)\delta x+\left( {\partial F\over \partial \dot{x} }  G+F {\partial G\over\partial \dot{x}} \right)\delta \dot{x}$$
 $$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x} }  \delta \dot{x} \right)G+F\left({\partial G\over\partial x} \delta x+{\partial G\over\partial \dot{x}}  \delta \dot{x} \right)= \delta F\cdot G+F\cdot \delta G$$
+</td></tr>
+</table>
+<br>
+
+<table cellpadding="1" border="1">
+<tr><td>
 進階：Thm.3:針對函數F同乘同除另一函數G，不影響變分
 $$\delta F=\delta \left(F\cdot {G\over G}\right)=\delta \left(F\cdot G\cdot G^{-1} \right)=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
 $$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)=\delta F$$
-
+</td></tr>
+</table>
 
 </p>
 </div>
@@ -279,7 +297,7 @@ $$d(L-\dot{p} q-p\dot{q} )=d\left(L-{d\over dt} (pq)\right) \equiv d\bar{L}=-qd\
 $${\partial \bar{L}\over\partial \dot{p} }=-q$$
 $${\partial \bar{L}\over\partial p}=-\dot{q}$$
 $$→{d\over dt} {\partial \bar{L}\over\partial \dot{p}}={\partial \bar{L}\over\partial p}$$
-為動量空間的EOM。可以注意到形式不變。
+為動量空間的EOM。可以注意到形式不變(Form invariant)。
 
 
 </p>
@@ -295,10 +313,10 @@ $$→{d\over dt} {\partial \bar{L}\over\partial \dot{p}}={\partial \bar{L}\over\
 
 <p style="text-align:justify">
 古典諾特定理
-諾特定理作為古典力學重要的定理，也是Lagrangian、Hamiltonian超越牛頓力學的重要原因。諾特定理的表述為，當系統滿足EOM、或最小作用量原理之下，我們若給予Action S一個變化\delta α卻可以保持\delta S=0，諾特定理表明會對應到一個守恆量。在這邊我們討論同時對時間t跟物理軌跡q做變分
+諾特定理作為古典力學重要的定理，也是Lagrangian、Hamiltonian超越牛頓力學的重要原因。諾特定理的表述為，當系統滿足EoM、或最小作用量原理之下，我們若給予Action S一個變化\(\delta \alpha\)卻可以保持\(\delta S=0\)，諾特定理表明會對應到一個守恆量。在這邊我們討論同時對時間\(t\)跟物理軌跡\(q\)做變分
 $$q \to \bar{q} = q+\delta q$$
-$$t→\bar{t} =t+\delta t$$
-但值得注意的是，軌跡q作為時間t的函數，會受到自身變分的影響之外，也會受到時間改變的有影響，定義\Delta q表示完整影響
+$$t \to \bar{t} =t+\delta t$$
+但值得注意的是，軌跡\(q\)作為時間\(t\)的函數，會受到自身變分的影響之外，也會受到時間改變的有影響，定義\(\Delta q\)表示完整影響
 $$\Delta q≡\bar{q} (\bar{t}  )-q(t)=\bar{q} (\bar{t}  )-q(\bar{t}  )+-q(\bar{t}  )-q(t)=\delta q+\dot{q} \delta t$$
 考慮變分前後的差別
 $$\delta S=\delta \int  L dt=\int  \delta L dt+\int  L d\delta t$$
@@ -313,7 +331,7 @@ $$={\partial L\over\partial q}  \delta q-\left({d\over dt}   {\partial L\over \p
 
 
 $$=\left[{\partial L\over\partial q} -{d\over dt}   {\partial L\over \partial \dot{q} } \right]\delta q+{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
-因為Lagrangian滿足EOM
+因為Lagrangian滿足EoM
 $${\partial L\over\partial q} -{d\over dt}   {\partial L\over \partial \dot{q} } =0 $$
 所以第一項只剩下
 $$\delta L={d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
@@ -327,7 +345,7 @@ $$\delta S=\int  \left[{d\over dt}  \left({\partial L\over \partial \dot{q} }  \
 
 $$\delta q=\Delta q-\dot{q} \delta t$$
 代入
-$$\delta S=\int   {d\over dt}  [{\partial L\over \partial \dot{q} }  (\delta q-\delta t)+L\delta t]   dt=\int   {d\over dt}  [{\partial L\over \partial \dot{q} }  \delta q-({\partial L\over \partial \dot{q} }  \dot{q} -L)\delta t]   dt$$
+$$\delta S=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \left(\delta q-\delta t \right)+L\delta t\right]   dt=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \delta q-\left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t\right]   dt$$
 
 
 如果經過變分後不變，即\(\delta S=0\)，對應軌跡q變分不變的守恆量為
@@ -363,7 +381,9 @@ $$=\int   {d\over dt} \left[\left({\partial L\over \partial \dot{q} } +{\partial
 $$\delta S=\int   {d\over dt}  \left[\left({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}\right)\delta q-\left(\left({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}\right) \dot{q} -L-\dot{f} \right)\delta t\right]   dt$$
 
 
-如果當原本的Lagrangian \(L\)不具備對稱性，我們有機會透過\(\partial f/\partial q\)做修正，因為\(f=f(q,t)\)所以\({\partial f\over\partial q}={\partial \over\partial q}f(q,t)\)，只要\({\partial L\over \partial \dot{q} }\) 不是\(\dot{q}\) 的函數，我們可以用\({\partial f\over\partial q}=-{\partial L\over \partial \dot{q} } +const\)消除微分不為零的部分使得\(\delta S=0\)，對應軌跡\(q\)變分不變的守恆量為\({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=p\)，我們可以稱作此\(Lagrangian\ L+\dot{f}\) 對應的Action為Maximal Symmetry Action。
+如果當原本的Lagrangian \(L\)不具備對稱性，我們有機會透過\({\partial f \over \partial q}\)做修正，因為\(f=f(q,t)\)所以\({\partial f\over\partial q}={\partial \over\partial q}f(q,t)\)，只要\({\partial L\over \partial \dot{q} }\) 不是\(\dot{q}\) 的函數，我們可以用\({\partial f\over\partial q}=-{\partial L\over \partial \dot{q} } +const\)消除微分不為零的部分，使得\(\delta S=0\)，對應軌跡\(q\)變分不變的守恆量為
+$${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=p$$
+，我們可以稱作此\(Lagrangian\ L+\dot{f}\) 對應的Action為Maximal Symmetry Action。
 
 
 </p>
@@ -405,7 +425,8 @@ $$\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0$$
 Free particle的Action \(S_P\)為
 $$S_P=\int _a^b  -mc^2 d\tau  $$
 經過變分
-$$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
+$$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
+
 看起來\(d\tau \)好像與\(\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu\) 變分無關，不過回憶一件事情
 $$∵c^2  d\tau  ^2=d\eta ^\mu  d\eta _\mu $$
 $$∴cd\tau =\sqrt{d\eta ^\mu  d\eta _\mu}$$
@@ -463,7 +484,8 @@ $$S_PF=\int _a^b  -{e \over c}  A_\mu  d\eta ^\mu   $$
 完整的描述Charge Particle運動即為
 $$S=S_P+S_{PF}=\int _a^b  -mc^2 d\tau  +\int _a^b  -{e\over c}  A_\mu  d\eta ^\mu   $$
  
- 
+ 
+
 在這邊，我們考慮Charge Particle在時空中的路徑作\(\eta ^\mu\) 變分
 $$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
 雖然我們沒有對EM Field \(A^\mu\) 作變分，但是走不同路徑感受到的位能是不一樣的，所以Action走不同的路徑會有不同的\(A^\mu \)（意思是\(A^\mu \) 的變化來自於路徑 \(\eta ^\mu\) 不同，而不是對\(A^\mu\) 作變分）
@@ -577,7 +599,8 @@ A^\mu \to A^\mu +\delta A^\mu
 我們來觀察J^\mu  、d^4 x、F^{\mu \nu} 會不會受到影響？
 J^\mu =ρ (dx^\mu )/d\tau =J^\mu  (x^\nu )
 d^4 x=d^4 x(x^\nu )
-F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  (A^\omega )	 
+F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  (A^\omega )	 
+
 可見只有電磁張量F^{\mu \nu} 會受到A^\mu 的變分A^\mu \to A^\mu +\delta A^\mu 有關
 F^{\mu \nu}  (A^\omega  )\to F^{\mu \nu}  (A^\omega +\delta A^\omega  )=F^{\mu \nu}  (A^\omega  )+\delta F^{\mu \nu} 
 所以S_PF的變分很簡單
