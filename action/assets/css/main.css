@@ -3111,6 +3111,9 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
+			html, body {
+				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
+			}
 
 			body, input, select, textarea {
 				font-size: 12pt;
@@ -3256,6 +3259,9 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		/* Basic */
+			html, body {
+				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
+			}
 
 			html, body {
 				min-width: 320px;
