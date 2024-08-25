@@ -2943,7 +2943,7 @@ input, select, textarea {
 		/* Basic */
 
 			html, body {
-				overflow-x: hidden;
+				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
 			}
 
 			body, input, select, textarea {
