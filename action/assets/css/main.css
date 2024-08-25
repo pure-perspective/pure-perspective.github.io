@@ -1708,12 +1708,8 @@ input, select, textarea {
 
 	.container {
 		margin: 0 auto;
-		max-width: calc(100% - 6em);
-		width: 75em;
-		img {
-			<!--object-fit:scale-down;-->
-			<!--width:100%-->
-		}<!--新增圖片適應20240702-->
+		max-width: calc(100% - 4.5em);
+		width: 45em;
 	}
 
 		.container.xsmall {
@@ -1754,20 +1750,6 @@ input, select, textarea {
 				max-width: calc(100% - 3.375em);
 			}
 
-		}
-		.videobox {
-		    position: relative;
-		    width: 100%;
-		    height: 0;
-		    padding-bottom: 56.25%;
-		}
-
-		.videobox iframe {
-		    position: absolute;
-		    top: 0;
-		    left: 0;
-		    width: 100%;
-		    height: 100%;
 		}
 
 /* Section/Article */
@@ -1971,7 +1953,7 @@ input, select, textarea {
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #4acaa8; <!--#05848f-->
+			border-color: #4acaa8;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2218,7 +2200,7 @@ input, select, textarea {
 
 		.image.main {
 			display: block;
-			height: 20em;
+			height: 30em;
 			border-radius: 0;
 		}
 
@@ -2901,7 +2883,7 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				width: 15em; <!--改-->
+				width: 21em;
 			}
 
 				#header > header {
@@ -2931,9 +2913,7 @@ input, select, textarea {
 	@media screen and (max-width: 1280px) {
 
 		/* Basic */
-			html, body {
-				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
-			}
+
 			body, input, select, textarea {
 				font-size: 11pt;
 			}
@@ -2963,7 +2943,7 @@ input, select, textarea {
 		/* Basic */
 
 			html, body {
-				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
+				overflow-x: hidden;
 			}
 
 			body, input, select, textarea {
@@ -3131,9 +3111,7 @@ input, select, textarea {
 	@media screen and (max-width: 736px) {
 
 		/* Basic */
-			html, body {
-				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
-			}
+
 			body, input, select, textarea {
 				font-size: 12pt;
 			}
@@ -3278,12 +3256,10 @@ input, select, textarea {
 	@media screen and (max-width: 480px) {
 
 		/* Basic */
+
 			html, body {
-				overflow-x: scroll; <!--20240702,所有size都增加這段;-->
-			}
-			<!--html, body {
 				min-width: 320px;
-			}-->
+			}
 
 			body, input, select, textarea {
 				font-size: 12pt;
