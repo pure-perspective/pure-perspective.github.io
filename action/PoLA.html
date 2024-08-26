@@ -152,11 +152,14 @@ $${\delta S\over\delta \varepsilon} = \int_a^b {\partial F\over\partial x }{\del
 $${\delta x\over\delta \varepsilon} ={\delta \over\delta \varepsilon}  (x+\varepsilon \eta )=\eta $$
 $${\delta \dot{x}\over\delta \varepsilon} ={\delta\over\delta \varepsilon}(\dot{x} +\varepsilon \dot{\eta})=\dot{\eta}$$
 可以得到
-$${\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta +{\partial F\over \partial \dot{x}} \dot{\eta} dt=\int_a^b {\partial F\over\partial x} \eta +{\partial F\over\partial \dot{x}}  {d\eta \over dt} dt=\int_a^b {\partial F\over\partial x} \eta dt+ \int_a^b {\partial F\over \partial \dot{x}} {d\eta\over dt} dt$$
+$${\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta +{\partial F\over \partial \dot{x}} \dot{\eta} dt$$
+$$=\int_a^b {\partial F\over\partial x} \eta +{\partial F\over\partial \dot{x}}  {d\eta \over dt} dt$$
+$$=\int_a^b {\partial F\over\partial x} \eta dt+ \int_a^b {\partial F\over \partial \dot{x}} {d\eta\over dt} dt$$
 我們針對最後一項做分部積分
 $$\int_a^b {\partial F\over\partial \dot{x} } {d\eta \over dt} dt={\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b}}-\int_a^b {d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
 注意<font color="red">紅色</font>這一項，因為我們要求\(\eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，所以\(\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0}\)
-$$∴{\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta dt-\int_a^b{d\over dt}{\partial F\over\partial \dot{x}}\eta dt=\int_a^b \left({\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}\right)\eta dt=0$$
+$$∴{\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta dt-\int_a^b{d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
+$$=\int_a^b \left({\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}\right)\eta dt=0$$
 因為\(\eta (t)\)是任意的，所以
 $${\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}=0$$ 
 Euler-Lagrange equation
@@ -200,7 +203,8 @@ $$\delta S=\int _a^b \delta Fdt=\int _a^b { \partial F\over\partial x }\delta x+
 <tr><td>
 進階：Thm.1 :微分與變分對調<br>
 如果今天微分與變分針對的對象不同，如對t微分 \(d \over dt\)、對x變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
-$$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
+$$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)$$
+$$= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
 </td></tr>
 </table>
 
@@ -209,7 +213,8 @@ $$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt+  \int _a^b   {\pa
 同樣的手法對第二項做分部積分
 $$\int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt =  \color{red}{{\partial F\over \partial \dot{x} }  \delta x \Big|_a^b}-\int _a^b  {d \over dt}   {\partial F\over \partial \dot{x} } \delta xdt$$
 注意<font color="red">紅色</font>這一項，因為我們要求變分\(\delta x\)滿足\(\delta x(a)=\delta x(b)=0\)，所以\( \color{red}{{\partial F\over \partial \dot{x} }  \delta x\Big|_a^b=0}\)
-$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt-\int _a^b \left( {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt =\int _a^b \left( {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt=0$$
+$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt-\int _a^b \left( {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt $$
+$$=\int _a^b \left( {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt=0$$
 
 \(\delta x \) is arbitrary.
 
@@ -229,8 +234,8 @@ $$= \delta F\cdot G+F\cdot \delta G$$
 <table cellpadding="1" border="1">
 <tr><td>
 進階：Thm.3:針對函數F同乘同除另一函數G，不影響變分
-$$\delta F=\delta \left(F\cdot {G\over G}\right)$$
-$$=\delta \left(F\cdot G\cdot G^{-1} \right)=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
+$$\delta F=\delta \left(F\cdot {G\over G}\right)=\delta \left(F\cdot G\cdot G^{-1} \right)$$
+$$=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
 $$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)$$
 $$=\delta F$$
 </td></tr>
