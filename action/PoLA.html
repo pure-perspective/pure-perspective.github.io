@@ -218,8 +218,10 @@ Euler-Lagrange equation <br>
 <table cellpadding="1" border="1">
 <tr><td>
 進階：Thm.2:變分的Chain rule
-$$\delta (FG)={\partial (FG)\over\partial x} \delta x+{\partial (FG)\over \partial \dot{x} } \delta \dot{x}=\left( {\partial F\over\partial x} G+F {\partial G\over\partial x}\right)\delta x+\left( {\partial F\over \partial \dot{x} }  G+F {\partial G\over\partial \dot{x}} \right)\delta \dot{x}$$
-$$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x} }  \delta \dot{x} \right)G+F\left({\partial G\over\partial x} \delta x+{\partial G\over\partial \dot{x}}  \delta \dot{x} \right)= \delta F\cdot G+F\cdot \delta G$$
+$$\delta (FG)={\partial (FG)\over\partial x} \delta x+{\partial (FG)\over \partial \dot{x} } \delta \dot{x}$$
+$$=\left( {\partial F\over\partial x} G+F {\partial G\over\partial x}\right)\delta x+\left( {\partial F\over \partial \dot{x} }  G+F {\partial G\over\partial \dot{x}} \right)\delta \dot{x}$$
+$$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x} }  \delta \dot{x} \right)G+F\left({\partial G\over\partial x} \delta x+{\partial G\over\partial \dot{x}}  \delta \dot{x} \right)$$
+$$= \delta F\cdot G+F\cdot \delta G$$
 </td></tr>
 </table>
 <br>
@@ -227,8 +229,10 @@ $$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x
 <table cellpadding="1" border="1">
 <tr><td>
 進階：Thm.3:針對函數F同乘同除另一函數G，不影響變分
-$$\delta F=\delta \left(F\cdot {G\over G}\right)=\delta \left(F\cdot G\cdot G^{-1} \right)=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
-$$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)=\delta F$$
+$$\delta F=\delta \left(F\cdot {G\over G}\right)$$
+$$=\delta \left(F\cdot G\cdot G^{-1} \right)=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
+$$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)$$
+$$=\delta F$$
 </td></tr>
 </table>
 
@@ -258,7 +262,8 @@ $$\delta \int _a^b \left(L+{df\over dt}\right)dt=\delta \int _a^b Ldt=0$$
 
 $${d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)={d\over dt}  {\partial L\over\partial \dot{x}}  -{\partial L\over\partial x}+\color{red}{{d\over dt}  {\partial \dot{f} \over\partial \dot{x}}  -{\partial \dot{f} \over\partial x}}$$
 <font color="red">紅色項</font>我們可以觀察兩件事，因為\(f=f(x,t)\)
-$$df={\partial f\over\partial x} dx+{\partial f\over\partial \dot{x}}   d\dot{x} +{\partial f\over\partial t} dt→\dot{f} ={\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}$$
+$$df={\partial f\over\partial x} dx+{\partial f\over\partial \dot{x}}   d\dot{x} +{\partial f\over\partial t} dt$$
+$$\to \dot{f} ={\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}$$
 所以
 $${ \partial \dot{f} \over\partial \dot{x}} ={\partial f\over\partial x}\to dot\ cancellation$$<br>
 
@@ -328,7 +333,9 @@ $$→{d\over dt} {\partial \bar{L}\over\partial \dot{p}}={\partial \bar{L}\over\
 $$q \to \bar{q} = q+\delta q$$
 $$t \to \bar{t} =t+\delta t$$
 但值得注意的是，軌跡\(q\)作為時間\(t\)的函數，會受到自身變分的影響之外，也會受到時間改變的有影響，定義\(\Delta q\)表示完整影響
-$$\Delta q≡\bar{q} (\bar{t}  )-q(t)=\bar{q} (\bar{t}  )-q(\bar{t}  )+-q(\bar{t}  )-q(t)=\delta q+\dot{q} \delta t$$
+$$\Delta q≡\bar{q} (\bar{t}  )-q(t)$$
+$$=\bar{q} (\bar{t}  )-q(\bar{t}  )+-q(\bar{t}  )-q(t)$$
+$$=\delta q+\dot{q} \delta t$$
 考慮變分前後的差別
 $$\delta S=\delta \int  L dt=\int  \delta L dt+\int  L d\delta t$$
 第一項仔細寫下為
@@ -349,14 +356,16 @@ $$\delta L={d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\righ
 第二項單純改寫
 $$\int  L d\delta t=\int   L {d\delta t\over dt}  dt$$
 將兩項合併
-$$\delta S=\int  \left[{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t\right]  dt+\int   {L d\delta t\over dt}  dt=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \delta q+L\delta t\right]   dt$$
+$$\delta S=\int  \left[{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t\right]  dt+\int   {L d\delta t\over dt}  dt$$
+$$=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \delta q+L\delta t\right]   dt$$
 
 
 但因為\(\delta q\)只是軌跡自身的變分，必須考慮到完整的變化\(\Delta q\)，利用
 
 $$\delta q=\Delta q-\dot{q} \delta t$$
 代入
-$$\delta S=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \left(\Delta q-\delta t \right)+L\delta t\right]   dt=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \Delta q-\left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t\right]   dt$$
+$$\delta S=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \left(\Delta q-\delta t \right)+L\delta t\right]   dt$$
+$$=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \Delta q-\left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t\right]   dt$$
 
 
 如果經過變分後不變，即\(\delta S=0\)，代表
@@ -415,7 +424,8 @@ $${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=\bar{p}$$
 
 <p style="text-align:justify">
 以前我們學古典力學時，完整描述一個Particle只須寫下它的Lagrangian
-$$S=\int _a^b Ldt=\int _a^b  T-U dt =\int _a^b  T dt +\int _a^b  -U dt =S_P+S_{PF}$$
+$$S=\int _a^b Ldt=\int _a^b  T-U dt $$
+$$=\int _a^b  T dt +\int _a^b  -U dt =S_P+S_{PF}$$
 其中，動能項T可視為Free particle的Action \(S_P\)，位能項U就是Particle和Field交互作用的Action \(S_{PF}\)。在電磁學我們學到Field也有帶有動量、能量，所以完整描述電磁運動會包含Field的Action \(S_F\)
 $$S=S_P+S_{PF}+S_F$$
 
