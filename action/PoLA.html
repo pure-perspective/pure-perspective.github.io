@@ -52,7 +52,7 @@
 						<li><a href="#t">場論中的Lagrangian density不唯一性</a></li>
 						<li><a href="#u">不破壞EoM的其他可能</a></li>
 						<li><a href="#v">場論中的諾特定理Noether theorem-Field theory</a></li>
-						<li><a href="#w">????</a></li>
+						<!--<li><a href="#w">????</a></li>-->
 						<li><a href="#x">諾特定理與對稱性-時空與能量動量守恆</a></li>
 						<li><a href="#y">Infinitesimal Poincare Transformation</a></li>
 						<li><a href="#z">Maximal Symmetry Action-Field theory</a></li>
@@ -358,7 +358,7 @@ $$\to {d\over dt} {\partial \bar{L}\over\partial \dot{p}}={\partial \bar{L}\over
 $$q \to \bar{q} = q+\delta q$$
 $$t \to \bar{t} =t+\delta t$$
 但值得注意的是，軌跡\(q\)作為時間\(t\)的函數，會受到自身變分的影響之外，也會受到時間改變的有影響，定義\(\Delta q\)表示完整影響
-$$\Delta q≡\bar{q} (\bar{t}  )-q(t)$$
+$$\Delta q\equiv \bar{q} (\bar{t}  )-q(t)$$
 $$=\bar{q} (\bar{t}  )-q(\bar{t}  )+-q(\bar{t}  )-q(t)$$
 $$=\delta q+\dot{q} \delta t$$
 考慮變分前後的差別
@@ -492,7 +492,7 @@ $$=-mc\int _a^b  {1\over 2}  {\color{red}{\delta d\eta ^\mu \cdot d\eta _\mu +d\
 回憶度規張量Metric Tensor \(g_{\mu \nu}\) ：
 $$g_{\mu \nu} =\hat{e} _\mu \cdot \hat{e} _\nu $$
 $$g_{\mu \nu} =g_\nu \mu $$
-$$g^{\mu \nu} ≡(g_{\mu \nu}  )^{-1}$$
+$$g^{\mu \nu} \equiv (g_{\mu \nu}  )^{-1}$$
 \(g^{\mu \nu}  g_{\nu \omega} = \delta ^\mu  _\omega  \)（Delta funcion，暫時不要跟變分\(\delta\) 搞混）。
 度規張量\(g_{\mu \nu}\) 是時空的內稟性質(Intrinsic Property)，與\(x^\mu\) 無關<font color="red">(暫時只考慮狹義相對論，廣義相對論就會有影響)</font>，意思是對\(x^\mu\) 變分與度規\(g_{\mu \nu}\) 無關。度規張量可以用作上下標轉換（Index lowering or raising）
 $$x^\mu =g^{\mu \nu}  x_\nu $$
@@ -590,7 +590,7 @@ $$=\int _a^b \left[m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\n
 會得到
 $$m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu =0$$<br>
 
-$$m {dU_\mu \over d\tau} ={e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu ≡{e\over c}  F_{\mu \nu}  U^\nu $$
+$$m {dU_\mu \over d\tau} ={e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu \equiv {e\over c}  F_{\mu \nu}  U^\nu $$
 我們定義電磁張量Electromagnetic Tensor
 $$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu $$
 電場\(\overrightarrow{E}\)、磁場\(\overrightarrow{B}\)與\(\phi\)、\(\overrightarrow{A}\)的關係（高斯制）
@@ -1071,23 +1071,43 @@ $$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
 	<h2><li>場論中的Lagrangian density不唯一性</li></h2>
 </header>
 <p style="text-align:justify">
-前面提到，當Lagrangian添加一個函數f=f(q,t)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，L\to \bar{L} =L+\partial _\mu  f^\mu ，一樣要注意的是f^\mu =f^\mu  (\phi ,x^\mu  )只能是(\phi ,x^\mu  )的函數。一樣可以從兩個部分來看。第一種是最簡單的從變分的邊界，
-\delta S=\delta \int   (L+\partial _\mu  f^\mu  ) d^4 x =\delta [\int   Ld^4 x +\int   \partial _\mu  f^\mu  d^4 x ]=\delta \int _a^b Ldt+\delta ∮ f^\mu   d^3 S_\mu =\delta \int _a^b Ldt
-其中\int   \partial _\mu  f^\mu  d^4 x =∮ f^\mu   d^3 S_\mu 利用高斯定理，\delta ∮ f^\mu   d^3 S_\mu =0來自於變分邊界不變。
-0
-另外一種是直接展開，觀察L+\partial _\mu  f^\mu 是否滿足\partial (L+\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (L+\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )=0
-\partial (L+\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (L+\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )=\partial L/\partial \phi -\partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) )+\partial (\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )
-=\partial (\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )
+前面提到，當Lagrangian添加一個函數\(f=f(q,t)\)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。一樣可以從兩個部分來看。第一種是最簡單的從變分的邊界，
+$$\delta S=\delta \int   (\mathcal{L}+\partial _\mu  f^\mu  ) d^4 x =\delta \left[\int  \mathcal{L}d^4 x +\int   \partial _\mu  f^\mu  d^4 x \right]$$
+$$=\delta \int _a^b \mathcal{L}dt+\delta ∮ f^\mu   d^3 S_\mu =\delta \int _a^b \mathcal{L}dt$$
+其中\(\int   \partial _\mu  f^\mu  d^4 x =∮ f^\mu   d^3 S_\mu \)利用高斯定理，\(\delta ∮ f^\mu   d^3 S_\mu =0\)來自於變分邊界不變。
+
+另外一種是直接展開，觀察\(\mathcal{L}+\partial _\mu  f^\mu\) 是否滿足
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }=0$$
+<br>
+
+
+
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }= {\partial\mathcal{L}\over\partial \phi} -\partial _\mu  {\partial L\over\partial (\partial _\mu  \phi ) }+{\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
+$$={\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
 利用
-df^\mu =├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) d\phi +├ (\partial f^\mu )/(\partial x^\nu  )┤|_\phi  dx^\nu \to \partial _\mu  f^\mu =├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) \partial _\mu  \phi +├ (\partial f^\mu )/(\partial x^\mu  )┤|_\phi 
-\partial (\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) =├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  )  dot cancelation analogy
-\partial (\partial _\mu  f^\mu  )/\partial \phi =├ \partial /\partial \phi ┤|_(x^\mu  ) ├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) \partial _\mu  \phi +├ \partial /\partial \phi ┤|_(x^\mu  ) ├ (\partial f^\mu )/(\partial x^\mu  )┤|_\phi =├ \partial /\partial \phi ┤|_(x^\mu  ) (├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) ) \partial _\mu  \phi +├ \partial /(\partial x^\mu  )┤|_\phi  (├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) )=\partial _\mu   (\partial f^\mu )/\partial \phi 
+
+
+$$df^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } d\phi +{\partial f^\mu \over \partial x^\nu  }\Big|_\phi  dx^\nu $$
+$$\to \partial _\mu  f^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{\partial f^\mu \over\partial x^\mu } \Big|_\phi $$
+進一步偏微分
+$${\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )} ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } \color{red}{ dot-cancelation-analogy}$$
+另外
+
+
+
+$${\partial (\partial _\mu  f^\mu  )\over\partial \phi }\Big|_{x^\mu}={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi + {\partial f^\mu \over\partial x^\mu  }\Big|_\phi\right) $$
+$$={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \right)\partial _\mu  \phi +{\partial \over\partial \phi}\Big|_{x^\mu  }\left( {\partial f^\mu \over\partial x^\mu  }\Big|_\phi \right)$$
+
+$$={ \partial \over\partial \phi }\Big|_{x^\mu  } {\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{ \partial \over\partial x^\mu  }\Big|_\phi  { \partial f^\mu \over\partial \phi} \Big|_{x^\mu } $$
+$$=\partial _\mu \left( {\partial f^\mu \over\partial \phi} \right)\to \partial _\mu and {\partial\over\partial \phi} commute$$
+
+
 
 所以
-\partial (\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu   (\partial f^\mu )/\partial \phi -\partial _\mu   (\partial f^\mu )/\partial \phi =0
+$${\partial (\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }\right)=\partial _\mu   {\partial f^\mu \over\partial \phi} -\partial _\mu {\partial f^\mu \over\partial \phi} =0 $$
 故
-\partial (L+\partial _\mu  f^\mu  )/\partial \phi -\partial _\mu  (\partial (L+\partial _\mu  f^\mu  )/\partial (\partial _\mu  \phi ) )=\partial L/\partial \phi -\partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) )=0
-添加\partial _\mu  f^\mu 不會改變EoM。
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu \left({ (\partial (L+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )}\right)={\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi ) }\right)=0$$
+添加\(\partial _\mu  f^\mu \)不會改變EoM。
 </p>
 </div>
 </section>
@@ -1098,13 +1118,30 @@ df^\mu =├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  ) d\phi +├ (\partial 
 	<h2><li>不破壞EoM的其他可能</li></h2>
 </header>
 <p style="text-align:justify">
-前面提到，當Lagrangian添加一個函數f=f(q,t)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，L\to \bar{L} =L+\partial _\mu  f^\mu ，一樣要注意的是f^\mu =f^\mu  (\phi ,x^\mu  )只能是(\phi ,x^\mu  )的函數。在此我們討論看看怎麼樣的f=f(q,\dot{q} ,t)和f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )有可能不改變EoM。原則上我們要求
-{ ((\partial \dot{f} )/\partial q-({d\over dt}   {\partial \dot{f} \over \partial \dot{q} } )=0@\partial (\partial _\alpha f^\alpha )/\partial \phi -\partial _\mu  (\partial (\partial _\alpha f^\alpha )/\partial (\partial _\mu  \phi ) )=0)┤
-Extended dot cancellation for f=f(q,\dot{q} ,t) type
-{\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   \partial f/(\partial \dot{q}  )+\partial f/\partial q
-\partial (\partial _\alpha f^\alpha )/\partial (\partial _\mu  \phi ) =\partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  \phi ) +(\partial f^\mu )/\partial \phi 
-{ ((\partial \dot{f} )/\partial q-({d\over dt}   {\partial \dot{f} \over \partial \dot{q} } )=0@\partial (\partial _\alpha f^\alpha )/\partial \phi -\partial _\mu  (\partial (\partial _\alpha f^\alpha )/\partial (\partial _\mu  \phi ) )=0)┤\to { ({d\over dt}   \partial f/\partial q-{d\over dt}  ({d\over dt}   \partial f/(\partial \dot{q}  )+\partial f/\partial q)=0@\partial _\alpha  (\partial f^\alpha)/\partial \phi -\partial _\mu  (\partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  \phi ) +(\partial f^\mu )/\partial \phi )=0)┤
-\to { (d^2/(dt^2 )  \partial f/(\partial \dot{q}  )=0@\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  \phi ) =0)┤\to { (f=(at+b) \dot{q} +g(q,t)@\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0)┤
+前面提到，當Lagrangian添加一個函數f=f(q,t)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。在此我們討論看看怎麼樣的\(f=f(q,\dot{q} ,t)\)和\(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\)有可能不改變EoM。原則上我們要求
+
+
+$$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
+$${\partial (\partial _\alpha f^\alpha )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\alpha f^\alpha )\over\partial (\partial _\mu  \phi )}\right )=0)$$
+
+
+Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type
+
+
+$${\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}$$
+$$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
+$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  ({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q})=0$$
+$$\to  {d^2\over dt^2}  {\partial f\over\partial \dot{q}  }=0$$
+$$\to f=(at+b) \dot{q} +g(q,t)$$
+
+<br><br><br>
+
+$${\partial (\partial _\alpha f^\alpha ) \over \partial (\partial _\mu  \phi )} =\partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} +{\partial f^\mu \over\partial \phi }$$
+$${\partial (\partial _\alpha f^\alpha )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\alpha f^\alpha )\over\partial (\partial _\mu  \phi )}\right )=0$$
+$$\partial _\alpha  {\partial f^\alpha\over\partial \phi} -\partial _\mu  \left(\partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} +{\partial f^\mu \over\partial \phi }\right)=0$$
+$$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} =0$$
+$$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu   A^\gamma )} =0$$
+
 </p>
 </div>
 </section>
@@ -1117,92 +1154,73 @@ Extended dot cancellation for f=f(q,\dot{q} ,t) type
 	<h2><li>場論中的諾特定理Noether theorem-Field theory</li></h2>
 </header>
 <p style="text-align:justify">
-提到變分法就一定要與諾特定理做搭配。諾特定理表明如果系統中Lagrangian的物理量\phi 存在連續變換\phi \to \phi +\delta α，使得L\to L+\delta L/\delta α，卻保持對稱性（不變性）\delta S=0，那麼就存在一個守恆流與之對應。這可以應用到：
-時間平移不變↔能量守恆
-空間平移不變↔動量守恆
-廣義的證明如下，給定Lagrangian dendity L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]，之前的變分法是針對物理量\phi 做變分，現在我們同時針對物理量\phi 和時空x^\mu 變分
-x^\mu \to  x^' ^\mu =x^\mu +\delta x^\mu 
-\phi \to \bar{\phi}=\phi +\delta \phi 
-但是\phi =\phi (x^\alpha )是時空的函數，經過物理量\phi 和時空x^\mu 同時變分後，包含自身的變分和受到時空變分的影響\phi (x^\alpha )\to \bar{\phi} ( x^' ^\alpha )，令\bar{\phi} ( x^' ^\alpha )≡\phi (x^\alpha )+∆\phi ，
-∆\phi =\bar{\phi} ( x^' ^\alpha )-\phi (x^\alpha )=\bar{\phi} ( x^' ^\alpha )-\phi ( x^' ^\alpha )+\phi ( x^' ^\alpha )-\phi (x^\alpha )=\delta \phi +\partial \phi /(\partial x^\alpha ) \delta x^\alpha
+提到變分法就一定要與諾特定理做搭配。諾特定理表明如果系統中Lagrangian的物理量\(\phi\) 存在連續變\(\phi \to \phi +\delta \alpha\)，使得\(\mathcal{L}\to L+\delta \mathcal{L}/\delta \alpha\)，卻保持對稱性（不變性）\(\delta S=0\)，那麼就存在一個守恆流與之對應。這可以應用到：<br>
+$$時間平移不變↔能量守恆$$
+$$空間平移不變↔動量守恆$$
+
+廣義的證明如下，給定Lagrangian dendity \(\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\)，之前的變分法是針對物理量\(\phi \) 做變分，現在我們同時針對物理量\(\phi\) 和時空\(x^\mu\) 變分
+$$x^\mu \to  \bar{x} ^\mu =x^\mu +\delta x^\mu $$
+$$\phi \to \bar{\phi}=\phi +\delta \phi $$
+但是\(\phi =\phi (x^\alpha )\)是時空的函數，經過物理量\(\phi\) 和時空\(x^\mu \)同時變分後，包含自身的變分和受到時空變分的影響\(\phi (x^\alpha )\to \bar{\phi} ( \bar{x} ^\alpha )\)，令\(\bar{\phi} ( \bar{x} ^\alpha )\equiv \phi (x^\alpha )+\Delta\phi \)，
+$$\Delta\phi =\bar{\phi} ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
+$$=\bar{\phi} ( \bar{x} ^\alpha )-\phi ( \bar{x} ^\alpha )+\phi ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
+$$=\delta \phi +{\partial \phi \over \partial x^\alpha } \delta x^\alpha$$
 諾特定理探討變分後Action的差別：
-\delta S=\delta \int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda (x^\mu  ) d^4 x 
-=\int   L[\bar{\phi} ( x^' ^\alpha ),\partial _\mu  \bar{\phi} ( x^' ^\alpha ), x^' ^\mu  ]\lambda ( x^' ^\alpha ) d^4 x -\int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda (x^\alpha ) d^4 x 
-很明顯可以發現到連積分的4-volune d^4 x^'都發生變化。可以用乘法的微分來思考
-\delta S=\delta \int   Ld^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x 
-第一項\delta L在處理時要非常小心
-\delta L=L[\bar{\phi} ( x^' ^\alpha ),\partial _\mu  \bar{\phi} ( x^' ^\alpha ), x^' ^\mu  ]-L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]
-=L[\bar{\phi} ( x^' ^\alpha ),\partial _\mu  \bar{\phi} ( x^' ^\alpha ), x^' ^\mu  ]-L[\phi ( x^' ^\alpha ),\partial _\mu  \phi ( x^' ^\alpha ), x^' ^\mu  ]+L[\phi ( x^' ^\alpha ),\partial _\mu  \phi ( x^' ^\alpha ), x^' ^\mu  ]-L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]
-={L[\phi +\delta \phi ,\partial _\mu  \phi +\delta (\partial _\mu  \phi ), x^' ^\mu  ]-L[\phi ,\partial _\mu  \phi , x^' ^\mu  ]}+{L[\phi ,\partial _\mu  \phi , x^' ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}
-={\partial L/\partial \phi  \delta \phi +\partial L/\partial (\partial _\mu  \phi )  \delta (\partial _\mu  \phi )}+{\partial L/(\partial x^\mu  ) \delta x^\mu  }
-利用\partial _\mu 拉到前面去
-={\partial L/\partial \phi  \delta \phi -\partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) )\delta \phi +\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi )}+{\partial L/(\partial x^\mu  ) \delta x^\mu  }
-可以注意到[\partial L/\partial \phi -\partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) )]\delta \phi 是Euler-Lagrange eq等於零。所以
-\delta L=\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi )+\partial _\mu  L*\delta x^\mu 
-第二項\delta d^4 x要用到Jacobian
-\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}d^4 x^'  -\int  \mathcal{L}d^4 x 
-d^4 x^'=J((\partial  x^' ^\mu )/(\partial x^\nu  )) d^4 x
-J((\partial  x^' ^\mu )/(\partial x^\nu  ))為Jacobian determinant
-(\partial  x^' ^\mu )/(\partial x^\nu  )=\partial (x^\mu +\delta x^\mu  )/(\partial x^\nu  )= \delta ^\mu  _\nu +\partial _\nu  \delta x^\mu 
+$$\delta S=\delta \int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
+$$=\int   \mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ] d^4 x -\int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
+很明顯可以發現到連積分的4-volune \(d^4 \bar{x}\)都發生變化。可以用乘法的微分來思考
+\(\delta S=\delta \int   \mathcal{L}d^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x \)
+第一項\(\delta \mathcal{L}\)在處理時要非常小心
+$$\delta \mathcal{L}=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]+\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$={\mathcal{L}[\phi +\delta \phi ,\partial _\mu  \phi +\delta (\partial _\mu  \phi ), \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]}+{\mathcal{L}[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}$$
+$$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi +{\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta (\partial _\mu  \phi )}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
+
+
+利用\(\partial _\mu \)拉到前面去
+$$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\delta \phi +\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
+可以注意到\(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} )\right]\delta \phi\) 是Euler-Lagrange eq等於零。所以
+$$\delta \mathcal{L}=\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu $$
+
+
+第二項\(\delta d^4 x\)要用到Jacobian
+$$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}d^4 \bar{x}  -\int  \mathcal{L}d^4 x $$
+$$d^4 \bar{x}=J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right) d^4 x$$
+\(J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)\)為Jacobian determinant
+$${\partial  \bar{x} ^\mu \over\partial x^\nu  }={\partial (x^\mu +\delta x^\mu  )\over\partial x^\nu }= \delta ^\mu  _\nu +\partial _\nu  \delta x^\mu $$
 Jacobian determinant計算出來為 
-J((\partial  x^' ^\mu )/(\partial x^\nu  ))=1+\partial _\mu  \delta x^\mu 
+$$J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)=1+\partial _\mu  \delta x^\mu $$
 所以
-\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}*\partial  _\mu  \delta x^\mu   d^4 x 
+$$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}*\partial  _\mu  \delta x^\mu   d^4 x $$
+
 合併兩項
-\delta S=\delta \int   Ld^4 x =\int   [\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi )+\partial _\mu  L*\delta x^\mu  ] d^4 x +\int   [L *\partial  _\mu  \delta x^\mu  ]  d^4 x 
-=\int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi )+\partial _\mu  L*\delta x^\mu +L *\partial  _\mu  \delta x^\mu   d^4 x 
-=\int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi )+\partial _\mu  (L\delta x^\mu  )  d^4 x 
-=\int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \delta \phi +L\delta x^\mu  )  d^4 x =0
-其中\delta \phi 是\phi 自身的變分，不包含受到\delta x^\mu 的影響，我們想要考慮廣義一點，改寫成∆\phi 可以包含受到\delta x^\mu 的影響。因為∆\phi =\delta \phi +\partial _\alpha \phi *\delta x^\alpha，所以
-\delta S=\int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  (∆\phi -\partial _\alpha \phi *\delta x^\alpha )+L\delta x^\mu  )  d^4 x 
-=\int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  ∆\phi -(\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L)\delta x^\alpha )  d^4 x 
+$$\delta S=\delta \int   \mathcal{L}d^4 x =\int   \left[\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  L*\delta x^\mu  \right] d^4 x +\int   \left[\mathcal{L} *\partial  _\mu  \delta x^\mu  \right]  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu +\mathcal{L} *\partial  _\mu  \delta x^\mu   d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  (\mathcal{L}\delta x^\mu  )  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi +\mathcal{L}\delta x^\mu  \right)  d^4 x =0$$
+其中\(\delta \phi \)是\(\phi\) 自身的變分，不包含受到\(\delta x^\mu\) 的影響，我們想要考慮廣義一點，改寫成\(\Delta\phi \)可以包含受到\(\delta x^\mu \)的影響。因為\(\Delta\phi =\delta \phi +\partial _\alpha \phi *\delta x^\alpha\)，所以
+$$\delta S=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  (\Delta\phi -\partial _\alpha \phi *\delta x^\alpha )+\mathcal{L}\delta x^\mu  \right)  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Delta\phi -\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\delta x^\alpha \right)  d^4 x$$ 
 令
-( (\delta x^\alpha@∆\phi ))=\varepsilon ( (Χ^\alpha@Ψ))
-Χ^\alpha、Ψ為Symmetry generators，
-\delta S=\varepsilon \int   \partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  Ψ-(\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )  d^4 x =0
-因為\varepsilon 是任意的，所以
-\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  Ψ-(\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )≡\partial _\mu  N^\mu =0
+
+$$\left(\begin{matrix} \delta x^\alpha \\ \Delta\phi \end{matrix}\right)=\varepsilon\left(\begin{matrix} Χ^\alpha \\ \Psi \end{matrix}\right)$$
+\(Χ^\alpha\)、\(\Psi\)為Symmetry generators，
+$$\delta S=\varepsilon \int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha \right)  d^4 x =0$$
+因為\(\varepsilon \)是任意的，所以
+$$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha \right)\equiv \partial _\mu  N^\mu =0$$
 定義諾特流(Noether current)
-N^\mu ≡(\partial L/\partial (\partial _\mu  \phi )  Ψ-(\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )
-如果是向量場Α^\nu，
-N^\mu ≡(\partial L/\partial (\partial _\mu  Α^\nu )  Ψ^\nu-(\partial L/\partial (\partial _\mu  Α^\nu )  \partial _\alpha Α^\nu- \delta ^\mu  _\alpha L) Χ^\alpha )
-其中，\partial L/\partial (\partial _\mu  \phi ) 是對應到物理量\phi 在對稱變換Ψ的守恆流，(\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L)是對應時空x^\mu 變化Χ^\alpha下的守恆流。
+
+$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
+
+其中，\({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}\) 是對應到物理量\(\phi \)在對稱變換\(\Psi\)的守恆流，\(\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\)是對應時空\(x^\mu\) 變化\(Χ^\alpha\)下的守恆流。<br><br>
+
+如果是向量場\(\alpha^\nu\)，
+$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
 </p>
 </div>
 </section>
 
-<section id="w">
-<div class="container">
-<header class="major">
-	<h2><li>?????</li></h2>
-</header>
-<p style="text-align:justify">
 
-$$\delta S=\delta \int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda (x^\mu  ) d^4 x $$
-$$=\int   L[\bar{\phi} ( x^' ^\alpha ),\partial _\mu  \bar{\phi} ( x^' ^\alpha ), x^' ^\mu  ]\lambda ( x^' ^\alpha ) d^4 x -\int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda (x^\alpha ) d^4 x $$
-$$=\int   L[\bar{\phi} ( x^' ^\alpha ),\partial _\mu  \bar{\phi} ( x^' ^\alpha ), x^' ^\mu  ]\lambda ( x^' ^\alpha ) d^4 x -\int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda ( x^' ^\alpha ) d^4 x +\int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda ( x^' ^\alpha ) d^4 x -\int   L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\lambda (x^\alpha ) d^4 x $$
-很明顯可以發現到連積分的4-volune d^4 x^'都發生變化。可以用乘法的微分來思考
-\delta S=\delta \int   Ld^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x 
-第一項\delta L在處理時要非常小心
-\delta L=L[\phi ( x^' ^\alpha ),\partial _\mu  \phi ( x^' ^\alpha ), x^' ^\mu  ]-L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]
-=L[\phi (x^\alpha )+\phi _(,\gamma ) \delta x^\gamma ,\partial _\mu  \phi ( x^' ^\alpha )+\partial _\mu  (\phi _(,\gamma ) \delta x^\gamma  ), x^' ^\mu  ]-L[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]
-=\partial L/\partial \phi  \phi _(,\gamma ) \delta x^\gamma +\partial L/\partial (\partial _\mu  \phi )  \partial _\mu  (\phi _(,\gamma ) \delta x^\gamma  )+\partial L/(\partial x^\mu  ) \delta x^\mu 
-=\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \phi _(,\gamma ) \delta x^\gamma  )+\partial L/(\partial x^\mu  ) \delta x^\mu 
-第二項\delta \lambda ( x^' ^\alpha )要用到Jacobian
-\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}d^4 x^'  -\int  \mathcal{L}d^4 x 
-d^4 x^'=J((\partial  x^' ^\mu )/(\partial x^\nu  )) d^4 x
-J((\partial  x^' ^\mu )/(\partial x^\nu  ))為Jacobian determinant
-(\partial  x^' ^\mu )/(\partial x^\nu  )=\partial (x^\mu +\delta x^\mu  )/(\partial x^\nu  )= \delta ^\mu  _\nu +\partial _\nu  \delta x^\mu 
-Jacobian determinant計算出來為 
-J((\partial  x^' ^\mu )/(\partial x^\nu  ))=1+\partial _\mu  \delta x^\mu 
-所以
-\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}*\partial  _\mu  \delta x^\mu   d^4 x 
-\delta S=\int   [\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \phi _(,\gamma ) \delta x^\gamma  )+\partial L/(\partial x^\mu  ) \delta x^\mu +L *\partial  _\mu  \delta x^\mu  ] d^4 x 
-=\int   [\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \phi _(,\gamma ) \delta x^\gamma  )+\partial L/(\partial x^\mu  ) \delta x^\mu +\partial _\mu  (L*\delta x^\mu  )-\partial _\mu  L\delta x^\mu  ] d^4 x 
-=\int   [\partial _\mu  (\partial L/\partial (\partial _\mu  \phi )  \phi _(,\gamma ) \delta x^\gamma  )+\partial L/(\partial x^\mu  ) \delta x^\mu +\partial _\mu  (L*\delta x^\mu  )-\partial _\mu  L\delta x^\mu  ] d^4 x 
-</p>
-</div>
-</section>
 
 <section id="x">
 <div class="container">
@@ -1210,27 +1228,28 @@ J((\partial  x^' ^\mu )/(\partial x^\nu  ))=1+\partial _\mu  \delta x^\mu
 	<h2><li>諾特定理與對稱性-時空與能量動量守恆</li></h2>
 </header>
 <p style="text-align:justify">
-在討論時空對稱性時，我們固定物理量\phi 不受變分影響，Ψ=0時，只剩下
-\partial _\mu  ((\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
-我們定義能量動量張量Energy momentum tensor T^{\mu\nu}
-T^{\mu\nu}≡\partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L
-守恆流\partial _\nu T^{\mu\nu}=0分別代表
+<div id="here"></div>
+在討論時空對稱性時，我們固定物理量\phi 不受變分影響，\(\Psi=0\)時，只剩下
+$$\partial _\mu  ((\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0$$
+我們定義能量動量張量Energy momentum tensor \(T^{\mu\nu}\)
+$$T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
+守恆流\(\partial _\nu T^{\mu\nu}=0\)分別代表
 { (\partial _\nu T^0\nu=0能量守恆@\partial _\nu T^i\nu=0動量守恆)┤
 在相對論中，一個自由粒子的能量動量張量為
-T^{\mu\nu}≡mU^\mu  U^\nu
+$$T^{\mu\nu}\equiv mU^\mu  U^\nu$$
 其中
  
 對古典粒子來說，回到非相對論性的話，粒子的軌跡q只與t有關，
-T^{\mu\nu}=T^00={\partial L\over \partial \dot{q} }  \dot{q} -L=H
+$$T^{\mu\nu}=T^00={\partial L\over \partial \dot{q} }  \dot{q} -L=H$$
 T^00就是Hamiltonian，能量守恆律
-\partial _\nu T^0\nu=\partial _0 T^00=dH/dt=0
+$$\partial _\nu T^0\nu=\partial _0 T^00=dH/dt=0$$
 能量不隨時間改變！古典的諾特定理表述為
 古典非相對論性	相對論性
-S=\int  Ldt	S=\int   Ld^4 x 
-N≡(\partial L/(\partial \dot{q} _i ) Q_i-(\partial L/(\partial \dot{q} _i ) \dot{q} _i-L)T)	N^\mu ≡(\partial L/\partial (\partial _\mu  Α^\nu )  Ψ^\nu-(\partial L/\partial (\partial _\mu  Α^\nu )  \partial _\alpha Α^\nu- \delta ^\mu  _\alpha L) Χ^\alpha )
+$$S=\int  Ldt	S=\int   Ld^4 x $$
+$$N\equiv (\partial L/(\partial \dot{q} _i ) Q_i-(\partial L/(\partial \dot{q} _i ) \dot{q} _i-L)T)	N^\mu \equiv (\partial L/\partial (\partial _\mu  \alpha^\nu )  \Psi^\nu-(\partial L/\partial (\partial _\mu  \alpha^\nu )  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha L) Χ^\alpha )$$
 古典中，時間t佔的角色對應於時空x^\mu ，所以時間的對稱性代表能量守恆，其餘得的對稱性Q_i可是空間q_i、角度θ_i，分別是
-\partial L/(\partial \dot{q} _i ) 動量守恆
-\partial L/(\partial θ ̇_i ) 角動量守恆
+\(\partial L/(\partial \dot{q} _i )\) 動量守恆
+\(\partial L/(\partial \dort{\theta}_i ) \)角動量守恆
 
 </p>
 </div>
@@ -1249,13 +1268,13 @@ N≡(\partial L/(\partial \dot{q} _i ) Q_i-(\partial L/(\partial \dot{q} _i ) \d
  \lambda ^\alpha _\beta  (e^(θ^a g_a ) )= \lambda ^\alpha _\beta  (I+θ^a g_a )= \delta ^\alpha _\beta + \omega ^\alpha _\beta 
 必須滿足
 \eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} =( \delta ^\mu  _\alpha+ \omega ^\mu  _\alpha )( \delta ^\nu  _\beta + \omega ^\nu  _\beta  ) \eta _{\mu \nu} = \delta ^\mu  _\alpha  \delta ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\mu  _\alpha  \omega ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\nu  _\beta   \omega ^\mu  _\alpha \eta _{\mu \nu} 
-=\eta _\alpha\beta + \omega ^\nu  _\beta  \eta _\alpha\nu + \omega ^\mu  _\alpha \eta _\mu \beta =\eta _\alpha\beta +\omega _\alpha\beta +\omega _\beta α
+=\eta _\alpha\beta + \omega ^\nu  _\beta  \eta _\alpha\nu + \omega ^\mu  _\alpha \eta _\mu \beta =\eta _\alpha\beta +\omega _\alpha\beta +\omega _\beta \alpha
 Hence
-\omega _\alpha\beta =-\omega _\beta α
+\omega _\alpha\beta =-\omega _\beta \alpha
 x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\alpha\to \delta x^\alpha~Χ^\alpha= \omega ^\alpha _\beta  x^\beta 
 \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
 \partial _\mu  ( T_\alpha ^\mu   \omega ^\alpha _\beta  x^\beta  )=0\to \partial _\mu  (T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0
-\partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\beta \mu  \omega _\beta α x^\alpha )=0
+\partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\beta \mu  \omega _\beta \alpha x^\alpha )=0
 \to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta -{1 \over 2} T^\beta \mu  \omega _\alpha\beta  x^\alpha )=0\to {1 \over 2} \omega _\alpha\beta  \partial _\mu  (T^\alpha\mu  x^\beta -T^\beta \mu  x^\alpha )=0
    </p>
 </div>
@@ -1270,11 +1289,11 @@ x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\al
 
 
 前面提到Lagrangian density L的不唯一性，我們可以添加\partial _\mu  f^\mu 而不改變EoM。以下來討論添加\partial _\mu  f^\mu 對諾特定理的影響。我們只需先將L\to \bar{L} =L+\partial _\mu  f^\mu 改寫結論即可
-\delta S=\int   \partial _\mu  ((\partial \bar{L} )/\partial (\partial _\mu  \phi )  ∆\phi -((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha \bar{L}  )\delta x^\alpha )  d^4 x 
-=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )∆\phi -((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
-注意f^\mu =f^\mu  (\phi ,x^\mu  )，適用類似dot cancellation，\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) =├ (\partial f^\mu )/\partial \phi ┤|_(x^\mu  )，所以
-\delta S=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +(\partial f^\mu )/\partial \phi )∆\phi -((\partial L/\partial (\partial _\mu  \phi ) +(\partial f^\mu )/\partial \phi ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
-如果當原本的Lagrangian density L不具備對稱性，我們有機會透過(\partial f^\mu )/\partial \phi 做修正，因為f^\mu =f^\mu  (\phi ,x^\mu  )所以(\partial f^\mu )/\partial \phi =(\partial f^\mu )/\partial \phi  (\phi ,x^\mu  )，只要(\partial f^\mu )/\partial \phi 不是\partial _\mu  \phi 的函數，我們可以用(\partial f^\mu )/\partial \phi =-\partial L/\partial (\partial _\mu  \phi ) +const V^\mu 消除微分不為零的部分使得\delta S=0，對應軌跡\phi 變分不變的守恆量為\partial L/\partial (\partial _\mu  \phi ) +(\partial f^\mu )/\partial \phi ，我們可以稱作此Lagrangian density L+\partial _\mu  f^\mu 對應的Action為Maximal Symmetry Action。
+\delta S=\int   \partial _\mu  ((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \Delta\phi -((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha \bar{L}  )\delta x^\alpha )  d^4 x 
+=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )\Delta\phi -((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+注意f^\mu =f^\mu  (\phi ,x^\mu  )，適用類似dot cancellation，\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) =├ {\partial f^\mu \over\partial \phi }┤|_(x^\mu  )，所以
+\delta S=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }\Delta\phi -((\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi } \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+如果當原本的Lagrangian density L不具備對稱性，我們有機會透過{\partial f^\mu \over\partial \phi }做修正，因為f^\mu =f^\mu  (\phi ,x^\mu  )所以{\partial f^\mu \over\partial \phi }={\partial f^\mu \over\partial \phi } (\phi ,x^\mu  )，只要{\partial f^\mu \over\partial \phi }不是\partial _\mu  \phi 的函數，我們可以用{\partial f^\mu \over\partial \phi }=-\partial L/\partial (\partial _\mu  \phi ) +const V^\mu 消除微分不為零的部分使得\delta S=0，對應軌跡\phi 變分不變的守恆量為\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }，我們可以稱作此Lagrangian density L+\partial _\mu  f^\mu 對應的Action為Maximal Symmetry Action。
 \partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu  (\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial (L+\partial _\nu  f^\nu  )/\partial \phi =\partial L/\partial \phi +\partial (\partial _\nu  f^\nu  )/\partial \phi 
 \partial _\mu  {(\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  }=\partial _\mu  {\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha (L+\partial _\nu  f^\nu  )}
 =\delta (L+\partial _\nu  f^\nu  )/(\delta x^\mu  )=\delta L/(\delta x^\mu  )+(\delta \partial _\nu  f^\nu )/(\delta x^\mu  )
@@ -1299,21 +1318,21 @@ x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\al
 對任何物理系統，都具備能量和動量，故討論系統的energy-momentum tensor是場論中不可或缺的。回憶電磁場的Action，
 S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
 根據energy momentum tensor的定義
-T^{\mu\nu}≡\partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L
+T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L
 須滿足 T^{\mu\nu} _(,\nu )=0。計算得
-T_F^{\mu\nu}≡\partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L_F=\partial (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu )  \partial (A_(\beta ,α)-A_(\alpha,\beta ) )/(\partial A_(\gamma ,\nu) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+T_F^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L_F=\partial (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu )  \partial (A_(\beta ,\alpha)-A_(\alpha,\beta ) )/(\partial A_(\gamma ,\nu) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu ) ( \delta ^\gamma  _\beta   \delta ^\nu _\alpha- \delta ^\gamma  _\alpha  \delta ^\nu _\beta  )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-{1 \over 8 \pi c} (F^\nu\gamma   A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-{1 \over 8 \pi c} (-F^\gamma \nu  A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
 檢查source-free的energy-momentum conservation
  T_F^{\mu\nu} _(,\nu )={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 16 \pi c} \partial ^\mu  (F_{\alpha\beta}  F^{\alpha\beta}  )
 ={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} F^{\alpha\beta}    A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,α)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,α)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} (A_(\beta ,α)-A_(\alpha,\beta ) )(A^(\beta ,α\mu )-A^(\alpha,\beta \mu ) )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,α)   A_\alpha ^(,\mu ) _(,\beta )-A^(\alpha,\beta )   A_\alpha ^(,\mu ) _(,\beta ) )+{1 \over 8 \pi c} (A_(\beta ,α) A^(\beta ,α\mu )-A_(\beta ,α) A^(\alpha,\beta \mu )-A_(\alpha,\beta ) A^(\beta ,α\mu )+A_(\alpha,\beta ) A^(\alpha,\beta \mu ) )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} A_(\beta ,α) A^(\alpha,\beta \mu )-{1 \over 4 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,α) A^(\beta ,α\mu )-{1 \over 8 \pi c} A_(\beta ,α) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,α\mu )+{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 8 \pi c} A_(\beta ,α) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,α) A^(\beta ,α\mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,α\mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} (A_(\beta ,\alpha)-A_(\alpha,\beta ) )(A^(\beta ,\alpha\mu )-A^(\alpha,\beta \mu ) )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)   A_\alpha ^(,\mu ) _(,\beta )-A^(\alpha,\beta )   A_\alpha ^(,\mu ) _(,\beta ) )+{1 \over 8 \pi c} (A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-A_(\beta ,\alpha) A^(\alpha,\beta \mu )-A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+A_(\alpha,\beta ) A^(\alpha,\beta \mu ) )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 4 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )
 ={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )
 因為source-free， F^{\alpha\beta}  _(,\beta )=0，所以 T_F^{\mu\nu} _(,\nu )=0，滿足energy-momentum conservation。
 值得注意的是，由諾特定理得到的能量動量張量常常是不對稱的，因為能量動量張量的不對稱會導致角動量不守恆，故通常會將電磁場的能量動量張量對稱化。如果添加一項 t_F^{\mu\nu} _(,\nu )=0，則不會改變能量守恆性，通常會加入
@@ -1342,11 +1361,11 @@ T_EM^{\mu\nu}={1 \over 4 \pi c}  F^\mu  _\gamma  F^\gamma \nu+{1 \over 16 \pi c}
 回憶電磁場的Action，
 S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
 根據energy momentum tensor的定義
-T^{\mu\nu}≡\partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
 我們試圖利用
 S_F^'=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu} +\partial _\mu  f^\mu   d^4 x 
 令
-t^{\mu\nu}≡\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (\partial _\alpha f^\alpha )
+t^{\mu\nu}\equiv \partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (\partial _\alpha f^\alpha )
 
 使得
 T^{\mu\nu}+t^{\mu\nu}=T^\nu\mu +t^\nu\mu 
@@ -1359,7 +1378,7 @@ T^{\mu\nu}-T^\nu\mu ={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over
 
 不對稱性是否為A^(\alpha,\beta )的函數?
 \partial /(\partial A^(\alpha,\beta ) ) [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu) ]=\delta _\alpha^\nu \delta _\beta ^\gamma   A_\gamma  ^(,\mu )+A^(\nu,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\mu -\delta _\alpha^\mu  \delta _\beta ^\gamma   A_\gamma  ^(,\nu)-A^(\mu ,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\nu 
-=\delta _\alpha^\nu  A_\beta  ^(,\mu )+ A^\nu  _(,α) \delta _\beta ^\mu -\delta _\alpha^\mu   A_\beta  ^(,\nu)- A^\mu  _(,α) \delta _\beta ^\nu ≠0
+=\delta _\alpha^\nu  A_\beta  ^(,\mu )+ A^\nu  _(,\alpha) \delta _\beta ^\mu -\delta _\alpha^\mu   A_\beta  ^(,\nu)- A^\mu  _(,\alpha) \delta _\beta ^\nu ≠0
 不對稱性是A^(\alpha,\beta )的函數，無法利用f^\mu =f^\mu  (\phi ,x^\mu  )，需要f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )，必須滿足
 \partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0
 要求
@@ -1373,35 +1392,35 @@ T^{\mu\nu}-T^\nu\mu ={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over
 \partial ^\mu  \partial _\nu  f^\nu =-{1 \over 4 \pi c} \partial _\nu  (A^(\nu,\gamma ) \partial ^\mu  A_\gamma  )=-{1 \over 4 \pi c} \partial _\nu  \partial ^\mu  (A^(\nu,\gamma ) A_\gamma  )+\partial _\nu   {1 \over 4 \pi c} (A^(\nu,\gamma \mu ) A_\gamma  )
 正則場方程式
 討論Hamiltonian在場的應用，考慮
-L=L(\phi _(,α),\phi ,x^\alpha )
+L=L(\phi _(,\alpha),\phi ,x^\alpha )
 具備Euler-Lagrange eq
-\partial L/\partial \phi -\partial _\alpha (\partial L/(\partial \phi _(,α) ))=0
+\partial L/\partial \phi -\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))=0
 定義
-\pi ^\alpha=\partial L/(\partial \phi _(,α) )
-H=\pi ^\alpha \phi _(,α)-L
+\pi ^\alpha=\partial L/(\partial \phi _(,\alpha) )
+H=\pi ^\alpha \phi _(,\alpha)-L
 即是H= T^\mu  _\mu 。一樣計算
-dH=\phi _(,α) d\pi ^\alpha+\pi ^\alpha d\phi _(,α)-dL
-=\phi _(,α) d\pi ^\alpha+\pi ^\alpha d\phi _(,α)-\partial L/\partial \phi  d\phi -\partial L/(\partial \phi _(,α) ) d\phi _(,α)-\partial L/(\partial x^\alpha ) dx^\alpha
-=\phi _(,α) d\pi ^\alpha+\pi ^\alpha d\phi _(,α)-\partial _\alpha (\partial L/(\partial \phi _(,α) ))d\phi -\partial L/(\partial \phi _(,α) ) d\phi _(,α)-\partial L/(\partial x^\alpha ) dx^\alpha
-=\phi _(,α) d\pi ^\alpha+\pi ^\alpha d\phi _(,α)- \pi ^\alpha _(,α) d\phi -\pi ^\alpha d\phi _(,α)-\partial L/(\partial x^\alpha ) dx^\alpha
-=- \pi ^\alpha _(,α) d\phi +\phi _(,α) d\pi ^\alpha-\partial L/(\partial x^\alpha ) dx^\alpha
+dH=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-dL
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial L/\partial \phi  d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)- \pi ^\alpha _(,\alpha) d\phi -\pi ^\alpha d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=- \pi ^\alpha _(,\alpha) d\phi +\phi _(,\alpha) d\pi ^\alpha-\partial L/(\partial x^\alpha ) dx^\alpha
 很清楚的
-{ (\partial H/\partial \phi =- \pi ^\alpha _(,α)@\partial H/(\partial \pi ^\alpha )=\phi _(,α) )┤
-如果是向量場Α^\nu
-L=L(A^(\alpha,\beta ),Α^\alpha,x^\alpha )
+{ (\partial H/\partial \phi =- \pi ^\alpha _(,\alpha)@\partial H/(\partial \pi ^\alpha )=\phi _(,\alpha) )┤
+如果是向量場\alpha^\nu
+L=L(A^(\alpha,\beta ),\alpha^\alpha,x^\alpha )
 具備Euler-Lagrange eq
-\partial L/(\partial Α^\alpha )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))=0
+\partial L/(\partial \alpha^\alpha )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))=0
 定義
 =\partial L/(\partial A^(\alpha,\beta ) )
 H=\pi _\alpha\beta  A^(\alpha,\beta )-L
 即是H= T^\mu  _\mu 。一樣計算
 dH=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-dL
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial Α^\alpha ) dΑ^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))dΑ^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )- \pi _\alpha\beta  ^(,\beta ) dΑ^\alpha-\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha x
-=- \pi _\alpha\beta  ^(,\beta ) dΑ^\alpha+A^(\alpha,\beta ) d\pi _\alpha\beta -\partial L/(\partial x^\alpha ) dx^\alpha
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial \alpha^\alpha ) d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha-\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha x
+=- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha+A^(\alpha,\beta ) d\pi _\alpha\beta -\partial L/(\partial x^\alpha ) dx^\alpha
 很清楚的
-{ (\partial H/(\partial Α^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤
+{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤
 
 </p>
 </div>
@@ -1420,30 +1439,30 @@ dH=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-dL
 H+\pi _\alpha\beta  A^(\alpha,\beta )- \omega _\beta  ^(,\beta )=M+\pi _\alpha\beta  Q^(\alpha,\beta )
  \omega _\beta  ^(,\beta )= (H-M)+\pi _\alpha\beta  A^(\alpha,\beta )-\pi _\alpha\beta  Q^(\alpha,\beta )
 d\omega _\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _\beta )/(\partial Α^\alpha )=\pi _\alpha\beta @(\partial \omega _\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+{ ((\partial \omega _\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
 Define type 1
 d\omega _1\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _1\beta )/(\partial Α^\alpha )=\pi _\alpha\beta @(\partial \omega _1\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+{ ((\partial \omega _1\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _1\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
 Define type 2
 \omega _2\beta =\omega _1\beta -\pi _\alpha\beta  A^\alpha
 d\omega _2\beta =d\omega _1\beta -d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
 =(H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha-d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
 =(H-M)dx_\beta -A^\alpha d\pi _\alpha\beta -\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _2\beta )/(\partial \pi _\alpha\beta  )=-Α^\alpha@(\partial \omega _2\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+{ ((\partial \omega _2\beta )/(\partial \pi _\alpha\beta  )=-\alpha^\alpha@(\partial \omega _2\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
 
 
 
 Symplectic approach H=M
 
-{ (\partial H/(\partial Α^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤\to { (\partial M/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial M/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤\to { (\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤
+{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤\to { (\partial M/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial M/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤\to { (\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤
 \partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )
-\partial H/(\partial Q^\alpha )=\partial H/(\partial Α^\gamma  )  (\partial Α^\gamma )/(\partial Q^\alpha )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )
-- \pi _\alpha\beta  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  ) A^(\gamma ,\beta )-(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )+(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )  \partial H/(\partial Α^\gamma  )
-{ ((\partial Α^\gamma )/(\partial Q^\alpha )=(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial \pi _\alpha\varepsilon )/(\partial A^\gamma  ))┤
+\partial H/(\partial Q^\alpha )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial Q^\alpha )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )
+- \pi _\alpha\beta  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  ) A^(\gamma ,\beta )-(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )+(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
+{ ((\partial \alpha^\gamma )/(\partial Q^\alpha )=(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial \pi _\alpha\varepsilon )/(\partial A^\gamma  ))┤
 \partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta )
-\partial H/(\partial \pi _\alpha\beta  )=\partial H/(\partial Α^\gamma  )  (\partial Α^\gamma )/(\partial \pi _\alpha\beta  )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial \pi _\alpha\beta  )
-Q^(\alpha,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ) A^(\gamma ,\beta )+(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )  \partial H/(\partial Α^\gamma  )
-{ ((\partial Α^\gamma )/(\partial \pi _\alpha\beta  )=-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )????????@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ))┤
+\partial H/(\partial \pi _\alpha\beta  )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial \pi _\alpha\beta  )
+Q^(\alpha,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ) A^(\gamma ,\beta )+(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
+{ ((\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )=-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )????????@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ))┤
 </p>
 </div>
 </section>
@@ -1503,7 +1522,7 @@ Ricci tensor \delta R_\sigma \nu  and Ricci scalar \delta R
 \delta R_\sigma \nu =\delta  R^\rho _\sigma \rho\nu = \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma 
 \delta R=\delta (g^\sigma \nu  R_\sigma \nu  )=R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  \delta R_\sigma \nu =R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  ( \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma  )
 Using  \nabla _\rho g^\sigma \nu =0
-\delta R=R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )≡R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho A^\rho
+\delta R=R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\equiv R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho A^\rho
 √(-g) \delta R=√(-g) R_\sigma \nu  \delta g^\sigma \nu +√(-g)  \nabla _\rho A^\rho=√(-g) R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (√(-g) A^\rho )
 So  \nabla _\rho (√(-g) A^\rho ) is a total derivative will vanish at boundary. So √(-g)  \delta R/(\delta g^\sigma \nu  )=√(-g) R_\sigma \nu 
 
@@ -1516,7 +1535,7 @@ So  \nabla _\rho (√(-g) A^\rho ) is a total derivative will vanish at boundary
 
 
 
-\delta (\mathcal{L}_M √(-g))/(\delta g^\sigma \nu  )=√(-g)  (\delta \mathcal{L}_M)/ \delta g ^\sigma \nu  -{1 \over 2} √(-g) g_\sigma \nu  \mathcal{L}_M≡{1 \over 2} √(-g) T_\sigma \nu 
+\delta (\mathcal{L}_M √(-g))/(\delta g^\sigma \nu  )=√(-g)  (\delta \mathcal{L}_M)/ \delta g ^\sigma \nu  -{1 \over 2} √(-g) g_\sigma \nu  \mathcal{L}_M\equiv {1 \over 2} √(-g) T_\sigma \nu 
 T_\sigma \nu =2 (\delta \mathcal{L}_M)/(\delta g^\sigma \nu  )-g_\sigma \nu  \mathcal{L}_M
 L_(EM Field)=-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta} =-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon 
 T_\sigma \nu =2 (\delta L_(EM Field))/(\delta g^\sigma \nu  )-g_\sigma \nu  L_(EM Field)
@@ -1525,13 +1544,13 @@ T_\sigma \nu =2 (\delta L_(EM Field))/(\delta g^\sigma \nu  )-g_\sigma \nu  L_(E
 =-2/16\pi c F^{\alpha\beta}  F^\gamma \varepsilon  ( \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-2/16\pi c (F^{\alpha\beta}  F^\gamma \varepsilon   \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +F^{\alpha\beta}  F^\gamma \varepsilon  g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-2/16\pi c (F^\sigma \beta  F^\nu\varepsilon  g_\beta \varepsilon +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-2/16\pi c (F^\sigma α F^\nu\gamma  g_\alpha\gamma +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-2/16\pi c (F^\sigma \alpha F^\nu\gamma  g_\alpha\gamma +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-4/16\pi c F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma -g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
 =-{1 \over 4 \pi c} F^\alpha\sigma   F_\alpha ^\nu+{1 \over 16 \pi c} g_\sigma \nu  F_{\alpha\beta}  F^{\alpha\beta} 
 
 
-∆L=g^\alpha\beta   \nabla _\alpha f_\beta 
-T_\sigma \nu =2 \delta ∆L/(\delta g^\sigma \nu  )-g_\sigma \nu  ∆L=2 \delta (g^\alpha\beta   \nabla _\alpha f_\beta  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (g^\alpha\beta   \nabla _\alpha f_\beta  )
+\DeltaL=g^\alpha\beta   \nabla _\alpha f_\beta 
+T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \delta (g^\alpha\beta   \nabla _\alpha f_\beta  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (g^\alpha\beta   \nabla _\alpha f_\beta  )
 =2 \nabla _\sigma  f_\nu -g_\sigma \nu   \nabla ^\alpha f_\alpha
 
 
