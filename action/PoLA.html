@@ -29,31 +29,40 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						
-<li><a href="#a" class="active">Introduction</a></li>
-<li><a href="#b">Elementary Variational Method</a></li>
-<li><a href="#c">Simplified Variation Notation</a></li>
-<li><a href="#d">Non-uniqueness of the Lagrangian</a></li>
-<li><a href="#e">Lagrangian in Momentum Space</a></li>
-<li><a href="#f">Classical Noether's Theorem</a></li>
-<li><a href="#g">Maximal Symmetry Action</a></li>
-<li><a href="#h">A Brief Discussion on Particle and EM Field Interaction Action</a></li>
-<li><a href="#i">Variation of Free Particle Action</a></li>
-<li><a href="#j">Variation and Equations of Motion for a Charged Particle in an EM Field</a></li>
-<li><a href="#k">4-Volume \(d^4 x\) and Lagrangian Density \(\mathcal{L}\)</a></li>
-<li><a href="#l">Maxwell's Equations</a></li>
-<li><a href="#m">Gauge Invariance in Electromagnetism</a></li>
-<li><a href="#n">Gauge Invariance and Action Variation</a></li>
-<li><a href="#o">A Brief Discussion on Gauge Invariance and the Continuity Equation</a></li>
-<li><a href="#p">Impossibility of \(A_\mu  A^\mu\) if Keeping Gauge Invariance</a></li>
-<li><a href="#q">A Brief Discussion on \(A_\mu  A^\mu\) in Quantum Field Theory - Photon Mass</a></li>
-<li><a href="#r">Continuous Fields and the Wave Equation</a></li>
-<li><a href="#s">Classical Field Theory</a></li>
-<li><a href="#t">Non-uniqueness of Lagrangian Density in Field Theory</a></li>
-<li><a href="#u">Other Possibilities That Do Not Affect EoM</a></li>
-<li><a href="#v">Noether Theorem in Field Theory</a></li>
-<li><a href="#x">Noether Theorem and Symmetry - Spacetime and Energy-Momentum Conservation</a></li>
-						
+						<li><a href="#a" class="active">前言</a></li>
+						<li><a href="#b">初階變分法</a></li>
+						<li><a href="#c">簡化變分表示法</a></li>
+						<li><a href="#d">Lagrangian的不唯一性</a></li>
+						<li><a href="#e">動量空間的Lagrangian</a></li>
+						<li><a href="#f">古典諾特定理</a></li>
+						<li><a href="#g">Maximal Symmetry Action</a></li>
+						<li><a href="#h">淺談Particle與EM Field交互作用下的Action</a></li>
+						<li><a href="#i">Free Particle Action的變分</a></li>
+
+						<li><a href="#j">Charge Particle與EM Field作用下的變分與運動方程</a></li>
+						<li><a href="#k">4-Volume \(d^4 x\)與Lagrangian Density \(\mathcal{L}\)</a></li>
+						<li><a href="#l">Maxwell's equations</a></li>
+						<li><a href="#m">電磁學中的規範不變性Gauge Invariance</a></li>
+						<li><a href="#n">規範不變與Action的變分性</a></li>
+						<li><a href="#o">淺談Gauge Invariance和Continuity equation</a></li>
+
+
+						<li><a href="#p">Impossibility of \(A_\mu  A^\mu\)  if keeping gauge invariance</a></li>
+						<li><a href="#q">淺談量子場論中的\(A_\mu  A^\mu\) -光子質量</a></li>
+						<li><a href="#r">連續場與波動方程</a></li>
+						<li><a href="#s">古典場論</a></li>
+						<li><a href="#t">場論中的Lagrangian density不唯一性</a></li>
+						<li><a href="#u">不破壞EoM的其他可能</a></li>
+						<li><a href="#v">場論中的諾特定理Noether theorem-Field theory</a></li>
+						<!--<li><a href="#w">????</a></li>-->
+						<li><a href="#x">諾特定理與對稱性-時空與能量動量守恆</a></li>
+						<!--<li><a href="#y">Infinitesimal Poincare Transformation</a></li>
+						<li><a href="#z">Maximal Symmetry Action-Field theory</a></li>
+						<li><a href="#aa">EM field energy-momentum tensor and “standard” symmetrization procedure</a></li>
+						<li><a href="#ab">討論利用Lagrangian不唯一性引入對稱的EM張量</a></li>
+						<li><a href="#ac">場正則轉換方程式</a></li>
+						<li><a href="#ad">Hamiltonian變分</a></li>
+						<li><a href="#ae">廣義相對論</a></li>-->
 
 
 </ul>
@@ -100,46 +109,33 @@
 <li>待辦工作三</li>
 </ol>-->
 <header class="major">
-
+<h2><li>最小作用量原理</li></h2>
 <h2><li>Principle of Least Action</li></h2>
 </header>
 <p>
-\(\to\)<a href="./PoLA.html"><b>Chinese Version</b></a><br>
+\(\to\)<a href="./PoLA-en.html">English Version</a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.08.28<br>
+Update 2024.08.28
 </p>
 <ol>
 <section id="a">
 <div class="container">
 <header class="major">
-	<h2><li>Introduction</li></h2>
+	<h2><li>前言</li></h2>
 </header>
 
-<p style="text-align:justify">
-
-In the framework of modern physics development, starting from the action \( S \), physicists write down the action based on experiments, physical phenomena, constraints, etc. After writing down the action, they perform a variation \( \delta S \) (variation) and, under the condition of the principle of least action \( \delta S = 0 \), obtain the equations of motion that the physical system adheres to. Subsequently, physical quantities that satisfy the equations of motion are determined according to different physical systems.
-
-In classical mechanics, d'Alembert utilized the principle of virtual work to derive
-$$
-{d \over dt}{\partial L \over \partial \dot{x}_i}-{\partial L \over \partial x_i}=0
-$$
-Later, Hamilton further clarified that the above equation satisfies
-$$
-\int_a^b L(x_1,...,x_n,\dot{x_1},...,\dot{x_n},t)dt
-$$
-which is the necessary result of applying the variational method to obtain the extremum \( \delta S = 0 \).
-
-In physics, the variational method is often used in the early development of new theories. Since physicists do not initially know the correct equations of motion, they guess the possible form of the action based on experimental results and physical experience. They then use the variational method to derive the equations of motion that describe the Lagrangian. Once the equations of motion are obtained, the variational method is no longer needed for subsequent problem-solving. For example,
-$$
-\int_a^b L(x,\dot{x},t)dt
-$$
-When applying variation, the Euler-Lagrange equation is obtained:
-$$
-{d \over dt}{\partial L \over \partial \dot{x}}-{\partial L \over \partial x}=0
-$$
-Subsequent theoretical mechanics courses only need to solve the Euler-Lagrange equation. Thus, the variational method is not commonly covered in detail in textbooks related to mathematics, as it is only needed in the early stages of developing a theory. Therefore, the variational method will be briefly introduced here in a non-mathematically rigorous manner.
-
+<p style="text-align:justify">現代的物理學發展的框架下，喜歡從作用量Action S出發，當物理學家寫下Action後（根據實驗、物理現象和限制等等猜出），針對Action做變分\(\delta S\)（Variation）後，在最小作用量原理（Principle of least action）\(\delta S=0\)的要求下，就可以得到物理遵守的運動方程，後續就根據不同的物理系統求滿足運動方程的物理量變化。
+古典力學的發展上，由d' Alembert利用虛功原理可以得到
+$${d \over dt}{\partial L \over \partial \dot{x}_i}-{\partial L \over \partial x_i}=0$$
+後來Hamilton進一步闡明上述方程是滿足
+$$\int_a^b L(x_1,...,x_n,\dot{x_1},...,\dot{x_n},t)dt$$
+利用變分法取極值\(\delta S=0\)的必然結果。
+在物理學上，變分法通常用於新理論在初期發展時，由於物理學家還不知道正確的運動方程，故會根據實驗成果、物理經驗等去猜Action可能的形式，然後利用變分法得到描述Lagrangian滿足的運動方程，此後變分法便功成身退，後續的解題過程只要處理運動方程即可。例如
+$$\int_a^b L(x,\dot{x},t)dt$$
+用變分後可以得到Euler-Lagrange equation
+$${d \over dt}{\partial L \over \partial \dot{x}}-{\partial L \over \partial x}=0$$
+後續理論力學課程只要會解Euler-Lagrange equation就好，所以整學年的課程變分法不常出現，於是應數相關的書籍對於變分法提及就不多。故在此簡單用不是數學上嚴謹的方式稍為介紹一下變分法。
 </p>
 </div>
 </section>
@@ -147,85 +143,54 @@ Subsequent theoretical mechanics courses only need to solve the Euler-Lagrange e
 <section id="b">
 <div class="container">
 <header class="major">
-	<h2><li>Elementary Variational Method</li></h2>
+	<h2><li>初階變分法</li></h2>
 </header>
 <p style="text-align:justify">
 
-
-In the context of modern physics development, consider a functional integral problem:
-$$
-S[F(x, \dot{x}, t)] = \int_a^b F(x, \dot{x}, t) \, dt
-$$
-where \( x = x(t) \) and \( \dot{x} = \frac{dx}{dt} \). If we change the trajectory \( x(t) \) while keeping \( a \) and \( b \) fixed, it affects the integral \( S \). We want to find the form of \( x(t) \) or the conditions that \( F(x, \dot{x}, t) \) must satisfy for \( S \) to have an extremum (whether maximum or minimum). According to the concept of calculus, if \( f(x) \) is at an extremum \( x_0 \), a small change \( x_0 + \varepsilon \) will not change \( f(x) \), i.e., \( df = 0 \). Similarly, for \( S \) to be at an extremum, a small change in \( x(t) \) results in \( \delta S = 0 \). We can represent the integral problem graphically; different functions \( x(t) \) represent different paths connecting points \( a \) and \( b \).
+	如果今天，一個泛函（Functional）的積分問題
+$$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt$$
+其中，\(x=x(t)\)、\( \dot{x}={dx \over dt}\)，固定\(a\)、\(b\)下改變軌跡\(x(t)\)的形式會對積分S造成影響，我們想找到S的極值（Extreme value，不論極大或極小）下，軌跡\(x(t)\)會是什麼形式？或是\(F(x,\dot{x},t)\)該滿足什麼條件？根據微積分的概念，在\(f(x)\)極值\(x_0\)附近做微小的變化\(x_0 + \varepsilon\)時，\(f(x)\)是不會有變化的，即\(df=0\)。類似的想法，\(S\)在極值附近時，\(x(t)\)稍微改變形式，\(\delta S=0\)。我們可以將積分問題簡單的用圖像表達，不同\(x(t)\)的函數形式表示不同的路徑連結\(a\)到\(b\)點。<br>
 
 <table cellpadding="1" border="1">
-<tr><td><a href="./Image/P27.png"><img src="./Image/P27.png" alt="Image 27" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P28.png" alt="Image 28" width=98% height="auto"></a></td></tr>
+<tr><td><a href="./Image/P27.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P28.png" alt="取代文字" width=98% height="auto"></a></td></tr>
 </table>
 
-If \( x(t) \) satisfies the extremum condition for \( S \), then adding a small arbitrary function \( \varepsilon \eta(t) \) (where \( \eta(a) = \eta(b) = 0 \)) will not change \( F(x, \dot{x}, t) \) at points \( a \) and \( b \). After adding this small arbitrary function \( \varepsilon \eta(t) \), we get:
-$$
-x(t) \rightarrow x(t) + \varepsilon \eta(t)
-$$
-$$
-\dot{x}(t) \rightarrow \dot{x}(t) + \varepsilon \dot{\eta}(t)
-$$
-$$
-F(x, \dot{x}, t) \rightarrow F(x + \varepsilon \eta, \dot{x} + \varepsilon \dot{\eta}, t) = F(x, \dot{x}, t) + \delta F
-$$
-We know that \( S \) remains unchanged for small variations \( \varepsilon \) near the extremum:
-$$
-\delta S = S[F(x + \varepsilon \eta, \dot{x} + \varepsilon \dot{\eta}, t)] - S[F(x, \dot{x}, t)] = 0 \leftrightarrow \frac{\delta S}{\delta \varepsilon} = 0
-$$
-The change in \( \delta S \) is entirely due to \( \delta F \), so we can write:
-$$
-\frac{\delta S}{\delta \varepsilon} = \frac{\delta}{\delta \varepsilon} \int_a^b F \, dt = \int_a^b \frac{\delta F}{\delta \varepsilon} \, dt = 0
-$$
+如果\(x(t)\)是滿足\(S\)的極值，那麼如果加入微小的任意函數\(\varepsilon \eta (t)\)，\( \eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，使\(a\)、\(b\)兩點\(F(x,\dot{x},t)\)不變。在加入微小的任意函數\(\varepsilon \eta (t)\)後
+$$x(t)→x(t)+\varepsilon \eta (t)$$
+$$\dot{x}(t)→\dot{x}(t)+\varepsilon \dot{\eta} (t)$$
+$$F(x,\dot{x},t)→F(x+\varepsilon \eta,\dot{x}+\varepsilon \dot{\eta} ,t)=F(x,\dot{x},t)+\delta F$$
+我們知道\(S\)在極值附近，微小變化\(\varepsilon\)時，\(S\)不變：
+$$\delta S=S[F(x+\varepsilon \eta ,\dot{x}+\varepsilon \dot{\eta},t)]-S[F(x,\dot{x},t)]=0\leftrightarrow {\delta S \over \delta \varepsilon} =0$$
+\(\delta S\)的變化完全是由\(\delta F\)造成的，所以可以寫為
+$${\delta S \over \delta \varepsilon} ={\delta  \over \delta \varepsilon}  \int_a^b Fdt=\int_a^b {\delta F\over\delta \varepsilon}  dt =0$$
 
-Using calculus, we expand \( \frac{\delta F}{\delta \varepsilon} \):
-$$
-\frac{\delta S}{\delta \varepsilon} = \int_a^b \frac{\delta F}{\delta \varepsilon} \, dt = \int_a^b \left( \frac{\partial F}{\partial x} \frac{\delta x}{\delta \varepsilon} + \frac{\partial F}{\partial \dot{x}} \frac{\delta \dot{x}}{\delta \varepsilon} + \frac{\partial F}{\partial t} \frac{\delta t}{\delta \varepsilon} \right) dt
-$$
-However, since we only vary the trajectory \( \eta \) and not \( t \), we have:
-$$
-\frac{\delta t}{\delta \varepsilon} = 0
-$$
 
-Thus:
-$$
-\frac{\delta S}{\delta \varepsilon} = \int_a^b \left( \frac{\partial F}{\partial x} \frac{\delta x}{\delta \varepsilon} + \frac{\partial F}{\partial \dot{x}} \frac{\delta \dot{x}}{\delta \varepsilon} \right) dt
-$$
+利用微積分的手法，將\(\delta F\over \delta \varepsilon\) 展開
+$${\delta S\over \delta \varepsilon} =\int_a^b {\delta F\over\delta \varepsilon} dt =\int_a^b {\partial F\over\partial x }{ \delta x\over\delta \varepsilon} +{\partial F\over\partial \dot{x} }{ \delta \dot{x} \over\delta \varepsilon }+{\partial F\over\partial t }{ \delta t\over\delta \varepsilon } dt $$
+但我們只針對做軌跡\(\eta \)變分，沒有對\(t\)變分，所以
+$${\delta t\over\delta \varepsilon} =0$$
 
-Observing \( \frac{\delta x}{\delta \varepsilon} \) and \( \frac{\delta \dot{x}}{\delta \varepsilon} \):
-$$
-\frac{\delta x}{\delta \varepsilon} = \frac{\delta}{\delta \varepsilon} (x + \varepsilon \eta) = \eta
-$$
-$$
-\frac{\delta \dot{x}}{\delta \varepsilon} = \frac{\delta}{\delta \varepsilon} (\dot{x} + \varepsilon \dot{\eta}) = \dot{\eta}
-$$
-We get:
-$$
-\frac{\delta S}{\delta \varepsilon} = \int_a^b \left( \frac{\partial F}{\partial x} \eta + \frac{\partial F}{\partial \dot{x}} \dot{\eta} \right) dt
-$$
-$$
-= \int_a^b \frac{\partial F}{\partial x} \eta \, dt + \int_a^b \frac{\partial F}{\partial \dot{x}} \frac{d \eta}{dt} \, dt
-$$
-We perform integration by parts on the last term:
-$$
-\int_a^b \frac{\partial F}{\partial \dot{x}} \frac{d \eta}{dt} \, dt = \left. \frac{\partial F}{\partial \dot{x}} \eta \right|_a^b - \int_a^b \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) \eta \, dt
-$$
-Note the term in <font color="red">red</font>: Since \( \eta(t) \) satisfies \( \eta(a) = \eta(b) = 0 \), we have \( \left. \frac{\partial F}{\partial \dot{x}} \eta \right|_a^b = 0 \):
-$$
-\therefore \frac{\delta S}{\delta \varepsilon} = \int_a^b \frac{\partial F}{\partial x} \eta \, dt - \int_a^b \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) \eta \, dt
-$$
-$$
-= \int_a^b \left( \frac{\partial F}{\partial x} - \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) \right) \eta \, dt = 0
-$$
-Since \( \eta(t) \) is arbitrary, we have:
-$$
-\frac{\partial F}{\partial x} - \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) = 0
-$$
-This is the Euler-Lagrange equation.
 
+
+$${\delta S\over\delta \varepsilon} = \int_a^b {\partial F\over\partial x }{\delta x \over\delta \varepsilon} +{\partial F\over\partial \dot{x} }{\delta \dot{x} \over\delta \varepsilon } dt$$
+
+
+觀察\(\delta x\over\delta \varepsilon \)、\(\delta \dot{x} \over\delta \varepsilon \)：
+
+$${\delta x\over\delta \varepsilon} ={\delta \over\delta \varepsilon}  (x+\varepsilon \eta )=\eta $$
+$${\delta \dot{x}\over\delta \varepsilon} ={\delta\over\delta \varepsilon}(\dot{x} +\varepsilon \dot{\eta})=\dot{\eta}$$
+可以得到
+$${\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta +{\partial F\over \partial \dot{x}} \dot{\eta} dt$$
+$$=\int_a^b {\partial F\over\partial x} \eta +{\partial F\over\partial \dot{x}}  {d\eta \over dt} dt$$
+$$=\int_a^b {\partial F\over\partial x} \eta dt+ \int_a^b {\partial F\over \partial \dot{x}} {d\eta\over dt} dt$$
+我們針對最後一項做分部積分
+$$\int_a^b {\partial F\over\partial \dot{x} } {d\eta \over dt} dt={\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b}}-\int_a^b {d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
+注意<font color="red">紅色</font>這一項，因為我們要求\(\eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，所以\(\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0}\)
+$$∴{\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta dt-\int_a^b{d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
+$$=\int_a^b \left({\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}\right)\eta dt=0$$
+因為\(\eta (t)\)是任意的，所以
+$${\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}=0$$ 
+Euler-Lagrange equation
 </p>
 </div>
 </section>
@@ -236,77 +201,73 @@ This is the Euler-Lagrange equation.
 <section id="c">
 <div class="container">
 <header class="major">
-	<h2><li>Simplified Variation Notation</li></h2>
+	<h2><li>簡化變分表示法</li></h2>
 </header>
 
 <p style="text-align:justify">
 
-
-In the previous section, we introduced the basic concept of the variational method, but it required introducing an arbitrary function \(\eta(t)\), which made the process somewhat cumbersome and less conducive to further operations. In this section, we will demonstrate the variational method using the same concept but with a more abstract approach and similar mathematical techniques. This approach is somewhat analogous to treating the variational operation similarly to differentiation.
-
+前一部分介紹了簡單的變分法概念，但是需要引入任意的函數\(\eta (t)\)，手法上稍嫌煩瑣，不利於後續操作。第二部分以相同的概念，採用比較抽象的想法但相同的數學手法，演示一次變分法的操作。有點像將變分的操作類同於微分操作。
 <table cellpadding="1" border="1">
-<tr><td><a href="./Image/P29.png"><img src="./Image/P27.png" alt="Image Placeholder" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P30.png" alt="Image Placeholder" width=98% height="auto"></a></td></tr>
+<tr><td><a href="./Image/P29.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P30.png" alt="取代文字" width=98% height="auto"></a></td></tr>
 </table>
+ 
 
-For the same integral problem involving a functional:
-$$S[F(x,\dot{x},t)] = \int_a^b F(x,\dot{x},t)\, dt$$
-When we perform a variation with respect to \(x\):
-$$x \to x + \delta x$$
-The variation \(\delta x\) satisfies:
-$$\delta x(a) = \delta x(b) = 0$$
-The variation in \(x\) will lead to changes in \(\dot{x}\) and \(F\):
-$$ \dot{x}(x) \to \dot{x}(x + \delta x) = \dot{x}(x) + \delta \dot{x}$$
-$$F(x,\dot{x},t) \to F(x + \delta x, \dot{x}(x) + \delta \dot{x}, t) = F(x,\dot{x},t) + \delta F$$
-We require \(\delta S = 0\):
-$$\delta S = \delta \int_a^b F\, dt = \int_a^b \delta F\, dt = 0$$
-Conceptually, it is easy to understand that the variation \(\delta F\) is related to \(\delta x\) and \(\delta \dot{x}\), so expanding \(\delta F\), we get:
-$$\delta S = \int_a^b \delta F\, dt = \int_a^b \left( \frac{\partial F}{\partial x} \delta x + \frac{\partial F}{\partial \dot{x}} \delta \dot{x} \right)\, dt$$
+針對同一種泛函（Functional）的積分問題
+$$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt $$
+當我們針對\(x\)做變分， 
+$$x→x+\delta x$$
+變分\(\delta x\)滿足
+$$\delta x(a)=\delta x(b)=0$$
+\(x\)的變分會導致\(\dot{x}\)、\(F\)發生變化
+
+$$ \dot{x} (x) \to \dot{x} (x+\delta x) =\dot{x}(x)+\delta \dot{x}$$
+$$F(x,\dot{x},t)→F(x+\delta x,\dot{x}(x)+\delta \dot{x},t)=F(x,\dot{x},t)+\delta F $$
+我們要\(\delta S=0\)
+$$\delta S=\delta \int _a^b Fdt=\int _a^b \delta Fdt=0$$
+概念上很好理解的是，\(\delta F\)的變化和\(\delta x\)、\(\delta \dot{x}\)有關，所以將\(\delta F\)展開
+$$\delta S=\int _a^b \delta Fdt=\int _a^b { \partial F\over\partial x }\delta x+{\partial F\over \partial \dot{x} } \delta \dot{x} dt $$
 
 <table cellpadding="1" border="1">
 <tr><td>
-Advanced: Thm. 1: Interchangeability of Differentiation and Variation<br>
-If differentiation and variation are applied to different objects, such as differentiation with respect to \(t\) \( \frac{d}{dt} \) and variation with respect to \(x\) \(\delta x\), then \( \frac{d}{dt} \) and \( \delta \) can be interchanged.
-$$\delta \dot{f} = \dot{f}(x + \delta x) - \dot{f}(x)$$
-$$= \frac{d}{dt} \left( f(x + \delta x) - f(x) \right) = \frac{d}{dt} \delta f$$
+進階：Thm.1 :微分與變分對調<br>
+如果今天微分與變分針對的對象不同，如對t微分 \(d \over dt\)、對x變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
+$$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)$$
+$$= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
 </td></tr>
 </table>
 
-Interchanging \(\delta \dot{x}\) with \(\frac{d}{dt} \delta x\):
-$$\delta S = \int_a^b \frac{\partial F}{\partial x} \delta x\, dt + \int_a^b \frac{\partial F}{\partial \dot{x}} \left( \frac{d}{dt} \delta x \right)\, dt$$
-Using the same method, we perform integration by parts on the second term:
-$$\int_a^b \frac{\partial F}{\partial \dot{x}} \left( \frac{d}{dt} \delta x \right)\, dt = \color{red}{\frac{\partial F}{\partial \dot{x}} \delta x \Big|_a^b} - \int_a^b \frac{d}{dt} \frac{\partial F}{\partial \dot{x}} \delta x\, dt$$
-Note the <font color="red">red</font> term: since we require the variation \(\delta x\) to satisfy \(\delta x(a) = \delta x(b) = 0\), we have \(\color{red}{\frac{\partial F}{\partial \dot{x}} \delta x \Big|_a^b = 0}\).
-$$\delta S = \int_a^b \frac{\partial F}{\partial x} \delta x\, dt - \int_a^b \left( \frac{d}{dt} \frac{\partial F}{\partial \dot{x}} \right) \delta x\, dt$$
-$$= \int_a^b \left( \frac{\partial F}{\partial x} - \frac{d}{dt} \frac{\partial F}{\partial \dot{x}} \right) \delta x\, dt = 0$$
+將\(\delta \dot{x}\)對調 \({d \over dt} \delta x\)<br>
+$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt+  \int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt $$
+同樣的手法對第二項做分部積分
+$$\int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt =  \color{red}{{\partial F\over \partial \dot{x} }  \delta x \Big|_a^b}-\int _a^b  {d \over dt}   {\partial F\over \partial \dot{x} } \delta xdt$$
+注意<font color="red">紅色</font>這一項，因為我們要求變分\(\delta x\)滿足\(\delta x(a)=\delta x(b)=0\)，所以\( \color{red}{{\partial F\over \partial \dot{x} }  \delta x\Big|_a^b=0}\)
+$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt-\int _a^b \left( {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt $$
+$$=\int _a^b \left( {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt=0$$
 
-\(\delta x\) is arbitrary.
+\(\delta x \) is arbitrary.
 
-$$ \frac{\partial F}{\partial x} - \frac{d}{dt} \frac{\partial F}{\partial \dot{x}} = 0$$ 
-This is the Euler-Lagrange equation.
+$$ {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } =0$$ 
+Euler-Lagrange equation <br>
+<table cellpadding="1" border="1">
+<tr><td>
+進階：Thm.2:變分的Chain rule
+$$\delta (FG)={\partial (FG)\over\partial x} \delta x+{\partial (FG)\over \partial \dot{x} } \delta \dot{x}$$
+$$=\left( {\partial F\over\partial x} G+F {\partial G\over\partial x}\right)\delta x+\left( {\partial F\over \partial \dot{x} }  G+F {\partial G\over\partial \dot{x}} \right)\delta \dot{x}$$
+$$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x} }  \delta \dot{x} \right)G+F\left({\partial G\over\partial x} \delta x+{\partial G\over\partial \dot{x}}  \delta \dot{x} \right)$$
+$$= \delta F\cdot G+F\cdot \delta G$$
+</td></tr>
+</table>
 <br>
 
 <table cellpadding="1" border="1">
 <tr><td>
-Advanced: Thm. 2: Chain Rule for Variation
-$$\delta (FG) = \frac{\partial (FG)}{\partial x} \delta x + \frac{\partial (FG)}{\partial \dot{x}} \delta \dot{x}$$
-$$= \left( \frac{\partial F}{\partial x} G + F \frac{\partial G}{\partial x} \right) \delta x + \left( \frac{\partial F}{\partial \dot{x}} G + F \frac{\partial G}{\partial \dot{x}} \right) \delta \dot{x}$$
-$$= \left( \frac{\partial F}{\partial x} \delta x + \frac{\partial F}{\partial \dot{x}} \delta \dot{x} \right) G + F \left( \frac{\partial G}{\partial x} \delta x + \frac{\partial G}{\partial \dot{x}} \delta \dot{x} \right)$$
-$$= \delta F \cdot G + F \cdot \delta G$$
+進階：Thm.3:針對函數F同乘同除另一函數G，不影響變分
+$$\delta F=\delta \left(F\cdot {G\over G}\right)=\delta \left(F\cdot G\cdot G^{-1} \right)$$
+$$=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
+$$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)$$
+$$=\delta F$$
 </td></tr>
 </table>
-<br>
-
-<table cellpadding="1" border="1">
-<tr><td>
-Advanced: Thm. 3: Multiplying and Dividing Function \(F\) by Another Function \(G\) Does Not Affect the Variation
-$$\delta F = \delta \left( F \cdot \frac{G}{G} \right) = \delta \left( F \cdot G \cdot G^{-1} \right)$$
-$$= \delta F \cdot G \cdot G^{-1} + F \cdot \delta G \cdot G^{-1} + F \cdot G \cdot \delta (G^{-1})$$
-$$= \delta F + F \cdot \delta G \cdot G^{-1} + F \cdot G \cdot \left( -\frac{\delta G}{G^2} \right)$$
-$$= \delta F$$
-</td></tr>
-</table>
-
-
 
 </p>
 </div>
@@ -315,37 +276,44 @@ $$= \delta F$$
 <section id="d">
 <div class="container">
 <header class="major">
-	<h2><li>Non-uniqueness of the Lagrangian</li></h2>
+	<h2><li>Lagrangian的不唯一性</li></h2>
 </header>
 <p style="text-align:justify">
-In the theoretical mechanics course, it is taught that adding a total time derivative term \(f=f(q,t)\) to the Lagrangian, i.e., \(L→L+{df\over dt}\), does not change the EoM. This can be explained in two parts. The first is the simplest, from the variation of the endpoints:
+理論力學的課程中，都有學過當\(Lagrangian\)添加一個函數\(f=f(q,t)\)時間的全微分項\({df\over dt}\)，\(L→L+{df\over dt}\)並不會改變EoM。這可以從兩個部分來看。第一種是最簡單的從變分的端點，
 $$\delta S=\delta \int _a^b (L+{df\over dt})dt$$
 $$=\delta \left[\int _a^b Ldt+\int _a^b  {df\over dt} dt \right]$$
 $$=\delta \left[\int _a^b Ldt+f(b)-f(a)\right]$$
 $$=\delta \int _a^b Ldt+\delta f(b)-\delta f(a)$$
-But since the endpoints are not varied, \(\delta f(b)=\delta f(a)=0\), naturally,
+但因為端點不做變分，所以\(\delta f(b)=\delta f(a)=0\)，自然的
 $$\delta \int _a^b \left(L+{df\over dt}\right)dt=\delta \int _a^b Ldt=0$$
 
-The second approach is to directly expand and observe whether \(L+\dot{f}\) satisfies
-\({d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)=0\).
+
+
+另外一種是直接展開，觀察\(L+\dot{f}\) 是否滿足
+\({d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)=0\)
+
 
 $${d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)={d\over dt}  {\partial L\over\partial \dot{x}}  -{\partial L\over\partial x}+\color{red}{{d\over dt}  {\partial \dot{f} \over\partial \dot{x}}  -{\partial \dot{f} \over\partial x}}$$
-The <font color="red">red term</font> allows us to observe two things, because \(f=f(x,t)\):
+<font color="red">紅色項</font>我們可以觀察兩件事，因為\(f=f(x,t)\)
 $$df={\partial f\over\partial x} dx+{\partial f\over\partial \dot{x}}   d\dot{x} +{\partial f\over\partial t} dt$$
 $$\to \dot{f} ={\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}$$
-So,
+所以
 $${ \partial \dot{f} \over\partial \dot{x}} ={\partial f\over\partial x}\to dot\ cancellation$$<br>
 
+
 $${\partial \over\partial x} \dot{f}={\partial \over\partial x} \left({\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}\right)$$
+
 
 $$=\left({\partial \over\partial x}  {\partial f\over\partial x}\right) \dot{x} +\left({\partial \over\partial x}  {\partial f\over\partial \dot{x}}  \right) \ddot{x} +\left({\partial \over\partial x}  {\partial f\over\partial t}\right)$$
 $$={d\over dt} \left({\partial f\over\partial x}\right)\to{d\over dt},{\partial \over\partial x} commute $$
 
-We get the <font color="red">red term</font> to be zero:
+
+會得到<font color="red">紅色項</font>為零
 $$\color{red}{{d\over dt}  {\partial \dot{f} \over\partial \dot{x}  }-{\partial \dot{f} \over\partial x}={d\over dt}  {\partial f\over\partial x}-{d\over dt}  {\partial f\over\partial x}=0}$$
-Thus,
+故
 $${d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)={d\over dt}  {\partial L\over\partial \dot{x}}  -{\partial L\over\partial x}=0$$
-Adding \(\dot{f}\) does not change the EoM.
+添加\(\dot{f}\) 不會改變EoM。
+
 
 </p>
 </div>
@@ -354,30 +322,32 @@ Adding \(\dot{f}\) does not change the EoM.
 <section id="e">
 <div class="container">
 <header class="major">
-	<h2><li>Lagrangian in Momentum Space</li></h2>
+	<h2><li>動量空間的Lagrangian</li></h2>
 </header>
 <p style="text-align:justify">
-The Lagrangian equation can be described not only in \((q,\dot{q} ,t)\) space but also in momentum space \((p,\dot{p} ,t)\). The transformation is as follows:
+Lagrangian equation不只可以在\((q,\dot{q} ,t)\)中描述，也可以在動量空間\((p,\dot{p} ,t)\)中描述，轉換如下：
 $$ p={\partial L \over \partial \dot{q}}  $$
 
 $$\dot{p} ={d\over dt}  {\partial L\over\partial \dot{q}}={\partial L\over\partial q}$$
-\(p\) is the generalized momentum. Using \(L=L(q,\dot{q} ,t)\),
+\(p\)為廣義動量。利用\(L=L(q,\dot{q} ,t)\)，
 $$dL=\dot{p} dq+pd\dot{q} +{\partial L\over\partial t} dt$$
 $$=d(\dot{p} q)-qd\dot{p} +d(p\dot{q}  )-\dot{q} dp+{\partial L\over\partial t} dt$$
 $$=\color{red}{d(\dot{p} q+p\dot{q}  )}-qd\dot{p} -\dot{q} dp+{\partial L\over\partial t} dt$$
 
-Moving the <font color="red">red term</font> to the other side:
+
+<font color="red">紅色項</font>移項
 $$d \left(L\color{red}{-\dot{p} q-p\dot{q}} \right)=-qd\dot{p} -\dot{q} dp+{\partial L\over\partial t} dt$$
-Define a new Lagrangian \(\bar{L}\):
+定義新的Lagrangian \(\bar{L}\)
 $$\bar{L} \equiv L-\dot{p} q-p\dot{q} =L-{d\over dt} (pq)$$
-We get \(d\bar{L}\):
+得到\(d\bar{L}\)
 $$ d\bar{L}=-qd\dot{p} -\dot{q} dp+{\partial L\over\partial t} dt$$
 
-Comparing the left and right sides, we get:
+比較左右兩邊可以得到
 $${\partial \bar{L}\over\partial \dot{p} }=-q$$
 $${\partial \bar{L}\over\partial p}=-\dot{q}$$
 $$\to {d\over dt} {\partial \bar{L}\over\partial \dot{p}}={\partial \bar{L}\over\partial p}$$
-This is the EoM in momentum space. It is noteworthy that the form is invariant.
+為動量空間的EoM。可以注意到形式不變(Form invariant)。
+
 
 </p>
 </div>
@@ -387,57 +357,63 @@ This is the EoM in momentum space. It is noteworthy that the form is invariant.
 <section id="f">
 <div class="container">
 <header class="major">
-	<h2><li>Classical Noether's Theorem</li></h2>
+	<h2><li>古典諾特定理</li></h2>
 </header>
 
 <p style="text-align:justify">
-Classical Noether's Theorem
-Noether's theorem, as an important theorem in classical mechanics, is also the key reason why Lagrangian and Hamiltonian mechanics transcend Newtonian mechanics. The statement of Noether's theorem is that when a system satisfies the EoM or the principle of least action, if we apply a variation \(\delta \alpha\) to the Action S and still have \(\delta S=0\), Noether's theorem indicates that there is a corresponding conserved quantity. Here we discuss simultaneous variations in time \(t\) and the physical trajectory \(q\):
+古典諾特定理
+諾特定理作為古典力學重要的定理，也是Lagrangian、Hamiltonian超越牛頓力學的重要原因。諾特定理的表述為，當系統滿足EoM、或最小作用量原理之下，我們若給予Action S一個變化\(\delta \alpha\)卻可以保持\(\delta S=0\)，諾特定理表明會對應到一個守恆量。在這邊我們討論同時對時間\(t\)跟物理軌跡\(q\)做變分
 $$q \to \bar{q} = q+\delta q$$
 $$t \to \bar{t} =t+\delta t$$
-However, it is worth noting that the trajectory \(q\), as a function of time \(t\), will be affected not only by its own variation but also by the change in time. Define \(\Delta q\) to represent the total effect:
+但值得注意的是，軌跡\(q\)作為時間\(t\)的函數，會受到自身變分的影響之外，也會受到時間改變的有影響，定義\(\Delta q\)表示完整影響
 $$\Delta q\equiv \bar{q} (\bar{t}  )-q(t)$$
-$$=\bar{q} (\bar{t}  )-q(\bar{t}  )+q(\bar{t}  )-q(t)$$
+$$=\bar{q} (\bar{t}  )-q(\bar{t}  )+-q(\bar{t}  )-q(t)$$
 $$=\delta q+\dot{q} \delta t$$
-Consider the difference before and after the variation:
+考慮變分前後的差別
 $$\delta S=\delta \int  L dt=\int  \delta L dt+\int  L d\delta t$$
-The first term can be expanded as:
+第一項仔細寫下為
 $$\delta L=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
 $$=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )+L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
 
 $$={\partial L\over\partial q}  \delta q+{\partial L\over \partial \dot{q} }  \delta \dot{q} +{dL\over dt}  \delta t$$
 
+
 $$={\partial L\over\partial q}  \delta q-\left({d\over dt}   {\partial L\over \partial \dot{q} }\right) \delta q+{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
 
-$$=\left[{\partial L\over\partial q} -{d\over dt}   {\partial L\over \partial \dot{q} }\right]\delta q+{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
-Since the Lagrangian satisfies the EoM:
+
+$$=\left[{\partial L\over\partial q} -{d\over dt}   {\partial L\over \partial \dot{q} } \right]\delta q+{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
+因為Lagrangian滿足EoM
 $${\partial L\over\partial q} -{d\over dt}   {\partial L\over \partial \dot{q} } =0 $$
-The first term simplifies to:
+所以第一項只剩下
 $$\delta L={d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t$$
-The second term can be rewritten as:
+第二項單純改寫
 $$\int  L d\delta t=\int   L {d\delta t\over dt}  dt$$
-Combining the two terms:
+將兩項合併
 $$\delta S=\int  \left[{d\over dt}  \left({\partial L\over \partial \dot{q} }  \delta q\right)+{dL\over dt}  \delta t\right]  dt+\int   {L d\delta t\over dt}  dt$$
 $$=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \delta q+L\delta t\right]   dt$$
 
-However, since \(\delta q\) is just the variation of the trajectory itself, the total variation \(\Delta q\) must be considered. Using
+
+但因為\(\delta q\)只是軌跡自身的變分，必須考慮到完整的變化\(\Delta q\)，利用
+
 $$\delta q=\Delta q-\dot{q} \delta t$$
-Substitute into the equation:
+代入
 $$\delta S=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \left(\Delta q-\delta t \right)+L\delta t\right]   dt$$
 $$=\int   {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \Delta q-\left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t\right]   dt$$
 
-If the variation leaves the action unchanged, i.e., \(\delta S=0\), then:
+
+如果經過變分後不變，即\(\delta S=0\)，代表
 $$ {d\over dt}  \left[{\partial L\over \partial \dot{q} }  \Delta q\right]=0 \to {\partial L\over \partial \dot{q} }  \Delta q =const.$$
 $$ {d\over dt}  \left[ \left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t\right]=0 \to \left({\partial L\over \partial \dot{q} }  \dot{q} -L\right)\delta t = const.$$
-The conserved quantity corresponding to the invariance under trajectory \(q\) variation is:
+對應軌跡q變分不變的守恆量為
 $${\partial L\over \partial \dot{q} } =p$$
-This is momentum conservation.<br>
-The conserved quantity corresponding to the invariance under time \(t\) variation is:
+，為動量守恆。<br>
+對應時間t變分不變的守恆量為
 $$H={\partial L\over \partial \dot{q} }  \dot{q} -L$$
-This is energy conservation.
+為能量守恆。
 </p>
 </div>
 </section>
+
 
 <section id="g">
 <div class="container">
@@ -446,145 +422,120 @@ This is energy conservation.
 </header>
 
 <p style="text-align:justify">
-<b><font color="red">This section is a conjecture by the author and is not yet confirmed to be correct</font></b><br>
-As mentioned earlier, the Lagrangian \(L\) is not unique, and we can add a total derivative term \(\dot{f}\) without changing the EoM. Here, we discuss the impact of adding \(\dot{f}\) on Noether's theorem. We simply need to modify the conclusion by substituting \(L\to\bar{L} =L+\dot{f}\):
+<b><font color="red">本節為筆者推論，還不確定是否正確</font></b><br>
+前面提到Lagrangian L的不唯一性，我們可以添加全微分項\(\dot{f}\) 而不改變EoM。以下來討論添加\(\dot{f}\) 對諾特定理的影響。我們只需先將\(L\to\bar{L} =L+\dot{f} \)改寫結論即可
+
 
 $$\delta S=\int   {d\over dt}  \left[{\partial \bar{L} \over \partial \dot{q} }  \Delta q-\left({\partial \bar{L} \over \partial \dot{q} }  \dot{q} -\bar{L}  \right)\delta t\right]   dt$$
 
+
 $$=\int   {d\over dt} \left[\left({\partial L\over \partial \dot{q} } +{\partial \dot{f} \over \partial \dot{q} } \right)\Delta q-\left(\left({\partial L\over \partial \dot{q} } +{\partial \dot{f} \over \partial \dot{q} } \right) \dot{q} -L-\dot{f}  \right)\delta t\right]   dt$$
 
-Note that \(f=f(q,t)\), so the dot cancellation applies, \({\partial \dot{f} \over \partial \dot{q} } ={\partial f\over\partial q}\). Additionally, substituting \( p={\partial L\over \partial \dot{q}}\), we have:
+
+
+注意\(f=f(q,t)\)，適用dot cancellation，\({\partial \dot{f} \over \partial \dot{q} } ={\partial f\over\partial q}\)，另外代入\( p={\partial L\over \partial \dot{q}}\)，所以
+
 
 $$\delta S=\int   {d\over dt}  \left[\left({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}\right)\Delta q-\left(\left(p +{\partial f\over\partial q}\right) \dot{q} -L-\dot{f} \right)\delta t\right]   dt$$
 $$=\int   {d\over dt}  \left[\left({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}\right)\Delta q-\left(p\dot{q} +{\partial f\over\partial q}\dot{q}  -L-\dot{f} \right)\delta t\right]   dt$$
 $$=\int   {d\over dt}  \left[\left({\partial L\over \partial \dot{q} } +{\partial f\over\partial q}\right)\Delta q-\left(H -{\partial f\over\partial t} \right)\delta t\right]   dt$$
 
-If the original Lagrangian \(L\) does not possess symmetry, we may have the opportunity to modify it through \({\partial f \over \partial q}\) since \(f=f(q,t)\) so that \({\partial f\over\partial q}={\partial \over\partial q}f(q,t)\). As long as \({\partial L\over \partial \dot{q} }\) is not a function of \(\dot{q}\), we can use \({\partial f\over\partial q}=-{\partial L\over \partial \dot{q} } +const\) to eliminate the non-zero differential part, making \(\delta S=0\). The conserved quantity corresponding to the invariance under the variation of trajectory \(q\) is:
-
+如果當原本的Lagrangian \(L\)不具備對稱性，我們有機會透過\({\partial f \over \partial q}\)做修正，因為\(f=f(q,t)\)所以\({\partial f\over\partial q}={\partial \over\partial q}f(q,t)\)，只要\({\partial L\over \partial \dot{q} }\) 不是\(\dot{q}\) 的函數，我們可以用\({\partial f\over\partial q}=-{\partial L\over \partial \dot{q} } +const\)消除微分不為零的部分，使得\(\delta S=0\)，對應軌跡\(q\)變分不變的守恆量為
 $${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=\bar{p}$$
-
-We can call the Lagrangian \(\bar{L}= L+\dot{f}\) the Maximal Symmetry Action corresponding to the Action \(\bar{S}\).
+，我們可以稱作此Lagrangian \(\bar{L}= L+\dot{f}\) 對應的Action \(\bar{S}\)為Maximal Symmetry Action。
 
 </p>
 </div>
 </section>
 
+
+
 <section id="h">
 <div class="container">
 <header class="major">
-	<h2><li>A Brief Discussion on Particle and EM Field Interaction Action</li></h2>
+	<h2><li>淺談Particle與EM Field交互作用下的Action</li></h2>
 </header>
 
 <p style="text-align:justify">
-In classical mechanics, to fully describe a particle, one only needs to write down its Lagrangian:
-
+以前我們學古典力學時，完整描述一個Particle只須寫下它的Lagrangian
 $$S=\int _a^b Ldt=\int _a^b  T-U dt $$
 $$=\int _a^b  T dt +\int _a^b  -U dt =S_P+S_{PF}$$
-
-Here, the kinetic term \(T\) can be regarded as the Action \(S_P\) of a free particle, and the potential term \(U\) is the Action \(S_{PF}\) of the interaction between the particle and the field. In electromagnetism, we learn that the field also carries momentum and energy, so the complete description of electromagnetic motion includes the Action \(S_F\) of the field:
-
+其中，動能項\(T\)可視為Free particle的Action \(S_P\)，位能項\(U\)就是Particle和Field交互作用的Action \(S_{PF}\)。在電磁學我們學到Field也有帶有動量、能量，所以完整描述電磁運動會包含Field的Action \(S_F\)
 $$S=S_P+S_{PF}+S_F$$
 
 </p>
 </div>
 </section>
 
+
+
 <section id="i">
 <div class="container">
 <header class="major">
-	<h2><li>Variation of Free Particle Action</li></h2>
+	<h2><li>Free Particle Action的變分</li></h2>
 </header>
 <p style="text-align:justify">
 
-In the relativistic case, to describe a free particle, we use the 4-displacement 
+在相對論性下，描述Free particle我們會利用4-displacement 
 $$\eta =\eta ^\mu  \hat{e} _\mu =(\tau ,\overrightarrow{0} )_{porper}=(t,\overrightarrow{\eta})$$
-
-to describe the trajectory of the particle, where \(\tau\) is the particle's proper time. Here, \(\eta ^\mu\) is used to distinguish the trajectory from spacetime (to accommodate subsequent discussions on Noether's theorem, it is necessary to rigorously distinguish between the trajectory and spacetime; the trajectory is a physical quantity, while spacetime is a coordinate system, which are different concepts). To describe the particle's velocity, we use the 4-Velocity \(U=U^\mu  \hat{e} _\mu =(\gamma c,\gamma \overrightarrow{v} )={d\eta ^\mu \over d\tau}  \hat{e} _\mu\), where \(\tau\) is the particle's proper time. Furthermore, \(U^\mu =U^\mu  (x^\nu )\), meaning that the velocity \(U^\mu\) changes with different coordinates \(x^\nu\) in spacetime. The idea here is that a free particle moves from point a to point b in spacetime, and we calculate the extremum of the Action \(S_P\) for different paths \(\eta ^\mu\) by varying \(x^\mu\):
-
-<a href="./Image/P31.png"><img src="./Image/P31.png" alt="Substitute text" width=70% height="auto"></a>
-
+來描述粒子的軌跡，其中\(\tau\) 是particle的proper time。這邊採用\(\eta ^\mu\) 與\(x^\mu\) 區分軌跡與時空（因應後續諾特定理討論，需嚴謹區分軌跡和時空，軌跡是物理量，時空是座標，是不同的概念）；描述粒子速度利用4-Velocity \(U=U^\mu  \hat{e} _\mu =(\gamma c,\gamma \overrightarrow{v} )={d\eta ^\mu \over d\tau}  \hat{e} _\mu\) ，其中\(\tau\) 是particle的proper time。更進一步說\(U^\mu =U^\mu  (x^\nu )\)，速度\(U^\mu\) 會隨在時空的不同座標\(x^\nu\) 發生改變。在這邊的想法是，一個Free particle從時空中a跑到b，我們針對不同路徑\(\eta ^\mu\) 下的Action \(S_P\)去算極值，即對\(x^\mu\) 作變分<br>
+<a href="./Image/P31.png"><img src="./Image/P31.png" alt="取代文字" width=70% height="auto"></a>
 $$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
 $$\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0$$
-
-The Action \(S_P\) for a free particle is:
-
+Free particle的Action \(S_P\)為
 $$S_P=\int _a^b  -mc^2 d\tau  $$
-After variation:
-
+經過變分
 $$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
 
-It may seem that \(d\tau \) is unrelated to the variation \(\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu\), but recall:
-
+看起來\(d\tau \)好像與\(\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu\) 變分無關，不過回憶一件事情
 $$∵c^2  d\tau  ^2=d\eta ^\mu  d\eta _\mu $$
 $$∴cd\tau =\sqrt{d\eta ^\mu  d\eta _\mu}$$
-
-Thus:
-
+所以
 $$\delta S_P=-mc\int _a^b  \delta \sqrt{d\eta ^\mu  d\eta _\mu}$$
 $$=-mc\int _a^b  {1\over 2}  {\color{red}{\delta d\eta ^\mu \cdot d\eta _\mu +d\eta ^\mu \cdot \delta d\eta _\mu} \over \sqrt{d\eta ^\mu  d\eta _\mu}} $$
-
 <table cellpadding="1" border="1">
 <tr><td>
 
-Advanced: Thm.4: <br>
-The variation of a scalar is independent of the indices.
-Recall the metric tensor \(g_{\mu \nu}\):
-
+進階：Thm.4: <br>
+對Scalar變分與上下標無關
+回憶度規張量Metric Tensor \(g_{\mu \nu}\) ：
 $$g_{\mu \nu} =\hat{e} _\mu \cdot \hat{e} _\nu $$
 $$g_{\mu \nu} =g_\nu \mu $$
 $$g^{\mu \nu} \equiv (g_{\mu \nu}  )^{-1}$$
-
-\(g^{\mu \nu}  g_{\nu \omega} = \delta ^\mu  _\omega  \) (Delta function, do not confuse it with the variation \(\delta\)).
-The metric tensor \(g_{\mu \nu}\) is an intrinsic property of spacetime (Intrinsic Property) and is independent of \(x^\mu\) <font color="red">(only considering special relativity here; in general relativity, it would be affected)</font>. This means that the variation with respect to \(x^\mu\) is independent of the metric \(g_{\mu \nu}\). The metric tensor can be used to raise or lower indices (Index lowering or raising):
-
+\(g^{\mu \nu}  g_{\nu \omega} = \delta ^\mu  _\omega  \)（Delta funcion，暫時不要跟變分\(\delta\) 搞混）。
+度規張量\(g_{\mu \nu}\) 是時空的內稟性質(Intrinsic Property)，與\(x^\mu\) 無關<font color="red">(暫時只考慮狹義相對論，廣義相對論就會有影響)</font>，意思是對\(x^\mu\) 變分與度規\(g_{\mu \nu}\) 無關。度規張量可以用作上下標轉換（Index lowering or raising）
 $$x^\mu =g^{\mu \nu}  x_\nu $$
 $$x_\mu =g_{\mu \nu}  x^\nu $$
-
-Since the variation with respect to \(x^\mu\) is independent of the metric \(g_{\mu \nu}\), we have:
-
+因為對\(x^\mu\) 變分與度規\(g_{\mu \nu}\) 無關，所以
 $$\delta x^\mu =g^{\mu \nu}  \delta x_\nu$$
 $$\delta x_\mu =g_{\mu \nu}  \delta x^\nu $$
-
-For a scalar, such as \(x^\mu  y_\mu \), the variation is:
-
+對一個Scalar作變分，例如\(x^\mu  y_\mu \)是一個Scalar \(x^\mu  y_\mu =x_\mu  y^\mu \)
 $$\delta (x^\mu  y_\mu  )=\delta x^\mu \cdot y_\mu +x^\mu \cdot \delta y_\mu $$
 $$=g^{\mu \nu}  \delta x_\nu \cdot g_{\mu \omega}  y^\omega +g^{\mu \nu}  x_\nu \cdot g_{\mu \omega}  \delta y^\omega $$
 $$=g^{\mu \nu}  g_{\mu \omega}  (\delta x_\nu \cdot y^\omega +x_\nu \cdot \delta y^\omega  )=g^{\color{red}{\nu \mu}}  g_{\mu \omega}  \delta (x_\nu  y^\omega  )$$
 $$= \delta ^\nu  _\omega  \delta (x_\nu  y^\omega  )=\delta (x_\omega  y^\omega  )=\delta (x_\mu  y^\mu  )$$
-
-Similarly:
-
+同理
 $$x^\mu  \delta y_\mu =x_\mu  \delta y^\mu $$
-Therefore:
-
+所以
 $$\color{red}{\delta dx^\mu \cdot dx_\mu +dx^\mu \cdot \delta dx_\mu} $$
 $$=\delta dx^\mu \cdot dx_\mu +dx_\mu \cdot \delta dx^\mu $$
 $$=2\delta dx^\mu \cdot dx_\mu $$
 </td></tr>
 </table>
-
-$$\delta S_P=-mc\int _a^b  {1\over 2}  {2\delta d\eta ^\mu\cdot d\eta _\mu  \over \sqrt{d\eta ^\mu  d\eta _\mu}} $$
+$$\delta S_P=-mc\int _a^b  {1\over 2}  {2\delta d\eta ^\mu\cdot d\eta _\mu  \over \sqrt{d\eta ^\mu  d\eta _\mu} } $$
 $$= -mc\int _a^b {\delta d\eta ^\mu \cdot d\eta _\mu \over cd\tau}$$
 $$ =-m\int _a^b  \delta d\eta ^\mu \cdot U_\mu   $$
-
-Using the method of Thm.1, we exchange \(\delta dx^\mu \) with \(d\delta x^\mu\), and perform integration by parts:
-
+利用Thm.1的方法，我們將\(\delta dx^\mu \)對調成\(d\delta x^\mu\) ，並作分部積分
 $$\delta S_P=-m\int _a^b  U_\mu  d\delta \eta ^\mu $$
 $$=\color{red}{ -\left[ U_\mu  \delta \eta ^\mu  \right]\Big| _a^b}+m\int _a^b  dU_\mu  \delta \eta ^\mu$$   
-
-The boundary term <font color="red">is zero</font> because the boundary variation \(\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0\). The latter term can be multiplied and divided by \(d\tau\) without affecting the variation, according to Thm.3:
-
+<font color="red">邊界項</font>因為變分邊界\(\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0\)，後面那一項利用Thm.3同乘同除\(d\tau\) 不影響變分
 $$\delta S_P=m\int _a^b  dU_\mu  \delta \eta ^\mu $$
 $$ =\int _a^b  {m (dU_\mu )\over d\tau}  \delta \eta ^\mu  d\tau  $$
-So, for a free particle, \(\delta S_P=0\) leads to:
-
+所以對Free particle而言，\(\delta S_P=0\)使得
 \(m {dU_\mu \over d\tau} =0\)
-
-Considering \(\mu =1\sim 3\):
-
+觀察\(\mu =1\sim 3\)
 $$m {d\overrightarrow{v}\over d\tau} =0$$
-
-A free particle has no acceleration and maintains uniform motion.
+Free particle沒有加速度，保持等速運動。
 
 </p>
 </div>
@@ -592,107 +543,75 @@ A free particle has no acceleration and maintains uniform motion.
 
 
 
+
 <section id="j">
 <div class="container">
 <header class="major">
-	<h2><li>Variation and Equations of Motion for a Charged Particle in an EM Field</li></h2>
+	<h2><li>Charge Particle與EM Field作用下的變分與運動方程</li></h2>
 </header>
 
 <p style="text-align:justify">
 
-In this section, we aim to explore how a charged particle moves under a given EM Field (note that "given EM Field" means we do not vary the EM Field itself). In relativistic electrodynamics, we write the 4-Potential as \(A = A^\mu  \hat{e} _\mu =\left(\phi,\overrightarrow{A}\right)\), using Gaussian units here. The Action \(S_{PF}\) for the interaction of the charged particle is written as:
-
+在這一部分中，我們想探討一個Charge Particle在給定的EM Field下如何運動？（注意喔，給定的EM Field表示我們不對EM Field作變分）。相對論性電磁學下我們會寫下4-Potential \(A= A^\mu  \hat{e} _\mu =\left(\phi,\overrightarrow{A}\right)\)，在這邊採用高斯制（Gaussian unit），而Charge Particle交互作用的Action \(S_{PF}\)會寫成
 $$S_{PF}=\int _a^b  -{e \over c}  A_\mu  d\eta ^\mu   $$
-
-The complete description of the motion of the charged particle is given by:
-
+完整的描述Charge Particle運動即為
 $$S=S_P+S_{PF}=\int _a^b  -mc^2 d\tau  +\int _a^b  -{e\over c}  A_\mu  d\eta ^\mu   $$
+ 
+ 
 
-Here, we consider varying the path \(\eta ^\mu\) of the charged particle in spacetime:
-
+在這邊，我們考慮Charge Particle在時空中的路徑作\(\eta ^\mu\) 變分
 $$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
-
-Although we do not vary the EM Field \(A^\mu\), the potential experienced by the particle depends on the path taken. Hence, the Action for different paths will involve different values of \(A^\mu\) (meaning the change in \(A^\mu\) comes from the different paths \(\eta ^\mu\) rather than from varying \(A^\mu\)):
-
+雖然我們沒有對EM Field \(A^\mu\) 作變分，但是走不同路徑感受到的位能是不一樣的，所以Action走不同的路徑會有不同的\(A^\mu \)（意思是\(A^\mu \) 的變化來自於路徑 \(\eta ^\mu\) 不同，而不是對\(A^\mu\) 作變分）
 $$A^\mu  (\eta ^\mu  )\to A^\mu  (\eta ^\mu +\delta \eta ^\mu  )=A^\mu  (\eta ^\mu  )+\delta A^\mu $$
 
 <table cellpadding="1" border="1">
-<tr><td><a href="./Image/P31.png"><img src="./Image/P31.png" alt="Substitute text" width=70% height="auto"></a></td></tr>
+<tr><td><a href="./Image/P31.png"><img src="./Image/P31.png" alt="取代文字" width=70% height="auto"></a></td></tr>
 </table>
 <table cellpadding="1" border="1">
-<tr><td><a href="./Image/P32.png"><img src="./Image/P32.png" alt="Substitute text" width=98% height="auto"></a></td></tr>
+<tr><td><a href="./Image/P32.png"><img src="./Image/P32.png" alt="取代文字" width=98% height="auto"></a></td></tr>
 </table>
 
-We calculate how \(\delta S_{PF}\) varies:
-
+我們計算\(\delta S_{PF}\)如何變分：
 $$\delta S_{PF}=\delta \int _a^b  -{e\over c}  A_\mu  d\eta ^\mu  $$
 $$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   -{e\over c}  \int _a^b  A_\mu \cdot \delta d\eta ^\mu  $$ 
-
-Using the method of Thm.1, we exchange \(\delta d\eta ^\mu \) with \(d\delta \eta ^\mu\):
-
+利用Thm.1的方法，我們將\(\delta d\eta ^\mu \)對調\(d\delta \eta ^\mu  \)
 $$\delta d\eta ^\mu =d\delta \eta ^\mu $$
-
-and perform integration by parts, where the boundary term vanishes:
-
+並作分部積分，邊界項會消失
 $$\delta S_{PF}=-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   -{e\over c}  \int _a^b  A_\mu \cdot d\delta \eta ^\mu  $$
 $$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu    \color{red}{ -\left[{e\over c}  A_\mu \cdot \delta \eta ^\mu \right]  \Big|_a^b}+{e\over c}  \int _a^b   dA _\mu \cdot \delta \eta ^\mu  $$ 
-
-Using Thm.3, multiplying and dividing by \(d\tau \) does not affect the variation:
-
+利用Thm.3同乘同除\(d\tau \)不影響變分
 $$\delta S_{PF}=-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   +{e\over c}  \int _a^b   dA _\mu \cdot \delta \eta ^\mu  $$
 $$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot {d\eta ^\mu \over \color{red}{d\tau}}  \color{red}{d\tau}  +{e\over c}  \int _a^b   {dA _\mu \over \color{red}{d\tau}}  \color{red}{d\tau} \cdot \delta \eta ^\mu   $$
-
-Since:
-
-$$\delta A_\mu ={\partial A_\mu \over \partial x ^\nu } \delta \eta ^\nu $$
-
-and
-
+因為
+$$\delta A_\mu ={\partial A_\mu \over \partial x ^\nu } \delta \eta ^\nu $$<br>
 $${dA_\mu \over d\tau} ={\partial A_\mu \over \partial x^\nu  }  {d\eta ^\nu \over d\tau} ={\partial A_\mu \over \partial x^\nu  } U^\nu $$
-
-Substituting these, we get:
-
+代入得到
 $$\delta S_{PF}=-{e\over c}  \int _a^b  {\partial A_\mu \over\partial x^\nu } \delta \eta ^\nu \cdot u^\mu  d\tau  +{e\over c}  \int _a^b  {\partial A_\mu \over \partial x^\nu  } U^\nu  d\tau \cdot \delta \eta ^\mu$$   
 $$=-{e\over c}  \int _a^b  (\partial _\nu  A_\mu  ) u^\mu  \delta \eta ^\nu  d\tau  +{e\over c}  \int _a^b  \left(\partial _\nu  A_\mu  \right) U^\nu  \delta \eta ^\mu  d\tau $$ 
-
-We want to factor out the variation \(\delta \eta ^\nu \) and \(\delta \eta ^\mu\) together, but the indices do not match. However, since each term's indices \(\mu\) and \(\nu\) are dummy indices, we can interchange them \(\mu \leftrightarrow \nu\). By swapping \(\mu\) and \(\nu\) in the first term, we can combine the terms:
-
+我們想要把變分\(\delta \eta ^\nu \)和\(\delta \eta ^\mu\) 一起提出來，但是上標不一樣。但因為每一項\(\mu\) 、\(\nu\) 都是Dummy index，可以互換\(\mu \leftrightarrow \nu\) ，我們把第一項的\(\mu\) 、\(\nu\)互換，就可以把兩項合併
 $$\delta S_{PF}=-{e\over c}  \int _a^b  \left(\partial _\color{red}{\mu}  A_\color{red}{\nu}  \right) U^\color{red}{\nu}  \delta \eta ^\color{red}{\mu}  d\tau  +{e\over c}  \int _a^b  (\partial _\nu  A_\mu  ) U^\nu  \delta \eta ^\mu  d\tau $$
 $$=-{e\over c}  \int _a^b  (\partial _\mu  A_\nu -\partial _\nu  A_\mu  ) U^\nu  \delta \eta ^\mu  d\tau  $$
-
-Considering the full motion of the charged particle in the EM Field:
-
+完整考慮Charge Particle在EM Field中的運動
 $$\delta S=\delta S_P+\delta S_{PF}=0$$
-
-Thus:
-
+所以
 $$\delta S_P+\delta S_{PF}=\int _a^b  m {dU_\mu \over d\tau}   \delta \eta ^\mu  d\tau -{e\over c}  \int _a^b  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu  \delta \eta ^\mu  d\tau  $$
 $$=\int _a^b \left[m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu  \right]  \delta \eta ^\mu  d\tau =0$$
-
-We obtain:
-
-$$m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu =0$$
+會得到
+$$m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu =0$$<br>
 
 $$m {dU_\mu \over d\tau} ={e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu \equiv {e\over c}  F_{\mu \nu}  U^\nu $$
-
-We define the electromagnetic tensor:
-
+我們定義電磁張量Electromagnetic Tensor
 $$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu $$
-
-The relationship between the electric field \(\overrightarrow{E}\), the magnetic field \(\overrightarrow{B}\), and the potentials \(\phi\), \(\overrightarrow{A}\) (in Gaussian units):
-
+電場\(\overrightarrow{E}\)、磁場\(\overrightarrow{B}\)與\(\phi\)、\(\overrightarrow{A}\)的關係（高斯制）
 $$ \overrightarrow{E}=-\nabla \phi-{1\over c}  {\partial \overrightarrow{A}\over \partial t}$$
 $$\overrightarrow{B}=\nabla \times \overrightarrow{A} $$
-
-Where:
-
+其中
 $$A_\nu \to \left(\phi,-A_x,-A_y,-A_z \right)$$
 $$\partial _\mu \to \left({\partial \over \partial x^0},{\partial \over \partial x^1 },{\partial \over \partial x^2},{\partial \over \partial x^3 }\right)=\left({\partial \over \partial ct},{\partial \over \partial x },{\partial \over \partial y},{\partial \over \partial z }\right)$$
-
-We can calculate:
-
+可以計算
 $$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B-z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
 $$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+
 
 </p>
 </div>
@@ -702,193 +621,138 @@ $$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0
 <section id="k">
 <div class="container">
 <header class="major">
-	<h2><li>4-Volume \(d^4 x\) and Lagrangian Density \(\mathcal{L}\)</li></h2>
+	<h2><li>4-Volume \(d^4 x\)與Lagrangian Density \(\mathcal{L}\)</li></h2>
 </header>
 
 <p style="text-align:justify">
 
-Since spacetime is equivalent under relativity, physicists use the Principle of Relativity and the Principle of Least Action to write the Action \(S\) in scalar form, ensuring that \(\delta S = 0\) in any coordinate system. The Actions we listed earlier are:
-
-$$S_P=-mc^2 \int _a^b d\tau $$
-
-$$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   $$
-
+因為時空在相對論下是等價的，利用相對性原理（Principle of Relativity）和最小作用量原理（Principle of least action）的要求，物理學家會將Action S寫成Scalar的形式，從而保證在任何作標系下\(\delta S=0\)。剛剛我們所列下來的Action：
+$$S_P=-mc^2 \int _a^b d\tau $$<br>
+$$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   $$<br>
 $$S=S_P+S_{PF}=-mc^2 \int _a^b d\tau -{e\over c}  \int _a^b  A_\mu  dx^\mu   $$
 $$=\int _a^b  -\gamma mc^2-\gamma e \phi+{e\over c}  \overrightarrow{A} \cdot \gamma \overrightarrow{v}  dt =\int _a^b Ldt$$
-
-Although these Actions satisfy the scalar requirement, the Lagrangian \(L\) itself is not a scalar, as it varies under different coordinate systems. Physicists, therefore, aim to rewrite the Lagrangian \(L\) as a scalar. We define the 4-Volume \(d^4 x=dc\tau dV=dc\tau dxdydz\) and rewrite the original Action as:
-
+雖然Action都滿足Scalar的要求，但是Lagrangian L本身並不是Scalar，因為換到不同座標系下會不一樣，物理學家於是想要進一步將Lagrangian L改寫成Scalar的形式。我們定義4-Volume \(d^4 x=dc\tau dV=dc\tau dxdydz\)，並將原本的Action改寫
 $$S_P=-mc^2 \int _a^b d\tau =-\int   \rho_m dV  c^2 \int _a^b d\tau $$
-$$=-∬  \rho_m cdc\tau dV =\int   -\rho_m cd^4 x $$
+$$=-∬  \rho_m cdc\tau dV =\int   -\rho_m cd^4 x $$<br>
 
 $$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   =-{\int  \rho_e dV \over c} \int _a^b  A_\mu   {dx^\mu \over d\tau}  d\tau  $$
 $$=-{1 \over c} ∬  \rho_e A_\mu  u^\mu  d\tau dV =-{1 \over c^2}  ∬  A_\mu  J^\mu  dc\tau d^4 x $$
 $$=-{1 \over c^2}   \int   A_\mu  J^\mu  d^4 x $$
-
-Here, \(J = J^\mu  \hat{e} _\mu = \rho_e u^\mu  \hat{e} _\mu\) is the 4-current density. Notably, \(d^4 x\) is an invariant, making it a scalar. Additionally, when we add the EM Field Action \(S_F\):
-
+其中，4-current density \(J=J^\mu  \hat{e} _\mu =\rho_e u^\mu  \hat{e} _\mu\) 。特別的是\(d^4 x\)是一個不變量Invariant，所以是一個Scalar。另外在加上EM Field的Action \(S_F\)
 $$S_F=-{1 \over 16\pi c} \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x $$
 $$S=S_P+S_{PF}+S_F$$
 $$=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
 $$ \equiv \int   \mathcal{L} d^4 x $$
-
-Since the 4-Volume \(d^4 x\) is a scalar and the Action is also a scalar, \(\mathcal{L}\) must be a scalar as well. We call \(\mathcal{L}\) the Lagrangian density. The Lagrangian density \(\mathcal{L}\) remains a scalar and is invariant in any coordinate system:
-
+因為4-Volume \(d^4 x\)是一個Scalar，Action也是一個Scalar，所以\(\mathcal{L}\)也是一個Scalar。\(\mathcal{L}\)我們稱為Lagrangian density，Lagrangian density　\(\mathcal{L}\)在任何座標系下都是Scalar，形式保持不變：
 $$\mathcal{L}=-\rho_m c-{1\over c^2}  A_\mu  J^\mu -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu} $$
 
 <table cellpadding="1" border="1">
 <tr><td>
-Advanced: \(d^4 x\) is an invariant<br>
-<b>Physical Proof</b><br>
-Due to Time Dilation and Length Contraction being opposite effects, if \(\tau\) and \(\bar{x}\) are the proper time and proper length:
-
+進階：d^4 x是一個不變量Invariant<br>
+<b>物理proof</b><br>
+因為Time dilation 和 Length contraction相反。如果\(\tau\) 、\(\bar{x}\)是proper time和proper length
 $$t=\gamma \tau $$
 $$x={\bar{x} \over \gamma} $$
-
-Therefore:
-
+所以
 $$dctdx=dc\left(\gamma \tau \right)d{\bar{x} \over \gamma }=dc\tau d\bar{x}$$
 
-<b>Mathematical Proof</b><br>
-Recall the Jacobian \(J\):
-
+<b>數學proof</b><br>
+回憶Jacobian \(J\)
 $$dxdy=rdrdθ=J\left(r,\theta\right)drd\theta$$
-
-Where:
-
+其中
 $$J\left(r,\theta\right)=\left| \begin{matrix} {\partial x \over \partial r} & {\partial x \over \partial \theta} \\ {\partial y \over \partial r} & {\partial y \over \partial \theta}  \end{matrix} \right|
 =\left| \begin{matrix} {\partial rcos\theta \over \partial r} & {\partial rcos\theta \over \partial \theta} \\ {\partial rsin\theta \over \partial r} & {\partial rsin\theta \over \partial \theta}  \end{matrix} \right| $$
-
 $$=\left| \begin{matrix} { cos\theta} & { -rsin\theta} \\ { sin\theta} & { rcos\theta}  \end{matrix} \right|=r $$
 
-Similarly:
-
+同理
 $$dc\bar{t} d\bar{x}=J\left(ct,x\right)dctdx=\left| \begin{matrix} {\partial c\bar{t} \over \partial ct} & {\partial c\bar{t} \over \partial x} \\ {\partial \bar{x} \over \partial ct} & {\partial \bar{x} \over \partial x}  \end{matrix} \right|dctdx$$
-
-Recall the Lorentz transformation:
-
+回憶勞倫茲轉換
 $$c\bar{t} =\gamma (ct-\beta x)$$
 $$\bar{x}=\gamma (x-\beta ct)$$
-
-Substituting these back:
-
+代回去計算
 $$dc\bar{t} d \bar{x}=\left| \begin{matrix} \gamma & -\beta \gamma \\ -\beta \gamma & \gamma  \end{matrix} \right|dctdx $$
 $$=\gamma ^2 (1-\beta ^2 )dctdx=dctdx$$
-
-Thus, \(d^4 x\) is an invariant under Lorentz transformation.
+所以\(d^4 x\)在勞倫茲轉換下是一個不變量。
 </td></tr>
 </table>
 </p>
 </div>
 </section>
 
+
+
 <section id="l">
 <div class="container">
 <header class="major">
-	<h2><li>Maxwell's Equations</li></h2>
+	<h2><li>Maxwell's equations</li></h2>
 </header>
 <p style="text-align:justify">
-In this section, we discuss the distribution of the EM Field given a source (meaning we do not vary the distribution \(\eta^\mu\) of the source). The relevant action is:
-
-$$S_{PF}+S_F=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu d^4 x +\int -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
-
-To understand the distribution of the EM Field, we vary \(A^\mu\):
-
+在這一部分，我們在給定Source下，討論EM Field的分佈（給定Source下表示我們不對Source下的分佈\(\eta ^\mu\) 作變分）。
+$$S_{PF}+S_F=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu d^4 +\int-{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
+我們想知道EM Field的分佈，所以我們針對\(A^\mu\) 作變分
 $$A^\mu \to A^\mu +\delta A^\mu $$
-
-We observe whether \(J^\mu\), \(d^4 x\), or \(F^{\mu \nu}\) are affected:
-
-<a href="./Image/P33.png"><img src="./Image/P33.png" alt="Substitute text" width=90% height="auto"></a><br>
-
+我們來觀察\(J^\mu) \)、\(d^4 x\)、\(F^{\mu \nu}\) 會不會受到影響？<br>
+<a href="./Image/P33.png"><img src="./Image/P33.png" alt="取代文字" width=90% height="auto"></a><br>
 $$J^\mu =\rho_e {dx^\mu \over d\tau} =J^\mu  (x^\nu )$$
 $$d^4 x=d^4 x(x^\nu )$$
 $$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  \left(A^\omega \right)$$	 
 
-Only the electromagnetic tensor \(F^{\mu \nu}\) is affected by the variation \(A^\mu \to A^\mu +\delta A^\mu\):
-
+可見只有電磁張量\(F^{\mu \nu}\) 會受到\(A^\mu \)的變分\(A^\mu \to A^\mu +\delta A^\mu\) 有關
 $$F^{\mu \nu}  \left(A^\omega  \right)\to F^{\mu \nu}  (A^\omega +\delta A^\omega  )=F^{\mu \nu}  \left(A^\omega  \right)+\delta F^{\mu \nu} $$
-
-Thus, the variation of \(S_{PF}\) is straightforward:
-
+所以\(S_{PF}\)的變分很簡單
 $$\delta S_{PF}=\delta \int   -{1 \over c^2}  A_\mu  J^\mu  d^4 x$$
 $$ =-{1 \over c^2}  \int   \delta A_\mu \cdot J^\mu  d^4 x $$
-
-The variation of \(S_F\) is more complex:
-
+至於\(S_F\)的變分就稍嫌複雜
 $$S_F=-{1 \over 16 \pi c} \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x$$ 
 $$\delta S_F=-{1 \over 16 \pi c} \delta \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x =-{1 \over 16 \pi c} \int   \delta F_{\mu \nu} \cdot F^{\mu \nu} +F_{\mu \nu} \cdot  \delta F ^{\mu \nu}  d^4 x $$
-
-Using Thm.4 (variation of scalars is independent of upper and lower indices):
-
-$$\delta F_{\mu \nu} \cdot F^{\mu \nu} =F_{\mu \nu} \cdot  \delta F ^{\mu \nu}$$
-
-Hence, there is a factor of two:
-
+利用Thm.4: 對Scalar變分與上下標無關，所以\(\delta F_{\mu \nu} \cdot F^{\mu \nu} =F_{\mu \nu} \cdot  \delta F ^{\mu \nu}\) ，會有兩倍
 $$\delta S_F=-{1 \over 16 \pi c} \int   2\delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x =-{1 \over 8 \pi c} \int   \delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x $$
-
-Substitute:
-
-$$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu -\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+$$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu -\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
 $$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu  )\cdot F^{\mu \nu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
-
-Since \(\mu\) and \(\nu\) are dummy indices, we can swap \(\mu \leftrightarrow \nu\) in the first term:
-
+因為每一項\(\mu\) 、\(\nu\) 都是Dummy index，可以互換\(\mu ↔\nu \)，我們把第一項的\(\mu\) 、\(\nu\) 互換，就可以把兩項合併
 $$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\color{red}{\nu}  A_\color{red}{\mu}  )\cdot F^\color{red}{\nu \mu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
 $$={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (-F^\nu \mu +F^{\mu \nu}  ) d^4 x $$
-
-Recall the electromagnetic tensor:
-
+回憶電磁張量
 $$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
-
-Since \(F^{\mu \nu}\) is an antisymmetric tensor, \(F^\nu \mu =-F^{\mu \nu} \). Substituting:
-
+\(F^{\mu \nu} \)是一個反對稱張量，所以\(F^\nu \mu =-F^{\mu \nu} \)
+代回去會多兩倍
 $$\delta S_F={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (F^\color{red}{\mu \nu} +F^{\mu \nu}  ) d^4 x ={1 \over 4 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
-
-Using Thm.1, we can exchange \(\delta\) and \(\partial _\nu\):
-
+利用Thm.1的方法，我們將\(\delta\) 和\(\partial _\nu \)對調
 $$\delta (\partial _\nu  A_\mu  )=\partial _\nu  (\delta A_\mu  )$$
 $$\delta S_F={1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
-
-Using the chain rule:
-
+利用微分的Chain rule，
 $$\partial _\nu  (\delta A_\mu  )\cdot F^{\mu \nu} =\partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  )-\delta A_\mu \cdot \partial _\nu  (F^{\mu \nu}  )$$
-
-Splitting the integral into two parts:
-
+將積分拆成兩項
 $$\delta S_F={1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  ) d^4 x -{1 \over 4 \pi c} \int   \delta A_\mu \cdot \partial _\nu  (F^{\mu \nu}  ) d^4 x $$
 
 <table cellpadding="1" border="1">
 <tr><td>
-Recall the Divergence Theorem:
+回憶Divergence theorem
 $$\int    \nabla \cdot \overrightarrow{F}dV =∮  \overrightarrow{F}\cdot d\overrightarrow{S}  $$
-A volume integral can be rewritten as a surface integral. Written in terms of the Levi-Civita symbol:
+一個體積分，可以改寫成對體表面的面積分。寫成Levi-Civita symbol
 $$\int   \partial _\nu  F^\nu  dV =∮  F^\nu  dS_\nu $$  
 </td></tr>
 </table>
 
-Thus, using the Divergence Theorem, the first term vanishes since the variation \(\delta A_\mu\) on the boundary is zero:
 
+所以第一項利用Divergence theorem，但是Boundary上的\(\delta A_\mu =0\)，所以
 $${1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  ) d^4 x ={1 \over 4 \pi c} ∮  \delta A_\mu \cdot F^{\mu \nu}  dS_\nu   =0$$
-
-Therefore:
-
+所以
 $$\delta S_F=-{1 \over 4 \pi c} \int   \partial _\nu  (F^{\mu \nu}  )\cdot \delta A_\mu  d^4 x $$
 
-Combining \(\delta S_{PF} + \delta S_F\):
-
+合併\(\delta S_{PF}+\delta S_F\)
 $$\delta S_{PF}+\delta S_F=-{1 \over c^2}  \int   J^\mu \cdot \delta A_\mu  d^4 x -{1 \over 4 \pi c} \int   \partial _\nu  (F^{\mu \nu}  )\cdot \delta A_\mu  d^4 x$$ 
 $$=\int   \left[-{1 \over c^2}  J^\mu -{1 \over 4 \pi c} \partial _\nu  F^{\mu \nu}  \right]\delta A_\mu  d^4 x =0$$
-
-Thus, we obtain:
-
+會得到
 $$-{1 \over c^2}  J^\mu -{1 \over 4 \pi c} \partial _\nu  F^{\mu \nu} =0$$
 $$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
 
+
 <table cellpadding="1" border="1">
 <tr><td>
-Recall Maxwell's equations in Gaussian units:
+Recall Maxwell's equation in Gaussian Unit
 $$ \nabla \cdot \overrightarrow{E}=4\pi \rho_e$$
-$$ \nabla \cdot \overrightarrow{B}=0$$
+$$ \nabla \cdot \overrightarrow{B}=0)$$
 $$ \nabla ×\overrightarrow{E}=-{1 \over c}  {\partial \overrightarrow{B} \over \partial t}$$
 $$ \nabla ×\overrightarrow{B}={4\pi \over c} \overrightarrow{J}+{1 \over c}  {\partial \overrightarrow{E} \over \partial t }$$
 </td></tr>
@@ -901,54 +765,48 @@ $$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu \to \left( \begin{matrix}  \
 </table>
 
 $$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu $$
-
-The electromagnetic tensor has a special identity (Bianchi identity):
-
+電磁張量有特別的關係式(Bianchi identity)
 $$\partial _\omega  F_{\mu \nu} +\partial _\mu  F_{\nu \omega} +\partial _\nu  F_{\omega \mu} =\partial _{[\omega}  F_{\mu \nu ]} =0$$
-
-Expanding:
-
+展開
 $$\partial _\omega  (\partial _\mu  A_\nu -\partial _\nu  A_\mu )+\partial _\mu  (\partial _\nu  A_\omega -\partial _\omega  A_\nu )+\partial _\nu  (\partial _\omega  A_\mu -\partial _\mu  A_\omega )=0$$
 $$\partial _\omega  \partial _\mu  A_\nu -\partial _\omega  \partial _\nu  A_\mu +\partial _\mu  \partial _\nu  A_\omega -\partial _\mu  \partial _\omega  A_\nu +\partial _\nu  \partial _\omega  A_\mu -\partial _\nu  \partial _\mu  A_\omega =0$$
-
-This relation yields:
+這條關係式會得到
 
 <table cellpadding="1" border="1">
 <tr><td>
-$$ \partial _\omega  F_{\mu \nu} +\partial _\mu  F_{\nu \omega} +\partial _\nu  F_{\omega \mu} =0 \to \left( \begin{matrix}  \nabla \cdot \overrightarrow{B}=0 \\ \nabla ×\overrightarrow{E}=-{1 \over c}  {\partial \overrightarrow{B} \over \partial t}  \end{matrix}\right)$$
+$$ \partial _\omega  F_{\mu \nu} +\partial _\mu  F_\nu \omega +\partial _\nu  F_\omega \mu =0 \to \left( \begin{matrix}  \nabla \cdot \overrightarrow{B}=0 \\ \nabla ×\overrightarrow{E}=-{1 \over c}  {\partial \overrightarrow{B} \over \partial t}  \end{matrix}\right)$$
 </td></tr>
 </table>
+
+
 </p>
+
 </div>
 </section>
+
 
 <section id="m">
 <div class="container">
 <header class="major">
-	<h2><li>Gauge Invariance in Electromagnetism</li></h2>
+	<h2><li>電磁學中的規範不變性Gauge Invariance</li></h2>
 </header>
 <p style="text-align:justify">
-In electromagnetism, we define the relationship between the potentials \(\phi\), \(\overrightarrow{A}\), and the electric field \(\overrightarrow{E}\), and the magnetic field \(\overrightarrow{B}\):
-
+在電磁學中，我們定義Potential \(\phi\)、\(\overrightarrow{A}\)和電場\(\overrightarrow{E}\)、磁場\(\overrightarrow{B}\)的關係：
 $$ \overrightarrow{E}=- \nabla \phi -{1 \over c}  {\partial \overrightarrow{A}\over \partial t}$$
 $$\overrightarrow{B}= \nabla ×\overrightarrow{A} $$
-
-However, the potentials \(\phi\) and \(\overrightarrow{A}\) are not unique, and we can introduce a gauge function \(G(ct,\overrightarrow{x})\):
-
+但Potential \(\phi\) 、\(\overrightarrow{A}\)不唯一，可以引入一個Gauge function \(G(ct,\overrightarrow{x} )\)
 $$\bar{\phi} =\phi +{1 \over c}  {\partial G \over \partial t}$$
 $$\overrightarrow{\bar{A}}=\overrightarrow{A}- \nabla G$$
-
-The electric field \(\overrightarrow{E}\) and the magnetic field \(\overrightarrow{B}\) remain unchanged:
-
+一樣保持電場\(\overrightarrow{E}\)、磁場\(\overrightarrow{B}\)不變
 $$\overrightarrow{\bar{E}}=- \nabla \bar{\phi}-{1 \over c}  {\partial \overrightarrow{\bar{A}}\over \partial t}$$
 $$=- \nabla \phi - \color{red}{\nabla {1 \over c}  {\partial G \over \partial t}}-{1 \over c}  {\partial \overrightarrow{A}\over \partial t}+\color{red}{{1 \over c}  {\partial ( \nabla G)\over\partial t}}$$
-$$=- \nabla \phi -{1 \over c}  {\partial \overrightarrow{A}\over \partial t}=\overrightarrow{E}$$
-
+$$=- \nabla \phi -{1 \over c}  {\partial \overrightarrow{A}\over \partial t}=\overrightarrow{E}$$<br>
 $$\overrightarrow{\bar{B}}= \nabla ×\overrightarrow{\bar{A}}= \nabla ×\overrightarrow{A}- \nabla × \nabla G= \nabla ×\overrightarrow{A}=\overrightarrow{B} $$
+
 
 <table cellpadding="1" border="1">
 <tr><td>
-Note: \(\nabla × \nabla G=0\)
+Note  \(\nabla × \nabla G=0\)
 $$( \nabla × \nabla G)_i=\varepsilon _{ijk} \partial _j \partial _k G$$
 $$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G+{1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G$$
 $$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G+{1 \over 2} \varepsilon _{i\color{red}{kj}} \partial _\color{red}{k} \partial _\color{red}{j} G$$
@@ -956,46 +814,38 @@ $$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G \color{red}{-}{1 \ov
 </td></tr>
 </table>
 
-In relativity, the above operation can be written in the form of 4-potentials:
 
+在相對論中，上述的操作可以寫為4-Potential的形式：
 $$(\bar{\phi},\overrightarrow{\bar{A}} )=(\phi ,\overrightarrow{A} )+(\partial _{ct} G,- \nabla G)=(\phi ,\overrightarrow{A} )+(\partial _{ct},- \nabla )G$$
-
-Recall:
-
+回憶
 $$\partial ^\mu =(\partial _{ct},- \nabla )$$
-
-Thus:
-
+故寫成
  $$\bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
+
 
 <table cellpadding="1" border="1">
 <tr><td>
-Coulomb gauge condition: Non-relativistic
+Coulomb gauge condition：非相對論性Non-relativistic
 $$ \nabla \cdot \overrightarrow{A}=0$$
 </td></tr>
 </table>
 
 <table cellpadding="1" border="1">
 <tr><td>
-Lorenz gauge condition: Relativistic, satisfies Lorentz transformation
+Lorenz gauge condition：相對論性，滿足Lorentz transformation
 $$ \nabla \cdot \overrightarrow{A}+{1 \over c}  {\partial \phi \over \partial t}=0$$
-Written in scalar form:
+寫成Scalar form
 $$\partial _\mu  A^\mu =0$$
-Thus, it satisfies the relativistic transformation.
+所以滿足相對論轉換。
 </td></tr>
 </table>
 
-As previously shown, the electric field \(\overrightarrow{E}\) and the magnetic field \(\overrightarrow{B}\) remain unchanged under a gauge transformation:
-
+剛剛已經寫下電場\(\overrightarrow{E}\)、磁場\(\overrightarrow{B}\)在加入Gauge之下保持不變
 $$\overrightarrow{\bar{E}}=\overrightarrow{E}$$
 $$\overrightarrow{\bar{B}}=\overrightarrow{B}$$
-
-This indicates that \(F^{\mu \nu}\) also remains unchanged under a gauge transformation:
-
+這其實說明，\(F^{\mu \nu}\) 也在加入Gauge之下保持不變：
 $$ \bar{F} ^{\mu \nu} =F^{\mu \nu} $$
-
-We can also prove this:
-
+當然我們也可以寫下證明
 $$\bar{F} ^{\mu \nu} =\partial ^\mu   \bar{A} ^\nu -\partial ^\nu   \bar{A} ^\mu$$
 $$=\partial ^\mu  (A^\nu +\partial ^\nu  G)-\partial ^\nu  (A^\mu +\partial ^\mu  G)$$
 $$=\partial ^\mu  A^\nu +\color{red}{\partial ^\mu  \partial ^\nu  G}-\partial ^\nu  A^\mu -\color{red}{\partial ^\nu  \partial ^\mu  G}$$
@@ -1005,63 +855,41 @@ $$=\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu} $$
 </div>
 </section>
 
+
+
 <section id="n">
 <div class="container">
 <header class="major">
-	<h2><li>Gauge Invariance and Action Variation</li></h2>
+	<h2><li>規範不變與Action的變分</li></h2>
 </header>
 <p style="text-align:justify">
-In this section, we discuss how adding a gauge does not change the variation of the action, meaning that the equations of motion are unaffected by gauge changes, representing gauge invariance. When adding a gauge:
-
+這部分要討論的是，加入Gauge不會改變Action的變分，意味著運動方程不會受到Gauge的改變，也代表Gauge Invariance。當加入Gauge時。：
 $$ \bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
-
-We observe which terms in the action \(S=S_P+S_{PF}+S_F\) are affected:
-
+我們來觀察一下Action \(S=S_P+S_{PF}+S_F\)有誰會受到影響：
 $$S_P=-mc^2 \int _a^b d\tau =\int   -\rho_m cd^4 x $$
 $$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   =-{1 \over c^2}  \int   A_\mu  J^\mu  d^4 x $$
 $$S_F=\int   -{1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}  d^4 x $$
-
-Since we have already proven that \(F^{\mu \nu}\) is not affected by gauge transformations and \(S_P\) does not involve \(A^\mu\), the only affected term is \(S_{PF}\):
-
+因為剛剛已經證明，\(F^{\mu \nu}\) 不受到Gauge的影響，而\(S_P\)沒有\(A^\mu\) 相關，所以唯一受到影響的是\(S_{PF}\)
 $$\bar{S}_{PF}=-{e\over c}  \int _a^b   \bar{A} _\mu  dx^\mu   =-{1 \over c^2}  \int    \bar{A} _\mu  J^\mu  d^4 x $$
-
-Now, let's vary \(\bar{S}_{PF}\):
-
+針對\(\bar{S}_{PF}\)變分
 $$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int    \bar{A} _\mu  J^\mu  d^4 x =-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2}  \delta \int   \partial _\mu  G \cdot J ^\mu  d^4 x }$$
-
-Applying the chain rule:
-
+將後面那一項利用微分的Chain rule
 $$\partial _\mu  G \cdot J ^\mu =\partial _\mu  (GJ^\mu  )-G\partial _\mu  J^\mu $$
-
-This yields:
-
 $$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2} { \delta \int  \partial _\mu  \left(GJ^\mu \right) d^4 x + {1 \over c^2}  \delta \int   G\partial _\mu  J^\mu  d^4 x} } $$
-
-The middle term, using the Divergence Theorem:
-
+中間項利用Divergence theorem改寫成
 $$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2}  {\delta \left[ ∮  GJ^\mu  dS_\mu   \right]}{ +{1 \over c^2}  \delta \int G \left[\partial _\mu  J^\mu  \right] d^4 x }}$$
-
-The middle term is zero since the variation on the boundary is zero:
-
+中間項因為Boundary上的變分為0，所以中間項為0：
 $$\color{red}{\delta \left[∮  GJ^\mu  dS_\mu   \right]=0}$$
-
-Finally, recall the continuity equation:
-
+最後一項回憶（由實驗觀察到的）連續性方程Continuity equation
 $${\partial \rho_e \over \partial t}+ \nabla \cdot \overrightarrow{J}=0$$
-
-In relativistic form:
-
+寫成相對論性
 $$\partial _\mu  J^\mu =0$$
-
-Thus, the last term is also zero:
-
+導致最後一項也為0
 $$\color{red}{\delta \int   G \left[\partial _\mu  J^\mu  \right] d^4 x =0}$$
-
-Therefore:
-
+所以
 $$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x =\delta S_{PF}$$
+這表示加入Gauge不會改變Action的變分，整套物理滿足Gauge Invariance。
 
-This shows that adding a gauge does not change the variation of the action, indicating gauge invariance.
 </p>
 </div>
 </section>
@@ -1069,18 +897,15 @@ This shows that adding a gauge does not change the variation of the action, indi
 <section id="o">
 <div class="container">
 <header class="major">
-	<h2><li>A Brief Discussion on Gauge Invariance and the Continuity Equation</li></h2>
+	<h2><li>淺談Gauge Invariance和Continuity equation</li></h2>
 </header>
 <p style="text-align:justify">
-In the previous derivation, we used the continuity equation to show that the action's variation satisfies gauge invariance, corresponding to charge conservation. In the later development of physics, the process was reversed: when we require the action to satisfy gauge invariance, we derive the continuity equation and charge conservation. The variation process is the same, with the only difference being that we enforce:
-
+淺談Gauge Invariance和Continuity equation
+剛剛我們的推導中，利用連續性方程Continuity equation得到Action的變分滿足規範不變性。而Continuity equation對應到的是電荷守恆Charge conservation。在物理的發展後期，物理學開始反其道而行，當我們要求Action滿足規範不變性，便可以得到Continuity equation和Charge conservation。變分的過程完全一樣，唯一的差別在於我們強迫
 $${1 \over c^2}  \delta \int   G[\partial _\mu  J^\mu  ] d^4 x =0$$
-
-to ensure that the variation result is unaffected by the gauge, leading to:
-
+以保證變分結果不受到Gauge影響，這就可以得到
 $$\partial _\mu  J^\mu =0$$
-
-By studying this, we can understand why physicists often say that the action is powerful: writing down the action allows us to derive all experimentally observed equations. However, in the actual development of the action, experiments must first obtain some or all of the equations of motion, and physicists use physical reasoning to guess the form of the action, which then allows them to derive other deeper physics. Since classical electromagnetism is fully developed, all the equations have been obtained experimentally, so deriving the variation of the action to obtain \(F^{\mu \nu}\) or Maxwell's equations seems like reverse-engineering the problem from the answer. Nevertheless, historically, physicists derived charge conservation experimentally and then rewrote it in terms of the action, linking charge conservation and gauge invariance rigorously through Noether's theorem. This is similar to how Newtonian mechanics, through the principle of virtual work, leads to the Hamilton principle in action. Physicists can then use the action to derive Newtonian mechanics, but the action framework can also describe electromagnetism and even later quantum mechanics (Feynman's path integral). The action plays a crucial role in extending physics.
+學到這部分，大概可以了解到，物理學家常常說Action強大的地方，我們可以寫下Action就可以得到實驗上所有得到的實驗方程。但真正Action的發展上，都必須要有實驗先得到部分或全部的運動方程，物理學家經由一些物理論證，猜出Action的形式，再藉由Action去得到其餘更深刻的物理。由於古典電磁學的發展很全面，電磁學裡面的所有方程都已經經由實驗得到，所以在推導Action的變分得到\(F^{\mu \nu}\) 或Maxwell's equations就覺得很像看著答案寫問題。不過物理的發展上我們實驗上得到電荷守恆，物理學家改寫成Action的描述，可以諾特定理Noether's theorem很嚴謹的連結電荷守恆和規範不變性的關係。這就像是過去從牛頓力學經由虛功原理可以得到Action的描述（Hamilton principle），物理學家便可以反過來從Action得到牛頓力學，但是Action整套東西還可以來描述電磁學，甚至是後來的量子力學（Feynman的Path integral），Action對於推廣物理有至關重要的地位。
 
 </p>
 </div>
@@ -1089,40 +914,28 @@ By studying this, we can understand why physicists often say that the action is 
 <section id="p">
 <div class="container">
 <header class="major">
-	<h2><li>Impossibility of \(A_\mu  A^\mu\) if Keeping Gauge Invariance</li></h2>
+	<h2><li>Impossibility of \(A_\mu  A^\mu\)  if keeping gauge invariance</li></h2>
 </header>
 <p style="text-align:justify">
-If we maintain gauge invariance, we can argue that the action will not include a term like \(A_\mu  A^\mu\), as the variation of \(A^\mu\) (i.e., \(A^\mu \to A^\mu +\delta A^\mu\)) would lead to changes in the equations of motion:
-
+如果保持規範不變的話，我們可以論證Action不會有\(A_\mu  A^\mu \)項，因為\(A^\mu\) 的變分\(A^\mu \to A^\mu +\delta A^\mu \)會導致運動方程變化。
 $$S=-{1 \over c^2}  \int   A_\mu  A^\mu  d^4 x $$
-
-Adding a gauge \(\partial ^\mu  G\):
-
+加入Gauge \(\partial ^\mu  G\)
 $$ \bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
-
-Expanding the action:
-
+展開Action
 $$\bar{S}=-{1 \over c^2}  \int    \bar{A} _\mu   \bar{A} ^\mu  d^4 x $$
 $$=-{1 \over c^2}  \int   (A_\mu +\partial _\mu  G)(A^\mu +\partial ^\mu  G) d^4 x $$
 $$=-{1 \over c^2}  \int   A_\mu  A^\mu  d^4 x -{1 \over c^2}  \int   2A^\mu \cdot \partial _\mu  Gd^4 x -{1 \over c^2}  \int   \partial _\mu  G\cdot \partial ^\mu  Gd^4 x $$
-
-Since the gauge \(\partial ^\mu  G\) is independent of the 4-potential \(A^\mu\), the variation \(A^\mu \to A^\mu +\delta A^\mu\) does not affect \(\partial ^\mu  G\). We compare the variations of \(S\) and \(\bar{S}\):
-
-**For \(S\):**
-
+因為Gauge \(\partial ^\mu  G\)獨立於4-Potential \(A^\mu\) ，\(A^\mu\) 的變分\(A^\mu \to A^\mu +\delta A^\mu\) 不影響\(\partial ^\mu  G\)。我們比較對\(S\)變分和對\(\bar{S}\)變分的差異：<br>
+<b>對\(S\)變分</b>
 $$\delta S=-{1 \over c^2}  \delta \int   A_\mu  A^\mu  d^4 x$$
 $$ =-{2 \over c^2}  \int   A_\mu  \delta A^\mu  d^4 x$$ 
-
-**For \(\bar{S}\):**
-
-$$\delta \bar{S}=-{1 \over c^2}  \delta \int   A_\mu  A^\mu  d^4 x -{1 \over c^2}  \delta \int   2A_\mu  \partial ^\mu  Gd^4 x -\color{red}{0（\partial ^\mu  G has no variation）}$$
-
-The first term is the original variation:
-
+<br>
+<b>對\(\bar{S}\)變分</b>
+$$\delta \bar{S}=-{1 \over c^2}  \delta \int   A_\mu  A^\mu  d^4 x -{1 \over c^2}  \delta \int   2A_\mu  \partial ^\mu  Gd^4 x -\color{red}{0（\partial ^\mu  G沒有變分）}$$
+第一項就是原本的變分
 $$\delta \bar{S}=-{2 \over c^2}  \int   A_\mu  \delta A^\mu  d^4 x -{2 \over c^2}  \delta \int   A^\mu \cdot \partial _\mu  Gd^4 x $$
 $$=-{2 \over c^2}  \int   (A_\mu +\partial _\mu  G)\delta A^\mu  d^4 x $$
-
-Comparing, we find that they are different, which would lead to the breakdown of gauge invariance. Therefore, to maintain gauge invariance, the term \(A_\mu  A^\mu\) would not appear. Of course, if one day experiments show that gauge invariance is incorrect, it might be possible to introduce an \(A_\mu  A^\mu\) term.
+比對後會發現兩者不一樣，會導致規範不變被破壞。如果我們希望保持規範不變性，那就不會出現\(A_\mu  A^\mu\) 。當然，也許某一天實驗發現規範不變性是錯誤的，那有可能可以引入\(A_\mu  A^\mu \)項。
 </p>
 </div>
 </section>
@@ -1130,52 +943,33 @@ Comparing, we find that they are different, which would lead to the breakdown of
 <section id="q">
 <div class="container">
 <header class="major">
-	<h2><li>A Brief Discussion on \(A_\mu  A^\mu\) in Quantum Field Theory - Photon Mass</li></h2>
+	<h2><li>淺談量子場論中的\(A_\mu  A^\mu\) -光子質量</li></h2>
 </header>
 <p style="text-align:justify">
-While this content mainly discusses classical mechanics, here we briefly touch on how \(A_\mu  A^\mu\) corresponds to photon mass in quantum field theory. The Klein–Gordon equation describes spin-0 particles and is derived simply from relativity, based on the 4-momentum:
-
+本篇內容主要在古典範疇討論，在此簡單討論一下\(A_\mu  A^\mu \)在量子場論中對應到的是光子質量。Klein–Gordon equation描述自旋整數的粒子，由來簡單的從相對論出發，根據4-momentum：
 $$P_\mu  P^\mu =m^2 c^2$$
-
-In quantum field theory, physical quantities are rewritten as operators acting on the wave function \(\phi\):
-
+量子場論與古典的關係其中一點就是所有物理量都改寫成算符(operator)作用到wave function \(\phi\) 
 $$\hat{P} _\mu  \hat{P} ^\mu  \phi =m^2 c^2 \phi $$
-
-In quantum field theory, the momentum operator is:
-
+量子場論中動量算符為
 $$\hat{P} ^\mu =i\hbar \partial ^\mu $$
-
-Substituting:
-
+代入
 $$(i\hbar \partial _\mu  )(i\hbar \partial ^\mu  )\phi =m^2 c^2 \phi $$
 $$-\hbar ^2 \partial _\mu  \partial ^\mu  \phi =m^2 c^2 \phi $$
-
-This yields the Klein–Gordon equation:
-
+得到Klein–Gordon equation
 $$(\hbar ^2 \partial _\mu  \partial ^\mu +m^2 c^2 )\phi =0$$
-
-If we set \(\hbar =c=1\) (Planck units or natural units):
-
+如果設\(\hbar =c=1\)（普朗克單位制或自然單位制）
 $$(□+m^2 )\phi =0$$
-
-This is the common form. In quantum field theory, the Lagrangian density for a spin-1 massive particle is:
-
-$$L=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu +{1 \over 2} m^2 A_\nu  A^\nu  (with \hbar =c=1)$$
-
-Varying \(\delta A^\nu\) satisfies:
-
+就是常見的形式。在量子場論中描述Spin 1 massive particle的Lagrangian dendity:
+$$L=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu +{1 \over 2} m^2 A_\nu  A^\nu  (採用\hbar =c=1)$$
+對\(\delta A^\nu \)變分滿足
 $$\partial ^\mu  \left({\partial L \over \partial \left(\partial ^\mu  A^\nu  \right)} \right)-{\partial L\over \partial A^\nu  }=0$$
-
-This yields:
-
+得到
 $$-\partial ^\mu  (\partial _\mu  A_\nu  )-m^2 A_\nu =0\to \partial ^\mu  \partial _\mu  A_\nu +m^2 A_\nu =0$$
 $$(□+m^2 ) A_\nu =0$$
-
-This is the Klein–Gordon equation describing a spin-1 massive particle's equation of motion. We can see that \(A_\nu  A^\nu\) corresponds to the photon's mass. However, the correct Lagrangian density to describe a spin-1 massless particle is not \(\mathcal{L}=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu\), but rather:
-
+就得到Klein–Gordon equation描述Spin 1 massive particle的EoM。可以看到\(A_\nu  A^\nu\) 對應到的是光子質量。不過，正確描述Spin 1 massless particle的Lagrangian dendity並不是\(\mathcal{L}=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu\) ，而是
 $$\mathcal{L}=-{1\over 4} F_{\mu \nu}  F^{\mu \nu} $$
+後續涉及到光子無質量造成的一些自由度問題，會需要一些技術細節將4-potential的四個自由度消除兩個，以對應到光子只有兩個偏振方向，就不再此討論。
 
-Further details involve technical aspects of eliminating two degrees of freedom in the 4-potential to correspond to the two polarization states of the photon, but this discussion goes beyond the scope of this document.
 </p>
 </div>
 </section>
@@ -1183,61 +977,42 @@ Further details involve technical aspects of eliminating two degrees of freedom 
 <section id="r">
 <div class="container">
 <header class="major">
-	<h2><li>Continuous Fields and the Wave Equation</li></h2>
+	<h2><li>連續場與波動方程</li></h2>
 </header>
 <p style="text-align:justify">
-<a href="./Image/P34.png"><img src="./Image/P34.png" alt="Substitute text" width=98% height="auto"></a><br>
-Transitioning from a single particle to a continuous field, physicists describe a continuous field by linking an infinite number of harmonic oscillators. For an infinite number of harmonic oscillators, we can write the Lagrangian:
-
-$$\mathcal{L}=∑_n^\infty  {1 \over 2} m\eta  ̇_n-{1 \over 2} k(\eta _n-\eta _(n-1) )^2  $$
-
-Where \(\eta_n\) is the amplitude at position \(n\), and \(\eta  ̇_n\) is the velocity of oscillation at position \(n\).<br>
-
-<a href="./Image/P35.png"><img src="./Image/P35.png" alt="Substitute text" width=98% height="auto"></a><br>
-
-In the continuous field, the Lagrangian is:
-
+<a href="./Image/P34.png"><img src="./Image/P34.png" alt="取代文字" width=98% height="auto"></a><br>
+從單質點進入到連續場之中，物理學家是利用串聯無窮多的簡諧振子去描述一個連續場。針對無窮多的簡諧振子，可以寫下Lagrangian
+$$\mathcal{L}=∑_n^∞  {1 \over 2} m\eta  ̇_n-{1 \over 2} k(\eta _n-\eta _(n-1) )^2  $$
+其中\eta _n是位置n的振幅，\eta  ̇_n是位置n的振盪的速度。<br>
+<a href="./Image/P35.png"><img src="./Image/P35.png" alt="取代文字" width=98% height="auto"></a><br>
+進入到連續場時，Lagrangian為
 $$\mathcal{L}=\int   {1 \over 2} \rho(\partial \eta /\partial t)^2-{1 \over 2} Y(\partial \eta /\partial x)^2 dx $$
 
-Where \(\rho\) is the mass density, and \(Y\) is the Young's modulus.<br>
+其中\(\rho\)為質量密度、\(Y\)為楊氏係數。<br>
  
-<a href="./Image/P36.png"><img src="./Image/P36.png" alt="Substitute text" width=98% height="auto"></a><br>
-
-In three dimensions, the Lagrangian is:
-
+<a href="./Image/P36.png"><img src="./Image/P36.png" alt="取代文字" width=98% height="auto"></a><br>
+在三維Lagrangian為
 $$\mathcal{L}=\int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 dV$$ 
-
-It is evident that the Lagrangian density \(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\). Similarly, we can use the variational principle to obtain the equation of motion for the continuous field. The action is:
-
+可以直接看出Lagrangian dendity \(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\)。一樣的，我們可以利用Variational principle得到連續場的運動方程。作用量Action為
 $$S=\int   Ld^4 x =\int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 d^4 x $$
-
-Varying the field amplitude \(\eta (x^\mu  )\to \eta (x^\mu  )+\delta \eta (x^\mu  )\), the action should be an extremum:
+將場振幅做變分 \(\eta (x^\mu  )\to \eta (x^\mu  )+\delta \eta (x^\mu  )\)，Action變化要為極值：
  
 $$\delta S=\delta \int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 d^4 x $$
 $$=\int   \rho\partial _t \eta *\delta (\partial _t \eta )-Y \nabla \eta *\delta ( \nabla \eta ) d^4 x $$
-
-Exchanging the variation and differentiation:
-
+將變分和微分交換
 $$=\int   \rho\partial _t \eta \partial _t (\delta \eta )-Y \nabla \eta  \nabla (\delta \eta ) d^4 x $$
 $$=\int   \rho\partial _t \eta \partial _t (\delta \eta ) d^4 x -\int   Y \nabla \eta  \nabla (\delta \eta ) d^4 x $$
 $$=\int   \partial _t (\rho\partial _t \eta \delta \eta ) d^4 x -\int   \partial _t (\rho\partial _t \eta )*\delta \eta d^4 x -\int    \nabla (Y \nabla \eta \delta \eta ) d^4 x +\int    \nabla (Y\eta )*\delta \eta d^4 x $$
 $$=\left[-\int   \partial _t (\rho\partial _t \eta )*\delta \eta d^4 x +\int    \nabla (Y\eta )*\delta \eta d^4 x \right]+\left[\int   \partial _t (\rho\partial _t \eta \delta \eta ) d^4 x -\int    \nabla (Y \nabla \eta \delta \eta ) d^4 x \right]$$
-
-The boundary terms, using integration by parts, give:
-
+後面為邊界項，利用Integral by part
 $$=-\int   \left[\rho\partial _t^2 \eta -Y \nabla ^2 \eta \right]*\delta \eta d^4 x +\left[\int   \rho\partial _t \eta \delta \eta d^3 x \Big|_{t_1}^{t_2}- \int   Y \nabla \eta \delta \eta d^3 x \Big|_{\partial x,\partial y,\partial z} \right]$$
 $$=-\int   [\rho\partial _t^2 \eta -Y \nabla ^2 \eta ]*\delta \eta d^4 x +0$$
-
-Since \(\delta \eta\) is arbitrary, we obtain:
-
+因為\(\delta \eta\) 為任意，得到
 $$\rho\partial _t^2 \eta -Y \nabla ^2 \eta =0$$
 $$ \nabla ^2 \eta ={\rho \over Y} \partial _t^2 \eta $$
-
-Setting \(v=\sqrt{{Y\over \rho}}\):
-
+令\(v=\sqrt{{Y\over \rho}}\)
 $$\nabla ^2 \eta ={1\over v^2}  \partial _t^2 \eta $$
-
-This is the wave equation.
+即波動方程。
 
 </p>
 </div>
@@ -1246,85 +1021,52 @@ This is the wave equation.
 <section id="s">
 <div class="container">
 <header class="major">
-	<h2><li>Classical Field Theory</li></h2>
+	<h2><li>古典場論</li></h2>
 </header>
 <p style="text-align:justify">
-In classical field theory, the continuous field amplitude \(\eta\) is extended to classical field quantities, which can be scalar fields \(\phi\), vector fields \(V^\mu\), tensor fields \(T^{\mu\nu}\), and so on. Starting with a simple scalar field \(\phi =\phi (x^\mu  )\), which is a function of spacetime, we find the equation of motion for \(\phi\) using the variational principle. The action is written as:
-
+在古典場論中，物理學將連續場的振幅\(\eta\) 推廣到古典場的物理量，可以是純量場\(\phi\) 、向量場\(V^\mu\) 、張量場\(T^{\mu\nu}\)等等。先可慮簡單的純量場\(\phi =\phi (x^\mu  )\)是時空函數，通過Variational principle找到\(\phi\) 的EoM。先寫下Action，假設Lagrangian dendity \(\mathcal{L}\)是\(\phi\) ,\(\partial _\mu  \phi\) 的函數，並通過\(\phi \to \phi +\delta \phi \)的變分
 $$S=\int  \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x $$
-
-Assuming the Lagrangian density \(\mathcal{L}\) is a function of \(\phi\) and \(\partial _\mu  \phi\), and varying \(\phi \to \phi +\delta \phi\):
-
 $$\phi \to \phi +\delta \phi 、\partial _\mu  \phi \to \partial _\mu  \phi +\delta \partial _\mu  \phi $$
-
-<a href="./Image/P37.png"><img src="./Image/P37.png" alt="Substitute text" width=98% height="auto"></a><br>
-
-The variation of the action is:
-
+<a href="./Image/P37.png"><img src="./Image/P37.png" alt="取代文字" width=98% height="auto"></a><br>
 $$\delta S=\delta \int   \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x =\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi +{\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \partial _\mu  \phi  d^4 x $$
 $$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )\delta \phi  d^4 x +\int   \partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi )  d^4 x $$
-
 $$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
-
 $$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x +0$$
-
-Since \(\delta \phi\) is arbitrary, for any classical physical quantity \(\phi\), it must satisfy the Euler-Lagrange equation:
-
+因為\(\delta \phi\) 是任意，所以對任何古典物理量\(\phi\) ，必須滿足Euler-Lagrange eq
 $${\partial \mathcal{L} \over \partial \phi} -\partial _\mu  {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}=0$$
-
-Similarly, we can return to the example of the continuous field \(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\), which satisfies:
-
+同樣的，我們可以回到連續場的例子，\(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\)，滿足
 $${\partial \mathcal{L} \over \partial \phi} -\partial _t {\partial \mathcal{L}\over\partial (\partial _t \phi ) }- \nabla {\partial \mathcal{L}\over \partial ( \nabla \phi ) }=0$$
-
-This quickly yields:
-
+可以迅速得到
 $$-\rho\partial _t^2 \eta +Y \nabla ^2 \eta =0\to  \nabla ^2 \eta ={1\over v^2}  \partial _t^2 \eta $$
-
-If we generalize the scalar field \(\phi\) to vector fields, such as 4-displacement \(x^\nu\) or 4-potential \(A^\nu\), the above variation only needs to replace \(\phi\) with \(A^\nu\), yielding:
-
-$${\partial \mathcal{L}\over \partial x^\nu}-{d\over d\tau}  {\partial \mathcal{L}\over (\partial U^\nu )}=0 \quad (Lorentz-force)$$
-$${\partial \mathcal{L}\over \partial A^\nu  }-\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  A^\nu  ) }=0 \quad (Field-equation)$$
-
-Returning to the action for the electromagnetic field:
-
+如果我們將純量場\phi 推廣成向量場，例如4-displacement \(x^\nu\) 、4-potential \(A^\nu\) ，剛剛的變分只需將\(\phi\) 改寫成\(A^\nu\) ，即可得
+$${\partial \mathcal{L}\over \partial x^\nu}-{d\over d\tau}  {\partial \mathcal{L}\over (\partial U^\nu )}=0:Lorentz-force$$
+$${\partial \mathcal{L}\over \partial A^\nu  }-\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  A^\nu  ) }=0:Field-equation$$
+回到電磁場的Action
 $$S=S_P+S_{PF}+S_F$$
 $$=-\int   P_\mu  U^\mu  d\tau  -\int   {e\over c}  A_\mu  U^\mu  d\tau  -\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x $$
 $$=\int   -\rho_m c-{1 \over c^2}  A_\mu  J^\mu -{1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x $$
-
-First, we calculate the Lorentz force:
-
+先計算Lorentz force
 $${\partial \mathcal{L}\over \partial x^\nu}-{d\over d\tau}  {\partial \mathcal{L}\over (\partial U^\nu )}=0$$
-
-The only terms related to \(x^\nu\) are in \(S_P\) and \(S_{PF}\), so we handle them:
-
+跟\(x^\nu\)有關的只有\(S_P\) 、\(S_{PF}\)，所以處理
 $$\mathcal{L}=-P_\mu  U^\mu -{e\over c}  A_\mu  U^\mu $$
-
-$$\partial \left(-{e\over c}  A_\mu  U^\mu  \right)/\partial x^\nu -{d\over d\tau}  {\partial \left(-P_\mu  U^\mu -{e\over c}  A_\mu  U^\mu  \right)/\partial U^\nu  }=0$$
-
+$${\partial \left(-{e\over c}  A_\mu  U^\mu  \right)\over \partial x^\nu }-{d\over d\tau}  {\partial \left(-P_\mu  U^\mu -{e\over c}  A_\mu  U^\mu  \right) \over \partial U^\nu  }=0$$
 $$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )-{d\over d\tau}  \left(-P_\nu-{e\over c}  A_\nu  \right)=0$$
 $$\to-{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}   {dA_\nu \over d\tau } =0$$
 $$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}   {\partial A_\nu \over \partial x^\mu  }  {dx^\mu \over d\tau} =0$$
 $$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}  U^\mu  (\partial _\mu  A_\nu  )=0$$
 $$\to {dP_\nu \over d\tau } +{e\over c}  U^\mu  (\partial _\mu  A_\nu -\partial _\nu A_\mu  )=0$$
+$$\to {dP_\nu \over d\tau } +{e\over c}  U^\mu  F_{\mu\nu}=0$$
 $$\to {dP_\mu \over d\tau } =-{e\over c}  U^\nu F_{\nu\mu} $$
 $$\to {dP_\mu \over d\tau } ={e\over c}  F_{\mu \nu} U^\nu$$
-
-We quickly obtain the Lorentz force. Next, we handle the field equation:
-
+迅速得到Lorentz force。<br>
+再來處理Field equation，
 $$\partial ^\mu  {\partial \mathcal{L}\over \partial (\partial ^\mu  A^\nu  ) }-{\partial \mathcal{L} \over \partial A^\nu   }=0$$
 $$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\alpha\beta}   {\partial F^{\alpha\beta}\over \partial (\partial ^\mu  A^\nu)  } \right]+{1 \over c^2}  J_\nu=0$$
-
-Since:
-
+因為
 $${\partial F^{\alpha\beta} \over \partial (\partial ^\mu  A^\nu  )} ={\partial (\partial ^\alpha A^\beta -\partial ^\beta  A^\alpha ) \over \partial (\partial ^\mu  A^\nu  )}= \delta ^\alpha _\mu   \delta ^\beta  _\nu- \delta ^\beta  _\mu   \delta ^\alpha _\nu$$
-
-We have:
-
-$$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\alpha\beta}  ( \delta ^\alpha _\mu   \delta ^\beta  _nu- \delta ^\beta  _\mu   \delta ^\alpha _\nu )\right]+{1 \over c^2}  J_\nu=0$$
+$$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\alpha\beta}  ( \delta ^\alpha _\mu   \delta ^\beta  _\nu- \delta ^\beta  _\mu   \delta ^\alpha _\nu )\right]+{1 \over c^2}  J_\nu=0$$
 $$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\mu\nu}+{1 \over 8 \pi c} F_{\nu\mu}  \right]+{1 \over c^2}  J_\nu=0$$
-
-Since \(-F_{\mu\nu}=F_{\nu\mu}\):
-
+因為\(-F_{\mu\nu}=F_{\nu\mu} \)
 $$\partial ^\mu  \left[{1 \over 4 \pi c} F_{\nu\mu}  \right]+{1 \over c^2}  J_\nu=0$$
 $$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
 
@@ -1335,33 +1077,32 @@ $$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
 <section id="t">
 <div class="container">
 <header class="major">
-	<h2><li>Non-uniqueness of Lagrangian Density in Field Theory</li></h2>
+	<h2><li>場論中的Lagrangian density不唯一性</li></h2>
 </header>
 <p style="text-align:justify">
-As mentioned earlier, adding a total time derivative term \(f=f(q,t)\) to the Lagrangian does not change the EoM. There is a corresponding extension in field theory, where \(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\). It is important to note that \(f^\mu =f^\mu  (\phi ,x^\mu  )\) can only be a function of \((\phi ,x^\mu  )\). This can be analyzed from two perspectives. The first is the simplest, considering the boundary of variation:
-
+前面提到，當Lagrangian添加一個函數\(f=f(q,t)\)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。一樣可以從兩個部分來看。第一種是最簡單的從變分的邊界，
 $$\delta S=\delta \int   (\mathcal{L}+\partial _\mu  f^\mu  ) d^4 x =\delta \left[\int  \mathcal{L}d^4 x +\int   \partial _\mu  f^\mu  d^4 x \right]$$
 $$=\delta \int _a^b \mathcal{L}dt+\delta ∮ f^\mu   d^3 S_\mu =\delta \int _a^b \mathcal{L}dt$$
+其中\(\int   \partial _\mu  f^\mu  d^4 x =∮ f^\mu   d^3 S_\mu \)利用高斯定理，\(\delta ∮ f^\mu   d^3 S_\mu =0\)來自於變分邊界不變。
 
-Where \(\int   \partial _\mu  f^\mu  d^4 x =∮ f^\mu   d^3 S_\mu \) uses Gauss's theorem, and \(\delta ∮ f^\mu   d^3 S_\mu =0\) comes from the invariance of boundary variation.
-
-Another method is to directly expand and observe whether \(\mathcal{L}+\partial _\mu  f^\mu\) satisfies:
-
+另外一種是直接展開，觀察\(\mathcal{L}+\partial _\mu  f^\mu\) 是否滿足
 $${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }=0$$
 <br>
 
+
+
 $${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }= {\partial\mathcal{L}\over\partial \phi} -\partial _\mu  {\partial L\over\partial (\partial _\mu  \phi ) }+{\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
 $$={\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
+利用
 
-Using
 
 $$df^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } d\phi +{\partial f^\mu \over \partial x^\nu  }\Big|_\phi  dx^\nu $$
 $$\to \partial _\mu  f^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{\partial f^\mu \over\partial x^\mu } \Big|_\phi $$
-Further partial differentiation:
-
+進一步偏微分
 $${\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )} ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } \color{red}{ dot-cancelation-analogy}$$
+另外
 
-Additionally,
+
 
 $${\partial (\partial _\mu  f^\mu  )\over\partial \phi }\Big|_{x^\mu}={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi + {\partial f^\mu \over\partial x^\mu  }\Big|_\phi\right) $$
 $$={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \right)\partial _\mu  \phi +{\partial \over\partial \phi}\Big|_{x^\mu  }\left( {\partial f^\mu \over\partial x^\mu  }\Big|_\phi \right)$$
@@ -1369,15 +1110,13 @@ $$={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\part
 $$={ \partial \over\partial \phi }\Big|_{x^\mu  } {\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{ \partial \over\partial x^\mu  }\Big|_\phi  { \partial f^\mu \over\partial \phi} \Big|_{x^\mu } $$
 $$=\partial _\mu \left( {\partial f^\mu \over\partial \phi} \right)\to \partial _\mu and {\partial\over\partial \phi} commute$$
 
-Thus,
 
+
+所以
 $${\partial (\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }\right)=\partial _\mu   {\partial f^\mu \over\partial \phi} -\partial _\mu {\partial f^\mu \over\partial \phi} =0 $$
-
-Therefore,
-
+故
 $${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu \left({ (\partial (L+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )}\right)={\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi ) }\right)=0$$
-
-Adding \(\partial _\mu  f^\mu \) does not change the EoM.
+添加\(\partial _\mu  f^\mu \)不會改變EoM。
 </p>
 </div>
 </section>
@@ -1385,15 +1124,18 @@ Adding \(\partial _\mu  f^\mu \) does not change the EoM.
 <section id="u">
 <div class="container">
 <header class="major">
-	<h2><li>Other Possibilities That Do Not Affect EoM</li></h2>
+	<h2><li>不破壞EoM的其他可能</li></h2>
 </header>
 <p style="text-align:justify">
-As mentioned earlier, adding a total time derivative term \(f=f(q,t)\) to the Lagrangian does not change the EoM. There is a corresponding extension in field theory, where \(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\). It is important to note that \(f^\mu =f^\mu  (\phi ,x^\mu  )\) can only be a function of \((\phi ,x^\mu  )\). Here, we discuss the conditions under which \(f=f(q,\dot{q} ,t)\) and \(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\) might not change the EoM. In principle, we require:
+前面提到，當Lagrangian添加一個函數\(f=f(q,t)\)時間的全微分項\({df\over dt}\)，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。在此我們討論看看怎麼樣的\(f=f(q,\dot{q} ,t)\)和\(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\)有可能不改變EoM。原則上我們要求
+
 
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
 $${\partial (\partial _\alpha f^\alpha )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\alpha f^\alpha )\over\partial (\partial _\mu  \phi )}\right )=0)$$
 
-Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type:
+
+Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type
+
 
 $${\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}$$
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
@@ -1413,99 +1155,75 @@ $$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\m
 </div>
 </section>
 
+
+
 <section id="v">
 <div class="container">
 <header class="major">
-	<h2><li>Noether Theorem in Field Theory</li></h2>
+	<h2><li>場論中的諾特定理Noether theorem-Field theory</li></h2>
 </header>
 <p style="text-align:justify">
-When discussing variational principles, Noether's theorem is an essential companion. Noether's theorem states that if a system's Lagrangian \(\phi\) possesses a continuous transformation \(\phi \to \phi +\delta \alpha\) that leaves the action invariant (\(\delta S=0\)), there exists a corresponding conserved current. This can be applied to:
+提到變分法就一定要與諾特定理做搭配。諾特定理表明如果系統中Lagrangian的物理量\(\phi\) 存在連續變\(\phi \to \phi +\delta \alpha\)，使得\(\mathcal{L}\to L+\delta \mathcal{L}/\delta \alpha\)，卻保持對稱性（不變性）\(\delta S=0\)，那麼就存在一個守恆流與之對應。這可以應用到：<br>
+$$時間平移不變↔能量守恆$$
+$$空間平移不變↔動量守恆$$
 
-$$Time translation invariance ↔ Energy conservation$$
-$$Spatial translation invariance ↔ Momentum conservation$$
-
-The generalized proof is as follows: Given the Lagrangian density \(\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\), we now consider variations with respect to both the field \(\phi\) and spacetime coordinates \(x^\mu\):
-
+廣義的證明如下，給定Lagrangian dendity \(\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\)，之前的變分法是針對物理量\(\phi \) 做變分，現在我們同時針對物理量\(\phi\) 和時空\(x^\mu\) 變分
 $$x^\mu \to  \bar{x} ^\mu =x^\mu +\delta x^\mu $$
 $$\phi \to \bar{\phi}=\phi +\delta \phi $$
-
-However, since \(\phi =\phi (x^\alpha )\) is a function of spacetime, after the variations of both \(\phi\) and \(x^\mu\), \(\phi (x^\alpha )\to \bar{\phi} ( \bar{x} ^\alpha )\) can be expressed as \(\bar{\phi} ( \bar{x} ^\alpha )\equiv \phi (x^\alpha )+\Delta\phi \), where:
-
+但是\(\phi =\phi (x^\alpha )\)是時空的函數，經過物理量\(\phi\) 和時空\(x^\mu \)同時變分後，包含自身的變分和受到時空變分的影響\(\phi (x^\alpha )\to \bar{\phi} ( \bar{x} ^\alpha )\)，令\(\bar{\phi} ( \bar{x} ^\alpha )\equiv \phi (x^\alpha )+\Delta\phi \)，
 $$\Delta\phi =\bar{\phi} ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
 $$=\bar{\phi} ( \bar{x} ^\alpha )-\phi ( \bar{x} ^\alpha )+\phi ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
 $$=\delta \phi +{\partial \phi \over \partial x^\alpha } \delta x^\alpha$$
-
-Noether's theorem examines the difference in the action after variation:
-
+諾特定理探討變分後Action的差別：
 $$\delta S=\delta \int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
 $$=\int   \mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ] d^4 x -\int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
-
-It is clear that even the integral's 4-volume \(d^4 \bar{x}\) changes. Consider the differential product:
-
+很明顯可以發現到連積分的4-volune \(d^4 \bar{x}\)都發生變化。可以用乘法的微分來思考
 \(\delta S=\delta \int   \mathcal{L}d^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x \)
-
-The first term, \(\delta \mathcal{L}\), must be handled with care:
-
+第一項\(\delta \mathcal{L}\)在處理時要非常小心
 $$\delta \mathcal{L}=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
 $$=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]+\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
 $$={\mathcal{L}[\phi +\delta \phi ,\partial _\mu  \phi +\delta (\partial _\mu  \phi ), \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]}+{\mathcal{L}[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}$$
 $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi +{\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta (\partial _\mu  \phi )}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
 
-Using \(\partial _\mu \) to bring to the front:
 
+利用\(\partial _\mu \)拉到前面去
 $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\delta \phi +\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
-
-Note that \(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} )\right]\delta \phi\) is the Euler-Lagrange equation, which equals zero. Therefore:
-
+可以注意到\(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} )\right]\delta \phi\) 是Euler-Lagrange eq等於零。所以
 $$\delta \mathcal{L}=\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu $$
 
-The second term, \(\delta d^4 x\), involves the Jacobian:
 
+第二項\(\delta d^4 x\)要用到Jacobian
 $$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}d^4 \bar{x}  -\int  \mathcal{L}d^4 x $$
 $$d^4 \bar{x}=J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right) d^4 x$$
-
-\(J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)\) is the Jacobian determinant:
-
+\(J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)\)為Jacobian determinant
 $${\partial  \bar{x} ^\mu \over\partial x^\nu  }={\partial (x^\mu +\delta x^\mu  )\over\partial x^\nu }= \delta ^\mu  _\nu +\partial _\nu  \delta x^\mu $$
-
-The Jacobian determinant is calculated as:
-
+Jacobian determinant計算出來為 
 $$J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)=1+\partial _\mu  \delta x^\mu $$
-
-So:
-
+所以
 $$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}*\partial  _\mu  \delta x^\mu   d^4 x $$
 
-Combining the two terms:
-
-$$\delta S=\delta \int   \mathcal{L}d^4 x =\int   \left[\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu  \right] d^4 x +\int   \left[\mathcal{L} *\partial  _\mu  \delta x^\mu  \right]  d^4 x $$
-
+合併兩項
+$$\delta S=\delta \int   \mathcal{L}d^4 x =\int   \left[\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  L*\delta x^\mu  \right] d^4 x +\int   \left[\mathcal{L} *\partial  _\mu  \delta x^\mu  \right]  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu +\mathcal{L} *\partial  _\mu  \delta x^\mu   d^4 x $$
 $$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  (\mathcal{L}\delta x^\mu  )  d^4 x $$
-$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi +\mathcal{L}\delta x^\mu  \right)  d^4 x $$
-$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Delta\phi -\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\delta x^\alpha \right)  d^4 x$$
-
-Set
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi +\mathcal{L}\delta x^\mu  \right)  d^4 x =0$$
+其中\(\delta \phi \)是\(\phi\) 自身的變分，不包含受到\(\delta x^\mu\) 的影響，我們想要考慮廣義一點，改寫成\(\Delta\phi \)可以包含受到\(\delta x^\mu \)的影響。因為\(\Delta\phi =\delta \phi +\partial _\alpha \phi *\delta x^\alpha\)，所以
+$$\delta S=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  (\Delta\phi -\partial _\alpha \phi *\delta x^\alpha )+\mathcal{L}\delta x^\mu  \right)  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Delta\phi -\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\delta x^\alpha \right)  d^4 x$$ 
+令
 
 $$\left(\begin{matrix} \delta x^\alpha \\ \Delta\phi \end{matrix}\right)=\varepsilon\left(\begin{matrix} Χ^\alpha \\ \Psi \end{matrix}\right)$$
-
-\(Χ^\alpha\) and \(\Psi\) are symmetry generators:
-
-$$\delta S=\varepsilon \int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha \right)  d^4 x =0$$
-
-Since \(\varepsilon \) is arbitrary:
-
+\(Χ^\alpha\)、\(\Psi\)為Symmetry generators，
+$$\delta S=\varepsilon \int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha L\right) Χ^\alpha \right)  d^4 x =0$$
+因為\(\varepsilon \)是任意的，所以
 $$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha \right)\equiv \partial _\mu  N^\mu =0$$
-
-Define the Noether current:
+定義諾特流(Noether current)
 
 $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
 
-Where \({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}\) corresponds to the conserved current for the symmetry transformation \(\Psi\) of the field \(\phi\), and \(\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\) corresponds to the conserved current under the transformation \(Χ^\alpha\) of spacetime \(x^\mu\).
+其中，\({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}\) 是對應到物理量\(\phi \)在對稱變換\(\Psi\)的守恆流，\(\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\)是對應時空\(x^\mu\) 變化\(Χ^\alpha\)下的守恆流。<br><br>
 
-<br><br>
-
-For vector fields \(\alpha^\nu\):
-
+如果是向量場\(\alpha^\nu\)，
 $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
 </p>
 </div>
@@ -1516,56 +1234,45 @@ $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )} 
 <section id="x">
 <div class="container">
 <header class="major">
-	<h2><li>Noether Theorem and Symmetry - Spacetime and Energy-Momentum Conservation</li></h2>
+	<h2><li>諾特定理與對稱性-時空與能量動量守恆</li></h2>
 </header>
 <p style="text-align:justify">
-When discussing spacetime symmetry, we fix the field \(\phi \) such that it is unaffected by variations (\(\Psi=0\)). We are left with:
 
+在討論時空對稱性時，我們固定物理量\(\phi \)不受變分影響，\(\Psi=0\)時，只剩下
 $$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha \right)=0$$
-
-We define the energy-momentum tensor \(T^{\mu\nu}\):
-
+我們定義能量動量張量Energy momentum tensor \(T^{\mu\nu}\)
 $$T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
+守恆流\(\partial _\nu T^{\mu\nu}=0\)分別代表
 
-The conservation current \(\partial _\nu T^{\mu\nu}=0\) represents:
+$$\partial _\nu T^{0\nu}=0能量守恆$$
+$$\partial _\nu T^{i\nu}=0動量守恆$$
 
-$$\partial _\nu T^{0\nu}=0 \text{ Energy conservation}$$
-$$\partial _\nu T^{i\nu}=0 \text{ Momentum conservation}$$
-
-In relativity, the energy-momentum tensor for a free particle is:
-
+在相對論中，一個自由粒子的能量動量張量為
 $$T^{\mu\nu}\equiv mU^\mu  U^\nu$$
-
-For a classical particle, returning to non-relativistic terms, the trajectory \(q\) only depends on \(t\):
-
+其中
+ 
+對古典粒子來說，回到非相對論性的話，粒子的軌跡\(q\)只與\(t\)有關，
 $$T^{\mu\nu}=T^{00}={\partial L\over \partial \dot{q} }  \dot{q} -L=H$$
-
-\(T^{00}\) is the Hamiltonian, representing energy conservation:
-
+\(T^{00}\)就是Hamiltonian，能量守恆律
 $$\partial _\nu T^{0\nu}=\partial _0 T^{00}={dH \over dt}=0$$
+能量不隨時間改變！<br>
+古典的諾特定理表述為
 
-The energy does not change with time!
-
-<br><br>
-
-Classical Noether theorem can be stated as:
 
 <table cellpadding="1" border="1">
-<tr><td>$$Classical Non-relativistic$$</td><td>$$Relativistic$$</td></tr>
+<tr><td>$$古典非相對論性$$</td><td>$$相對論性$$</td></tr>
 <tr><td>$$S=\int  Ldt $$</td><td>$$S=\int \mathcal{L}d^4 x$$</td></tr>
 <tr><td>$$N\equiv {\partial L\over\partial \dot{q} _i } Q_i-\left({\partial L\over\partial \dot{q} _i } \dot{q} _i-L\right)T$$</td>
 <td>$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha L\right) Χ^\alpha $$</td></tr>
 </table>
 
-In classical mechanics, time \(t\) plays the role corresponding to spacetime \(x^\mu\), so time symmetry represents energy conservation. Other symmetries \(Q_i\) can represent spatial \(q_i\) or angular \(\theta_i\) coordinates, with:
-
-$${\partial L\over\partial \dot{q} _i }  \text{ Momentum conservation}$$
-$${\partial L\over \partial \dot{\theta}_i }  \text{ Angular momentum conservation}$$
+古典中，時間\(t\)佔的角色對應於時空\(x^\mu\) ，所以時間的對稱性代表能量守恆，其餘的對稱性\(Q_i\)可是空間\(q_i\)、角度\(\theta_i\)，分別是
+$${\partial L\over\partial \dot{q} _i } 動量守恆$$
+$${\partial L\over \partial \dot{\theta}_i } 角動量守恆$$
 
 </p>
 </div>
 </section>
-
 
 <!--
 <section id="y">
@@ -1875,13 +1582,11 @@ T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \
 
 -->
 <p style="text-align:justify">
-<b>Postscript</b><br>
-I would like to express my gratitude to my two Teachers at National Tsing Hua University: Professor Kuo-Ａn Wu and Professor Ding-Yi Chou. Professor Wu taught me theoretical mechanics during my undergraduate studies, while Professor Chou guided me through classical mechanics and general relativity. Their passion for teaching and dedication allowed me to appreciate the beauty of classical physics. =)<br><br><br>
+<b>後記</b><br>
+感謝兩位在清華的恩師：吳國安教授 和 周定一教授。國安教授教導我大學部的理論力學、周教授教導我古典力學和廣義相對論。他們的教學熱情和用心讓我可以欣賞到古典物理之美=)<br><br><br>
 <a href="../career/CV.html">About me</a><br><br><br>
 Contact: <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
-
 </p>
-
 
 
 
