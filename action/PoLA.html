@@ -20,7 +20,9 @@
 			<section id="header">
 				<header>
 					<!--<span class="image avatar"><img src="images/photo.png" alt="" /></span>-->
-					<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>
+					<!--<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>-->
+					<h1 id="logo"><a href="#">最小作用量原理</a></h1>
+		
 					<!--<h1 id="logo"><a href="#">Peir-Ru Wang</a></h1>-->
 					<!--<p style="text-align:justify">Physics<br />Materials Science<br />Mechanical Engineering</p>-->
 					<!--<a href="./20240701 resume-AP21-web.pdf"><b>RESUME</b></a>-->
@@ -54,13 +56,14 @@
 						<li><a href="#v">場論中的諾特定理Noether theorem-Field theory</a></li>
 						<!--<li><a href="#w">????</a></li>-->
 						<li><a href="#x">諾特定理與對稱性-時空與能量動量守恆</a></li>
-						<li><a href="#y">Infinitesimal Poincare Transformation</a></li>
+						<!--<li><a href="#y">Infinitesimal Poincare Transformation</a></li>
 						<li><a href="#z">Maximal Symmetry Action-Field theory</a></li>
 						<li><a href="#aa">EM field energy-momentum tensor and “standard” symmetrization procedure</a></li>
 						<li><a href="#ab">討論利用Lagrangian不唯一性引入對稱的EM張量</a></li>
 						<li><a href="#ac">場正則轉換方程式</a></li>
 						<li><a href="#ad">Hamiltonian變分</a></li>
-						<li><a href="#ae">廣義相對論</a></li>
+						<li><a href="#ae">廣義相對論</a></li>-->
+
 
 </ul>
 				</nav>
@@ -109,7 +112,11 @@
 <h2><li>最小作用量原理</li></h2>
 <h2><li>Principle of Least Action</li></h2>
 </header>
-
+<p>
+\(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
+\(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
+Update 2024.08.28
+</p>
 <ol>
 <section id="a">
 <div class="container">
@@ -1118,7 +1125,7 @@ $${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\
 	<h2><li>不破壞EoM的其他可能</li></h2>
 </header>
 <p style="text-align:justify">
-前面提到，當Lagrangian添加一個函數f=f(q,t)時間的全微分項df/dt，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。在此我們討論看看怎麼樣的\(f=f(q,\dot{q} ,t)\)和\(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\)有可能不改變EoM。原則上我們要求
+前面提到，當Lagrangian添加一個函數\(f=f(q,t)\)時間的全微分項\({df\over dt}\)，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。在此我們討論看看怎麼樣的\(f=f(q,\dot{q} ,t)\)和\(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\)有可能不改變EoM。原則上我們要求
 
 
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
@@ -1228,40 +1235,51 @@ $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )} 
 	<h2><li>諾特定理與對稱性-時空與能量動量守恆</li></h2>
 </header>
 <p style="text-align:justify">
-<div id="here"></div>
-在討論時空對稱性時，我們固定物理量\phi 不受變分影響，\(\Psi=0\)時，只剩下
-$$\partial _\mu  ((\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0$$
+
+在討論時空對稱性時，我們固定物理量\(\phi \)不受變分影響，\(\Psi=0\)時，只剩下
+$$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha \right)=0$$
 我們定義能量動量張量Energy momentum tensor \(T^{\mu\nu}\)
 $$T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
 守恆流\(\partial _\nu T^{\mu\nu}=0\)分別代表
-{ (\partial _\nu T^0\nu=0能量守恆@\partial _\nu T^i\nu=0動量守恆)┤
+
+$$\partial _\nu T^{0\nu}=0能量守恆$$
+$$\partial _\nu T^{i\nu}=0動量守恆$$
+
 在相對論中，一個自由粒子的能量動量張量為
 $$T^{\mu\nu}\equiv mU^\mu  U^\nu$$
 其中
  
 對古典粒子來說，回到非相對論性的話，粒子的軌跡q只與t有關，
-$$T^{\mu\nu}=T^00={\partial L\over \partial \dot{q} }  \dot{q} -L=H$$
-T^00就是Hamiltonian，能量守恆律
-$$\partial _\nu T^0\nu=\partial _0 T^00=dH/dt=0$$
-能量不隨時間改變！古典的諾特定理表述為
-古典非相對論性	相對論性
-$$S=\int  Ldt	S=\int   Ld^4 x $$
-$$N\equiv (\partial L/(\partial \dot{q} _i ) Q_i-(\partial L/(\partial \dot{q} _i ) \dot{q} _i-L)T)	N^\mu \equiv (\partial L/\partial (\partial _\mu  \alpha^\nu )  \Psi^\nu-(\partial L/\partial (\partial _\mu  \alpha^\nu )  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha L) Χ^\alpha )$$
-古典中，時間t佔的角色對應於時空x^\mu ，所以時間的對稱性代表能量守恆，其餘得的對稱性Q_i可是空間q_i、角度θ_i，分別是
-\(\partial L/(\partial \dot{q} _i )\) 動量守恆
-\(\partial L/(\partial \dort{\theta}_i ) \)角動量守恆
+$$T^{\mu\nu}=T^{00}={\partial L\over \partial \dot{q} }  \dot{q} -L=H$$
+\(T^{00}\)就是Hamiltonian，能量守恆律
+$$\partial _\nu T^{0\nu}=\partial _0 T^{00}=dH/dt=0$$
+能量不隨時間改變！<br>
+古典的諾特定理表述為
+
+
+<table cellpadding="1" border="1">
+<tr><td>古典非相對論性</td><td>相對論性</td></tr>
+<tr><td>$$S=\int  Ldt $$</td><td>$$S=\int \mathcal{L}d^4 x$$</td></tr>
+<tr><td>$$N\equiv {\partial L\over\partial \dot{q} _i } Q_i-\left({\partial L\over\partial \dot{q} _i } \dot{q} _i-L\right)T$$</td>
+<td>$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha L\right) Χ^\alpha $$</td></tr>
+</table>
+
+古典中，時間\(t\)佔的角色對應於時空\(x^\mu\) ，所以時間的對稱性代表能量守恆，其餘得的對稱性\(Q_i\)可是空間\(q_i\)、角度\(\theta_i\)，分別是
+$${\partial L\over\partial \dot{q} _i } 動量守恆$$
+$${\partial L\over \partial \dot{\theta}_i } 角動量守恆$$
 
 </p>
 </div>
 </section>
 
+<!--
 <section id="y">
 <div class="container">
 <header class="major">
 	<h2><li>Infinitesimal Poincare Transformation</li></h2>
 </header>
 <p style="text-align:justify">
-
+<div id="here"></div>
 龐加萊群是四維平移群加上勞倫茲群SO(1,3)。勞倫茲群是維持平時空度規張量\eta _{\mu \nu} 在勞倫茲變換 \lambda ^\alpha _\beta 下不變
 \eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} 
 假設g_a∈so(1,3)是SO(1,3)的李代數中的generator， \lambda ^\alpha _\beta 是SO(1,3)的representation(?)
@@ -1272,7 +1290,7 @@ $$N\equiv (\partial L/(\partial \dot{q} _i ) Q_i-(\partial L/(\partial \dot{q} _
 Hence
 \omega _\alpha\beta =-\omega _\beta \alpha
 x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\alpha\to \delta x^\alpha~Χ^\alpha= \omega ^\alpha _\beta  x^\beta 
-\partial _\mu  ((\partial L/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
+\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
 \partial _\mu  ( T_\alpha ^\mu   \omega ^\alpha _\beta  x^\beta  )=0\to \partial _\mu  (T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0
 \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\beta \mu  \omega _\beta \alpha x^\alpha )=0
 \to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta -{1 \over 2} T^\beta \mu  \omega _\alpha\beta  x^\alpha )=0\to {1 \over 2} \omega _\alpha\beta  \partial _\mu  (T^\alpha\mu  x^\beta -T^\beta \mu  x^\alpha )=0
@@ -1290,12 +1308,12 @@ x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\al
 
 前面提到Lagrangian density L的不唯一性，我們可以添加\partial _\mu  f^\mu 而不改變EoM。以下來討論添加\partial _\mu  f^\mu 對諾特定理的影響。我們只需先將L\to \bar{L} =L+\partial _\mu  f^\mu 改寫結論即可
 \delta S=\int   \partial _\mu  ((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \Delta\phi -((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha \bar{L}  )\delta x^\alpha )  d^4 x 
-=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )\Delta\phi -((\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
 注意f^\mu =f^\mu  (\phi ,x^\mu  )，適用類似dot cancellation，\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) =├ {\partial f^\mu \over\partial \phi }┤|_(x^\mu  )，所以
-\delta S=\int   \partial _\mu  ((\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }\Delta\phi -((\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi } \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+\delta S=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi }\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi } \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
 如果當原本的Lagrangian density L不具備對稱性，我們有機會透過{\partial f^\mu \over\partial \phi }做修正，因為f^\mu =f^\mu  (\phi ,x^\mu  )所以{\partial f^\mu \over\partial \phi }={\partial f^\mu \over\partial \phi } (\phi ,x^\mu  )，只要{\partial f^\mu \over\partial \phi }不是\partial _\mu  \phi 的函數，我們可以用{\partial f^\mu \over\partial \phi }=-\partial L/\partial (\partial _\mu  \phi ) +const V^\mu 消除微分不為零的部分使得\delta S=0，對應軌跡\phi 變分不變的守恆量為\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }，我們可以稱作此Lagrangian density L+\partial _\mu  f^\mu 對應的Action為Maximal Symmetry Action。
-\partial _\mu  (\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu  (\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial (L+\partial _\nu  f^\nu  )/\partial \phi =\partial L/\partial \phi +\partial (\partial _\nu  f^\nu  )/\partial \phi 
-\partial _\mu  {(\partial L/\partial (\partial _\mu  \phi ) +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  }=\partial _\mu  {\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha (L+\partial _\nu  f^\nu  )}
+\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu  (\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial (L+\partial _\nu  f^\nu  )/\partial \phi =\partial L/\partial \phi +\partial (\partial _\nu  f^\nu  )/\partial \phi 
+\partial _\mu  {{\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  }=\partial _\mu  {\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha (L+\partial _\nu  f^\nu  )}
 =\delta (L+\partial _\nu  f^\nu  )/(\delta x^\mu  )=\delta L/(\delta x^\mu  )+(\delta \partial _\nu  f^\nu )/(\delta x^\mu  )
 
 \partial _\nu  f^\nu =(\delta f^\nu )/\delta \phi  \phi _(,\nu )+(\delta f^\nu )/(\delta x^\nu  )\to d(f_(,\nu )^\nu  )=\phi _(,\nu ) d((\delta f^\nu )/\delta \phi )+(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+d((\delta f^\nu )/(\delta x^\nu  ))
@@ -1559,7 +1577,7 @@ T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \
 </div>
 </section>
 
-<!--
+
 -->
 
 
