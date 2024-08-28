@@ -210,10 +210,8 @@ $$
 = \int_a^b \frac{\partial F}{\partial x} \eta \, dt + \int_a^b \frac{\partial F}{\partial \dot{x}} \frac{d \eta}{dt} \, dt
 $$
 We perform integration by parts on the last term:
-$$
-\int_a^b \frac{\partial F}{\partial \dot{x}} \frac{d \eta}{dt} \, dt = \left. \frac{\partial F}{\partial \dot{x}} \eta \right|_a^b - \int_a^b \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) \eta \, dt
-$$
-Note the term in <font color="red">red</font>: Since \( \eta(t) \) satisfies \( \eta(a) = \eta(b) = 0 \), we have \( \left. \frac{\partial F}{\partial \dot{x}} \eta \right|_a^b = 0 \):
+$$\int_a^b {\partial F\over\partial \dot{x} } {d\eta \over dt} dt={\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b}}-\int_a^b {d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
+Note the term in <font color="red">red</font>: Since \( \eta(t) \) satisfies \( \eta(a) = \eta(b) = 0 \), we have \(\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0}\):
 $$
 \therefore \frac{\delta S}{\delta \varepsilon} = \int_a^b \frac{\partial F}{\partial x} \eta \, dt - \int_a^b \frac{d}{dt} \left( \frac{\partial F}{\partial \dot{x}} \right) \eta \, dt
 $$
