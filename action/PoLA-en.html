@@ -34,6 +34,7 @@
 <li><a href="#b">Elementary Variational Method</a></li>
 <li><a href="#c">Simplified Variation Notation</a></li>
 <li><a href="#d">Non-uniqueness of the Lagrangian</a></li>
+<li><a href="#d1">Point Transformation, Form Invariant, and the Principle of Relativity</a></li>
 <li><a href="#e">Lagrangian in Momentum Space</a></li>
 <li><a href="#f">Classical Noether's Theorem</a></li>
 <li><a href="#g">Maximal Symmetry Action</a></li>
@@ -107,7 +108,7 @@
 \(\to\)<a href="./PoLA.html"><b>Chinese Version</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.08.28<br>
+Update 2024.09.02<br>
 </p>
 <ol>
 <section id="a">
@@ -348,6 +349,62 @@ Adding \(\dot{f}\) does not change the EoM.
 </p>
 </div>
 </section>
+
+
+<section id="d1">
+<div class="container">
+<header class="major">
+	<h2><li>Point Transformation, Form Invariant, and the Principle of Relativity</li></h2>
+</header>
+<p style="text-align:justify">
+
+When studying physics, the most fundamental physical law is the Principle of Relativity. One way to describe it is: for all inertial frames of reference (at least in this discussion, we are not considering General Relativity), the same physical laws apply. In other words, all inertial observers use the same set of physical laws and have the same physical equations, which means they are "form invariant." In Newtonian mechanics, for example, \( F = ma \) remains the same in another inertial frame as \( \bar{F} = \bar{ma} \). My teacher, Professor Ding-Yi Zhou, often used a vivid analogy: if the laws of physics did not adhere to the Principle of Relativity, there would be infinitely many physical laws corresponding to infinitely many inertial frames, making devices like mobile phones impossible to use. For instance, if you boarded an airplane, the physical laws governing the devices made on the ground would no longer apply, making those devices inoperative. It can be said that the Principle of Relativity is one of the most fundamental assumptions in the study of physics. Since Newtonian mechanics is form invariant, we should also discuss whether the Euler-Lagrange equation is also form invariant under different coordinate systems.<br>
+
+Here, we will first discuss the simplest example, called Point Transformation. Suppose that the physics studied in the \( q \) inertial frame satisfies:
+
+$$L = L(\dot{q}, q, t)$$
+$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0$$
+
+Another observer, who uses the \( s \) coordinate system, notes that there is an invertible functional relationship between the two:
+
+$$s = s(q, t) \leftrightarrow q = q(s, t)$$
+$$dq = \frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt$$
+$$\rightarrow \dot{q} = \frac{\partial q}{\partial s} \dot{s} + \frac{\partial q}{\partial t}$$
+$$\rightarrow d\dot{q} = d\left(\frac{\partial q}{\partial s}\right) \dot{s} + \left(\frac{\partial q}{\partial s}\right)d\dot{s} + d\left(\frac{\partial q}{\partial t}\right)$$
+$$=(\frac{\partial q}{\partial s}) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
+$$=\frac{\partial q}{\partial s} d\dot{s} + \left[\dot{s} \frac{\partial^2 q}{\partial s^2} + \frac{\partial^2 q}{\partial s \partial t}\right]ds + \left[\frac{\partial^2 q}{\partial t \partial s} + \frac{\partial^2 q}{\partial t^2}\right]dt$$
+$$\equiv \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt$$
+$$\rightarrow \dot{q} = \dot{q}(\dot{s}, s, t)$$
+
+Let's first look at the Lagrangian \( L \):
+
+$$dL = \frac{\partial L}{\partial \dot{q}} d\dot{q} + \frac{\partial L}{\partial q} dq + \frac{\partial L}{\partial t} dt$$
+$$=\frac{\partial L}{\partial \dot{q}} \left(\frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt\right) + \frac{\partial L}{\partial q} \left(\frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt\right) + \frac{\partial L}{\partial t} dt$$
+$$=\left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial t} dt\right) + \left(\frac{\partial L}{\partial q} \frac{\partial q}{\partial s} ds + \frac{\partial L}{\partial q} \frac{\partial q}{\partial t} dt\right) + \frac{\partial L}{\partial t} dt$$
+$$=\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial s} + \frac{\partial L}{\partial q} \frac{\partial q}{\partial s}\right)ds + \left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial t} + \frac{\partial L}{\partial q} \frac{\partial q}{\partial t}\right)dt + \frac{\partial L}{\partial t} dt$$
+$$\equiv \frac{\partial L}{\partial \dot{s}} d\dot{s} + \frac{\partial L}{\partial s} ds + \frac{\partial L}{\partial t} dt$$
+$$\rightarrow L = L(\dot{s}, s, t)$$
+
+Confirming that after the Point Transformation, the Lagrangian \( L \) in the \( s \) coordinates is still just a function of \( \dot{s}, s, t \). Here, we can directly apply the variational process to show that the Lagrangian \( L(\dot{s}, s, t) \) satisfies:
+$$\frac{d}{dt} \frac{\partial L}{\partial \dot{s}} - \frac{\partial L}{\partial s} = 0$$
+
+Of course, we can also use direct mathematical calculations. Starting from the original Euler-Lagrange equation:
+$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0 \rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}} \color{red}{\frac{\partial \dot{s}}{\partial \dot{q}}}\right) - \left(\frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} + \frac{\partial L}{\partial s} \frac{\partial s}{\partial q}\right) = 0$$
+In red, using dot cancellation \( \color{red}{\frac{\partial \dot{s}}{\partial \dot{q}} = \frac{\partial s}{\partial q}} \):
+$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}} \color{red}{\frac{\partial s}{\partial q}}\right) - \left(\frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} + \frac{\partial L}{\partial s} \frac{\partial s}{\partial q}\right) = 0$$
+$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) \frac{\partial s}{\partial q} + \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial s} \frac{\partial s}{\partial q} = 0$$
+Since \( \frac{d}{dt} \left(\frac{\partial s}{\partial q}\right) = \frac{\partial \dot{s}}{\partial q} \) (only if \( s = s(q, t) \)):
+$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) \frac{\partial s}{\partial q} + \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial s} \frac{\partial s}{\partial q} = 0$$
+$$\rightarrow \left[\frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) - \frac{\partial L}{\partial s}\right] \frac{\partial s}{\partial q} = 0$$
+Since \( \frac{\partial s}{\partial q} \) is invertible and arbitrary:
+$$\frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) - \frac{\partial L}{\partial s} = 0$$
+
+In the \( s \) coordinates, it still satisfies the Euler-Lagrange equation. Here, it can be noted that \( s = s(q, t) \) is not necessarily an inertial frame, yet it still satisfies the Euler-Lagrange equation, demonstrating the power of the Euler-Lagrange equation.
+
+</p>
+</div>
+</section>
+
 
 <section id="e">
 <div class="container">
