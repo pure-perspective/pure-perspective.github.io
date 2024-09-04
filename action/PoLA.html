@@ -120,7 +120,7 @@
 \(\to\)<a href="./PoLA-en.html">English Version</a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.09.02
+Update 2024.09.04
 </p>
 <ol>
 <section id="a">
@@ -234,7 +234,7 @@ $$\delta S=\int _a^b \delta Fdt=\int _a^b { \partial F\over\partial x }\delta x+
 <table cellpadding="1" border="1">
 <tr><td>
 進階：Thm.1 :微分與變分對調<br>
-如果今天微分與變分針對的對象不同，如對t微分 \(d \over dt\)、對x變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
+如果今天微分與變分針對的對象不同，如對\(t\)微分 \(d \over dt\)、對\(x\)變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
 $$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)$$
 $$= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
 </td></tr>
@@ -345,7 +345,7 @@ $$s = s(q, t) \leftrightarrow q = q(s, t)$$
 $$dq = \frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt$$
 $$\rightarrow \dot{q} = \frac{\partial q}{\partial s} \dot{s} + \frac{\partial q}{\partial t}$$
 $$\rightarrow d\dot{q} = d\left(\frac{\partial q}{\partial s}\right) \dot{s} + \left(\frac{\partial q}{\partial s}\right)d\dot{s} + d\left(\frac{\partial q}{\partial t}\right)$$
-$$=(\frac{\partial q}{\partial s}) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
+$$=\left(\frac{\partial q}{\partial s}\right) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
 $$=\frac{\partial q}{\partial s} d\dot{s} + \left[\dot{s} \frac{\partial^2 q}{\partial s^2} + \frac{\partial^2 q}{\partial s \partial t}\right]ds + \left[\frac{\partial^2 q}{\partial t \partial s} + \frac{\partial^2 q}{\partial t^2}\right]dt$$
 $$\equiv \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt$$
 $$\rightarrow \dot{q} = \dot{q}(\dot{s}, s, t)$$
@@ -437,8 +437,8 @@ $$=\delta q+\dot{q} \delta t$$
 考慮變分前後的差別
 $$\delta S=\delta \int  L dt=\int  \delta L dt+\int  L d\delta t$$
 第一項仔細寫下為
-$$\delta L=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
-$$=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )+L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
+$$\delta L=L \left(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  \right)-L\left(q(t),\dot{q} (t),t\right)$$
+$$=L \left(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  \right)-L\left(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  \right)+L\left(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  \right)-L\left(q(t),\dot{q} (t),t\right)$$
 
 $$={\partial L\over\partial q}  \delta q+{\partial L\over \partial \dot{q} }  \delta \dot{q} +{dL\over dt}  \delta t$$
 
@@ -674,8 +674,8 @@ $$\overrightarrow{B}=\nabla \times \overrightarrow{A} $$
 $$A_\nu \to \left(\phi,-A_x,-A_y,-A_z \right)$$
 $$\partial _\mu \to \left({\partial \over \partial x^0},{\partial \over \partial x^1 },{\partial \over \partial x^2},{\partial \over \partial x^3 }\right)=\left({\partial \over \partial ct},{\partial \over \partial x },{\partial \over \partial y},{\partial \over \partial z }\right)$$
 可以計算
-$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B-z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
-$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B_z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
 
 
 </p>
@@ -713,7 +713,7 @@ $$\mathcal{L}=-\rho_m c-{1\over c^2}  A_\mu  J^\mu -{1 \over 16\pi c} F_{\mu \nu
 
 <table cellpadding="1" border="1">
 <tr><td>
-進階：d^4 x是一個不變量Invariant<br>
+進階：\(d^4 x\)是一個不變量Invariant<br>
 <b>物理proof</b><br>
 因為Time dilation 和 Length contraction相反。如果\(\tau\) 、\(\bar{x}\)是proper time和proper length
 $$t=\gamma \tau $$
@@ -756,7 +756,7 @@ $$=\gamma ^2 (1-\beta ^2 )dctdx=dctdx$$
 $$S_{PF}+S_F=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu d^4 +\int-{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
 我們想知道EM Field的分佈，所以我們針對\(A^\mu\) 作變分
 $$A^\mu \to A^\mu +\delta A^\mu $$
-我們來觀察\(J^\mu) \)、\(d^4 x\)、\(F^{\mu \nu}\) 會不會受到影響？<br>
+我們來觀察\(J^\mu \)、\(d^4 x\)、\(F^{\mu \nu}\) 會不會受到影響？<br>
 <a href="./Image/P33.png"><img src="./Image/P33.png" alt="取代文字" width=90% height="auto"></a><br>
 $$J^\mu =\rho_e {dx^\mu \over d\tau} =J^\mu  (x^\nu )$$
 $$d^4 x=d^4 x(x^\nu )$$
@@ -778,7 +778,7 @@ $$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu  )\cdot F^{\mu \nu}  d
 $$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\color{red}{\nu}  A_\color{red}{\mu}  )\cdot F^\color{red}{\nu \mu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
 $$={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (-F^\nu \mu +F^{\mu \nu}  ) d^4 x $$
 回憶電磁張量
-$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
 \(F^{\mu \nu} \)是一個反對稱張量，所以\(F^\nu \mu =-F^{\mu \nu} \)
 代回去會多兩倍
 $$\delta S_F={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (F^\color{red}{\mu \nu} +F^{\mu \nu}  ) d^4 x ={1 \over 4 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
@@ -1051,7 +1051,7 @@ $$\mathcal{L}=∑_n^∞  {1 \over 2} m\eta  ̇_n-{1 \over 2} k(\eta _n-\eta _(n-
 其中\eta _n是位置n的振幅，\eta  ̇_n是位置n的振盪的速度。<br>
 <a href="./Image/P35.png"><img src="./Image/P35.png" alt="取代文字" width=98% height="auto"></a><br>
 進入到連續場時，Lagrangian為
-$$\mathcal{L}=\int   {1 \over 2} \rho(\partial \eta /\partial t)^2-{1 \over 2} Y(\partial \eta /\partial x)^2 dx $$
+$$\mathcal{L}=\int   {1 \over 2} \rho\left({\partial \eta \over\partial t}\right)^2-{1 \over 2} Y\left({\partial \eta \over\partial x}\right)^2 dx $$
 
 其中\(\rho\)為質量密度、\(Y\)為楊氏係數。<br>
  
@@ -1094,9 +1094,9 @@ $$S=\int  \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x $$
 $$\phi \to \phi +\delta \phi 、\partial _\mu  \phi \to \partial _\mu  \phi +\delta \partial _\mu  \phi $$
 <a href="./Image/P37.png"><img src="./Image/P37.png" alt="取代文字" width=98% height="auto"></a><br>
 $$\delta S=\delta \int   \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x =\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi +{\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \partial _\mu  \phi  d^4 x $$
-$$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )\delta \phi  d^4 x +\int   \partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi )  d^4 x $$
-$$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
-$$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x +0$$
+$$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\delta \phi  d^4 x +\int   \partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi \right)  d^4 x $$
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x +0$$
 因為\(\delta \phi\) 是任意，所以對任何古典物理量\(\phi\) ，必須滿足Euler-Lagrange eq
 $${\partial \mathcal{L} \over \partial \phi} -\partial _\mu  {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}=0$$
 同樣的，我們可以回到連續場的例子，\(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\)，滿足
@@ -1192,6 +1192,7 @@ $${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\
 	<h2><li>不破壞EoM的其他可能</li></h2>
 </header>
 <p style="text-align:justify">
+<b><font color="red">本節為筆者推論，還不確定是否正確</font></b><br>
 前面提到，當Lagrangian添加一個函數\(f=f(q,t)\)時間的全微分項\({df\over dt}\)，並不會改變EoM。在場論中也有對應的推廣，\(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\) ，一樣要注意的是\(f^\mu =f^\mu  (\phi ,x^\mu  )\)只能是\((\phi ,x^\mu  )\)的函數。在此我們討論看看怎麼樣的\(f=f(q,\dot{q} ,t)\)和\(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\)有可能不改變EoM。原則上我們要求
 
 
@@ -1204,7 +1205,7 @@ Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type
 
 $${\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}$$
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
-$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  ({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q})=0$$
+$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  \left({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}\right)=0$$
 $$\to  {d^2\over dt^2}  {\partial f\over\partial \dot{q}  }=0$$
 $$\to f=(at+b) \dot{q} +g(q,t)$$
 
@@ -1253,7 +1254,7 @@ $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi +{\partial \mathcal{L}
 
 利用\(\partial _\mu \)拉到前面去
 $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\delta \phi +\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
-可以注意到\(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} )\right]\delta \phi\) 是Euler-Lagrange eq等於零。所以
+可以注意到\(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\right]\delta \phi\) 是Euler-Lagrange eq等於零。所以
 $$\delta \mathcal{L}=\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu $$
 
 
@@ -1650,7 +1651,7 @@ T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \
 <b>後記</b><br>
 感謝兩位在清華的恩師：吳國安教授 和 周定一教授。國安教授教導我大學部的理論力學、周教授教導我古典力學和廣義相對論。他們的教學熱情和用心讓我可以欣賞到古典物理之美=)<br><br><br>
 <a href="../career/CV.html">About me</a><br><br><br>
-Contact: <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
 </p>
 
 
