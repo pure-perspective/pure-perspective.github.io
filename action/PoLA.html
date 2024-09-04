@@ -774,7 +774,7 @@ $$\delta S_F=-{1 \over 16 \pi c} \delta \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x =
 $$\delta S_F=-{1 \over 16 \pi c} \int   2\delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x =-{1 \over 8 \pi c} \int   \delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x $$
 $$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu -\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
 $$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu  )\cdot F^{\mu \nu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
-因為每一項\(\mu\) 、\(\nu\) 都是Dummy index，可以互換\(\mu ↔\nu \)，我們把第一項的\(\mu\) 、\(\nu\) 互換，就可以把兩項合併
+因為每一項\(\mu\) 、\(\nu\) 都是Dummy index，可以互換\(\mu \leftrightarrow \nu \)，我們把第一項的\(\mu\) 、\(\nu\) 互換，就可以把兩項合併
 $$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\color{red}{\nu}  A_\color{red}{\mu}  )\cdot F^\color{red}{\nu \mu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
 $$={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (-F^\nu \mu +F^{\mu \nu}  ) d^4 x $$
 回憶電磁張量
@@ -1230,8 +1230,8 @@ $$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\m
 </header>
 <p style="text-align:justify">
 提到變分法就一定要與諾特定理做搭配。諾特定理表明如果系統中Lagrangian的物理量\(\phi\) 存在連續變\(\phi \to \phi +\delta \alpha\)，使得\(\mathcal{L}\to \mathcal{L}+{\delta \mathcal{L}\over\delta \alpha}\)，卻保持對稱性（不變性）\(\delta S=0\)，那麼就存在一個守恆流與之對應。這可以應用到：<br>
-$$時間平移不變↔能量守恆$$
-$$空間平移不變↔動量守恆$$
+$$時間平移不變\leftrightarrow 能量守恆$$
+$$空間平移不變\leftrightarrow 動量守恆$$
 
 廣義的證明如下，給定Lagrangian dendity \(\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\)，之前的變分法是針對物理量\(\phi \) 做變分，現在我們同時針對物理量\(\phi\) 和時空\(x^\mu\) 變分
 $$x^\mu \to  \bar{x} ^\mu =x^\mu +\delta x^\mu $$
