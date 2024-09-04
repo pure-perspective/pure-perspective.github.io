@@ -108,7 +108,7 @@
 \(\to\)<a href="./PoLA.html"><b>Chinese Version</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.09.02<br>
+Update 2024.09.04<br>
 </p>
 <ol>
 <section id="a">
@@ -264,7 +264,7 @@ $$\delta S = \int_a^b \delta F\, dt = \int_a^b \left( \frac{\partial F}{\partial
 <table cellpadding="1" border="1">
 <tr><td>
 Advanced: Thm. 1: Interchangeability of Differentiation and Variation<br>
-If differentiation and variation are applied to different objects, such as differentiation with respect to \(t\) \( \frac{d}{dt} \) and variation with respect to \(x\) \(\delta x\), then \( \frac{d}{dt} \) and \( \delta \) can be interchanged.
+If differentiation and variation are applied to different objects, such as differentiation with respect to \(t\), \( \frac{d}{dt} \) and variation with respect to \(x\), \left(\frac{\partial q}{\partial s}\right) d\dot{s} \(\delta x\), then \( \frac{d}{dt} \) and \( \delta \) can be interchanged.
 $$\delta \dot{f} = \dot{f}(x + \delta x) - \dot{f}(x)$$
 $$= \frac{d}{dt} \left( f(x + \delta x) - f(x) \right) = \frac{d}{dt} \delta f$$
 </td></tr>
@@ -371,7 +371,7 @@ $$s = s(q, t) \leftrightarrow q = q(s, t)$$
 $$dq = \frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt$$
 $$\rightarrow \dot{q} = \frac{\partial q}{\partial s} \dot{s} + \frac{\partial q}{\partial t}$$
 $$\rightarrow d\dot{q} = d\left(\frac{\partial q}{\partial s}\right) \dot{s} + \left(\frac{\partial q}{\partial s}\right)d\dot{s} + d\left(\frac{\partial q}{\partial t}\right)$$
-$$=(\frac{\partial q}{\partial s}) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
+$$=\left(\frac{\partial q}{\partial s}\right) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
 $$=\frac{\partial q}{\partial s} d\dot{s} + \left[\dot{s} \frac{\partial^2 q}{\partial s^2} + \frac{\partial^2 q}{\partial s \partial t}\right]ds + \left[\frac{\partial^2 q}{\partial t \partial s} + \frac{\partial^2 q}{\partial t^2}\right]dt$$
 $$\equiv \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt$$
 $$\rightarrow \dot{q} = \dot{q}(\dot{s}, s, t)$$
@@ -457,8 +457,8 @@ $$=\delta q+\dot{q} \delta t$$
 Consider the difference before and after the variation:
 $$\delta S=\delta \int  L dt=\int  \delta L dt+\int  L d\delta t$$
 The first term can be expanded as:
-$$\delta L=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
-$$=L(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  )-L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )+L(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  )-L(q(t),\dot{q} (t),t)$$
+$$\delta L=L \left(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  \right)-L\left(q(t),\dot{q} (t),t\right)$$
+$$=L \left(\bar{q} (\bar{t}  ),\dot{\bar{q}}(\bar{t}  ),\bar{t}  \right)-L\left(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  \right)+L\left(q(\bar{t}  ),\dot{q} (\bar{t}  ),\bar{t}  \right)-L\left(q(t),\dot{q} (t),t\right)$$
 
 $$={\partial L\over\partial q}  \delta q+{\partial L\over \partial \dot{q} }  \delta \dot{q} +{dL\over dt}  \delta t$$
 
@@ -746,8 +746,8 @@ $$\partial _\mu \to \left({\partial \over \partial x^0},{\partial \over \partial
 
 We can calculate:
 
-$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B-z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
-$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B_z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
 
 </p>
 </div>
@@ -851,7 +851,7 @@ To understand the distribution of the EM Field, we vary \(A^\mu\):
 
 $$A^\mu \to A^\mu +\delta A^\mu $$
 
-We observe whether \(J^\mu\), \(d^4 x\), or \(F^{\mu \nu}\) are affected:
+We observe whether \(J^\mu\), \(d^4 x\), or \(F^{\mu \nu}\) are affected:<br>
 
 <a href="./Image/P33.png"><img src="./Image/P33.png" alt="Substitute text" width=90% height="auto"></a><br>
 
@@ -893,7 +893,7 @@ $$={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (-F^\nu \mu +F^
 
 Recall the electromagnetic tensor:
 
-$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B-z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
 
 Since \(F^{\mu \nu}\) is an antisymmetric tensor, \(F^\nu \mu =-F^{\mu \nu} \). Substituting:
 
@@ -1252,7 +1252,7 @@ Where \(\eta_n\) is the amplitude at position \(n\), and \(\eta  ̇_n\) is the v
 
 In the continuous field, the Lagrangian is:
 
-$$\mathcal{L}=\int   {1 \over 2} \rho(\partial \eta /\partial t)^2-{1 \over 2} Y(\partial \eta /\partial x)^2 dx $$
+$$\mathcal{L}=\int   {1 \over 2} \rho\left({\partial \eta \over\partial t}\right)^2-{1 \over 2} Y\left({\partial \eta \over\partial x}\right)^2 dx $$
 
 Where \(\rho\) is the mass density, and \(Y\) is the Young's modulus.<br>
  
@@ -1317,11 +1317,11 @@ $$\phi \to \phi +\delta \phi 、\partial _\mu  \phi \to \partial _\mu  \phi +\de
 The variation of the action is:
 
 $$\delta S=\delta \int   \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x =\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi +{\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \partial _\mu  \phi  d^4 x $$
-$$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )\delta \phi  d^4 x +\int   \partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi )  d^4 x $$
+$$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\delta \phi  d^4 x +\int   \partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi \right)  d^4 x $$
 
-$$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
 
-$$=\int   [{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} )]\delta \phi  d^4 x +0$$
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x +0$$
 
 Since \(\delta \phi\) is arbitrary, for any classical physical quantity \(\phi\), it must satisfy the Euler-Lagrange equation:
 
@@ -1443,6 +1443,7 @@ Adding \(\partial _\mu  f^\mu \) does not change the EoM.
 	<h2><li>Other Possibilities That Do Not Affect EoM</li></h2>
 </header>
 <p style="text-align:justify">
+<b><font color="red">This section is a conjecture by the author and is not yet confirmed to be correct</font></b><br>
 As mentioned earlier, adding a total time derivative term \(f=f(q,t)\) to the Lagrangian does not change the EoM. There is a corresponding extension in field theory, where \(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\). It is important to note that \(f^\mu =f^\mu  (\phi ,x^\mu  )\) can only be a function of \((\phi ,x^\mu  )\). Here, we discuss the conditions under which \(f=f(q,\dot{q} ,t)\) and \(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\) might not change the EoM. In principle, we require:
 
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
@@ -1452,7 +1453,7 @@ Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type:
 
 $${\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}$$
 $$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
-$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  ({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q})=0$$
+$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  \left({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}\right)=0$$
 $$\to  {d^2\over dt^2}  {\partial f\over\partial \dot{q}  }=0$$
 $$\to f=(at+b) \dot{q} +g(q,t)$$
 
@@ -1510,7 +1511,7 @@ Using \(\partial _\mu \) to bring to the front:
 
 $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\delta \phi +\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
 
-Note that \(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} )\right]\delta \phi\) is the Euler-Lagrange equation, which equals zero. Therefore:
+Note that \(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\right]\delta \phi\) is the Euler-Lagrange equation, which equals zero. Therefore:
 
 $$\delta \mathcal{L}=\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu $$
 
@@ -1933,7 +1934,7 @@ T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \
 <b>Postscript</b><br>
 I would like to express my gratitude to my two Teachers at National Tsing Hua University: Professor Kuo-Ａn Wu and Professor Ding-Yi Chou. Professor Wu taught me theoretical mechanics during my undergraduate studies, while Professor Chou guided me through classical mechanics and general relativity. Their passion for teaching and dedication allowed me to appreciate the beauty of classical physics. =)<br><br><br>
 <a href="../career/CV.html">About me</a><br><br><br>
-Contact: <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
 
 </p>
 
