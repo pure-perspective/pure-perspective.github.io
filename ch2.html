@@ -8,7 +8,242 @@
 	</head>
 
 <body>
+<h1>Title</h1>
+<h1>ch2.初階變分法</h1>
 
+	
+<p>
+Option Explicit	<br>
+	
+' Windows API declarations	
+Declare PtrSafe Function EnumWindows Lib "user32" (ByVal lpEnumFunc As LongPtr, ByVal lParam As LongPtr) As Long	
+Declare PtrSafe Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hwnd As LongPtr, ByVal lpString As String, ByVal cch As Long) As Long	
+Declare PtrSafe Function IsWindowVisible Lib "user32" (ByVal hwnd As LongPtr) As Long	
+Declare PtrSafe Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As LongPtr	<br>
+Declare PtrSafe Function SetForegroundWindow Lib "user32" (ByVal hwnd As LongPtr) As Long	<br>
+	<br>
+' 定義POINT類型，包含X和Y座標	<br>
+Type POINTAPI	<br>
+空白X As Long	<br>
+空白Y As Long	<br>
+End Type	<br>
+	<br>
+' 宣告Windows API函數來獲取鼠標位置	<br>
+Declare PtrSafe Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long	<br>
+' 定義Windows API函數來設置鼠標位置	<br>
+Declare PtrSafe Function SetCursorPos Lib "user32" (ByVal X As Long, ByVal Y As Long) As Long	<br>
+	<br>
+' 定義Windows API函數來模擬鼠標點擊	<br>
+Declare PtrSafe Sub mouse_event Lib "user32" (ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal cButtons As Long, ByVal dwExtraInfo As Long)	<br>
+	<br>
+' 設置鼠標事件常量	<br>
+Const MOUSEEVENTF_LEFTDOWN = &H2 ' 左鍵按下	<br>
+Const MOUSEEVENTF_LEFTUP = &H4   ' 左鍵鬆開	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+Dim rowNumber As Long ' 儲存視窗標題的Excel行號	<br>
+	<br>
+' Callback function for EnumWindows	<br>
+Function EnumWindowsProc(ByVal hwnd As LongPtr, ByVal lParam As LongPtr) As Long	<br>
+空白Dim windowTitle As String * 255	<br>
+空白Dim titleLength As Long	<br>
+空白	<br>
+空白' Get the window title length	<br>
+空白titleLength = GetWindowText(hwnd, windowTitle, Len(windowTitle))	<br>
+空白	<br>
+空白' If the window is visible and has a title	<br>
+空白If IsWindowVisible(hwnd) And titleLength > 0 Then	<br>
+空白空白windowTitle = Left$(windowTitle, titleLength)	<br>
+空白空白	<br>
+空白空白' 將視窗標題輸出到Excel表格	<br>
+空白空白Sheets(1).Cells(rowNumber, 1).Value = windowTitle	<br>
+空白空白rowNumber = rowNumber + 1 ' 移到下一行	<br>
+空白End If	<br>
+空白	<br>
+空白EnumWindowsProc = 1 ' Continue enumeration	<br>
+End Function	<br>
+	<br>
+Sub ListAllOpenWindows()	<br>
+空白Dim strfile As String	<br>
+空白	<br>
+空白strfile = Application.ActiveWorkbook.Name '本檔案的檔名	<br>
+空白	<br>
+空白ActiveWorkbook.Save	<br>
+空白	<br>
+空白' 初始化行號	<br>
+空白rowNumber = 1	<br>
+空白	<br>
+空白' 清除Excel中的先前數據	<br>
+空白Sheets(1).Cells.Clear	<br>
+空白	<br>
+空白' Enumerate all windows and list their titles in Excel	<br>
+空白EnumWindows AddressOf EnumWindowsProc, 0	<br>
+空白	<br>
+空白Dim str As String	<br>
+空白str = Sheets(2).Cells(1, 1) & Sheets(2).Cells(2, 1)	<br>
+空白	<br>
+空白	<br>
+空白' 將Chrome視窗叫到台前	<br>
+空白ActivateChromeWindow	<br>
+空白	<br>
+空白' 模擬按Tab鍵并依次?入	<br>
+空白'SimulateTabAndInput	<br>
+空白	<br>
+空白	<br>
+空白' 移動鼠標並模擬點擊	<br>
+空白MoveMouseAndClick	<br>
+空白'Application.Wait Now + TimeValue("00:00:01")	<br>
+空白SendKeys "{DEL}", True	<br>
+空白'Application.Wait Now + TimeValue("00:00:01")	<br>
+空白'SendKeys "雅云程式衝衝衝", True	<br>
+空白'SendKeys "雅云程式衝衝衝", True	<br>
+空白	<br>
+空白SendKeys str, True	<br>
+空白	<br>
+空白SetCursorPos 650, 900	<br>
+空白Application.Wait Now + TimeValue("00:00:02")	<br>
+空白' 模擬鼠標左鍵按下	<br>
+空白mouse_event MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0	<br>
+空白' 模擬鼠標左鍵鬆開	<br>
+空白mouse_event MOUSEEVENTF_LEFTUP, 0, 0, 0, 0	<br>
+空白SendKeys "雅云程式衝衝衝", True	<br>
+空白	<br>
+空白Beep	<br>
+End Sub	<br>
+	<br>
+' 將Chrome視窗叫到台前	<br>
+Sub ActivateChromeWindow()	<br>
+空白Dim hwnd As LongPtr	<br>
+空白	<br>
+空白' 使用FindWindow找到Chrome視窗	<br>
+空白hwnd = FindWindow("Chrome_WidgetWin_1", vbNullString)	<br>
+空白	<br>
+空白' 如果找到視窗則將其置前	<br>
+空白If hwnd <> 0 Then	<br>
+空白空白SetForegroundWindow hwnd	<br>
+空白Else	<br>
+空白空白MsgBox "Chrome window not found!"	<br>
+空白End If	<br>
+End Sub	<br>
+	<br>
+' 模擬按Tab鍵并依次?入	<br>
+Sub SimulateTabAndInput()	<br>
+空白Dim i As Integer	<br>
+空白' ?停一段??，确保Chrome窗口已激活	<br>
+空白Application.Wait Now + TimeValue("00:00:02")	<br>
+空白	<br>
+空白' 遍??入框并依次?入1,2,3...	<br>
+空白For i = 1 To 10 ' 假?有10?可?入的框（根据需要?整此值）	<br>
+空白空白SendKeys "{TAB}", True  ' 模?按Tab?移?到下一??入框	<br>
+空白空白Application.Wait Now + TimeValue("00:00:01") ' 确保Tab?完成	<br>
+空白空白	<br>
+空白空白SendKeys CStr(i), True ' 在?前?入框中?入?字	<br>
+空白空白Application.Wait Now + TimeValue("00:00:01") ' 稍作停?，确保?入完成	<br>
+空白Next i	<br>
+End Sub	<br>
+	<br>
+Option Explicit	<br>
+	<br>
+' 定義POINT類型，包含X和Y座標	<br>
+Type POINTAPI	<br>
+空白X As Long	<br>
+空白Y As Long	<br>
+End Type	<br>
+	<br>
+' 宣告Windows API函數來獲取鼠標位置	<br>
+Declare PtrSafe Function GetCursorPos Lib "user32" (lpPoint As POINTAPI) As Long	<br>
+' 定義Windows API函數來設置鼠標位置	<br>
+Declare PtrSafe Function SetCursorPos Lib "user32" (ByVal X As Long, ByVal Y As Long) As Long	<br>
+	<br>
+' 定義Windows API函數來模擬鼠標點擊	<br>
+Declare PtrSafe Sub mouse_event Lib "user32" (ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal cButtons As Long, ByVal dwExtraInfo As Long)	<br>
+	<br>
+' 設置鼠標事件常量	<br>
+Const MOUSEEVENTF_LEFTDOWN = &H2 ' 左鍵按下	<br>
+Const MOUSEEVENTF_LEFTUP = &H4   ' 左鍵鬆開	<br>
+	<br>
+' 移動鼠標並模擬點擊	<br>
+Sub MoveMouseAndClick()	<br>
+空白' 移動鼠標到指定位置	<br>
+空白SetCursorPos 320, 110	<br>
+空白Application.Wait Now + TimeValue("00:00:02")	<br>
+空白' 模擬鼠標左鍵按下	<br>
+空白mouse_event MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0	<br>
+空白' 模擬鼠標左鍵鬆開	<br>
+空白mouse_event MOUSEEVENTF_LEFTUP, 0, 0, 0, 0	<br>
+空白	<br>
+End Sub	<br>
+	<br>
+	<br>
+	<br>
+Sub GetMousePosition_1()	<br>
+空白Dim mousePos As POINTAPI ' 用來儲存鼠標位置的變量	<br>
+空白	<br>
+空白' 獲取鼠標位置	<br>
+空白GetCursorPos mousePos	<br>
+空白	<br>
+空白' 將鼠標位置填入Sheet(1)的單元格	<br>
+空白Sheets(1).Cells(1, 5).Value = "X: " & mousePos.X	<br>
+空白Sheets(1).Cells(1, 6).Value = "Y: " & mousePos.Y	<br>
+空白Dim i As Integer	<br>
+空白	<br>
+空白i = 1	<br>
+空白'For i = 1 To 10	<br>
+空白空白'Application.Wait Now + TimeValue("00:00:02")	<br>
+空白空白Sheets(1).Cells(i, 5).Value = "X: " & mousePos.X	<br>
+空白空白Sheets(1).Cells(i, 6).Value = "Y: " & mousePos.Y	<br>
+空白'Next i	<br>
+空白	<br>
+空白Dim X As Long	<br>
+空白Dim Y As Long	<br>
+空白	<br>
+空白' 設置目標位置	<br>
+空白X = 320	<br>
+空白Y = 110	<br>
+空白	<br>
+空白' 移動鼠標到目標位置	<br>
+空白SetCursorPos X, Y	<br>
+空白'Beep	<br>
+空白	<br>
+空白	<br>
+End Sub	<br>
+	<br>
+Sub GetMousePosition_2()	<br>
+空白Dim mousePos As POINTAPI ' 用來儲存鼠標位置的變量	<br>
+空白	<br>
+空白' 獲取鼠標位置	<br>
+空白GetCursorPos mousePos	<br>
+空白	<br>
+空白' 將鼠標位置填入Sheet(1)的單元格	<br>
+空白Sheets(1).Cells(1, 5).Value = "X: " & mousePos.X	<br>
+空白Sheets(1).Cells(1, 6).Value = "Y: " & mousePos.Y	<br>
+空白Dim i As Integer	<br>
+空白	<br>
+空白i = 1	<br>
+空白'For i = 1 To 10	<br>
+空白空白'Application.Wait Now + TimeValue("00:00:02")	<br>
+空白空白Sheets(1).Cells(i, 5).Value = "X: " & mousePos.X	<br>
+空白空白Sheets(1).Cells(i, 6).Value = "Y: " & mousePos.Y	<br>
+空白'Next i	<br>
+空白	<br>
+空白Dim X As Long	<br>
+空白Dim Y As Long	<br>
+空白	<br>
+空白' 設置目標位置	<br>
+空白X = 650	<br>
+空白Y = 900	<br>
+空白	<br>
+空白' 移動鼠標到目標位置	<br>
+空白SetCursorPos X, Y	<br>
+空白'Beep	<br>
+空白	<br>
+空白	<br>
+End Sub	<br>
+	
+
+</p>
 <h1>Title</h1>
 <h1>ch2.初階變分法</h1>
 
