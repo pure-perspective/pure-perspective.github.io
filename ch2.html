@@ -13,45 +13,1608 @@
 <h1>ch2.初階變分法</h1>
 
 <p>
+<!DOCTYPE html>
+<html>
+	<head>
+		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
+		</script>
 
-	如果今天，一個泛函（Functional）的積分問題
-$$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt$$
-其中，\(x=x(t)\)、\( \dot{x}=dx \over dt\)，固定\(a\)、\(b\)下改變軌跡\(x(t)\)的形式會對積分S造成影響，我們想找到S的極值（Extreme value，不論極大或極小）下，軌跡\(x(t)\)會是什麼形式？或是\(F(x,\dot{x},t)\)該滿足什麼條件？根據微積分的概念，在\(f(x)\)極值\(x_0\)附近做微小的變化\(x_0 + \varepsilon\)時，\(f(x\)是不會有變化的，即\(df=0\)。類似的想法，\(S\)在極值附近時，\(x(t)\)稍微改變形式，\(\delta S=0\)。我們可以將積分問題簡單的用圖像表達，不同\(x(t)\)的函數形式表示不同的路徑連結\(a\)到\(b\)點。<br>
- 
+		<meta charset="utf-8">
+	</head>
 
-如果\(x(t)\)是滿足\(S\)的極值，那麼如果加入微小的任意函數\(\varepsilon \eta (t)\)，\( \eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，使\(a\)、\(b\)兩點\(F(x,\dot{x},t)\)不變。在加入微小的任意函數\(\varepsilon \eta (t)\)後
-$$x(t)→x(t)+\varepsilon \eta (t)$$
-$$\dot{x}(t)→\dot{x}(t)+\varepsilon \dot{\eta} (t)$$
-$$F(x,\dot{x},t)→F(x+\varepsilon \eta,\dot{x}+\varepsilon \dot{\eta} ,t)=F(x,\dot{x},t)+\delta F$$
-我們知道\(S\)在極值附近，微小變化\(\varepsilon\)時，\(S\)不變：
-$$\delta S=S[F(x+\varepsilon \eta ,\dot{x}+\varepsilon \dot{\eta},t)]-S[F(x,\dot{x},t)]=0\leftrightarrow {\delta S \over \delta \varepsilon} =0$$
-\(\delta S\)的變化完全是由\(\delta F\)造成的，所以可以寫為
-$${\delta S \over \delta \varepsilon} ={\delta  \over \delta \varepsilon}  \int_a^b Fdt=\int_a^b {\delta F\over\delta \varepsilon}  dt =0$$
+<body>
 
-
-利用微積分的手法，將\(\delta F\over \delta \varepsilon\) 展開
-$${\delta S\over \delta \varepsilon} =\int_a^b {\delta F\over\delta \varepsilon} dt =\int_a^b {\partial F\over\partial x }{ \delta x\over\delta \varepsilon} +{\partial F\over\partial \dot{x} }{ \delta \dot{x} \over\delta \varepsilon }+{\partial F\over\partial t }{ \delta t\over\delta \varepsilon } dt $$
-但我們只針對做軌跡\(\eta \)變分，沒有對\(t\)變分，所以
-$${\delta t\over\delta \varepsilon} =0$$
+<h1>VBA-ch4-20240213-perri</h1>
 
 
 
-$${\delta S\over\delta \varepsilon} = \int_a^b {\partial F\over\partial x }{\delta x \over\delta \varepsilon} +{\partial F\over\partial \dot{x} }{\delta \dot{x} \over\delta \varepsilon } dt$$
+<p>
+
+Sub find() '填入任意數字，數出每個數字出現幾次'	<br />
+	<br />
+Public strfile As String  '本檔案的檔名	<br />
+Public strpath As String  '本檔案在的路徑	<br />
+Public str_OS As String	<br />
+	<br />
+Public Const col_offset As Integer = 30	<br />
+	<br />
+	<br />
+Type manufactor_info_row	<br />
+&emsp;Tyre_Code As Integer	<br />
+&emsp;Tyre_ID As Integer	<br />
+&emsp;KMN_Set As Integer	<br />
+&emsp;Quantity As Integer	<br />
+&emsp;In_stock As Integer	<br />
+&emsp;Quality As Integer	<br />
+&emsp;Location As Integer	<br />
+&emsp;sorting_process(3) As String '排序條件	<br />
+End Type	<br />
+	<br />
+Public Const type_max_count As Integer = 100 'should be max!!!	<br />
+Public type_count As Integer	<br />
+Public Const manufator_count As Integer = 5 'should be max!!!	<br />
+Public Const area_max_count As Integer = 50 'should be max!!!	<br />
+Public manufactor_row(manufator_count) As manufactor_info_row	<br />
+	<br />
+	<br />
+'訂單資訊	<br />
+Type order_form	<br />
+&emsp;ship_day As String	<br />
+&emsp;ship_destiny As String	<br />
+&emsp;order_quantitiy As LongLong	<br />
+&emsp;primary_type As Integer	<br />
+&emsp;primary_type_code As String	<br />
+&emsp;choice_type_count As Integer	<br />
+&emsp;choice_type_list(10) As String	<br />
+End Type	<br />
+Public order_plan(100) As order_form	<br />
+Public order_count As Integer	<br />
+	<br />
+	<br />
+'產品選取資訊	<br />
+Type product_info	<br />
+&emsp;type_code As String	<br />
+&emsp;type_name As String	<br />
+&emsp;first_time As String	<br />
+&emsp;first_row As LongLong	<br />
+&emsp;first_availible_row As LongLong	<br />
+&emsp;end_row As LongLong	<br />
+&emsp;total_availible_count As LongLong	<br />
+&emsp;num_of_choice As Integer  'how many manufactor/area can choice	<br />
+&emsp;manufator_code As Integer '1:Mic,2:Bris,3:Per	<br />
+&emsp;expire_day As LongLong	<br />
+&emsp;mini_quantity As LongLong	<br />
+&emsp;can_mix As Boolean	<br />
+&emsp;mix_count As Integer	<br />
+&emsp;mix_type(10) As Integer	<br />
+&emsp;activate_find As Boolean	<br />
+End Type	<br />
+Public product_list(type_max_count, manufator_count, area_max_count) As product_info	<br />
+Public area_sort_sequence(type_max_count, manufator_count, area_max_count)  As Integer	<br />
+'product_list(i, 0, 0)紀錄那個type總資訊	<br />
+'product_list(i, j, 0)那個area總資訊	<br />
+	<br />
+Public global_output_row As LongLong	<br />
+Public VBA_mode As Integer	<br />
+	<br />
+Type VBA_mode_manufactor_choice	<br />
+&emsp;num_of_manufactor As Integer	<br />
+&emsp;manufactor_code(10) As Integer	<br />
+&emsp;manufactor_produce_file(10) As String	<br />
+&emsp;manufactor_produce_excel(10) As String	<br />
+End Type	<br />
+Public manufactor_choice_mode(5) As VBA_mode_manufactor_choice	<br />
+	<br />
+	<br />
+	<br />
+Sub define_info()	<br />
+&emsp;'save_file	<br />
+&emsp;	<br />
+&emsp;Dim head_line(50) As String	<br />
+&emsp;head_line(1) = "F1 Tyre Number"	<br />
+&emsp;head_line(2) = "Tyre ID"	<br />
+&emsp;head_line(3) = "KMN-Set"	<br />
+&emsp;head_line(4) = "Quantity"	<br />
+&emsp;head_line(5) = "In stock"	<br />
+&emsp;head_line(6) = "Quality"	<br />
+&emsp;head_line(7) = "Location"	<br />
+&emsp;	<br />
+&emsp;Dim manufactor As Integer	<br />
+&emsp;	<br />
+&emsp;'manufactor_choice_mode(1).num_of_manufactor = 2 ' MICHELIN and'BRIDGESTONE	<br />
+&emsp;'manufactor_choice_mode(2).num_of_manufactor = 1 'PIRELLI	<br />
+&emsp;	<br />
+&emsp;manufactor = 1 ' MICHELIN	<br />
+&emsp;With manufactor_row(manufactor)	<br />
+&emsp;&emsp;.Tyre_Code = 1	<br />
+&emsp;&emsp;.Tyre_ID = 2	<br />
+&emsp;&emsp;.KMN_Set = 3	<br />
+&emsp;&emsp;.Quantity = 4	<br />
+&emsp;&emsp;.In_stock = 5	<br />
+&emsp;&emsp;.Quality = 6	<br />
+&emsp;&emsp;.Location = 7	<br />
+&emsp;&emsp;.sorting_process(1) = Chr(64 + .In_stock) & "1"	<br />
+&emsp;&emsp;.sorting_process(2) = Chr(64 + .Tyre_ID) & "1"	<br />
+&emsp;&emsp;.sorting_process(3) = Chr(64 + .KMN_Set) & "1"	<br />
+&emsp;End With	<br />
+&emsp;	<br />
+&emsp;manufactor = 2 'BRIDGESTONE	<br />
+&emsp;With manufactor_row(manufactor)	<br />
+&emsp;&emsp;.Tyre_Code = 3 '1	<br />
+&emsp;&emsp;.Tyre_ID = 1 '2	<br />
+&emsp;&emsp;.KMN_Set = 5 '3	<br />
+&emsp;&emsp;.Quantity = 2 '4	<br />
+&emsp;&emsp;.In_stock = 6 '5	<br />
+&emsp;&emsp;.Quality = 4 '6	<br />
+&emsp;&emsp;.Location = 7 '7	<br />
+&emsp;&emsp;.sorting_process(1) = Chr(64 + .In_stock) & "1"	<br />
+&emsp;&emsp;.sorting_process(2) = Chr(64 + .Tyre_ID) & "1"	<br />
+&emsp;&emsp;.sorting_process(3) = Chr(64 + .KMN_Set) & "1"	<br />
+&emsp;End With	<br />
+&emsp;	<br />
+&emsp;manufactor = 3 'PIRELLI	<br />
+&emsp;With manufactor_row(manufactor)	<br />
+&emsp;&emsp;.Tyre_Code = 2 '1	<br />
+&emsp;&emsp;.Tyre_ID = 3 '2	<br />
+&emsp;&emsp;.KMN_Set = 7 '3	<br />
+&emsp;&emsp;.Quantity = 5 '4	<br />
+&emsp;&emsp;.In_stock = 1 '5	<br />
+&emsp;&emsp;.Quality = 6 '6	<br />
+&emsp;&emsp;.Location = 4 '7	<br />
+&emsp;&emsp;.sorting_process(1) = Chr(64 + .Location) & "1"	<br />
+&emsp;&emsp;.sorting_process(2) = Chr(64 + .In_stock) & "1"	<br />
+&emsp;&emsp;.sorting_process(3) = Chr(64 + .Tyre_ID) & "1"	<br />
+&emsp;End With	<br />
+&emsp;	<br />
+&emsp;i = 2	<br />
+&emsp;type_count = 0	<br />
+&emsp;Do Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+&emsp;&emsp;type_count = type_count + 1	<br />
+&emsp;&emsp;For j = 0 To manufactor_choice_mode(VBA_mode).num_of_manufactor 'manufator_count	<br />
+&emsp;&emsp;&emsp;For k = 0 To area_max_count	<br />
+&emsp;&emsp;&emsp;&emsp;With product_list(type_count, j, k)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.type_code = Workbooks(strfile).Sheets("type_information").Cells(i, 1)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.type_name = Workbooks(strfile).Sheets("type_information").Cells(i, 2)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.expire_day = Workbooks(strfile).Sheets("type_information").Cells(i, 3)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.mini_quantity = Workbooks(strfile).Sheets("type_information").Cells(i, 4)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.first_time = Date '""	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.first_row = 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.end_row = 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.total_availible_count = 0	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.num_of_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.can_mix = False	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.mix_count = 0	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.activate_find = False	<br />
+&emsp;&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;&emsp;Next k	<br />
+&emsp;&emsp;Next j	<br />
+&emsp;i = i + 1	<br />
+&emsp;Loop	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;'i = 2	<br />
+&emsp;'type_count = 0	<br />
+&emsp;'Do Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+&emsp;'&emsp;type_count = type_count + 1	<br />
+&emsp;'&emsp;With product_list(type_count, 0, 0)	<br />
+&emsp;'&emsp;&emsp;.type_code = Workbooks(strfile).Sheets("type_information").Cells(i, 1)	<br />
+&emsp;'&emsp;&emsp;.type_name = Workbooks(strfile).Sheets("type_information").Cells(i, 2)	<br />
+&emsp;'&emsp;&emsp;.expire_day = Workbooks(strfile).Sheets("type_information").Cells(i, 3)	<br />
+&emsp;'&emsp;&emsp;.mini_quantity = Workbooks(strfile).Sheets("type_information").Cells(i, 4)	<br />
+&emsp;'	<br />
+&emsp;'&emsp;&emsp;.first_time = ""	<br />
+&emsp;'&emsp;&emsp;.first_row = 1	<br />
+&emsp;'&emsp;&emsp;.end_row = 1	<br />
+&emsp;'&emsp;&emsp;.total_availible_count = 0	<br />
+&emsp;'&emsp;&emsp;.num_of_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+&emsp;'&emsp;&emsp;.can_mix = False	<br />
+&emsp;'&emsp;&emsp;.mix_count = 0	<br />
+&emsp;'&emsp;&emsp;.activate_find = False	<br />
+&emsp;'&emsp;End With	<br />
+&emsp;'i = i + 1	<br />
+&emsp;'Loop	<br />
+&emsp;	<br />
+&emsp;Dim count As Integer	<br />
+&emsp;	<br />
+&emsp;i = 2	<br />
+&emsp;Do Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+&emsp;&emsp;If Workbooks(strfile).Sheets("type_information").Cells(i, 5).MergeCells = True Then	<br />
+&emsp;&emsp;&emsp;count = Workbooks(strfile).Sheets("type_information").Cells(i, 5).MergeArea.Rows.count	<br />
+&emsp;&emsp;&emsp;'count = Cells(i, 2).MergeArea.columns.count	<br />
+&emsp;&emsp;&emsp;For j = i To i + count - 1	<br />
+&emsp;&emsp;&emsp;&emsp;With product_list(j - 1, 0, 0)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.can_mix = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.mix_count = count - 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;k = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Do Until k = j	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.mix_type(k - i + 1) = k - 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;k = k + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Loop	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;k = j + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Do Until k > i + count - 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.mix_type(k - i + 1 - 1) = k - 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;k = k + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Loop	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;&emsp;Next j	<br />
+&emsp;&emsp;&emsp;i = i + count - 1	<br />
+&emsp;&emsp;End If	<br />
+&emsp;i = i + 1	<br />
+&emsp;Loop	<br />
+&emsp;	<br />
+&emsp;Dim row As LongLong	<br />
+&emsp;row = 1	<br />
+&emsp;For i = 1 To type_count	<br />
+&emsp;&emsp;With product_list(i, 0, 0)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("type_information").Cells(row, 19) = i	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("type_information").Cells(row, 20) = .type_code	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("type_information").Cells(row, 21) = .can_mix	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("type_information").Cells(row, 22) = .mix_count	<br />
+&emsp;&emsp;&emsp;j = 1	<br />
+&emsp;&emsp;&emsp;Do Until j > .mix_count	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("type_information").Cells(row + j, 23) = .mix_type(j)	<br />
+&emsp;&emsp;&emsp; j = j + 1	<br />
+&emsp;&emsp;&emsp;Loop	<br />
+&emsp;&emsp;&emsp;row = row + .mix_count	<br />
+&emsp;&emsp;End With	<br />
+&emsp;&emsp;row = row + 1	<br />
+&emsp;Next i	<br />
+&emsp;	<br />
+&emsp;	<br />
+End Sub	<br />
+	<br />
+Sub generate_list()	<br />
+&emsp;boost	<br />
+&emsp;save_file	<br />
+&emsp;Workbooks(strfile).Sheets(1).Cells.Clear	<br />
+&emsp;	<br />
+&emsp;Dim i As LongLong	<br />
+&emsp;Dim max_list As LongLong	<br />
+&emsp;max_list = 150000	<br />
+&emsp;Dim set_quantity As Integer	<br />
+&emsp;set_quantity = 40	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;define_info	<br />
+&emsp;	<br />
+&emsp;manufactor = 1	<br />
+&emsp;With manufactor_row(manufactor)	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .Tyre_Code) = "Tyre_Code"	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .Tyre_ID) = "Tyre_ID"	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .Quantity) = "Quantity"	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .In_stock) = "In_stock"	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .Quality) = "Quality"	<br />
+&emsp;&emsp;If manufactor = 3 Then	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .Location) = ".Location"	<br />
+&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(1, .KMN_Set) = "KMN_Set"	<br />
+&emsp;&emsp;End If	<br />
+&emsp;	<br />
+&emsp;&emsp;For i = 1 To max_list	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code) = Chr(Int(3 * Rnd() + 70)) & Int(3 * Rnd() + 3) & Int(Int(4 * Rnd() + 1) * 20 + Int(9 * Rnd()) + 1)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, 12) = Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code)	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_ID) = Int(7 * Rnd() + 3) * 10 & Int(Int(4 * Rnd() + 1) * 20 + Int(7 * Rnd()) + 1) & Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code) & CStr(max_list * 10 - i) & Int(8 * Rnd() + 1)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Int(2022 + Int(3 * Rnd())) & "/" & Int(12 * Rnd() + 1) & "/" & Int(28 * Rnd() + 1)	<br />
+&emsp;&emsp;&emsp;Do Until DateDiff("d", Workbooks(strfile).Sheets(1).Cells(i + 1, .In_stock).Value, Date) >= 0	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Int(2022 + Int(3 * Rnd())) & "/" & Int(12 * Rnd() + 1) & "/" & Int(28 * Rnd() + 1)	<br />
+&emsp;&emsp;&emsp;Loop	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;If Int(50 * Rnd()) = 0 Then 'quality fail	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quality) = "Fail"	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;If manufactor = 3 Then	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Location) = "Area-" & Int(100 - Int(13 * Rnd() + 1) * 6)	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity	<br />
+&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If Int(3 * Rnd()) > 0 Then 'define K or M,N	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "K"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Int(50 * Rnd()) = 0 Then 'randomly make K un set	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = Int(set_quantity / 2 * Rnd() + 1)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "M" 'split M, N	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = Int(set_quantity / 2 * Rnd() + 1)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Int(5 * Rnd()) > 0 Then  'randomly make M,N un pair	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;i = i + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;For j = 1 To 100	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, j) = Workbooks(strfile).Sheets(1).Cells(i, j)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Next j	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "N"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity - Workbooks(strfile).Sheets(1).Cells(i, .Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Workbooks(strfile).Sheets(1).Cells(i, .In_stock).Value	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Int(3 * Rnd()) > 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "N"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;Next i	<br />
+&emsp;End With	<br />
+&emsp;Workbooks(strfile).Sheets(1).Columns("L:L").Sort Key1:=Range("L1"), Order1:=xlAscending, Header:=xlYes	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;Do Until i = 2	<br />
+&emsp;&emsp;If Workbooks(strfile).Sheets(1).Cells(i, 12) = Workbooks(strfile).Sheets(1).Cells(i - 1, 12) Then	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(1).Cells(i, 12) = ""	<br />
+&emsp;&emsp;End If	<br />
+&emsp;i = i - 1	<br />
+&emsp;Loop	<br />
+&emsp;Workbooks(strfile).Sheets(1).Columns("L:L").Sort Key1:=Range("L1"), Order1:=xlAscending, Header:=xlYes	<br />
+&emsp;normal	<br />
+&emsp;'find	<br />
+End Sub	<br />
+	<br />
+Sub find()	<br />
+&emsp;	<br />
+&emsp;save_file	<br />
+&emsp;	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells.Clear	<br />
+&emsp;	<br />
+&emsp;define_info	<br />
+&emsp;	<br />
+&emsp;Dim manufactor As Integer	<br />
+&emsp;manufactor = 3	<br />
+&emsp;	<br />
+&emsp;For j = 1 To 8	<br />
+&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(1, j) = Workbooks(strfile).Sheets(1).Cells(1, j)	<br />
+&emsp;Next j	<br />
+&emsp;	<br />
+&emsp;Dim target_code As String	<br />
+&emsp;target_code = Workbooks(strfile).Sheets(1).Cells(10, 12)	<br />
+&emsp;	<br />
+&emsp;find_target manufactor, target_code, 2	<br />
+&emsp;	<br />
+&emsp;Workbooks(strfile).Sheets(2).Activate	<br />
+&emsp;sorting_list manufactor	<br />
+End Sub	<br />
+	<br />
+Sub order_read()	<br />
+&emsp;	<br />
+&emsp;save_file	<br />
+&emsp;define_info	<br />
+&emsp;open_product_list	<br />
+&emsp;	<br />
+&emsp;boost	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;order_count = 0	<br />
+&emsp;Dim i, j, k As Integer	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;j = 3	<br />
+&emsp;Do Until Workbooks(strfile).Sheets("Shipping_plan").Cells(1, j) = ""	<br />
+&emsp;&emsp;i = 2	<br />
+&emsp;&emsp;Do Until Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 2) = ""	<br />
+&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets("Shipping_plan").Cells(i, j) <> "" Then	<br />
+&emsp;&emsp;&emsp;&emsp;order_count = order_count + 1	<br />
+&emsp;&emsp;&emsp;&emsp;With order_plan(order_count)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.ship_day = Workbooks(strfile).Sheets("Shipping_plan").Cells(1, j)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.ship_destiny = Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 2)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.order_quantitiy = CLng(Workbooks(strfile).Sheets("Shipping_plan").Cells(i, j))	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.primary_type_code = Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 1)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;.choice_type_count = 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;For k = 1 To type_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If product_list(k, 0, 0).type_code = .primary_type_code Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.primary_type = k	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If product_list(k, 0, 0).activate_find = False Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(k, 0, 0).activate_find = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;k = type_count + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Next k	<br />
+&emsp;&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;i = i + 1	<br />
+&emsp;&emsp;Loop	<br />
+&emsp;j = j + 1	<br />
+&emsp;Loop	<br />
+&emsp;	<br />
+&emsp;Workbooks(strfile).Sheets("Shipping_plan").Activate	<br />
+&emsp;For i = 1 To order_count	<br />
+&emsp;&emsp;With order_plan(i)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 10) = i	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 11) = .ship_day	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 12) = .ship_destiny	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 13) = .order_quantitiy	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 14) = .primary_type_code	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 15) = .primary_type	<br />
+&emsp;&emsp;End With	<br />
+&emsp;Next i	<br />
+&emsp;Dim m As Integer	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells.Clear	<br />
+&emsp;global_output_row = 2	<br />
+&emsp;For k = 1 To type_count	<br />
+&emsp;&emsp;With product_list(k, 0, 0)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 20) = k	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 21) = .type_code	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 22) = .activate_find	<br />
+&emsp;&emsp;&emsp;If .activate_find = True Then	<br />
+&emsp;&emsp;&emsp;&emsp;For m = 1 To manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(global_output_row, 1) = manufactor_choice_mode(VBA_mode).manufactor_produce_file(m)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;global_output_row = global_output_row + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;find_target manufactor_choice_mode(VBA_mode).manufactor_produce_excel(m), m, manufactor_choice_mode(VBA_mode).manufactor_code(m), k, global_output_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;global_output_row = global_output_row + 2	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Next m	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;End With	<br />
+&emsp;Next k	<br />
+&emsp;close_product_list	<br />
+&emsp;normal	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;For k = 1 To type_count	<br />
+&emsp;&emsp;With product_list(k, 0, 0)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 20) = k	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 21) = .type_code	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(k, 22) = .activate_find	<br />
+&emsp;&emsp;&emsp;If .activate_find = True Then	<br />
+&emsp;&emsp;&emsp;&emsp;For m = 1 To manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;check_candidate m, manufactor_choice_mode(VBA_mode).manufactor_code(m), k	<br />
+&emsp;&emsp;&emsp;&emsp;Next m	<br />
+&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;End With	<br />
+&emsp;Next k	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;Dim left_quantity As LongLong	<br />
+&emsp;Dim manufactor_choice As Integer	<br />
+&emsp;manufactor_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+&emsp;Dim manufactor_code As Integer	<br />
+&emsp;manufactor_code = 3	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;Workbooks(strfile).Sheets("工作表4").Cells.Clear	<br />
+&emsp;global_output_row = 2	<br />
+&emsp;For i = 1 To order_count	<br />
+&emsp;&emsp;With order_plan(i)	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 1) = i	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 2) = .ship_day	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 3) = .ship_destiny	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 4) = .order_quantitiy	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 5) = .primary_type_code	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 6) = .primary_type	<br />
+&emsp;&emsp;End With	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;If product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count > order_plan(i).order_quantitiy Then	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 16) = "有貨"	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 16) = "有貨"	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;left_quantity = order_plan(i).order_quantitiy	<br />
+&emsp;&emsp;&emsp;global_output_row = global_output_row + 1	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;For k = 1 To product_list(order_plan(i).primary_type, manufactor_choice, 0).num_of_choice	<br />
+&emsp;&emsp;&emsp;&emsp;With product_list(order_plan(i).primary_type, manufactor_choice, area_sort_sequence(order_plan(i).primary_type, manufactor_choice, k))	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If .total_availible_count > 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;For r = .first_availible_row To .end_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If left_quantity > 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(r, 15) = "" Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 13) = k	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 14) = area_sort_sequence(order_plan(i).primary_type, manufactor_choice, k)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 15) = left_quantity	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;left_quantity = left_quantity - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 16) = left_quantity	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 18) = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 19) = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 21) = .total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.total_availible_count = .total_availible_count - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 22) = .total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.first_availible_row = r	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;For j = 1 To 10	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, j) = Workbooks(strfile).Sheets(2).Cells(r, j)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Next j	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, manufactor_row(manufactor_code).In_stock) = Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).In_stock).Value	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, j) = Workbooks(strfile).Sheets(2).Cells(r, col_offset + 15)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(r, col_offset + 15) = "出貨"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;global_output_row = global_output_row + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;r = .end_row + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Next r	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;&emsp;Next k	<br />
+&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表4").Cells(global_output_row, 16) = "沒貨"	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 16) = "沒貨"	<br />
+&emsp;&emsp;End If	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;global_output_row = global_output_row + 3	<br />
+&emsp;Next i	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;Workbooks(strfile).Sheets("工作表4").Activate	<br />
+&emsp;Beep	<br />
+End Sub	<br />
+	<br />
+Sub boost()	<br />
+' 暫停四個容易拖慢的 Excel 功能	<br />
+Application.Calculation = xlCalculationManual	<br />
+Application.ScreenUpdating = False	<br />
+Application.DisplayStatusBar = False	<br />
+Application.EnableEvents = False	<br />
+Application.DisplayAlerts = False	<br />
+' 主要程式碼放在這裡	<br />
+	<br />
+End Sub	<br />
+	<br />
+Sub normal()	<br />
+' 恢復四個容易拖慢的 Excel 功能	<br />
+Application.Calculation = xlCalculationAutomatic	<br />
+Application.ScreenUpdating = True	<br />
+Application.DisplayStatusBar = True	<br />
+Application.EnableEvents = True	<br />
+Application.DisplayAlerts = True	<br />
+End Sub	<br />
+	<br />
+Sub save_file()	<br />
+&emsp;strfile = Application.ActiveWorkbook.Name  '本檔案的檔名	<br />
+&emsp;str_OS = Mid(Application.ActiveWorkbook.Path, 1, 1)	<br />
+&emsp;strpath = Application.ActiveWorkbook.Path & str_OS   '"\"  '本檔案在的路徑	<br />
+&emsp;Workbooks(strfile).Sheets(1).Range("A:H").Clear	<br />
+&emsp;Workbooks(strfile).Activate	<br />
+&emsp;ActiveWorkbook.Save	<br />
+&emsp;	<br />
+&emsp;Select Case Mid(strfile, 10, 1)	<br />
+&emsp;&emsp;Case "O"	<br />
+&emsp;&emsp;&emsp;VBA_mode = 1	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).num_of_manufactor = 3	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_code(1) = 1 'Mic	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_produce_file(1) = "MICHELIN"	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_code(2) = 2 'Bris	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_produce_file(2) = "BRIDGESTONE"	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_code(3) = 3 'Per	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_produce_file(3) = "PIRELLI"	<br />
+&emsp;&emsp;Case "T"	<br />
+&emsp;&emsp;&emsp;VBA_mode = 2	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).num_of_manufactor = 1	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_code(1) = 3 'Per	<br />
+&emsp;&emsp;&emsp;manufactor_choice_mode(VBA_mode).manufactor_produce_file(1) = "PIRELLI"	<br />
+&emsp;&emsp;Case Else	<br />
+&emsp;&emsp;&emsp;VBA_mode = 1	<br />
+&emsp;End Select	<br />
+&emsp;	<br />
+End Sub	<br />
+Sub open_product_list()	<br />
+&emsp;'save_file	<br />
+&emsp;raw = 1	<br />
+&emsp;With manufactor_choice_mode(VBA_mode)	<br />
+&emsp;&emsp;For i = 1 To .num_of_manufactor	<br />
+&emsp;&emsp;&emsp;stritem = Dir(strpath & .manufactor_produce_file(i) & str_OS & "*.xlsx")  'find txt	<br />
+&emsp;&emsp;&emsp;Do Until stritem = "" '將所有檔案條列出來	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表1").Cells(raw, 1) = stritem '檔名	<br />
+&emsp;&emsp;&emsp;&emsp;.manufactor_produce_excel(i) = stritem '檔名	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets("工作表1").Cells(raw, 3) = strpath & .manufactor_produce_file(i) & str_OS & .manufactor_produce_excel(i) '路徑加檔名	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks.Open FileName:=strpath & .manufactor_produce_file(i) & str_OS & .manufactor_produce_excel(i)	<br />
+&emsp;&emsp;&emsp;&emsp;stritem = Dir	<br />
+&emsp;&emsp;&emsp;&emsp;raw = raw + 1	<br />
+&emsp;&emsp;&emsp;Loop	<br />
+&emsp;&emsp;Next i	<br />
+&emsp;End With	<br />
+End Sub	<br />
+	<br />
+Sub close_product_list()	<br />
+&emsp;'save_file	<br />
+&emsp;raw = 1	<br />
+&emsp;With manufactor_choice_mode(VBA_mode)	<br />
+&emsp;&emsp;For i = 1 To .num_of_manufactor	<br />
+&emsp;&emsp;&emsp;Workbooks(.manufactor_produce_excel(i)).Activate	<br />
+&emsp;&emsp;&emsp;ActiveWorkbook.Close	<br />
+&emsp;&emsp;Next i	<br />
+&emsp;End With	<br />
+End Sub	<br />
+&emsp;	<br />
+Sub sorting_list(manufactor As Integer, row_start As LongLong, row_end As LongLong)	<br />
+&emsp;Dim str As String	<br />
+&emsp;str = "A" & row_start & ":H" & row_end	<br />
+&emsp;Workbooks(strfile).Sheets(2).Activate	<br />
+&emsp;With manufactor_row(manufactor)	<br />
+&emsp;&emsp;Range(str).Sort Key1:=Range(.sorting_process(1)), Order1:=xlAscending, _	<br />
+&emsp;&emsp;&emsp;Key2:=Range(.sorting_process(2)), Order2:=xlAscending, _	<br />
+&emsp;&emsp;&emsp;Key3:=Range(.sorting_process(3)), Order3:=xlAscending, Header:=xlYes	<br />
+&emsp;End With	<br />
+End Sub	<br />
+	<br />
+Sub find_target(manufactor_file As String, manufactor_choice As Integer, manufactor As Integer, target_code As Integer, output_row As LongLong)	<br />
+&emsp;Workbooks(manufactor_file).Sheets(1).Activate	<br />
+&emsp;Dim str As String	<br />
+&emsp;str = Chr(64 + manufactor_row(manufactor).Tyre_Code) & ":" & Chr(64 + manufactor_row(manufactor).Tyre_Code)	<br />
+&emsp;With Range(str)	<br />
+&emsp;&emsp;i = output_row	<br />
+&emsp;&emsp;For j = 1 To 8	<br />
+&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, j) = Workbooks(manufactor_file).Sheets(1).Cells(1, j)	<br />
+&emsp;&emsp;Next j	<br />
+&emsp;&emsp;i = i + 1	<br />
+&emsp;&emsp;' 尋找資料含有「target_code」的儲存格	<br />
+&emsp;&emsp;	<br />
+&emsp;&emsp;Set Cell = .find(product_list(target_code, 0, 0).type_code, LookIn:=xlValues, LookAt:=xlPart)	<br />
+&emsp;&emsp;product_list(target_code, manufactor_choice, 0).first_row = i	<br />
+&emsp;	<br />
+&emsp;&emsp;' 若找到含有「target_code」的儲存格	<br />
+&emsp;&emsp;If Not Cell Is Nothing Then	<br />
+&emsp;&emsp;&emsp;' 儲存找到的第一個位置	<br />
+&emsp;&emsp;&emsp;firstAddress = Cell.Address	<br />
+&emsp;&emsp;&emsp;Do	<br />
+&emsp;&emsp;&emsp;&emsp;For j = 1 To 8	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, j) = Workbooks(manufactor_file).Sheets(1).Cells(Cell.row, j)	<br />
+&emsp;&emsp;&emsp;&emsp;Next j	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor).In_stock) = Workbooks(manufactor_file).Sheets(1).Cells(Cell.row, manufactor_row(manufactor).In_stock).Value	<br />
+&emsp;&emsp;&emsp;&emsp;' 尋找下一個	<br />
+&emsp;&emsp;&emsp;&emsp;i = i + 1	<br />
+&emsp;&emsp;&emsp;&emsp;Set Cell = .FindNext(Cell)	<br />
+&emsp;&emsp;&emsp;' 若找到下一個不重複的儲存格，則繼續	<br />
+&emsp;&emsp;&emsp;Loop While (Not Cell Is Nothing) And (Cell.Address <> firstAddress)	<br />
+&emsp;&emsp;End If	<br />
+&emsp;End With	<br />
+&emsp;product_list(target_code, manufactor_choice, 0).end_row = i - 1	<br />
+&emsp;global_output_row = i	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row - 1, 10) = product_list(target_code, manufactor_choice, 0).first_row	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row - 1, 11) = product_list(target_code, manufactor_choice, 0).end_row	<br />
+&emsp;	<br />
+&emsp;'sorting_list manufactor, product_list(target_code, manufactor_choice, 0).first_row - 1, product_list(target_code, manufactor_choice, 0).end_row	<br />
+End Sub	<br />
+	<br />
+Sub check_candidate(manufactor_choice As Integer, manufactor_code As Integer, target_code As Integer)	<br />
+&emsp;Workbooks(strfile).Sheets(2).Activate	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row, col_offset + 14) = manufactor_code	<br />
+&emsp;Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row, col_offset + 15) = manufactor_row(manufactor_code).In_stock	<br />
+&emsp;Dim find_MN As Boolean	<br />
+&emsp;Dim checking As Boolean	<br />
+&emsp;Dim str As String	<br />
+&emsp;sorting_list manufactor_code, product_list(target_code, manufactor_choice, 0).first_row - 1, product_list(target_code, manufactor_choice, 0).end_row	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;	<br />
+&emsp;product_list(target_code, manufactor_choice, 0).total_availible_count = 0	<br />
+&emsp;	<br />
+&emsp;Select Case manufactor_code	<br />
+&emsp;&emsp;Case 1, 2	<br />
+&emsp;&emsp;&emsp;With product_list(target_code, manufactor_choice, 0)	<br />
+&emsp;&emsp;&emsp;&emsp;.first_time = Workbooks(strfile).Sheets(2).Cells(.first_row, manufactor_row(manufactor_code).In_stock)	<br />
+&emsp;&emsp;&emsp;&emsp;For i = .first_row To .end_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;checking = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quality) <> "" Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "品質不佳"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = flase	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If DateDiff("d", Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock), Date) > .expire_day Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "過期"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = flase	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = False	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Select Case Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).KMN_Set)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Case "K"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity) < .mini_quantity Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "K數量不足"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = False	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Case "M"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).KMN_Set) = "N" And Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).KMN_Set) = "N" And Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Case "N"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).KMN_Set) = "M" And Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).KMN_Set) = "M" And Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;find_MN = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End Select	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If find_MN = False Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "MN不成對"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = False	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If checking = True Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If .total_availible_count = 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.first_availible_row = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.total_availible_count = .total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;Next i	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 13) = .total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 16) = .first_availible_row	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 17) = .first_time	<br />
+&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;Case 3	<br />
+&emsp;&emsp;&emsp;With product_list(target_code, manufactor_choice, 0)	<br />
+&emsp;&emsp;&emsp;&emsp;.num_of_choice = 1	<br />
+&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).first_row = .first_row	<br />
+&emsp;&emsp;&emsp;&emsp;For i = .first_row To .end_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Location) <> Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, .num_of_choice).first_row, manufactor_row(manufactor_code).Location) Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).end_row = i - 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.num_of_choice = .num_of_choice + 1	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).first_row = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;checking = True	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quality) <> "" Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "品質不佳"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = flase	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Else	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If DateDiff("d", Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock), Date) > .expire_day Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "過期"	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;checking = False	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;If checking = True Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If .total_availible_count = 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.first_availible_row = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;.total_availible_count = .total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;If product_list(target_code, manufactor_choice, .num_of_choice).total_availible_count = 0 Then	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).first_availible_row = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).total_availible_count = product_list(target_code, manufactor_choice, .num_of_choice).total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;End If	<br />
+&emsp;&emsp;&emsp;&emsp;Next i	<br />
+&emsp;&emsp;&emsp;&emsp;product_list(target_code, manufactor_choice, .num_of_choice).end_row = i - 1	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 13) = .total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 16) = .first_availible_row	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 17) = .first_time	<br />
+&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row, col_offset + 19) = "area"	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row, col_offset + 20) = .num_of_choice	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;For i = 1 To .num_of_choice	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 25) = i	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 26) = product_list(target_code, manufactor_choice, i).first_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 27) = product_list(target_code, manufactor_choice, i).end_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 28) = product_list(target_code, manufactor_choice, i).first_availible_row	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 29) = product_list(target_code, manufactor_choice, i).first_time	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 30) = product_list(target_code, manufactor_choice, i).total_availible_count	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;Next i	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;str = "Y" & .first_row & ":AE" & .end_row	<br />
+&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Activate	<br />
+&emsp;&emsp;&emsp;&emsp;Range(str).Sort Key1:=Range("AC1"), Order1:=xlAscending, Header:=xlYes	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;&emsp;For i = 1 To .num_of_choice	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;area_sort_sequence(target_code, manufactor_choice, i) = Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 25)	<br />
+&emsp;&emsp;&emsp;&emsp;&emsp;Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 32) = area_sort_sequence(target_code, manufactor_choice, i)	<br />
+&emsp;&emsp;&emsp;&emsp;Next i	<br />
+&emsp;&emsp;&emsp;&emsp;	<br />
+&emsp;&emsp;&emsp;End With	<br />
+&emsp;&emsp;Case Else	<br />
+&emsp;End Select	<br />
+&emsp;	<br />
+End Sub	<br />
+
+</p>
 
 
-觀察\(\delta x\over\delta \varepsilon \)、\(\delta \dot{x} \over\delta \varepsilon \)：
 
-$${\delta x\over\delta \varepsilon} ={\delta \over\delta \varepsilon}  (x+\varepsilon \eta )=\eta $$
-$${\delta \dot{x}\over\delta \varepsilon} ={\delta\over\delta \varepsilon}(\dot{x} +\varepsilon \dot{\eta})=\dot{\eta}$$
-可以得到
-$${\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta +{\partial F\over \partial \dot{x}} \dot{\eta} dt=\int_a^b {\partial F\over\partial x} \eta +{\partial F\over\partial \dot{x}}  {d\eta \over dt} dt=\int_a^b {\partial F\over\partial x} \eta dt+ \int_a^b {\partial F\over \partial \dot{x}} {d\eta\over dt} dt$$
-我們針對最後一項做分部積分
-$$\int_a^b {\partial F\over\partial \dot{x} } {d\eta \over dt} dt={\color{red}{{ \partial F\over\partial \dot{x} }\eta\Big|_a^b}}-\int_a^b {d\over dt}{\partial F\over\partial \dot{x}}\eta dt$$
-注意紅色這一項，因為我們要求\(\eta (t)\)滿足\(\eta (a)=\eta (b)=0\)，所以
-$${ \partial F\over\partial \dot{x} }\eta\Big|_a^b=0$$
-$$∴{\delta S\over\delta \varepsilon} =\int_a^b {\partial F \over \partial x} \eta dt-\int_a^b{d\over dt}{\partial F\over\partial \dot{x}}\eta dt=\int_a^b \left({\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}\right)\eta dt=0$$
-因為\(\eta (t)\)是任意的，所以
-$${\partial F \over \partial x}-{d\over dt}{\partial F\over\partial \dot{x}}=0 Euler-Lagrange equation$$
+<h1>VBA-ch4-20240213-perri</h1>
+
+Public strfile As String  '本檔案的檔名	<br />
+Public strpath As String  '本檔案在的路徑	<br />
+Public str_OS As String	<br />
+	<br />
+Public Const col_offset As Integer = 30	<br />
+	<br />
+	<br />
+Type manufactor_info_row	<br />
+rfdxllmTyre_Code As Integer	<br />
+rfdxllmTyre_ID As Integer	<br />
+rfdxllmKMN_Set As Integer	<br />
+rfdxllmQuantity As Integer	<br />
+rfdxllmIn_stock As Integer	<br />
+rfdxllmQuality As Integer	<br />
+rfdxllmLocation As Integer	<br />
+rfdxllmsorting_process(3) As String '排序條件	<br />
+End Type	<br />
+	<br />
+Public Const type_max_count As Integer = 100 'should be max!!!	<br />
+Public type_count As Integer	<br />
+Public Const manufator_count As Integer = 5 'should be max!!!	<br />
+Public Const area_max_count As Integer = 50 'should be max!!!	<br />
+Public manufactor_row(manufator_count) As manufactor_info_row	<br />
+	<br />
+	<br />
+'訂單資訊	<br />
+Type order_form	<br />
+rfdxllmship_day As String	<br />
+rfdxllmship_destiny As String	<br />
+rfdxllmorder_quantitiy As LongLong	<br />
+rfdxllmprimary_type As Integer	<br />
+rfdxllmprimary_type_code As String	<br />
+rfdxllmchoice_type_count As Integer	<br />
+rfdxllmchoice_type_list(10) As String	<br />
+End Type	<br />
+Public order_plan(100) As order_form	<br />
+Public order_count As Integer	<br />
+	<br />
+	<br />
+'產品選取資訊	<br />
+Type product_info	<br />
+rfdxllmtype_code As String	<br />
+rfdxllmtype_name As String	<br />
+rfdxllmfirst_time As String	<br />
+rfdxllmfirst_row As LongLong	<br />
+rfdxllmfirst_availible_row As LongLong	<br />
+rfdxllmend_row As LongLong	<br />
+rfdxllmtotal_availible_count As LongLong	<br />
+rfdxllmnum_of_choice As Integer  'how many manufactor/area can choice	<br />
+rfdxllmmanufator_code As Integer '1:Mic,2:Bris,3:Per	<br />
+rfdxllmexpire_day As LongLong	<br />
+rfdxllmmini_quantity As LongLong	<br />
+rfdxllmcan_mix As Boolean	<br />
+rfdxllmmix_count As Integer	<br />
+rfdxllmmix_type(10) As Integer	<br />
+rfdxllmactivate_find As Boolean	<br />
+End Type	<br />
+Public product_list(type_max_count, manufator_count, area_max_count) As product_info	<br />
+Public area_sort_sequence(type_max_count, manufator_count, area_max_count)  As Integer	<br />
+'product_list(i, 0, 0)紀錄那個type總資訊	<br />
+'product_list(i, j, 0)那個area總資訊	<br />
+	<br />
+Public global_output_row As LongLong	<br />
+Public VBA_mode As Integer	<br />
+	<br />
+Type VBA_mode_manufactor_choice	<br />
+rfdxllmnum_of_manufactor As Integer	<br />
+rfdxllmmanufactor_code(10) As Integer	<br />
+rfdxllmmanufactor_produce_file(10) As String	<br />
+rfdxllmmanufactor_produce_excel(10) As String	<br />
+End Type	<br />
+Public manufactor_choice_mode(5) As VBA_mode_manufactor_choice	<br />
+	<br />
+	<br />
+	<br />
+Sub define_info()	<br />
+rfdxllm'save_file	<br />
+rfdxllm	<br />
+rfdxllmDim head_line(50) As String	<br />
+rfdxllmhead_line(1) = "F1 Tyre Number"	<br />
+rfdxllmhead_line(2) = "Tyre ID"	<br />
+rfdxllmhead_line(3) = "KMN-Set"	<br />
+rfdxllmhead_line(4) = "Quantity"	<br />
+rfdxllmhead_line(5) = "In stock"	<br />
+rfdxllmhead_line(6) = "Quality"	<br />
+rfdxllmhead_line(7) = "Location"	<br />
+rfdxllm	<br />
+rfdxllmDim manufactor As Integer	<br />
+rfdxllm	<br />
+rfdxllm'manufactor_choice_mode(1).num_of_manufactor = 2 ' MICHELIN and'BRIDGESTONE	<br />
+rfdxllm'manufactor_choice_mode(2).num_of_manufactor = 1 'PIRELLI	<br />
+rfdxllm	<br />
+rfdxllmmanufactor = 1 ' MICHELIN	<br />
+rfdxllmWith manufactor_row(manufactor)	<br />
+rfdxllmrfdxllm.Tyre_Code = 1	<br />
+rfdxllmrfdxllm.Tyre_ID = 2	<br />
+rfdxllmrfdxllm.KMN_Set = 3	<br />
+rfdxllmrfdxllm.Quantity = 4	<br />
+rfdxllmrfdxllm.In_stock = 5	<br />
+rfdxllmrfdxllm.Quality = 6	<br />
+rfdxllmrfdxllm.Location = 7	<br />
+rfdxllmrfdxllm.sorting_process(1) = Chr(64 + .In_stock) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(2) = Chr(64 + .Tyre_ID) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(3) = Chr(64 + .KMN_Set) & "1"	<br />
+rfdxllmEnd With	<br />
+rfdxllm	<br />
+rfdxllmmanufactor = 2 'BRIDGESTONE	<br />
+rfdxllmWith manufactor_row(manufactor)	<br />
+rfdxllmrfdxllm.Tyre_Code = 3 '1	<br />
+rfdxllmrfdxllm.Tyre_ID = 1 '2	<br />
+rfdxllmrfdxllm.KMN_Set = 5 '3	<br />
+rfdxllmrfdxllm.Quantity = 2 '4	<br />
+rfdxllmrfdxllm.In_stock = 6 '5	<br />
+rfdxllmrfdxllm.Quality = 4 '6	<br />
+rfdxllmrfdxllm.Location = 7 '7	<br />
+rfdxllmrfdxllm.sorting_process(1) = Chr(64 + .In_stock) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(2) = Chr(64 + .Tyre_ID) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(3) = Chr(64 + .KMN_Set) & "1"	<br />
+rfdxllmEnd With	<br />
+rfdxllm	<br />
+rfdxllmmanufactor = 3 'PIRELLI	<br />
+rfdxllmWith manufactor_row(manufactor)	<br />
+rfdxllmrfdxllm.Tyre_Code = 2 '1	<br />
+rfdxllmrfdxllm.Tyre_ID = 3 '2	<br />
+rfdxllmrfdxllm.KMN_Set = 7 '3	<br />
+rfdxllmrfdxllm.Quantity = 5 '4	<br />
+rfdxllmrfdxllm.In_stock = 1 '5	<br />
+rfdxllmrfdxllm.Quality = 6 '6	<br />
+rfdxllmrfdxllm.Location = 4 '7	<br />
+rfdxllmrfdxllm.sorting_process(1) = Chr(64 + .Location) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(2) = Chr(64 + .In_stock) & "1"	<br />
+rfdxllmrfdxllm.sorting_process(3) = Chr(64 + .Tyre_ID) & "1"	<br />
+rfdxllmEnd With	<br />
+rfdxllm	<br />
+rfdxllmi = 2	<br />
+rfdxllmtype_count = 0	<br />
+rfdxllmDo Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+rfdxllmrfdxllmtype_count = type_count + 1	<br />
+rfdxllmrfdxllmFor j = 0 To manufactor_choice_mode(VBA_mode).num_of_manufactor 'manufator_count	<br />
+rfdxllmrfdxllmrfdxllmFor k = 0 To area_max_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWith product_list(type_count, j, k)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.type_code = Workbooks(strfile).Sheets("type_information").Cells(i, 1)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.type_name = Workbooks(strfile).Sheets("type_information").Cells(i, 2)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.expire_day = Workbooks(strfile).Sheets("type_information").Cells(i, 3)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.mini_quantity = Workbooks(strfile).Sheets("type_information").Cells(i, 4)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_time = Date '""	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_row = 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.end_row = 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.total_availible_count = 0	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.num_of_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.can_mix = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.mix_count = 0	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.activate_find = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrfdxllmNext k	<br />
+rfdxllmrfdxllmNext j	<br />
+rfdxllmi = i + 1	<br />
+rfdxllmLoop	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllm'i = 2	<br />
+rfdxllm'type_count = 0	<br />
+rfdxllm'Do Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+rfdxllm'rfdxllmtype_count = type_count + 1	<br />
+rfdxllm'rfdxllmWith product_list(type_count, 0, 0)	<br />
+rfdxllm'rfdxllmrfdxllm.type_code = Workbooks(strfile).Sheets("type_information").Cells(i, 1)	<br />
+rfdxllm'rfdxllmrfdxllm.type_name = Workbooks(strfile).Sheets("type_information").Cells(i, 2)	<br />
+rfdxllm'rfdxllmrfdxllm.expire_day = Workbooks(strfile).Sheets("type_information").Cells(i, 3)	<br />
+rfdxllm'rfdxllmrfdxllm.mini_quantity = Workbooks(strfile).Sheets("type_information").Cells(i, 4)	<br />
+rfdxllm'	<br />
+rfdxllm'rfdxllmrfdxllm.first_time = ""	<br />
+rfdxllm'rfdxllmrfdxllm.first_row = 1	<br />
+rfdxllm'rfdxllmrfdxllm.end_row = 1	<br />
+rfdxllm'rfdxllmrfdxllm.total_availible_count = 0	<br />
+rfdxllm'rfdxllmrfdxllm.num_of_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+rfdxllm'rfdxllmrfdxllm.can_mix = False	<br />
+rfdxllm'rfdxllmrfdxllm.mix_count = 0	<br />
+rfdxllm'rfdxllmrfdxllm.activate_find = False	<br />
+rfdxllm'rfdxllmEnd With	<br />
+rfdxllm'i = i + 1	<br />
+rfdxllm'Loop	<br />
+rfdxllm	<br />
+rfdxllmDim count As Integer	<br />
+rfdxllm	<br />
+rfdxllmi = 2	<br />
+rfdxllmDo Until Workbooks(strfile).Sheets("type_information").Cells(i, 1) = 0	<br />
+rfdxllmrfdxllmIf Workbooks(strfile).Sheets("type_information").Cells(i, 5).MergeCells = True Then	<br />
+rfdxllmrfdxllmrfdxllmcount = Workbooks(strfile).Sheets("type_information").Cells(i, 5).MergeArea.Rows.count	<br />
+rfdxllmrfdxllmrfdxllm'count = Cells(i, 2).MergeArea.columns.count	<br />
+rfdxllmrfdxllmrfdxllmFor j = i To i + count - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWith product_list(j - 1, 0, 0)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.can_mix = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.mix_count = count - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmk = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmDo Until k = j	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.mix_type(k - i + 1) = k - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmk = k + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmLoop	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmk = j + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmDo Until k > i + count - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.mix_type(k - i + 1 - 1) = k - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmk = k + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmLoop	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrfdxllmNext j	<br />
+rfdxllmrfdxllmrfdxllmi = i + count - 1	<br />
+rfdxllmrfdxllmEnd If	<br />
+rfdxllmi = i + 1	<br />
+rfdxllmLoop	<br />
+rfdxllm	<br />
+rfdxllmDim row As LongLong	<br />
+rfdxllmrow = 1	<br />
+rfdxllmFor i = 1 To type_count	<br />
+rfdxllmrfdxllmWith product_list(i, 0, 0)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("type_information").Cells(row, 19) = i	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("type_information").Cells(row, 20) = .type_code	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("type_information").Cells(row, 21) = .can_mix	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("type_information").Cells(row, 22) = .mix_count	<br />
+rfdxllmrfdxllmrfdxllmj = 1	<br />
+rfdxllmrfdxllmrfdxllmDo Until j > .mix_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("type_information").Cells(row + j, 23) = .mix_type(j)	<br />
+rfdxllmrfdxllmrfdxllm j = j + 1	<br />
+rfdxllmrfdxllmrfdxllmLoop	<br />
+rfdxllmrfdxllmrfdxllmrow = row + .mix_count	<br />
+rfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrow = row + 1	<br />
+rfdxllmNext i	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+End Sub	<br />
+	<br />
+Sub generate_list()	<br />
+rfdxllmboost	<br />
+rfdxllmsave_file	<br />
+rfdxllmWorkbooks(strfile).Sheets(1).Cells.Clear	<br />
+rfdxllm	<br />
+rfdxllmDim i As LongLong	<br />
+rfdxllmDim max_list As LongLong	<br />
+rfdxllmmax_list = 150000	<br />
+rfdxllmDim set_quantity As Integer	<br />
+rfdxllmset_quantity = 40	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmdefine_info	<br />
+rfdxllm	<br />
+rfdxllmmanufactor = 1	<br />
+rfdxllmWith manufactor_row(manufactor)	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .Tyre_Code) = "Tyre_Code"	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .Tyre_ID) = "Tyre_ID"	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .Quantity) = "Quantity"	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .In_stock) = "In_stock"	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .Quality) = "Quality"	<br />
+rfdxllmrfdxllmIf manufactor = 3 Then	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .Location) = ".Location"	<br />
+rfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(1, .KMN_Set) = "KMN_Set"	<br />
+rfdxllmrfdxllmEnd If	<br />
+rfdxllm	<br />
+rfdxllmrfdxllmFor i = 1 To max_list	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code) = Chr(Int(3 * Rnd() + 70)) & Int(3 * Rnd() + 3) & Int(Int(4 * Rnd() + 1) * 20 + Int(9 * Rnd()) + 1)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, 12) = Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code)	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_ID) = Int(7 * Rnd() + 3) * 10 & Int(Int(4 * Rnd() + 1) * 20 + Int(7 * Rnd()) + 1) & Workbooks(strfile).Sheets(1).Cells(i + 1, .Tyre_Code) & CStr(max_list * 10 - i) & Int(8 * Rnd() + 1)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Int(2022 + Int(3 * Rnd())) & "/" & Int(12 * Rnd() + 1) & "/" & Int(28 * Rnd() + 1)	<br />
+rfdxllmrfdxllmrfdxllmDo Until DateDiff("d", Workbooks(strfile).Sheets(1).Cells(i + 1, .In_stock).Value, Date) >= 0	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Int(2022 + Int(3 * Rnd())) & "/" & Int(12 * Rnd() + 1) & "/" & Int(28 * Rnd() + 1)	<br />
+rfdxllmrfdxllmrfdxllmLoop	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmIf Int(50 * Rnd()) = 0 Then 'quality fail	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quality) = "Fail"	<br />
+rfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmIf manufactor = 3 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Location) = "Area-" & Int(100 - Int(13 * Rnd() + 1) * 6)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity	<br />
+rfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Int(3 * Rnd()) > 0 Then 'define K or M,N	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "K"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Int(50 * Rnd()) = 0 Then 'randomly make K un set	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = Int(set_quantity / 2 * Rnd() + 1)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "M" 'split M, N	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = Int(set_quantity / 2 * Rnd() + 1)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Int(5 * Rnd()) > 0 Then  'randomly make M,N un pair	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmi = i + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmFor j = 1 To 100	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, j) = Workbooks(strfile).Sheets(1).Cells(i, j)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmNext j	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "N"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .Quantity) = set_quantity - Workbooks(strfile).Sheets(1).Cells(i, .Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .In_stock) = Workbooks(strfile).Sheets(1).Cells(i, .In_stock).Value	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Int(3 * Rnd()) > 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i + 1, .KMN_Set) = "N"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmNext i	<br />
+rfdxllmEnd With	<br />
+rfdxllmWorkbooks(strfile).Sheets(1).Columns("L:L").Sort Key1:=Range("L1"), Order1:=xlAscending, Header:=xlYes	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmDo Until i = 2	<br />
+rfdxllmrfdxllmIf Workbooks(strfile).Sheets(1).Cells(i, 12) = Workbooks(strfile).Sheets(1).Cells(i - 1, 12) Then	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(1).Cells(i, 12) = ""	<br />
+rfdxllmrfdxllmEnd If	<br />
+rfdxllmi = i - 1	<br />
+rfdxllmLoop	<br />
+rfdxllmWorkbooks(strfile).Sheets(1).Columns("L:L").Sort Key1:=Range("L1"), Order1:=xlAscending, Header:=xlYes	<br />
+rfdxllmnormal	<br />
+rfdxllm'find	<br />
+End Sub	<br />
+	<br />
+Sub find()	<br />
+rfdxllm	<br />
+rfdxllmsave_file	<br />
+rfdxllm	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells.Clear	<br />
+rfdxllm	<br />
+rfdxllmdefine_info	<br />
+rfdxllm	<br />
+rfdxllmDim manufactor As Integer	<br />
+rfdxllmmanufactor = 3	<br />
+rfdxllm	<br />
+rfdxllmFor j = 1 To 8	<br />
+rfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(1, j) = Workbooks(strfile).Sheets(1).Cells(1, j)	<br />
+rfdxllmNext j	<br />
+rfdxllm	<br />
+rfdxllmDim target_code As String	<br />
+rfdxllmtarget_code = Workbooks(strfile).Sheets(1).Cells(10, 12)	<br />
+rfdxllm	<br />
+rfdxllmfind_target manufactor, target_code, 2	<br />
+rfdxllm	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Activate	<br />
+rfdxllmsorting_list manufactor	<br />
+End Sub	<br />
+	<br />
+Sub order_read()	<br />
+rfdxllm	<br />
+rfdxllmsave_file	<br />
+rfdxllmdefine_info	<br />
+rfdxllmopen_product_list	<br />
+rfdxllm	<br />
+rfdxllmboost	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmorder_count = 0	<br />
+rfdxllmDim i, j, k As Integer	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmj = 3	<br />
+rfdxllmDo Until Workbooks(strfile).Sheets("Shipping_plan").Cells(1, j) = ""	<br />
+rfdxllmrfdxllmi = 2	<br />
+rfdxllmrfdxllmDo Until Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 2) = ""	<br />
+rfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets("Shipping_plan").Cells(i, j) <> "" Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmorder_count = order_count + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWith order_plan(order_count)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.ship_day = Workbooks(strfile).Sheets("Shipping_plan").Cells(1, j)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.ship_destiny = Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 2)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.order_quantitiy = CLng(Workbooks(strfile).Sheets("Shipping_plan").Cells(i, j))	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.primary_type_code = Workbooks(strfile).Sheets("Shipping_plan").Cells(i, 1)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.choice_type_count = 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmFor k = 1 To type_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf product_list(k, 0, 0).type_code = .primary_type_code Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.primary_type = k	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf product_list(k, 0, 0).activate_find = False Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(k, 0, 0).activate_find = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmk = type_count + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmNext k	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmi = i + 1	<br />
+rfdxllmrfdxllmLoop	<br />
+rfdxllmj = j + 1	<br />
+rfdxllmLoop	<br />
+rfdxllm	<br />
+rfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Activate	<br />
+rfdxllmFor i = 1 To order_count	<br />
+rfdxllmrfdxllmWith order_plan(i)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 10) = i	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 11) = .ship_day	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 12) = .ship_destiny	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 13) = .order_quantitiy	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 14) = .primary_type_code	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 15) = .primary_type	<br />
+rfdxllmrfdxllmEnd With	<br />
+rfdxllmNext i	<br />
+rfdxllmDim m As Integer	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells.Clear	<br />
+rfdxllmglobal_output_row = 2	<br />
+rfdxllmFor k = 1 To type_count	<br />
+rfdxllmrfdxllmWith product_list(k, 0, 0)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 20) = k	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 21) = .type_code	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 22) = .activate_find	<br />
+rfdxllmrfdxllmrfdxllmIf .activate_find = True Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor m = 1 To manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(global_output_row, 1) = manufactor_choice_mode(VBA_mode).manufactor_produce_file(m)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmglobal_output_row = global_output_row + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_target manufactor_choice_mode(VBA_mode).manufactor_produce_excel(m), m, manufactor_choice_mode(VBA_mode).manufactor_code(m), k, global_output_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmglobal_output_row = global_output_row + 2	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmNext m	<br />
+rfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmEnd With	<br />
+rfdxllmNext k	<br />
+rfdxllmclose_product_list	<br />
+rfdxllmnormal	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmFor k = 1 To type_count	<br />
+rfdxllmrfdxllmWith product_list(k, 0, 0)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 20) = k	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 21) = .type_code	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(k, 22) = .activate_find	<br />
+rfdxllmrfdxllmrfdxllmIf .activate_find = True Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor m = 1 To manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmcheck_candidate m, manufactor_choice_mode(VBA_mode).manufactor_code(m), k	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext m	<br />
+rfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmEnd With	<br />
+rfdxllmNext k	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmDim left_quantity As LongLong	<br />
+rfdxllmDim manufactor_choice As Integer	<br />
+rfdxllmmanufactor_choice = manufactor_choice_mode(VBA_mode).num_of_manufactor	<br />
+rfdxllmDim manufactor_code As Integer	<br />
+rfdxllmmanufactor_code = 3	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmWorkbooks(strfile).Sheets("工作表4").Cells.Clear	<br />
+rfdxllmglobal_output_row = 2	<br />
+rfdxllmFor i = 1 To order_count	<br />
+rfdxllmrfdxllmWith order_plan(i)	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 1) = i	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 2) = .ship_day	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 3) = .ship_destiny	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 4) = .order_quantitiy	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 5) = .primary_type_code	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 6) = .primary_type	<br />
+rfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllm	<br />
+rfdxllmrfdxllm	<br />
+rfdxllmrfdxllmIf product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count > order_plan(i).order_quantitiy Then	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 16) = "有貨"	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 16) = "有貨"	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmleft_quantity = order_plan(i).order_quantitiy	<br />
+rfdxllmrfdxllmrfdxllmglobal_output_row = global_output_row + 1	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmFor k = 1 To product_list(order_plan(i).primary_type, manufactor_choice, 0).num_of_choice	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWith product_list(order_plan(i).primary_type, manufactor_choice, area_sort_sequence(order_plan(i).primary_type, manufactor_choice, k))	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf .total_availible_count > 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmFor r = .first_availible_row To .end_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf left_quantity > 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(r, 15) = "" Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 13) = k	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 14) = area_sort_sequence(order_plan(i).primary_type, manufactor_choice, k)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 15) = left_quantity	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmleft_quantity = left_quantity - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 16) = left_quantity	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 18) = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 19) = product_list(order_plan(i).primary_type, manufactor_choice, 0).total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 21) = .total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.total_availible_count = .total_availible_count - Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, col_offset + 22) = .total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_availible_row = r	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmFor j = 1 To 10	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, j) = Workbooks(strfile).Sheets(2).Cells(r, j)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmNext j	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, manufactor_row(manufactor_code).In_stock) = Workbooks(strfile).Sheets(2).Cells(r, manufactor_row(manufactor_code).In_stock).Value	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, j) = Workbooks(strfile).Sheets(2).Cells(r, col_offset + 15)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(r, col_offset + 15) = "出貨"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmglobal_output_row = global_output_row + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmr = .end_row + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmNext r	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrfdxllmNext k	<br />
+rfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表4").Cells(global_output_row, 16) = "沒貨"	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("Shipping_plan").Cells(i, 16) = "沒貨"	<br />
+rfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllm	<br />
+rfdxllmrfdxllmglobal_output_row = global_output_row + 3	<br />
+rfdxllmNext i	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmWorkbooks(strfile).Sheets("工作表4").Activate	<br />
+rfdxllmBeep	<br />
+End Sub	<br />
+	<br />
+Sub boost()	<br />
+' 暫停四個容易拖慢的 Excel 功能	<br />
+Application.Calculation = xlCalculationManual	<br />
+Application.ScreenUpdating = False	<br />
+Application.DisplayStatusBar = False	<br />
+Application.EnableEvents = False	<br />
+Application.DisplayAlerts = False	<br />
+' 主要程式碼放在這裡	<br />
+	<br />
+End Sub	<br />
+	<br />
+Sub normal()	<br />
+' 恢復四個容易拖慢的 Excel 功能	<br />
+Application.Calculation = xlCalculationAutomatic	<br />
+Application.ScreenUpdating = True	<br />
+Application.DisplayStatusBar = True	<br />
+Application.EnableEvents = True	<br />
+Application.DisplayAlerts = True	<br />
+End Sub	<br />
+	<br />
+Sub save_file()	<br />
+rfdxllmstrfile = Application.ActiveWorkbook.Name  '本檔案的檔名	<br />
+rfdxllmstr_OS = Mid(Application.ActiveWorkbook.Path, 1, 1)	<br />
+rfdxllmstrpath = Application.ActiveWorkbook.Path & str_OS   '"\"  '本檔案在的路徑	<br />
+rfdxllmWorkbooks(strfile).Sheets(1).Range("A:H").Clear	<br />
+rfdxllmWorkbooks(strfile).Activate	<br />
+rfdxllmActiveWorkbook.Save	<br />
+rfdxllm	<br />
+rfdxllmSelect Case Mid(strfile, 10, 1)	<br />
+rfdxllmrfdxllmCase "O"	<br />
+rfdxllmrfdxllmrfdxllmVBA_mode = 1	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).num_of_manufactor = 3	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_code(1) = 1 'Mic	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_produce_file(1) = "MICHELIN"	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_code(2) = 2 'Bris	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_produce_file(2) = "BRIDGESTONE"	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_code(3) = 3 'Per	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_produce_file(3) = "PIRELLI"	<br />
+rfdxllmrfdxllmCase "T"	<br />
+rfdxllmrfdxllmrfdxllmVBA_mode = 2	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).num_of_manufactor = 1	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_code(1) = 3 'Per	<br />
+rfdxllmrfdxllmrfdxllmmanufactor_choice_mode(VBA_mode).manufactor_produce_file(1) = "PIRELLI"	<br />
+rfdxllmrfdxllmCase Else	<br />
+rfdxllmrfdxllmrfdxllmVBA_mode = 1	<br />
+rfdxllmEnd Select	<br />
+rfdxllm	<br />
+End Sub	<br />
+Sub open_product_list()	<br />
+rfdxllm'save_file	<br />
+rfdxllmraw = 1	<br />
+rfdxllmWith manufactor_choice_mode(VBA_mode)	<br />
+rfdxllmrfdxllmFor i = 1 To .num_of_manufactor	<br />
+rfdxllmrfdxllmrfdxllmstritem = Dir(strpath & .manufactor_produce_file(i) & str_OS & "*.xlsx")  'find txt	<br />
+rfdxllmrfdxllmrfdxllmDo Until stritem = "" '將所有檔案條列出來	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表1").Cells(raw, 1) = stritem '檔名	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm.manufactor_produce_excel(i) = stritem '檔名	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets("工作表1").Cells(raw, 3) = strpath & .manufactor_produce_file(i) & str_OS & .manufactor_produce_excel(i) '路徑加檔名	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks.Open FileName:=strpath & .manufactor_produce_file(i) & str_OS & .manufactor_produce_excel(i)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmstritem = Dir	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmraw = raw + 1	<br />
+rfdxllmrfdxllmrfdxllmLoop	<br />
+rfdxllmrfdxllmNext i	<br />
+rfdxllmEnd With	<br />
+End Sub	<br />
+	<br />
+Sub close_product_list()	<br />
+rfdxllm'save_file	<br />
+rfdxllmraw = 1	<br />
+rfdxllmWith manufactor_choice_mode(VBA_mode)	<br />
+rfdxllmrfdxllmFor i = 1 To .num_of_manufactor	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(.manufactor_produce_excel(i)).Activate	<br />
+rfdxllmrfdxllmrfdxllmActiveWorkbook.Close	<br />
+rfdxllmrfdxllmNext i	<br />
+rfdxllmEnd With	<br />
+End Sub	<br />
+rfdxllm	<br />
+Sub sorting_list(manufactor As Integer, row_start As LongLong, row_end As LongLong)	<br />
+rfdxllmDim str As String	<br />
+rfdxllmstr = "A" & row_start & ":H" & row_end	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Activate	<br />
+rfdxllmWith manufactor_row(manufactor)	<br />
+rfdxllmrfdxllmRange(str).Sort Key1:=Range(.sorting_process(1)), Order1:=xlAscending, _	<br />
+rfdxllmrfdxllmrfdxllmKey2:=Range(.sorting_process(2)), Order2:=xlAscending, _	<br />
+rfdxllmrfdxllmrfdxllmKey3:=Range(.sorting_process(3)), Order3:=xlAscending, Header:=xlYes	<br />
+rfdxllmEnd With	<br />
+End Sub	<br />
+	<br />
+Sub find_target(manufactor_file As String, manufactor_choice As Integer, manufactor As Integer, target_code As Integer, output_row As LongLong)	<br />
+rfdxllmWorkbooks(manufactor_file).Sheets(1).Activate	<br />
+rfdxllmDim str As String	<br />
+rfdxllmstr = Chr(64 + manufactor_row(manufactor).Tyre_Code) & ":" & Chr(64 + manufactor_row(manufactor).Tyre_Code)	<br />
+rfdxllmWith Range(str)	<br />
+rfdxllmrfdxllmi = output_row	<br />
+rfdxllmrfdxllmFor j = 1 To 8	<br />
+rfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, j) = Workbooks(manufactor_file).Sheets(1).Cells(1, j)	<br />
+rfdxllmrfdxllmNext j	<br />
+rfdxllmrfdxllmi = i + 1	<br />
+rfdxllmrfdxllm' 尋找資料含有「target_code」的儲存格	<br />
+rfdxllmrfdxllm	<br />
+rfdxllmrfdxllmSet Cell = .find(product_list(target_code, 0, 0).type_code, LookIn:=xlValues, LookAt:=xlPart)	<br />
+rfdxllmrfdxllmproduct_list(target_code, manufactor_choice, 0).first_row = i	<br />
+rfdxllm	<br />
+rfdxllmrfdxllm' 若找到含有「target_code」的儲存格	<br />
+rfdxllmrfdxllmIf Not Cell Is Nothing Then	<br />
+rfdxllmrfdxllmrfdxllm' 儲存找到的第一個位置	<br />
+rfdxllmrfdxllmrfdxllmfirstAddress = Cell.Address	<br />
+rfdxllmrfdxllmrfdxllmDo	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor j = 1 To 8	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, j) = Workbooks(manufactor_file).Sheets(1).Cells(Cell.row, j)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext j	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor).In_stock) = Workbooks(manufactor_file).Sheets(1).Cells(Cell.row, manufactor_row(manufactor).In_stock).Value	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm' 尋找下一個	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmi = i + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmSet Cell = .FindNext(Cell)	<br />
+rfdxllmrfdxllmrfdxllm' 若找到下一個不重複的儲存格，則繼續	<br />
+rfdxllmrfdxllmrfdxllmLoop While (Not Cell Is Nothing) And (Cell.Address <> firstAddress)	<br />
+rfdxllmrfdxllmEnd If	<br />
+rfdxllmEnd With	<br />
+rfdxllmproduct_list(target_code, manufactor_choice, 0).end_row = i - 1	<br />
+rfdxllmglobal_output_row = i	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row - 1, 10) = product_list(target_code, manufactor_choice, 0).first_row	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row - 1, 11) = product_list(target_code, manufactor_choice, 0).end_row	<br />
+rfdxllm	<br />
+rfdxllm'sorting_list manufactor, product_list(target_code, manufactor_choice, 0).first_row - 1, product_list(target_code, manufactor_choice, 0).end_row	<br />
+End Sub	<br />
+	<br />
+Sub check_candidate(manufactor_choice As Integer, manufactor_code As Integer, target_code As Integer)	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Activate	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row, col_offset + 14) = manufactor_code	<br />
+rfdxllmWorkbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, 0).first_row, col_offset + 15) = manufactor_row(manufactor_code).In_stock	<br />
+rfdxllmDim find_MN As Boolean	<br />
+rfdxllmDim checking As Boolean	<br />
+rfdxllmDim str As String	<br />
+rfdxllmsorting_list manufactor_code, product_list(target_code, manufactor_choice, 0).first_row - 1, product_list(target_code, manufactor_choice, 0).end_row	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllm	<br />
+rfdxllmproduct_list(target_code, manufactor_choice, 0).total_availible_count = 0	<br />
+rfdxllm	<br />
+rfdxllmSelect Case manufactor_code	<br />
+rfdxllmrfdxllmCase 1, 2	<br />
+rfdxllmrfdxllmrfdxllmWith product_list(target_code, manufactor_choice, 0)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm.first_time = Workbooks(strfile).Sheets(2).Cells(.first_row, manufactor_row(manufactor_code).In_stock)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor i = .first_row To .end_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quality) <> "" Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "品質不佳"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = flase	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf DateDiff("d", Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock), Date) > .expire_day Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "過期"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = flase	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmSelect Case Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).KMN_Set)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmCase "K"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity) < .mini_quantity Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "K數量不足"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmCase "M"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).KMN_Set) = "N" And Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).KMN_Set) = "N" And Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmCase "N"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).KMN_Set) = "M" And Workbooks(strfile).Sheets(2).Cells(i - 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).KMN_Set) = "M" And Workbooks(strfile).Sheets(2).Cells(i + 1, manufactor_row(manufactor_code).Tyre_ID) = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Tyre_ID) Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmfind_MN = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd Select	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf find_MN = False Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "MN不成對"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf checking = True Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf .total_availible_count = 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_availible_row = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.total_availible_count = .total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 13) = .total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 16) = .first_availible_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 17) = .first_time	<br />
+rfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmCase 3	<br />
+rfdxllmrfdxllmrfdxllmWith product_list(target_code, manufactor_choice, 0)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm.num_of_choice = 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).first_row = .first_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor i = .first_row To .end_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Location) <> Workbooks(strfile).Sheets(2).Cells(product_list(target_code, manufactor_choice, .num_of_choice).first_row, manufactor_row(manufactor_code).Location) Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).end_row = i - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.num_of_choice = .num_of_choice + 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).first_row = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = True	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quality) <> "" Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "品質不佳"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = flase	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmElse	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf DateDiff("d", Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock), Date) > .expire_day Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(i, col_offset + 15) = "過期"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmchecking = False	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf checking = True Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf .total_availible_count = 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_availible_row = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm.total_availible_count = .total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmIf product_list(target_code, manufactor_choice, .num_of_choice).total_availible_count = 0 Then	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).first_availible_row = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).first_time = Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).In_stock)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).total_availible_count = product_list(target_code, manufactor_choice, .num_of_choice).total_availible_count + Workbooks(strfile).Sheets(2).Cells(i, manufactor_row(manufactor_code).Quantity)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmEnd If	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmproduct_list(target_code, manufactor_choice, .num_of_choice).end_row = i - 1	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 13) = .total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 16) = .first_availible_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row - 1, col_offset + 17) = .first_time	<br />
+rfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row, col_offset + 19) = "area"	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row, col_offset + 20) = .num_of_choice	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor i = 1 To .num_of_choice	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 25) = i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 26) = product_list(target_code, manufactor_choice, i).first_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 27) = product_list(target_code, manufactor_choice, i).end_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 28) = product_list(target_code, manufactor_choice, i).first_availible_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 29) = product_list(target_code, manufactor_choice, i).first_time	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 30) = product_list(target_code, manufactor_choice, i).total_availible_count	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmstr = "Y" & .first_row & ":AE" & .end_row	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Activate	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmRange(str).Sort Key1:=Range("AC1"), Order1:=xlAscending, Header:=xlYes	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmFor i = 1 To .num_of_choice	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmarea_sort_sequence(target_code, manufactor_choice, i) = Workbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 25)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmrfdxllmWorkbooks(strfile).Sheets(2).Cells(.first_row + i, col_offset + 32) = area_sort_sequence(target_code, manufactor_choice, i)	<br />
+rfdxllmrfdxllmrfdxllmrfdxllmNext i	<br />
+rfdxllmrfdxllmrfdxllmrfdxllm	<br />
+rfdxllmrfdxllmrfdxllmEnd With	<br />
+rfdxllmrfdxllmCase Else	<br />
+rfdxllmEnd Select	<br />
+rfdxllm	<br />
+End Sub	<br />
+
+
+</body>
+</html>
+
+
 </p>
 
 
