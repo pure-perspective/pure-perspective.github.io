@@ -5,9 +5,93 @@
 		</script>
 
 		<meta charset="utf-8">
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言區</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .comment-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .comment-box h3 {
+            margin-top: 0;
+        }
+        .comment-form {
+            margin-bottom: 20px;
+        }
+        .comment-form textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .comment-form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+        .comment-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .comment-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+		
 	</head>
 
 <body>
+
+	<h2>留言區</h2>
+
+<div class="comment-form">
+    <h3>留下您的留言:</h3>
+    <form id="commentForm">
+        <input type="text" id="name" placeholder="您的名字" required><br>
+        <textarea id="message" placeholder="您的留言" required></textarea><br>
+        <button type="button" onclick="submitComment()">提交留言</button>
+    </form>
+</div>
+
+<h3>留言列表:</h3>
+<div id="commentSection"></div>
+
+<script>
+    function submitComment() {
+        // 获取用户输入内容
+        var name = document.getElementById('name').value;
+        var message = document.getElementById('message').value;
+
+        // 确保输入不为空
+        if (name && message) {
+            // 创建新的留言元素
+            var commentBox = document.createElement('div');
+            commentBox.classList.add('comment-box');
+            commentBox.innerHTML = '<h3>' + name + '</h3><p>' + message + '</p>';
+            
+            // 将新留言添加到留言区
+            document.getElementById('commentSection').appendChild(commentBox);
+
+            // 清空表单
+            document.getElementById('commentForm').reset();
+        } else {
+            alert("請填寫名字和留言！");
+        }
+    }
+</script>
+
 <h1>Title</h1>
 <h1>ch2.初階變分法</h1>
 
