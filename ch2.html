@@ -92,6 +92,54 @@
     }
 </script>
 
+
+
+	<h1>Title</h1>
+<h1>20240924</h1>
+
+	
+<p>
+Option Explicit
+
+' 引用 Windows API 函數
+Private Declare PtrSafe Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As LongPtr
+Private Declare PtrSafe Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal hWndParent As LongPtr, ByVal hWndChildAfter As LongPtr, ByVal lpszClass As String, ByVal lpszWindow As String) As LongPtr
+Private Declare PtrSafe Function GetWindowText Lib "user32" Alias "GetWindowTextA" (ByVal hWnd As LongPtr, ByVal lpString As String, ByVal cch As Long) As Long
+Private Declare PtrSafe Function GetWindowTextLength Lib "user32" Alias "GetWindowTextLengthA" (ByVal hWnd As LongPtr) As Long
+Private Declare PtrSafe Function IsWindowVisible Lib "user32" (ByVal hWnd As LongPtr) As Long
+
+Sub GetWindowTextFromOtherProgram()
+    Dim hWndParent As LongPtr
+    Dim hWndChild As LongPtr
+    Dim windowText As String
+    Dim textLength As Long
+    
+    ' 找到指定的應用程式視窗 - 修改以下視窗標題名稱為你想要偵測的程式
+    hWndParent = FindWindow(vbNullString, "Notepad") ' 這裡用記事本作為範例
+
+    If hWndParent = 0 Then
+        MsgBox "找不到指定的視窗"
+        Exit Sub
+    End If
+    
+    ' 找到視窗中的子視窗（例如編輯區域）
+    hWndChild = FindWindowEx(hWndParent, 0, "Edit", vbNullString)
+    
+    If hWndChild = 0 Then
+        MsgBox "找不到指定視窗的子視窗"
+        Exit Sub
+    End If
+    
+    ' 取得子視窗中的文字
+    textLength = GetWindowTextLength(hWndChild) + 1
+    windowText = String$(textLength, Chr$(0))
+    GetWindowText hWndChild, windowText, textLength
+    
+    ' 顯示子視窗中的文字內容
+    MsgBox "視窗文字內容: " & Left$(windowText, textLength - 1)
+End Sub
+
+</p>
 <h1>Title</h1>
 <h1>ch2.初階變分法</h1>
 
