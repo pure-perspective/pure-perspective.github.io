@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>改變超導\(T_c\)的方式</title>
+		<title>Theory of Critical Coupling Constants</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -21,7 +21,7 @@
 				<header>
 					<!--<span class="image avatar"><img src="images/photo.png" alt="" /></span>-->
 					<!--<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>-->
-					<h1 id="logo"><a href="#">改變超導\(T_c\)的方式</a></h1>
+					<h1 id="logo"><a href="#">Theory of Critical Coupling Constants</a></h1>
 		
 					<!--<h1 id="logo"><a href="#">Peir-Ru Wang</a></h1>-->
 					<!--<p style="text-align:justify">Physics<br />Materials Science<br />Mechanical Engineering</p>-->
@@ -29,11 +29,11 @@
 				</header>
 				<nav id="nav">
 					<ul>
-						<li><a href="#a" class="active">前言</a></li>
-						<li><a href="#b">\(T_c\) 與 \(\Theta_D\) 的關係</a></li>
-						<!--<li><a href="#c">簡化變分表示法</a></li>
-						<li><a href="#d">Lagrangian的不唯一性</a></li>
-						<li><a href="#d1">Point Transformation、Form Invariant和Principle of Relativity</a></li>
+						<li><a href="#a" class="active">Introduction</a></li>
+						<li><a href="#b">The effect of phonon, pressure, and carrier number on \(T_c\)</a></li>
+						<li><a href="#c">Physical modeling</a></li>
+						<li><a href="#d">Oxide synthesis, SEM, XRD</a></li>
+						<!--<li><a href="#d1">Point Transformation、Form Invariant和Principle of Relativity</a></li>
 
 						<li><a href="#e">動量空間的Lagrangian</a></li>
 						<li><a href="#f">古典諾特定理</a></li>
@@ -89,696 +89,208 @@
 					<div id="main">
 
 						
-								<div class="image main" data-position="center">
+								<!--<div class="image main" data-position="center">
 									<img src="./images/IMG_1357.jpg" alt="" />
-								</div> <!--上方封面照片，可以換成秋紅谷-->
+								</div> <!--上方封面照片，可以換成秋紅谷--> 
 
 
-
-
-								<div class="container">
-
-
-
-<body>
-<!--<ol>
-<li>第一個項目</li>
-<li>第二個項目</li>
-<li>第三個項目</li>
-</ol>
-<ol>
-<li>待辦工作一</li>
-<li>待辦工作二</li>
-<li>待辦工作三</li>
-</ol>-->
-<header class="major">
-<h2>改變超導\(T_c\)的方式</h2>
-</header>
-<p>
-<!--\(\to\)<a href="./PoLA-en.html">English Version</a><br>
-\(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
-\(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>-->
-Update 2024.09.12
-</p>
-<ol>
-
-
-						<!-- Two -->
-							<section id="two">
+						<!-- a -->
+							<section id="a">
 								<div class="container">
 									<header class="major">
-										<h2>Theory of Critical Coupling Constants</h2>
-										<p>Superconductivity Enhancement Methods</p>
+										<h2>Introduction</h2>
 									</header>
 <p style="text-align:justify"><a href="https://doi.org/10.1038/s41598-023-33809-5"><h4>DOI:10.1038/s41598-023-33809-5</h4></a></p>
-									<p style="text-align:justify">        My Ph.D. thesis is “The effect of critical coupling constants on superconductivity enhancement”. In the thesis, it clearly elaborated that the <b>superconducting dome appears when the coupling strength approached to the critical coupling constants</b>. Varying the phonon spectrum \(\Omega\), tuning the carrier number \(𝑍\), and increasing the pressure \(𝑃\) were three important approaches to enhance superconductivity \(𝑇_𝑐\). I extended the <b>BCS-McMillan theory</b> to <b>unify</b> effects of the phonon frequency \(\Omega\), the carrier number \(𝑍\), and the pressure \(𝑃\) on superconductivity.<br></p>
+									<p style="text-align:justify">        
+
+My doctoral research focused on how to enhance superconductivity at ambient pressure through materials design. Observing the critical temperature of superconductors, one finds that it increases with the diversity of compound compositions. Extrapolating from this trend, it is anticipated that oxides containing 12 or more elements could achieve room-temperature superconductivity.<br>
+<a href="./images/CCC/CCC-RTSC-7.jpg"><img src="./images/CCC/CCC-RTSC-7.jpg" alt="取代文字" width=100% height="auto"></a>
+▲Extrapolating the trend, it is anticipated that oxides containing 12 or more elements could achieve room-temperature superconductivity. (Click to enlarge)<br><br>
+
+The multicomponent concept are similar with high entropy materials. The following picture illustrates the traditional superconducting materials and the high entropy partners. If we select 12 elements from a commonly used set of 80 elements, there would be at least \(C_{12}^{80}≅10^{14}\) possible combinations! It is necessary to link the relation between chemical compounds and SC theories to narrow down the possible choices.<br>
+
+<a href="./images/CCC/CCC-RTSC-8.jpg"><img src="./images/CCC/CCC-RTSC-8.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲This picture illustrates the traditional superconducting materials and the high entropy partners. (Click to enlarge)
+</p>
+</dic>
+</section>
 
 
-<div id="QM"></div>
-<br><br>
-<h4>Quantum Hamiltonian of Superconductivity</h4>
-<p>
-The quantum Hamiltonian of superconductivity is:
+
+<section id="b">
+								<div class="container">
+									<header class="major">
+										<h2>The effect of phonon, pressure, and carrier number on \(T_c\)</h2>
+										<!-- <p>Superconductivity Enhancement Methods</p>-->
+									</header>
+<p style="text-align:justify">
+Notably, increasing the superconducting critical temperature \(T_c\) remains the principal problem of condensed matter physics since the discovery of superconductivity. Specifically, varying the phonon spectrum, tuning the carrier number, and increasing the pressure are three important experimental approaches to enhance \(T_c\) and consequently, speculate possible theories of superconductivity. However, the effects of altering these parameters on \(T_c\) are quite contrasting between weak coupling (low \(T_c\)) and strong coupling (high \(T_c\)) superconductivity.<br>
+</p>
+
+<h2>The phonon effects \( \Omega \) </h2>
+<p style="text-align:justify">
+In metallic superconductors and nickel-based superconductors, which correspond to the case of weak coupling, the critical temperature \(T_c\) can be increased via phonon softening.  In contrast, in cuprate systems, which correspond to the case of strong coupling, \(T_c\) can be increased via phonon stiffening. <br>
+<a href="./images/CCC/CCC-RTSC-1.jpg"><img src="./images/CCC/CCC-RTSC-1.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲(Left) The negative phonon effect in \(Nb_3 Ge \). (Right) The Positive phonon effect in cuprates. (Click to enlarge)<br><br>
+</p>
+
+<h2>The pressure effects \( P \)</h2>
+<p style="text-align:justify">
+The effect of pressure on \(T_c\) is negative in most metallic superconductors. On the other hand, positive effects or a dome-like delineation appear in cuprate systems, iron-based, and hydrogen-rich superconductors. <br>
+<a href="./images/CCC/CCC-RTSC-2.jpg"><img src="./images/CCC/CCC-RTSC-2.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲(Left) The negative pressure effect in metallic SC. (Right) The Positive or dome-like pressure effect in cuprates. (Click to enlarge)<br><br>
+</p>
+
+<h2>The carrier effects \( Z \)</h2>
+<p style="text-align:justify">
+In the phase diagrams that illustrate the variation of \(T_c\) with respect to the carrier number, the doom-like delineation may be observed in metallic, cuprates, and iron-based superconductors. Specifically, the underdoped region is strongly coupled with a positive carrier number effect and becomes weakly coupled in the overdoped region with a negative carrier number effect. Besides, another approach to increase the carrier number is to gate thin film materials, which also demonstrates the dome-like effect.<br>
+<a href="./images/CCC/CCC-RTSC-3.jpg"><img src="./images/CCC/CCC-RTSC-3.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲The dome-like carrier effect. (Click to enlarge)<br><br>
+</p>
+
+<h2>Cross effects between \( \Omega \), \( P \), and \( Z \) </h2>
+<p style="text-align:justify">
+Previous three phenomena have a common dome-like delineation – the positive tendency appears in strong coupling superconductivity, and becomes negative in weak coupling superconductivity. Three effects often couple and contribute to the cross effect! The cross effect in \(YBa_2 Cu_3 O_{7-\delta} \) demonstrated the complex behavior in SC. The carrier number \( Z \) can be tune by changing the \(O\) content. The change of carrier number causing phonon frequency \( \Omega = {k_B \over h} \Theta_D\) increased and lattice shrinkage (chemical pressure \( P \) increased). The effects of \( \Omega \), \( P \), and \( Z \) should be discussed simultaneously. <br>
+<a href="./images/CCC/CCC-RTSC-4.jpg"><img src="./images/CCC/CCC-RTSC-4.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲The cross effect in \(YBa_2 Cu_3 O_{7-\delta} \). (Click to enlarge)
+
+</p>
+</dic>
+</section>
+
+<section id="c">
+								<div class="container">
+									<header class="major">
+										<h2>Physical modeling</h2>
+									</header>
+
+<h2>The role of electron-phonon coupling</h2>
+<p style="text-align:justify">
+The \(T_c\) relation that derives from Cooper instability is a general property of superconductivity. Specifically, this relation may be written in the form 
+$$T_c \sim W e^{- {1 \over \lambda}} $$
+, where \(W\) is the bandwidth of superconducting electrons, and \(\lambda\) is the coupling constant of the pairing. Conventional superconductors, including metallic, \(MgB_2\), and hydrogen-rich compounds, are adequately explained by phonon-mediated pairing. This theory is famous BCS theory.<br>
+<a href="./images/CCC/CCC-RTSC-5.jpg"><img src="./images/CCC/CCC-RTSC-5.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲The isotope effect is the key experiment that demonstrate the electron-phonon coupling in SC.  (Click to enlarge)<br><br>
+
+Meanwhile, unconventional superconductors, such as cuprates and iron-based superconductors are explained by Hubbard-type theories. Moreover, although the strong repulsion between electrons plays a major role in the Hubbard model, the electron-phonon interaction remains non-negligible and consequently, contributes to the unconventional superconductivity. For this reason, in this study, we discuss the effects of varying the phonon spectrum, the carrier number, and the pressure on phonon-mediated pairing. <br>
+<a href="./images/CCC/CCC-RTSC-6.jpg"><img src="./images/CCC/CCC-RTSC-6.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲The isotope effect and phonon effect still un-negligible in unconventional SC (Click to enlarge)<br><br>
+</p>
+
+<h2>Linked relation between materials and theories</h2>
+<p style="text-align:justify">
+To discover new superconducting formulations, it is essential to connect superconducting theories with material parameters. In superconducting theory, the mainstream viewpoint posits that the interaction between electrons and phonons induces the superconducting state, with the critical temperature\(T_c\) determined by the Debye temperature \( \Theta_D \) and the coupling constant \( \lambda \). However, predicting superconductivity often requires complex theoretical computations. These involve first-principles calculations to infer physical properties under specific elements and structures, such as phonon spectra and spin occupation, followed by applying these calculated parameters to superconducting theory to predict potential\(T_c\). This process is inconvenient for large-scale experimentation with new formulations aimed at identifying superconductors.<br><br>
+
+An alternative approach is to use parameters measurable in experiments, such as phonon frequency \(\Omega\), valence \( Z \) of the element, lattice constant\( a \) or pressure \(P\) —most of which can be estimated based on elemental properties. If we can express the \(T_c\) and the coupling constant \( \lambda \) as functions of \(\Omega\), valence \( Z \), and pressure \(P\), namely:
+$$T_c = T_c \left(\Omega, Z, P \right)$$
+$$\lambda = \lambda \left(\Omega, Z, P \right)$$
+The increment:
+$$dT_c = \frac{\partial T_c}{\partial \Omega} d\Omega + \frac{\partial T_c}{\partial Z} dZ + \frac{\partial T_c}{\partial P} dP$$
+
+the signs of \( dT_c\) can provide insights into how adjusting each parameter would affect the critical temperature when selecting materials.<br><br>
+</p>
+
+<h2>Quantum Hamiltonian of Superconductivity</h2>
+<p style="text-align:justify">
+I extended the <b>BCS-McMillan theory</b> to <b>unify</b> effects of the phonon frequency \(\Omega\), the carrier number \(𝑍\), and the pressure \(𝑃\) on superconductivity.The quantum Hamiltonian of superconductivity is:
 $$\hat{H} \left| \Psi \right> =\left[ \sum\limits_{k\sigma} \xi_k \hat{c}_{k\sigma}^\dagger \hat{c}_{k\sigma} + \frac{1}{N}\sum\limits_{kk^\prime} \frac{g_{eff}}{M\Omega^2} \hat{c}_{k\uparrow}^\dagger \hat{c}_{k\downarrow}^\dagger \hat{c}_{-k^\prime \downarrow} \hat{c}_{k^\prime \uparrow} \right] \left| \Psi \right>$$
 
  I derived the explicit form of coupling constant \(\lambda\) and \(𝑇_𝑐\) are
 $$\lambda =  { C \sqrt[3]{Zn_{ion}}\over M\Omega ^2} $$
 and
 $$T_c \sim \Omega\cdot exp\left(-{1 \over  \lambda}\right) = \Omega\cdot exp\left[-{M\Omega ^2 \over C \sqrt[3]{Zn_{ion}}}\right]$$
-, where \(C\) is a constant, \(M\) is the ion mass, \(Z\) is the valence number, and \(n_{ion}\) is the ion number density. The derivative of \(𝑇_𝑐\) with respect to \(\Omega\) is 
-$${dT_c \over d\Omega}\sim {T_c \over \Omega}\cdot \left[1-{2\over \lambda}\right]$$
-The derivative \(dT_c\over d\Omega\) is equal to 0 when \(\lambda\) is equal to 2. Define the critical coupling constant corresponding to the phonon frequency \(\lambda_c^\Omega=2\). Similarly, one can derived other two critical coupling constants \(\lambda_c^Z= {5 \over 3}\), and \(\lambda_c^P={4 \over 3}\). 
+, where \(C\) is a constant, \(M\) is the ion mass, \(Z\) is the valence number, and \(n_{ion}\) is the ion number density.<br><br>
 </p>
-<img src="./images/Critical coupling.png" alt="取代文字" width=60% height="auto"><br>	
+
+<h2>Critical temperature \(T_c\) as a function of \( \Omega \)</h2>
+<p style="text-align:justify">
+The derivative of \(𝑇_𝑐\) with respect to \(\Omega\) is 
+$${dT_c \over d\Omega}\sim {T_c \over \Omega}\cdot \left[1-{2\over \lambda}\right]$$
+.The derivative \(dT_c\over d\Omega\) is equal to 0 when \(\lambda\) is equal to 2. Define the critical coupling constant corresponding to the phonon frequency \(\lambda_c^\Omega=2\). 
+
+</p>
+
+<h2>Critical temperature \(T_c\) as a function of \( Z \)</h2>
+<p style="text-align:justify" >
+To investigate the dependency of \(\lambda\) and \(T_c\) on carrier number \(Z\), \(T_c\) equation and \(\lambda\) equation can be rewritten as a function of the carrier number \(Z\). Here, the characteristic phonon frequency \(\Omega\) uses the jellium phonon frequency \(\Omega=\sqrt{(Z^2 e^2 n_{ion}/\varepsilon_0 M}\)  , where \(\varepsilon_0\) is the permittivity. The explicit form of \lambda and \(T_c\)  as a function of \(Z\) are
+$$\lambda(Z)=\frac{C\varepsilon_0}{e^2 n_{ion}^{\frac{2}{3}}} Z^{-\frac{5}{3}}$$
+and
+$$T_c (Z)\sim \left(\frac{Z^2 e^2 n_{ion}}{{\varepsilon_0 M}}\right)^{\frac{1}{2}}  exp⁡\left(-\frac{C\varepsilon_0}{e^2 n_{ion}^{2/3}} Z^{-\frac{5}{3}} \right)	$$
+. The derivative of equation (5) and equation (6) with respect to \(Z\) are
+$$\frac{d\lambda}{dZ}=-\frac{5}{3}\frac{\lambda}{Z}	$$
+and
+$$\frac{dT_c}{dZ}=\frac{T_c}{Z} \left[1-\frac{\frac{5}{3}}{\lambda}\right]	$$
+. The derivative \(\frac{dT_c}{dZ}\) is equal to \(0\) when \(\lambda\) is equal to \(\frac{5}{3}\), denoted as \(\lambda_c^Z\).
+
+</p>
+
+<h2>Critical temperature \(T_c\) as a function of \( P \)</h2>
+<p style="text-align:justify">
+Third, to investigate the dependency of \(T_c\)  on pressure \(P\), the compressibility \(\beta=-\frac{1}{V}*\frac{dV}{dP} \) can be adopted to relate the pressure \(P\) and the volume \(V\). Using \(n_{ion}=N_{ion}/V\), where \(N_{ion}\) is the number of ions; equation (5) and equation (6) can thus be rewritten into a function of \(V\):
+$$\lambda(V)=\frac{C\varepsilon_0}{e^2 Z^{\frac{5}{3}} N_{ion}^{\frac{2}{3}} } V^{\frac{2}{3}}$$
+and
+$$T_c (V)\sim \left(\frac{Z^2 e^2 n_{ion}}{\varepsilon_0 MV}\right)^{\frac{1}{2}}  exp⁡\left(-\frac{e^2 Z^{\frac{5}{3}} N_{ion}^{\frac{2}{3}}}{C\varepsilon_0} V^{-\frac{2}{3}} \right)	$$
+. The derivative of equation (9) and equation (10) with respect to the pressure P are:
+$$\frac{d\lambda}{dP}=\frac{dV}{dP}*\frac{d\lambda}{dV}=-\beta V*\frac{2}{3}  \frac{\lambda}{V}	$$
+and
+$$\frac{dT_c}{dP}=\frac{dV}{dP}*\frac{dT_c}{dV}=\beta V*\frac{1}{2}  \frac{T_c}{V} \left[1-\frac{\left(\frac{4}{3}\right)}{\lambda} \right] $$
+. The critical coupling constant corresponding to the pressure is \(\lambda_c^P=\frac{4}{3}\).
+</p>
+
+
+<img src="./images/Critical coupling.png" alt="取代文字" width=60% height="auto"><br>
+
+
+<h2>Zigzag enhancement</h2>
 <p style="text-align:justify">
 These critical coupling constants are consistent with experimental observations and quantitatively classify superconductivity into three categories: weak (\(\lambda_c < \lambda_c^P\)) , intermediate (\(\lambda_c^P < \lambda_c^\Omega\)) , and strong coupling (\(\lambda_c > \lambda_c^\Omega\)) . Each category corresponds to different enhancement strategies. More precisely, the enhancement strategies for weak and strong coupling regions are opposite, but both inevitably bring superconductivity into the intermediate coupling region. For superconductors in the intermediate coupling region, general zigzag strategies further enhance the superconductivity.  
 
 
 In particular, take that \(\lambda\) belongs in the interval \(\lambda_c^P<\lambda<\lambda_c^Z\) for the following discussion without loss of generality. In this interval, superconductivity can be enhanced by increasing \(P\) or decreasing \(Z\). First, let the superconductivity be optimized by tuning \(Z\), such that \(\lambda\) is equal to \(\lambda_c^Z\), denoted as \(\lambda_1\). Second, since \(\lambda_1\) is larger than \(\lambda_c^P\), we can increase \(P\) to increase \(T_c\). The second step causes \(\lambda\) to decrease and \(T_c\) is optimized when \(\lambda=\lambda_c^P\), denoted as \(\lambda_2\). Third, now \(\lambda_2\) is smaller than \(\lambda_c^Z\), \(T_c\) can be further increased by decreasing \(Z\). The third step increases \(\lambda\) and \(T_c\) is optimized when \(\lambda=\lambda_c^Z\), denoted as \(\lambda_3\). Repeat step 2 and step 3 by increasing \(P\) and decreasing \(Z\) alternately; \(T_c\) can be enhanced like a zigzag mountain climbing. 
-</p>
-<a href="./images/CCC/zigzag.png"><img src="./images/CCC/zigzag.png" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<p style="text-align:justify">
-According to the theory, I focused on the chemical design including high phonon frequency, multiple carriers, and small lattice constants. I synthesized a series of high-entropy oxides (HEO) based on \(Bi_2Sr_2Ca_2Cu_3O_x\) and \(YBa_2Cu_3O_x\) superconductors. The micro structure of the HEO compounds was analyzed by ZEISS Gemini SEM and Bruker D2 PHASER XRD.
-
-
-<a href="./images/CCC/CCC-RTSC-1.jpg"><img src="./images/CCC/CCC-RTSC-1.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-2.jpg"><img src="./images/CCC/CCC-RTSC-2.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-3.jpg"><img src="./images/CCC/CCC-RTSC-3.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-4.jpg"><img src="./images/CCC/CCC-RTSC-4.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-5.jpg"><img src="./images/CCC/CCC-RTSC-5.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-6.jpg"><img src="./images/CCC/CCC-RTSC-6.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-7.jpg"><img src="./images/CCC/CCC-RTSC-7.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-8.jpg"><img src="./images/CCC/CCC-RTSC-8.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-9.jpg"><img src="./images/CCC/CCC-RTSC-9.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-10.jpg"><img src="./images/CCC/CCC-RTSC-10.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-11.jpg"><img src="./images/CCC/CCC-RTSC-11.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-12.jpg"><img src="./images/CCC/CCC-RTSC-12.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-13.jpg"><img src="./images/CCC/CCC-RTSC-13.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-14.jpg"><img src="./images/CCC/CCC-RTSC-14.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-15.jpg"><img src="./images/CCC/CCC-RTSC-15.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-<a href="./images/CCC/CCC-RTSC-16.jpg"><img src="./images/CCC/CCC-RTSC-16.jpg" alt="取代文字" width=100% height="auto"></a>(Click to enlarge)<br>
-</p>
-
-
-
-<section id="a">
-<div class="container">
-<header class="major">
-	<h2><li>前言</li></h2>
-</header>
-
-<p style="text-align:justify">針對尋找新的超導配方，需要連結超導理論和材料參數。在超導理論中，主流的理論認為電子與聲子的交互作用產生超導態，臨界溫度 \( T_c \) 由 Debye temperature \( \Theta_D \)、耦合常數 \( \lambda \) 決定，然而在預測超導上，常常需要利用複雜的理論計算，利用第一原理計算，推測給定的元素與結構下的物理性質如 phonon spectrum、spin occupation，再利用計算出來的參數帶入超導理論預測可能的 \( T_c \)。以上的流程對於需要大量嘗試新配方來尋找超導非常的不方便。<br><br>
-
-    試圖利用實驗上可以量到的參數，例如聲速 \( v_s \)、元素的價數 \( Z \)、晶格常數或離子半徑 \( a \)，這些多半可由元素的特性猜出。更進一步的，如果能將 Debye temperature \( \Theta_D \)、耦合常數 \( \lambda \) 寫成聲速 \( v_s \)、元素的價數 \( Z \)、晶格常數或離子半徑 \( a \) 的函數，即
-
-    
-        \[
-        \Theta_D = \Theta_D (v_s, Z, a)
-        \]
-        \[
-        \lambda = \lambda(v_s, Z, a)
-        \]
-如果想從既有的超導出發，我們只需觀察\( T_c \)的變化量，\( \Delta T_c \)
-        \[
-        d\Theta_D = \frac{\partial \Theta_D}{\partial v_s} dv_s + \frac{\partial \Theta_D}{\partial Z} dZ + \frac{\partial \Theta_D}{\partial a} da
-        \]
-        \[
-        d\lambda = \frac{\partial \lambda}{\partial v_s} dv_s + \frac{\partial \lambda}{\partial Z} dZ + \frac{\partial \lambda}{\partial a} da
-        \]
-    
-
-    同時利用
-    
-    
-        \[
-        T_c = T_c (\Theta_D, \lambda) = T_c (v_s, Z, a)
-        \]
-        \[
-        dT_c = \frac{\partial T_c}{\partial v_s} dv_s + \frac{\partial T_c}{\partial Z} dZ + \frac{\partial T_c}{\partial a} da
-        \]
-    
-
-    其中 \( \frac{\partial T_c}{\partial v_s} \)、\( \frac{\partial T_c}{\partial Z} \)、\( \frac{\partial T_c}{\partial a} \) 的正負號，就可以推測材料選取中，各項參數的調整方式對於臨界溫度的影響。首先先回顧在文獻中改變\( T_c \)的實驗現象。
-
 
 </p>
-</div>
+<a href="./images/CCC/zigzag.png"><img src="./images/CCC/zigzag.png" alt="取代文字" width=100% height="auto"></a><br>
+</dic>
 </section>
 
-
-<section id="b">
-<div class="container">
-<header class="major">
-	<h2><li>\(T_c\) 與 \(\Theta_D\) 的關係</li></h2>
-</header>
-<p style="text-align:justify">
-
-    <br>對於金屬超導，如 \(Nb_3 Al\)，Kwo [1] 的研究指出，藉由微調 \(Nb_3 Al\) 薄膜著 Nb 和 Al 的比例來調整超導臨界溫度，發現 \(T_c\) 增加的原因來自於低頻聲子，也會導致特徵頻率 \(\langle \omega^2 \rangle\) 下降，在當時會以 phonon soften 來稱呼這種趨勢，藉由微調 \(Nb_3 Al\) 薄膜著 \(Nb\) 和 \(Al\) 的比例來調整超導臨界溫度，發現 \(T_c\) 增加的原因來自於低頻聲子。<br>
-
-    <br>低頻聲子 \(Nb_3 Ge\) 聲子軟化 [2]<br>
-
-    <br>[3]<br>
-
-    <br>然而對於銅氧化物超導而言，卻有不同的趨勢。在 Ledbetter 1991 [4] 中，列出了幾種超導的趨勢。以 \(La_{1.85} M_{0.15} CuO_4\) 為例，參雜為 \(M=Ca,Ba,Sr\)，可以觀察到，\(T_c\) 的趨勢與 \(\Theta_D\)、\(\lambda\) 正相關，與金屬超導不同之外，且也 \(\Theta_D\)、\(\lambda\) 彼此也正相關。文中繪圖表示 La-214 的超導性質與 a 軸長度負相關。另外，文中也討論 \(YBa_2 Cu_3 O_x\)，\(x=6.4 \sim 7\)，超導性質會隨著含氧量增加而提升，同時 \(\Theta_D\) 也會逐漸增加。<br>
-
-    <br>銅氧化物中臨界溫度的趨勢<br>
-    
-    <br>鑭銅氧化合物與 a 軸的關係<br>
-
-    <br>\(YBCO\) 臨界溫度、含氧量、Debye Temperature 的關係<br>
-    
-    <br>在另一篇文中 Jorgensen [5] 針對 \(YBa_2 Cu_3 O_{7-\delta}\) 的含氧量，\(T_c\) 會隨著含氧量下降而降低，c 軸會變長。另外，單位晶包體積也會越來越大。<br>
-
-    <br>\(YBCO\) 臨界溫度、含氧量、c 軸長度的關係<br>
-    
-    <br>其他 \(YBCO\) 晶包相關可以參考 [6],[7],[8]。<br>
-
-    <br>總體來說，可以直得注意的是，在 Ledbetter 1994 [9] 中，提到銅氧化物與金屬的 \(T_c\) 與 \(\Theta_D\) 的趨勢不同，且也可以很明顯看出對常見的銅氧化物超導，\(T_c\) 與 \(\Theta_D\) 正相關。<br>
-
-    <br>銅氧化物與金屬超導趨勢的不同<br>
-    
-    <br>銅氧化物超導，\(T_c\) 與 \(\Theta_D\) 正相關<br>
-
-    <br>[10]<br>
-
-    <br>[11]<br>
-
-    <br>銅氧化物同位素效應 [12] [13]<br>
-    
-    <br>參考文獻:<br>
-    <br>[1] J. Kwo, T. Geballe, Superconducting tunneling into the A 15 Nb 3 Al thin films, Physical Review B, 23 (1981) 3230.
-    <br>[2] K. Kihlstrom, T. Geballe, Tunneling α 2 F (ω) as a function of composition in A 15 NbGe, Physical Review B, 24 (1981) 4101.
-    <br>[3] K. Kudo, M. Takasuga, Y. Okamoto, Z. Hiroi, M. Nohara, Giant phonon softening and enhancement of superconductivity by phosphorus doping of BaNi 2 As 2, Physical Review Letters, 109 (2012) 097002.
-    <br>[4] H. Ledbetter, S. Kim, A. Roshko, Critical-temperature/Debye-temperature correlation in (La-M)2CuO4 superconductors, Physica C: Superconductivity, 190 (1991) 129-130.
-    <br>[5] J.D. Jorgensen, B.W. Veal, A.P. Paulikas, L.J. Nowicki, G.W. Crabtree, H. Claus, W.K. Kwok, Structural properties of oxygen-deficient YBa2Cu3O7- delta, Phys Rev B Condens Matter, 41 (1990) 1863-1877.
-    <br>[6] R. Cava, B. Batlogg, C. Chen, E. Rietman, S. Zahurak, D. Werder, Oxygen stoichiometry, superconductivity and normal-state properties of YBa 2 Cu 3 O 7–δ, Nature, 329 (1987) 423-425.
-    <br>[7] T. Frello, Structural and superconducting properties of high T c superconductors, Risø National Laboratory, 1999.
-    <br>[8] P. Benzi, E. Bottizzo, N. Rizzi, Oxygen determination from cell dimensions in \(YBCO\) superconductors, Journal of Crystal Growth, 269 (2004) 625-629.
-    <br>[9] H. Ledbetter, Dependence of Tc on Debye temperature \(\Theta_D\) for various cuprates, Physica C: Superconductivity, 235 (1994) 1325-1326.
-    <br>[10] R. Dynes, Influence of the phonon spectra of In-Tl alloys on the superconducting transition temperatures, Physical Review B, 2 (1970) 644.
-    <br>[11] R.J. Wijngaarden, E. Van Eenige, J. Scholtz, D.T. Jover, R. Griessen, Ultra high pressure experiments on high-T c superconductors, High Pressure Chemistry, Biochemistry and Materials Science, DOI (1993) 121-146.
-    <br>[12] G.-m. Zhao, K. Conder, H. Keller, K. Müller, Oxygen isotope effects in: Evidence for polaronic charge carriers and their condensation, Journal of Physics: Condensed Matter, 10 (1998) 9055.
-    <br>[13] G.-m. Zhao, H. Keller, K. Conder, Unconventional isotope effects in the high-temperature cuprate superconductors, Journal of Physics: Condensed Matter, 13 (2001) R569.
-
-
-</p>
-</div>
-</section>
-
-<!--
-
-
-<section id="c">
-<div class="container">
-<header class="major">
-	<h2><li>簡化變分表示法</li></h2>
-</header>
-
-<p style="text-align:justify">
-
-前一部分介紹了簡單的變分法概念，但是需要引入任意的函數\(\eta (t)\)，手法上稍嫌煩瑣，不利於後續操作。第二部分以相同的概念，採用比較抽象的想法但相同的數學手法，演示一次變分法的操作。有點像將變分的操作類同於微分操作。
-<table cellpadding="1" border="1">
-<tr><td><a href="./Image/P29.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P30.png" alt="取代文字" width=98% height="auto"></a></td></tr>
-</table>
- 
-針對同一種泛函（Functional）的積分問題
-$$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt $$
-當我們針對\(x\)做變分， 
-$$x→x+\delta x$$
-變分\(\delta x\)滿足
-$$\delta x(a)=\delta x(b)=0$$
-\(x\)的變分會導致\(\dot{x}\)、\(F\)發生變化
-
-$$ \dot{x} (x) \to \dot{x} (x+\delta x) =\dot{x}(x)+\delta \dot{x}$$
-$$F(x,\dot{x},t)→F(x+\delta x,\dot{x}(x)+\delta \dot{x},t)=F(x,\dot{x},t)+\delta F $$
-我們要\(\delta S=0\)
-$$\delta S=\delta \int _a^b Fdt=\int _a^b \delta Fdt=0$$
-概念上很好理解的是，\(\delta F\)的變化和\(\delta x\)、\(\delta \dot{x}\)有關，所以將\(\delta F\)展開
-$$\delta S=\int _a^b \delta Fdt=\int _a^b { \partial F\over\partial x }\delta x+{\partial F\over \partial \dot{x} } \delta \dot{x} dt $$
-
-<table cellpadding="1" border="1">
-<tr><td>
-進階：Thm.1 :微分與變分對調<br>
-如果今天微分與變分針對的對象不同，如對\(t\)微分 \(d \over dt\)、對\(x\)變分\(\delta x\)，則 \(d \over dt\)與\(\delta \)可以對調。
-$$\delta \dot{f}=\dot{f} (x+\delta x)-\dot{f}(x)$$
-$$= {d \over dt} \left(f(x+\delta x)-f(x)\right)= {d \over dt} \delta f$$
-</td></tr>
-</table>
-
-將\(\delta \dot{x}\)對調 \({d \over dt} \delta x\)<br>
-$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt+  \int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt $$
-同樣的手法對第二項做分部積分
-$$\int _a^b   {\partial F\over \partial \dot{x} }  \left( {d \over dt} \delta x\right)dt =  \color{red}{{\partial F\over \partial \dot{x} }  \delta x \Big|_a^b}-\int _a^b  {d \over dt}   {\partial F\over \partial \dot{x} } \delta xdt$$
-注意<font color="red">紅色</font>這一項，因為我們要求變分\(\delta x\)滿足\(\delta x(a)=\delta x(b)=0\)，所以\( \color{red}{{\partial F\over \partial \dot{x} }  \delta x\Big|_a^b=0}\)
-$$\delta S=\int _a^b   {\partial F\over\partial x} \delta xdt-\int _a^b \left( {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt $$
-$$=\int _a^b \left( {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } \right)\delta xdt=0$$
-
-\(\delta x \) is arbitrary.
-
-$$ {\partial F\over\partial x}- {d \over dt}   {\partial F\over \partial \dot{x} } =0$$ 
-Euler-Lagrange equation <br>
-<table cellpadding="1" border="1">
-<tr><td>
-進階：Thm.2:變分的Chain rule
-$$\delta (FG)={\partial (FG)\over\partial x} \delta x+{\partial (FG)\over \partial \dot{x} } \delta \dot{x}$$
-$$=\left( {\partial F\over\partial x} G+F {\partial G\over\partial x}\right)\delta x+\left( {\partial F\over \partial \dot{x} }  G+F {\partial G\over\partial \dot{x}} \right)\delta \dot{x}$$
-$$=\left( {\partial F\over\partial x} \delta x+ {\partial F\over \partial \dot{x} }  \delta \dot{x} \right)G+F\left({\partial G\over\partial x} \delta x+{\partial G\over\partial \dot{x}}  \delta \dot{x} \right)$$
-$$= \delta F\cdot G+F\cdot \delta G$$
-</td></tr>
-</table>
-<br>
-
-<table cellpadding="1" border="1">
-<tr><td>
-進階：Thm.3:針對函數F同乘同除另一函數G，不影響變分
-$$\delta F=\delta \left(F\cdot {G\over G}\right)=\delta \left(F\cdot G\cdot G^{-1} \right)$$
-$$=\delta F\cdot G\cdot G^{-1}+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \delta (G^{-1} )$$
-$$=\delta F+F\cdot \delta G\cdot G^{-1}+F\cdot G\cdot \left(-{\delta G\over G^2} \right)$$
-$$=\delta F$$
-</td></tr>
-</table>
-
-</p>
-</div>
-</section>
 
 <section id="d">
-<div class="container">
-<header class="major">
-	<h2><li>Lagrangian的不唯一性</li></h2>
-</header>
+								<div class="container">
+									<header class="major">
+										<h2>Oxide synthesis, SEM, XRD</h2>
+									</header>
 <p style="text-align:justify">
-理論力學的課程中，都有學過當\(Lagrangian\)添加一個函數\(f=f(q,t)\)時間的全微分項\({df\over dt}\)，\(L→L+{df\over dt}\)並不會改變EoM。這可以從兩個部分來看。第一種是最簡單的從變分的端點，
-$$\delta S=\delta \int _a^b (L+{df\over dt})dt$$
-$$=\delta \left[\int _a^b Ldt+\int _a^b  {df\over dt} dt \right]$$
-$$=\delta \left[\int _a^b Ldt+f(b)-f(a)\right]$$
-$$=\delta \int _a^b Ldt+\delta f(b)-\delta f(a)$$
-但因為端點不做變分，所以\(\delta f(b)=\delta f(a)=0\)，自然的
-$$\delta \int _a^b \left(L+{df\over dt}\right)dt=\delta \int _a^b Ldt=0$$
-
-
-
-另外一種是直接展開，觀察\(L+\dot{f}\) 是否滿足
-\({d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)=0\)
-
-
-$${d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)={d\over dt}  {\partial L\over\partial \dot{x}}  -{\partial L\over\partial x}+\color{red}{{d\over dt}  {\partial \dot{f} \over\partial \dot{x}}  -{\partial \dot{f} \over\partial x}}$$
-<font color="red">紅色項</font>我們可以觀察兩件事，因為\(f=f(x,t)\)
-$$df={\partial f\over\partial x} dx+{\partial f\over\partial \dot{x}}   d\dot{x} +{\partial f\over\partial t} dt$$
-$$\to \dot{f} ={\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}$$
-所以
-$${ \partial \dot{f} \over\partial \dot{x}} ={\partial f\over\partial x}\to dot\ cancellation$$<br>
-
-
-$${\partial \over\partial x} \dot{f}={\partial \over\partial x} \left({\partial \over\partial x} \dot{x} +{\partial f\over\partial \dot{x}}   \ddot{x} +{\partial f\over\partial t}\right)$$
-
-
-$$=\left({\partial \over\partial x}  {\partial f\over\partial x}\right) \dot{x} +\left({\partial \over\partial x}  {\partial f\over\partial \dot{x}}  \right) \ddot{x} +\left({\partial \over\partial x}  {\partial f\over\partial t}\right)$$
-$$={d\over dt} \left({\partial f\over\partial x}\right)\to{d\over dt},{\partial \over\partial x} commute $$
-
-
-會得到<font color="red">紅色項</font>為零
-$$\color{red}{{d\over dt}  {\partial \dot{f} \over\partial \dot{x}  }-{\partial \dot{f} \over\partial x}={d\over dt}  {\partial f\over\partial x}-{d\over dt}  {\partial f\over\partial x}=0}$$
-故
-$${d\over dt}  {\partial \over\partial \dot{x}}\left( L+\dot{f} \right)  -{\partial   \over\partial x}\left( L+\dot{f} \right)={d\over dt}  {\partial L\over\partial \dot{x}}  -{\partial L\over\partial x}=0$$
-添加\(\dot{f}\) 不會改變EoM。
-
-
-</p>
-</div>
-</section>
-
-
-
-<section id="d1">
-<div class="container">
-<header class="major">
-	<h2><li>Point Transformation、Form Invariant和Principle of Relativity</li></h2>
-</header>
-<p style="text-align:justify">
-
-在學物理的時候，最基本的物理法則就是相對性原理 (Principle of Relativity)。其中一種描述為：對所有慣性座標系而言 (本文至少目前不談論廣義相對論)，具有相同的物理定律。換句話說，就是所有慣性觀察者用的都是同一套物理、都具有一樣的物理方程式，也就是說「形式不變」(Form Invariant)。以牛頓力學來說，\(F=ma\) 換一個慣性座標還是\(\bar{F} = \bar{ma}\) 。我的老師，周定一老師，常常用很生動的比喻：如果今天物理定律不具有相對性原理，那無窮多個慣性座標就會有無窮多套物理定律，做出來的手機根本就不能用，因為搭上飛機就會換一套物理定律，地面做出來的裝置用的物理就在飛機上變得不適用。可以說相對性原理是研究物理學裡面一個最基本的假設。既然牛頓力學具有形式不變，那我們也要來討論 Euler-Lagrange equation 是否也在不同座標系下，也能「形式不變」。<br>
-
-在這邊我們先討論最基本的例子，稱為點變換 (Point Transformation)。假設今天在\(q\)慣性座標系研究出來的物理滿足：
-
-$$L = L(\dot{q}, q, t)$$
-$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0$$
-
-有另外一位觀察者，他寫下的座標採用 \(s\) 座標系，兩者之間有一個可逆的函數關係：
-
-$$s = s(q, t) \leftrightarrow q = q(s, t)$$
-$$dq = \frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt$$
-$$\rightarrow \dot{q} = \frac{\partial q}{\partial s} \dot{s} + \frac{\partial q}{\partial t}$$
-$$\rightarrow d\dot{q} = d\left(\frac{\partial q}{\partial s}\right) \dot{s} + \left(\frac{\partial q}{\partial s}\right)d\dot{s} + d\left(\frac{\partial q}{\partial t}\right)$$
-$$=\left(\frac{\partial q}{\partial s}\right) d\dot{s} + \dot{s}\left(\frac{\partial^2 q}{\partial s^2} ds + \frac{\partial^2 q}{\partial t \partial s} dt\right) + \left(\frac{\partial^2 q}{\partial s \partial t} ds + \frac{\partial^2 q}{\partial t^2} dt\right)$$
-$$=\frac{\partial q}{\partial s} d\dot{s} + \left[\dot{s} \frac{\partial^2 q}{\partial s^2} + \frac{\partial^2 q}{\partial s \partial t}\right]ds + \left[\frac{\partial^2 q}{\partial t \partial s} + \frac{\partial^2 q}{\partial t^2}\right]dt$$
-$$\equiv \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt$$
-$$\rightarrow \dot{q} = \dot{q}(\dot{s}, s, t)$$
-
-首先先看一下 Lagrangian \(L\)：
-
-$$dL = \frac{\partial L}{\partial \dot{q}} d\dot{q} + \frac{\partial L}{\partial q} dq + \frac{\partial L}{\partial t} dt$$
-$$=\frac{\partial L}{\partial \dot{q}} \left(\frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial \dot{q}}{\partial t} dt\right) + \frac{\partial L}{\partial q} \left(\frac{\partial q}{\partial s} ds + \frac{\partial q}{\partial t} dt\right) + \frac{\partial L}{\partial t} dt$$
-$$=\left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial s} ds + \frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial t} dt\right) + \left(\frac{\partial L}{\partial q} \frac{\partial q}{\partial s} ds + \frac{\partial L}{\partial q} \frac{\partial q}{\partial t} dt\right) + \frac{\partial L}{\partial t} dt$$
-$$=\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial \dot{s}} d\dot{s} + \left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial s} + \frac{\partial L}{\partial q} \frac{\partial q}{\partial s}\right)ds + \left(\frac{\partial L}{\partial \dot{q}} \frac{\partial \dot{q}}{\partial t} + \frac{\partial L}{\partial q} \frac{\partial q}{\partial t}\right)dt + \frac{\partial L}{\partial t} dt$$
-$$\equiv \frac{\partial L}{\partial \dot{s}} d\dot{s} + \frac{\partial L}{\partial s} ds + \frac{\partial L}{\partial t} dt$$
-$$\rightarrow L = L(\dot{s}, s, t)$$
-
-確認在 Point Transformation 之後，Lagrangian \(L\) 在 \(s\) 座標下仍然只是 \(\dot{s}, s, t\)的函數。在此我們可以直接套用變分流程，就說明 Lagrangian \(L(\dot{s}, s, t)\) 滿足：
-$$\frac{d}{dt} \frac{\partial L}{\partial \dot{s}} - \frac{\partial L}{\partial s} = 0$$
-
-當然，也可以採用數學直接計算。從原本的 Euler-Lagrange equation 出發：
-$$\frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0 \rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}} \color{red}{\frac{\partial \dot{s}}{\partial \dot{q}}}\right) - \left(\frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} + \frac{\partial L}{\partial s} \frac{\partial s}{\partial q}\right) = 0$$
-紅色利用 dot cancellation \(\color{red}{\frac{\partial \dot{s}}{\partial \dot{q}} = \frac{\partial s}{\partial q}}\)：
-$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}} \color{red}{\frac{\partial s}{\partial q}}\right) - \left(\frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} + \frac{\partial L}{\partial s} \frac{\partial s}{\partial q}\right) = 0$$
-$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) \frac{\partial s}{\partial q} + \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial s} \frac{\partial s}{\partial q} = 0$$
-因為 \(\frac{d}{dt} \left(\frac{\partial s}{\partial q}\right) = \frac{\partial \dot{s}}{\partial q}\) (only if \(s = s(q, t)\))：
-$$\rightarrow \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) \frac{\partial s}{\partial q} + \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial \dot{s}} \frac{\partial \dot{s}}{\partial q} - \frac{\partial L}{\partial s} \frac{\partial s}{\partial q} = 0$$
-$$\rightarrow \left[\frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) - \frac{\partial L}{\partial s}\right] \frac{\partial s}{\partial q} = 0$$
-因為 \(\frac{\partial s}{\partial q}\) 可逆且任意，所以：
-$$\frac{d}{dt} \left(\frac{\partial L}{\partial \dot{s}}\right) - \frac{\partial L}{\partial s} = 0$$
-
-在 \(s\) 座標下仍然滿足 Euler-Lagrange equation。在這邊可以注意到，\(s = s(q, t)\) 其實不一定是慣性座標，但仍然滿足 Euler-Lagrange equation，可見 Euler-Lagrange equation 強大的地方。
-
-</p>
-</div>
-</section>
-
-
--->
-
-
-
-<!--
-<section id="y">
-<div class="container">
-<header class="major">
-	<h2><li>Infinitesimal Poincare Transformation</li></h2>
-</header>
-<p style="text-align:justify">
-<div id="here"></div>
-龐加萊群是四維平移群加上勞倫茲群SO(1,3)。勞倫茲群是維持平時空度規張量\eta _{\mu \nu} 在勞倫茲變換 \lambda ^\alpha _\beta 下不變
-\eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} 
-假設g_a∈so(1,3)是SO(1,3)的李代數中的generator， \lambda ^\alpha _\beta 是SO(1,3)的representation(?)
- \lambda ^\alpha _\beta  (e^(θ^a g_a ) )= \lambda ^\alpha _\beta  (I+θ^a g_a )= \delta ^\alpha _\beta + \omega ^\alpha _\beta 
-必須滿足
-\eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} =( \delta ^\mu  _\alpha+ \omega ^\mu  _\alpha )( \delta ^\nu  _\beta + \omega ^\nu  _\beta  ) \eta _{\mu \nu} = \delta ^\mu  _\alpha  \delta ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\mu  _\alpha  \omega ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\nu  _\beta   \omega ^\mu  _\alpha \eta _{\mu \nu} 
-=\eta _\alpha\beta + \omega ^\nu  _\beta  \eta _\alpha\nu + \omega ^\mu  _\alpha \eta _\mu \beta =\eta _\alpha\beta +\omega _\alpha\beta +\omega _\beta \alpha
-Hence
-\omega _\alpha\beta =-\omega _\beta \alpha
-x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\alpha\to \delta x^\alpha~Χ^\alpha= \omega ^\alpha _\beta  x^\beta 
-\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
-\partial _\mu  ( T_\alpha ^\mu   \omega ^\alpha _\beta  x^\beta  )=0\to \partial _\mu  (T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0
-\partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\beta \mu  \omega _\beta \alpha x^\alpha )=0
-\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta -{1 \over 2} T^\beta \mu  \omega _\alpha\beta  x^\alpha )=0\to {1 \over 2} \omega _\alpha\beta  \partial _\mu  (T^\alpha\mu  x^\beta -T^\beta \mu  x^\alpha )=0
-   </p>
-</div>
-</section>
-
-<section id="z">
-<div class="container">
-<header class="major">
-	<h2><li>Maximal Symmetry Action-Field theory</li></h2>
-</header>
-<p style="text-align:justify">
-<b><font color="red">本節為筆者推論，還不確定是否正確</font></b><br>
-
-前面提到Lagrangian density L的不唯一性，我們可以添加\partial _\mu  f^\mu 而不改變EoM。以下來討論添加\partial _\mu  f^\mu 對諾特定理的影響。我們只需先將L\to \bar{L} =L+\partial _\mu  f^\mu 改寫結論即可
-\delta S=\int   \partial _\mu  ((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \Delta\phi -((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha \bar{L}  )\delta x^\alpha )  d^4 x 
-=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
-注意f^\mu =f^\mu  (\phi ,x^\mu  )，適用類似dot cancellation，\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) =├ {\partial f^\mu \over\partial \phi }┤|_(x^\mu  )，所以
-\delta S=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi }\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi } \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
-如果當原本的Lagrangian density L不具備對稱性，我們有機會透過{\partial f^\mu \over\partial \phi }做修正，因為f^\mu =f^\mu  (\phi ,x^\mu  )所以{\partial f^\mu \over\partial \phi }={\partial f^\mu \over\partial \phi } (\phi ,x^\mu  )，只要{\partial f^\mu \over\partial \phi }不是\partial _\mu  \phi 的函數，我們可以用{\partial f^\mu \over\partial \phi }=-\partial L/\partial (\partial _\mu  \phi ) +const V^\mu 消除微分不為零的部分使得\delta S=0，對應軌跡\phi 變分不變的守恆量為\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }，我們可以稱作此Lagrangian density L+\partial _\mu  f^\mu 對應的Action為Maximal Symmetry Action。
-\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu  (\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial (L+\partial _\nu  f^\nu  )/\partial \phi =\partial L/\partial \phi +\partial (\partial _\nu  f^\nu  )/\partial \phi 
-\partial _\mu  {{\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  }=\partial _\mu  {\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha (L+\partial _\nu  f^\nu  )}
-=\delta (L+\partial _\nu  f^\nu  )/(\delta x^\mu  )=\delta L/(\delta x^\mu  )+(\delta \partial _\nu  f^\nu )/(\delta x^\mu  )
-
-\partial _\nu  f^\nu =(\delta f^\nu )/\delta \phi  \phi _(,\nu )+(\delta f^\nu )/(\delta x^\nu  )\to d(f_(,\nu )^\nu  )=\phi _(,\nu ) d((\delta f^\nu )/\delta \phi )+(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+d((\delta f^\nu )/(\delta x^\nu  ))
-=\phi _(,\nu ) (\delta /\delta \phi   (\delta f^\nu )/\delta \phi  d\phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi  dx^\gamma  )+(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+(\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ) d\phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  ) dx^\gamma  )
-=(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))d\phi +(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  ))dx^\gamma 
-
-{ (\partial L/\partial \phi =-\partial (\partial _\nu  f^\nu  )/\partial \phi =-(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))@\delta L/(\delta x^\gamma  )=-(\delta \partial _\nu  f^\nu )/(\delta x^\gamma  )=-(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  )) )┤
-{ (\partial L/\partial \phi =-(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))@\delta L/(\delta x^\gamma  )=-(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  )) )┤
-\to ( (\partial /\partial \phi @\delta /(\delta x^\gamma  )))L=-( (\phi _(,\nu )  \delta /\delta \phi &\delta /\delta \phi @\phi _(,\nu )  \delta /(\delta x^\gamma  )&\delta /(\delta x^\gamma  )))( (\partial /\partial \phi @\delta /(\delta x^\gamma  ))) f^\nu 
-</p>
-</div>
-</section>
-
-<section id="aa">
-<div class="container">
-<header class="major">
-	<h2><li>EM field energy-momentum tensor and “standard” symmetrization procedure</li></h2>
-</header>
-<p style="text-align:justify">
-對任何物理系統，都具備能量和動量，故討論系統的energy-momentum tensor是場論中不可或缺的。回憶電磁場的Action，
-S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
-根據energy momentum tensor的定義
-T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L
-須滿足 T^{\mu\nu} _(,\nu )=0。計算得
-T_F^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L_F=\partial (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu )  \partial (A_(\beta ,\alpha)-A_(\alpha,\beta ) )/(\partial A_(\gamma ,\nu) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu ) ( \delta ^\gamma  _\beta   \delta ^\nu _\alpha- \delta ^\gamma  _\alpha  \delta ^\nu _\beta  )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 8 \pi c} (F^\nu\gamma   A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 8 \pi c} (-F^\gamma \nu  A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
-檢查source-free的energy-momentum conservation
- T_F^{\mu\nu} _(,\nu )={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 16 \pi c} \partial ^\mu  (F_{\alpha\beta}  F^{\alpha\beta}  )
-={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} F^{\alpha\beta}    A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} (A_(\beta ,\alpha)-A_(\alpha,\beta ) )(A^(\beta ,\alpha\mu )-A^(\alpha,\beta \mu ) )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)   A_\alpha ^(,\mu ) _(,\beta )-A^(\alpha,\beta )   A_\alpha ^(,\mu ) _(,\beta ) )+{1 \over 8 \pi c} (A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-A_(\beta ,\alpha) A^(\alpha,\beta \mu )-A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+A_(\alpha,\beta ) A^(\alpha,\beta \mu ) )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 4 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )
-={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )
-因為source-free， F^{\alpha\beta}  _(,\beta )=0，所以 T_F^{\mu\nu} _(,\nu )=0，滿足energy-momentum conservation。
-值得注意的是，由諾特定理得到的能量動量張量常常是不對稱的，因為能量動量張量的不對稱會導致角動量不守恆，故通常會將電磁場的能量動量張量對稱化。如果添加一項 t_F^{\mu\nu} _(,\nu )=0，則不會改變能量守恆性，通常會加入
-t_F^{\mu\nu}=-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma )
-使得
-T_F^{\mu\nu}+t_F^{\mu\nu}={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
-={1 \over 4 \pi c} F^\gamma \nu  F^\mu  _\gamma +{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} ={1 \over 4 \pi c}  F^\mu  _\gamma  F^\gamma \nu+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
-Check  t_F^{\mu\nu} _(,\nu)=0
- t_F^{\mu\nu} _(,\nu)=-{1 \over 4 \pi c}  F^\gamma \nu _(,\nu)  A^\mu  _(,\gamma )-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma \nu)=0-{1 \over 4 \pi c} (A^(\nu,\gamma )-A^(\gamma ,\nu) )  A^\mu  _(,\gamma \nu)
-=-{1 \over 4 \pi c} (A^(\nu,\gamma )  A^\mu  _(,\gamma \nu)-A^(\gamma ,\nu)  A^\mu  _(,\gamma \nu) )=-{1 \over 4 \pi c} (A^(\gamma ,\nu)  A^\mu  _(,\nu\gamma )-A^(\gamma ,\nu)  A^\mu  _(,\gamma \nu) )=0
-故對應到電磁場的能量動量張量寫為
-T_EM^{\mu\nu}={1 \over 4 \pi c}  F^\mu  _\gamma  F^\gamma \nu+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
-
-</p>
-</div>
-</section>
-
-<section id="ab">
-<div class="container">
-<header class="major">
-	<h2><li>討論利用Lagrangian不唯一性引入對稱的EM張量</li></h2>
-</header>
-<p style="text-align:justify">
-
-
-回憶電磁場的Action，
-S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
-根據energy momentum tensor的定義
-T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
-我們試圖利用
-S_F^'=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu} +\partial _\mu  f^\mu   d^4 x 
-令
-t^{\mu\nu}\equiv \partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (\partial _\alpha f^\alpha )
-
-使得
-T^{\mu\nu}+t^{\mu\nu}=T^\nu\mu +t^\nu\mu 
-且
- t^{\mu\nu} _(,\nu )=[\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu  A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0
-。由T^{\mu\nu}+t^{\mu\nu}=T^\nu\mu +t^\nu\mu \to T^{\mu\nu}-T^\nu\mu =-(t^{\mu\nu}+t^\nu\mu  )，我們先觀察T^{\mu\nu}-T^\nu\mu 不對稱的狀況
-T^{\mu\nu}-T^\nu\mu ={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over 4 \pi c} F^\gamma \mu   A_\gamma  ^(,\nu)={1 \over 4 \pi c} [(A^(\nu,\gamma )-A^(\gamma ,\nu) )  A_\gamma  ^(,\mu )-(A^(\mu ,\gamma )-A^(\gamma ,\mu ) )  A_\gamma  ^(,\nu) ]
-={1 \over 4 \pi c} [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\gamma ,\nu)  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu)+A^(\gamma ,\mu )  A_\gamma  ^(,\nu) ]={1 \over 4 \pi c} [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu) ]
-=-[(-{1 \over 4 \pi c} A^(\nu,\gamma )  A_\gamma  ^(,\mu ) )-(-{1 \over 4 \pi c} A^(\mu ,\gamma )  A_\gamma  ^(,\nu) )]=-(t^{\mu\nu}-t^\nu\mu  )=-(\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\partial (\partial _\alpha f^\alpha )/\partial (\partial _\mu  A_\gamma  )  \partial ^\nu A_\gamma  )
-
-不對稱性是否為A^(\alpha,\beta )的函數?
-\partial /(\partial A^(\alpha,\beta ) ) [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu) ]=\delta _\alpha^\nu \delta _\beta ^\gamma   A_\gamma  ^(,\mu )+A^(\nu,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\mu -\delta _\alpha^\mu  \delta _\beta ^\gamma   A_\gamma  ^(,\nu)-A^(\mu ,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\nu 
-=\delta _\alpha^\nu  A_\beta  ^(,\mu )+ A^\nu  _(,\alpha) \delta _\beta ^\mu -\delta _\alpha^\mu   A_\beta  ^(,\nu)- A^\mu  _(,\alpha) \delta _\beta ^\nu ≠0
-不對稱性是A^(\alpha,\beta )的函數，無法利用f^\mu =f^\mu  (\phi ,x^\mu  )，需要f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )，必須滿足
-\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0
-要求
-{ ([\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu  A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0@\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0)┤
-
-猜
-\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  ) =-{1 \over 4 \pi c} A^(\nu,\gamma )
-[-{1 \over 4 \pi c} A^(\nu,\gamma ) \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0
-[-{1 \over 4 \pi c} A^(\nu,\gamma ) \partial ^\mu  A_\gamma -(\partial ^\mu  f^\nu  )]_(,\nu )=0
--{1 \over 4 \pi c} \partial _\nu  (A^(\nu,\gamma ) \partial ^\mu  A_\gamma  )-\partial ^\mu  \partial _\nu  f^\nu =0
-\partial ^\mu  \partial _\nu  f^\nu =-{1 \over 4 \pi c} \partial _\nu  (A^(\nu,\gamma ) \partial ^\mu  A_\gamma  )=-{1 \over 4 \pi c} \partial _\nu  \partial ^\mu  (A^(\nu,\gamma ) A_\gamma  )+\partial _\nu   {1 \over 4 \pi c} (A^(\nu,\gamma \mu ) A_\gamma  )
-正則場方程式
-討論Hamiltonian在場的應用，考慮
-L=L(\phi _(,\alpha),\phi ,x^\alpha )
-具備Euler-Lagrange eq
-\partial L/\partial \phi -\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))=0
-定義
-\pi ^\alpha=\partial L/(\partial \phi _(,\alpha) )
-H=\pi ^\alpha \phi _(,\alpha)-L
-即是H= T^\mu  _\mu 。一樣計算
-dH=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-dL
-=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial L/\partial \phi  d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
-=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
-=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)- \pi ^\alpha _(,\alpha) d\phi -\pi ^\alpha d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
-=- \pi ^\alpha _(,\alpha) d\phi +\phi _(,\alpha) d\pi ^\alpha-\partial L/(\partial x^\alpha ) dx^\alpha
-很清楚的
-{ (\partial H/\partial \phi =- \pi ^\alpha _(,\alpha)@\partial H/(\partial \pi ^\alpha )=\phi _(,\alpha) )┤
-如果是向量場\alpha^\nu
-L=L(A^(\alpha,\beta ),\alpha^\alpha,x^\alpha )
-具備Euler-Lagrange eq
-\partial L/(\partial \alpha^\alpha )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))=0
-定義
-=\partial L/(\partial A^(\alpha,\beta ) )
-H=\pi _\alpha\beta  A^(\alpha,\beta )-L
-即是H= T^\mu  _\mu 。一樣計算
-dH=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-dL
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial \alpha^\alpha ) d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
-=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha-\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha x
-=- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha+A^(\alpha,\beta ) d\pi _\alpha\beta -\partial L/(\partial x^\alpha ) dx^\alpha
-很清楚的
-{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤
-
-</p>
-</div>
-</section>
-
-
-<section id="ac">
-<div class="container">
-<header class="major">
-	<h2><li>場正則轉換方程式</li></h2>
-</header>
-<p style="text-align:justify">
-
-{ (\delta S=\delta \int  \mathcal{L}d^4 x =\delta \int   H+\pi _\alpha\beta  A^(\alpha,\beta )  d^4 x @\delta \bar{S}=\delta \int   \bar{L}   d^4 x =\delta \int   M+\pi _\alpha\beta  Q^(\alpha,\beta )  d^4 x )┤
-
-H+\pi _\alpha\beta  A^(\alpha,\beta )- \omega _\beta  ^(,\beta )=M+\pi _\alpha\beta  Q^(\alpha,\beta )
- \omega _\beta  ^(,\beta )= (H-M)+\pi _\alpha\beta  A^(\alpha,\beta )-\pi _\alpha\beta  Q^(\alpha,\beta )
-d\omega _\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
-Define type 1
-d\omega _1\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _1\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _1\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
-Define type 2
-\omega _2\beta =\omega _1\beta -\pi _\alpha\beta  A^\alpha
-d\omega _2\beta =d\omega _1\beta -d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
-=(H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha-d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
-=(H-M)dx_\beta -A^\alpha d\pi _\alpha\beta -\pi _\alpha\beta  dQ^\alpha
-{ ((\partial \omega _2\beta )/(\partial \pi _\alpha\beta  )=-\alpha^\alpha@(\partial \omega _2\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
-
-
-
-Symplectic approach H=M
-
-{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤\to { (\partial M/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial M/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤\to { (\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤
-\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )
-\partial H/(\partial Q^\alpha )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial Q^\alpha )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )
-- \pi _\alpha\beta  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  ) A^(\gamma ,\beta )-(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )+(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
-{ ((\partial \alpha^\gamma )/(\partial Q^\alpha )=(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial \pi _\alpha\varepsilon )/(\partial A^\gamma  ))┤
-\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta )
-\partial H/(\partial \pi _\alpha\beta  )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial \pi _\alpha\beta  )
-Q^(\alpha,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ) A^(\gamma ,\beta )+(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
-{ ((\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )=-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )????????@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ))┤
-</p>
-</div>
-</section>
-
-<section id="ad">
-<div class="container">
-<header class="major">
-	<h2><li>Hamiltonian變分</li></h2>
-</header>
-<p style="text-align:justify">
-
-S=\int  \mathcal{L}dt =\int   p\dot{q} -H dt =\int   pdq-Hdt 
-{ (q\to q+\delta q@p\to p+\delta p)┤
-\delta S=\delta \int   pdq-Hdt =\int   \delta pdq+p\delta dq-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
-=\int   \delta pdq-dp\delta q-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
-=\int   \delta p\dot{q} dt-p ̇dt\delta q-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
-=\int  (\dot{q} \delta p-p ̇\delta q-\partial H/\partial q \delta q-\partial H/\partial p \delta p)dt
-=\int  [-(p ̇+\partial H/\partial q)\delta q+(\dot{q} -\partial H/\partial p)\delta p]dt
-{ (\partial H/\partial q=-p ̇@\partial H/\partial p=\dot{q}  )┤
-{ (\partial S/\partial t=-H@\partial S/\partial q=p)┤\to (\partial ^2 S)/\partial q\partial t=-\partial H/\partial q=p ̇=\partial p/\partial t=(\partial ^2 S)/\partial t\partial q
-</p>
-</div>
-</section>
-
-<section id="ae">
-<div class="container">
-<header class="major">
-	<h2><li>廣義相對論</li></h2>
-</header>
-<p style="text-align:justify">
-
-S=\int  \mathcal{L}√(-g) d^4 x =c^4/16\pi G \int   R√(-g) d^4 x +\int   \mathcal{L}_M √(-g) d^4 x 
-L=(c^4/16\pi G R+\mathcal{L}_M ) √(-g)=({1 \over 2}\kappa R+\mathcal{L}_M ) √(-g)
-
- R^\rho _\sigma {\mu \nu} =\partial _\mu   \gamma ^\rho _\nu \sigma -\partial _\nu   \gamma ^\rho _\mu \sigma + \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma - \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma 
-\delta  R^\rho _\sigma {\mu \nu} =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma -\partial _\nu  \delta  \gamma ^\rho _\mu \sigma +\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma -\delta  \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma - \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma 
-\delta  \gamma ^\rho _\mu \sigma  is a tensor though  \gamma ^\rho _\mu \sigma  is not. Transformation law of   \gamma ^\rho _\mu \sigma  is
- \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
-(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ) destroy the tensor characteristic. For another connection  \gamma  ̃^\rho _\mu \sigma 
- \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
-The difference \delta  \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )= \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )- \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ ) obey tensor transformation law:
-\delta  \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )= \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )- \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )-( \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
-= \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )  (\partial x^\nu  ̅ )/(\partial x^\rho )- \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )  (\partial x^\nu  ̅ )/(\partial x^\rho )
-=\delta  \gamma ^\rho _\mu \sigma   (\partial x^\nu  ̅ )/(\partial x^\rho )  (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )
-Covariant derivative of \delta  \gamma ^\rho _\mu \sigma 
- \nabla _\mu  \delta  \gamma ^\rho _\nu \sigma =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda 
- \nabla _\nu  \delta  \gamma ^\rho _\mu \sigma =\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma - \gamma ^\lambda  _\nu \mu  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\nu \sigma  \delta  \gamma ^\rho _\mu \lambda 
-Red terms are missing in \delta  R^\rho _\sigma {\mu \nu} 
-\delta  R^\rho _\sigma {\mu \nu} =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma -\partial _\nu  \delta  \gamma ^\rho _\mu \sigma +\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma -\delta  \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma - \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma 
-=(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )-(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
-We can add 0=- \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda + \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda 
-\delta  R^\rho _\sigma {\mu \nu} =(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )- \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda + \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda -(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
-=(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )-(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
-= \nabla _\mu  \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\mu \sigma 
-Or, one can use local inertial frame  \gamma ^\rho _\nu \sigma =0 to simplified.
-Ricci tensor \delta R_\sigma \nu  and Ricci scalar \delta R
-\delta R_\sigma \nu =\delta  R^\rho _\sigma \rho\nu = \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma 
-\delta R=\delta (g^\sigma \nu  R_\sigma \nu  )=R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  \delta R_\sigma \nu =R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  ( \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma  )
-Using  \nabla _\rho g^\sigma \nu =0
-\delta R=R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\equiv R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho A^\rho
-√(-g) \delta R=√(-g) R_\sigma \nu  \delta g^\sigma \nu +√(-g)  \nabla _\rho A^\rho=√(-g) R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (√(-g) A^\rho )
-So  \nabla _\rho (√(-g) A^\rho ) is a total derivative will vanish at boundary. So √(-g)  \delta R/(\delta g^\sigma \nu  )=√(-g) R_\sigma \nu 
-
-\delta √(-g)={1 \over 2}  (-\delta g)/√(-g)={1 \over 2}  (-\delta g)/√(-g)={1 \over 2}  (-gg_{\mu \nu}  \delta g^{\mu \nu} )/√(-g)=-{1 \over 2} √(-g) g_\sigma \nu  \delta g^\sigma \nu 
-\delta S_G=1/16\pi  \delta \int   R√(-g) d^4 x =1/16\pi  \int   √(-g) \delta R+R\delta √(-g) d^4 x 
-=1/16\pi  \int   √(-g) [R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )]-{1 \over 2} Rg_\sigma \nu  √(-g) \delta g^\sigma \nu  d^4 x 
-=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +1/16\pi  \int    \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\delta g^\sigma \nu  √(-g) d^4 x 
-=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +1/16\pi  ∮  (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\delta g^\sigma \nu  √(-g) d^4 x -1/16\pi  \int   (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )  \nabla _\rho \delta g^\sigma \nu  √(-g) d^4 x 
-=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +0-0=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x 
-
-
-
-\delta (\mathcal{L}_M √(-g))/(\delta g^\sigma \nu  )=√(-g)  (\delta \mathcal{L}_M)/ \delta g ^\sigma \nu  -{1 \over 2} √(-g) g_\sigma \nu  \mathcal{L}_M\equiv {1 \over 2} √(-g) T_\sigma \nu 
-T_\sigma \nu =2 (\delta \mathcal{L}_M)/(\delta g^\sigma \nu  )-g_\sigma \nu  \mathcal{L}_M
-L_(EM Field)=-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta} =-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon 
-T_\sigma \nu =2 (\delta L_(EM Field))/(\delta g^\sigma \nu  )-g_\sigma \nu  L_(EM Field)
-=2 \delta (-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon  )
-=-2/16\pi c F^{\alpha\beta}  F^\gamma \varepsilon   \delta (g^\alpha\gamma  g^\beta \varepsilon  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-2/16\pi c F^{\alpha\beta}  F^\gamma \varepsilon  ( \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-2/16\pi c (F^{\alpha\beta}  F^\gamma \varepsilon   \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +F^{\alpha\beta}  F^\gamma \varepsilon  g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-2/16\pi c (F^\sigma \beta  F^\nu\varepsilon  g_\beta \varepsilon +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-2/16\pi c (F^\sigma \alpha F^\nu\gamma  g_\alpha\gamma +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-4/16\pi c F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma -g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
-=-{1 \over 4 \pi c} F^\alpha\sigma   F_\alpha ^\nu+{1 \over 16 \pi c} g_\sigma \nu  F_{\alpha\beta}  F^{\alpha\beta} 
-
-
-\DeltaL=g^\alpha\beta   \nabla _\alpha f_\beta 
-T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \delta (g^\alpha\beta   \nabla _\alpha f_\beta  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (g^\alpha\beta   \nabla _\alpha f_\beta  )
-=2 \nabla _\sigma  f_\nu -g_\sigma \nu   \nabla ^\alpha f_\alpha
 
 
 
 </p>
+<a href="./images/CCC/CCC-RTSC-X1.jpg"><img src="./images/CCC/CCC-RTSC-X1.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X2.jpg"><img src="./images/CCC/CCC-RTSC-X2.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X3.jpg"><img src="./images/CCC/CCC-RTSC-X3.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X4.jpg"><img src="./images/CCC/CCC-RTSC-X4.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X5.jpg"><img src="./images/CCC/CCC-RTSC-X5.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X6.jpg"><img src="./images/CCC/CCC-RTSC-X6.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-X7.jpg"><img src="./images/CCC/CCC-RTSC-X7.jpg" alt="取代文字" width=100% height="auto"></a><br>
+
+
+<!--<a href="./images/CCC/CCC-RTSC-9.jpg"><img src="./images/CCC/CCC-RTSC-9.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-10.jpg"><img src="./images/CCC/CCC-RTSC-10.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-11.jpg"><img src="./images/CCC/CCC-RTSC-11.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-12.jpg"><img src="./images/CCC/CCC-RTSC-12.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-13.jpg"><img src="./images/CCC/CCC-RTSC-13.jpg" alt="取代文字" width=100% height="auto"></a><br>-->
+<a href="./images/CCC/CCC-RTSC-14.jpg"><img src="./images/CCC/CCC-RTSC-14.jpg" alt="取代文字" width=100% height="auto"></a><br>
+<a href="./images/CCC/CCC-RTSC-15.jpg"><img src="./images/CCC/CCC-RTSC-15.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲ZEISS Gemini SEM.(Click to enlarge)<br><br>
+<a href="./images/CCC/CCC-RTSC-16.jpg"><img src="./images/CCC/CCC-RTSC-16.jpg" alt="取代文字" width=100% height="auto"></a><br>
+▲Bruker D2 PHASER XRD.(Click to enlarge)<br><br>
 </div>
 </section>
 
 
--->
+
 <p style="text-align:justify">
 <a href="../career/CV.html">About me</a><br><br><br>
-Contact:<br> <a href="../action/Image/P01.png"><img src="../action/Image/P01.png" alt="取代文字" width="auto" height="35">
+<!--Contact:<br> <a href="../action/Image/P01.png"><img src="../action/Image/P01.png" alt="取代文字" width="auto" height="35">-->
 </p>
 
 
