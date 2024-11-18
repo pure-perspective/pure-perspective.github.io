@@ -38,6 +38,7 @@
 <li><a href="#e">Lagrangian in Momentum Space</a></li>
 <li><a href="#f">Classical Noether's Theorem</a></li>
 <li><a href="#g">Maximal Symmetry Action</a></li>
+<li><a href="#g1">Ostrogradsky Instability and Higher-Order Derivatives</a></li>
 <li><a href="#h">A Brief Discussion on Particle and EM Field Interaction Action</a></li>
 <li><a href="#i">Variation of Free Particle Action</a></li>
 <li><a href="#j">Variation and Equations of Motion for a Charged Particle in an EM Field</a></li>
@@ -104,11 +105,11 @@
 
 <h2>Principle of Least Action</h2>
 </header>
-<p>
+<p style="text-align:justify">
 \(\to\)<a href="./PoLA.html"><b>Chinese Version</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.09.04<br>
+Update 2024.11.18：New-<a href="#g1">Ostrogradsky Instability and Higher-Order Derivatives</a><br>
 </p>
 <ol>
 <section id="a">
@@ -523,6 +524,95 @@ We can call the Lagrangian \(\bar{L}= L+\dot{f}\) the Maximal Symmetry Action co
 </p>
 </div>
 </section>
+
+<section id="g1">
+<div class="container">
+<header class="major">
+	<h2><li>Ostrogradsky Instability and Higher-Order Derivatives</li></h2>
+</header>
+
+<p style="text-align:justify">
+
+    Traditionally, we can use various methods to determine that the EoM is at most a second-order differential equation. For example, in Newtonian mechanics, we only need to know one of the following boundary conditions:<br>
+    <ol>
+        <li>Initial position and time \((q, t_i)\) and final position and time \((q_f, t_f)\)</li>
+        <li>Initial position and time \((q_i, t_i)\) and initial velocity \( \dot{q}_i \)</li>
+    </ol>
+    to uniquely determine the motion of an object. In other words, the physical path only depends on one of the aforementioned conditions. This corresponds to the EoM being a second-order differential equation, such as \(F = m \ddot{x}\), where the initial conditions only require the initial position and velocity. In the Lagrangian framework, the EoM is given by the Euler-Lagrange equation:
+    \[
+    \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0
+    \]
+    Note that \(\frac{d}{dt}\) increases the order of differentiation. For the EoM to remain a second-order differential equation, the Lagrangian \(L\) must only be a function of \(L(\dot{q}, q, t)\). <br><br>
+
+Beyond empirical and experimental observations suggesting that the EoM is second-order and \(L\) is limited to \(L(\dot{q}, q, t)\), there is a more severe issue: if the Lagrangian \(L\) includes higher-order derivatives, the system's Hamiltonian \(H\) (i.e., energy \(E\)) has no lower bound. This is referred to as the Ostrogradsky instability. A lack of a lower bound for \(E\) is a severe issue in physics. In quantum mechanics, it implies the absence of a ground state, allowing particles to occupy infinitely negative energy states. In statistical mechanics, the partition function
+    \[
+    Z = \sum_{E_i} e^{-\frac{E_i}{k_B T}}
+    \]
+    diverges (\(Z \to +\infty \because \exists E_i  \to -\infty \)), making it impossible to determine the probability of different configurations
+    \[
+    \rho_i = \frac{1}{Z} e^{-\frac{E_i}{k_B T}}
+    \]
+    and rendering all physical quantities unpredictable.
+<br><br>
+    <h3>The Hamiltonian of a Traditional Lagrangian</h3>
+    Returning to the traditional Lagrangian \(L(\dot{q}, q, t)\), the Hamiltonian is defined as:
+    \[
+    H = \frac{\partial L}{\partial \dot{q}} \dot{q} - L
+    \]
+    According to Landau's arguments, due to the isotropy (homogeneity in space and time) and frame independence (i.e., the principle of relativity, ensuring physics is unaffected by the choice of coordinate systems or signs), the Lagrangian \(L\) only includes terms like \(\dot{q}^{2n}\) and \(q^{2n}\), which are even powers. Additionally, \(L\) must be a scalar. More specifically, since \(\overrightarrow{\dot{q}}\) and \(\overrightarrow{q}\) are vectors, to satisfy the above requirements, they transform as \(\overrightarrow{\dot{q}} \to \overrightarrow{\dot{q}} \cdot \overrightarrow{\dot{q}} = |\dot{q}|^2\) and \(\overrightarrow{q} \to \overrightarrow{q} \cdot \overrightarrow{q} = |q|^2\), depending only on magnitudes and not directions, ensuring even powers.
+    The simplest harmonic oscillator is:
+    \[
+    L = \frac{m}{2} \dot{q}^2 - \frac{k}{2} q^2 \implies H = \frac{\partial L}{\partial \dot{q}} \dot{q} - L = \frac{m}{2} \dot{q}^2 + \frac{k}{2} q^2
+    \]
+    Notably, \(\frac{\partial L}{\partial \dot{q}} \dot{q} = m \dot{q}^2 \) remains even powers, ensuring the energy \(E\) has a lower bound.
+<br><br>
+    <h3>When \(L\) Includes Higher-Order Derivatives</h3>
+    If we allow the Lagrangian \(L\) to include second derivatives, i.e., \(L = L(\ddot{q}, \dot{q}, q, t)\), the EoM becomes:
+    \[
+    \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} = 0
+    \]
+    This results in a fourth-order differential equation. Such an equation requires initial conditions for \(q(0)\), \(\dot{q}(0)\), \(\ddot{q}(0)\), and the jerk \(\dddot{q}(0)\). Even if \(L\) only considers second derivatives, the EoM still requires third derivatives, which seems unreasonable.
+
+    <h3>The Effect on the Hamiltonian</h3>
+    In this case, the Hamiltonian can be expressed as:
+    \[
+    H = \frac{\partial L}{\partial \ddot{q}} \ddot{q} + \left( \frac{\partial L}{\partial \dot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}} \right) \dot{q} - L
+    \]
+    .In the previous discussion, based on isotropy and the principle of relativity, we can infer that \(\ddot{q}\), \(\dot{q}\), and \(q\) in the Lagrangian \(L\) are all even powers. Therefore,
+        \[
+        \frac{\partial L}{\partial \ddot{q}} \ddot{q}, \quad \frac{\partial L}{\partial \dot{q}} \dot{q}
+        \]
+        remain even and always positive. However,
+        \[
+        \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \right) \dot{q}
+        \]
+        introduces odd terms involving \(\ddot{q}\) and \(\dot{q}\), allowing the Hamiltonian \(H\) to lack a lower bound. This is the essence of Ostrogradsky instability.
+<br><br>
+
+<table cellpadding="1" border="1">
+<tr><td>
+    <h3>More General Case</h3>
+    For readers interested in a more general case, consider \(L = L\left(\frac{d^n q}{dt^n}, \dots, \frac{dq}{dt}, q, t\right)\). The corresponding EoM and Hamiltonian are:
+    \[
+    \sum_{i=0}^n (-1)^i \frac{d^i}{dt^i} \left[ \frac{\partial L}{\partial \left(\frac{d^i q}{dt^i}\right)} \right] = 0
+    \]
+    \[
+    H = \sum_{i=1}^n \sum_{j=1}^i (-1)^{i-j} \left[ \frac{d^{i-j}}{dt^{i-j}} \frac{\partial L}{\partial \left(\frac{d^i q}{dt^i}\right)} \right] \frac{d^j q}{dt^j} - L
+    \]
+    Key observations:
+    <ol>
+        <li>If \(L\) depends on \(n\)-th derivatives, the EoM becomes a \(2n\)-th order differential equation, requiring initial conditions up to \((2n-1)\)-th derivatives. \(2n-1 \geq n\), with equality holding when \(n=1\). Therefore, to ensure that the initial conditions do not exceed the order of derivatives that \(L\) depends on, \(n\) can only be \(1\).</li>
+        <li>For \(n > 1\), the Hamiltonian \(H\) introduces odd-power terms, causing \(H\) to lack a lower bound.</li>
+    </ol>
+    These arguments suggest that restricting \(L\) to first-order derivatives is more reasonable.
+</td></tr>
+</table>
+
+</p>
+</div>
+</section>
+
+
 
 <section id="h">
 <div class="container">
@@ -1577,11 +1667,11 @@ $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )} 
 <p style="text-align:justify">
 When discussing spacetime symmetry, we fix the field \(\phi \) such that it is unaffected by variations (\(\Psi=0\)). We are left with:
 
-$$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha \right)=0$$
+$$\partial _\mu  \left[\left({\partial \mathcal{L}\over\partial \left(\partial _\mu  \phi\right) }  \partial _\alpha \phi - \delta ^\mu  _\alpha L \right) Χ^\alpha \right]=0$$
 
 We define the energy-momentum tensor \(T^{\mu\nu}\):
 
-$$T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
+$$T^{\mu\nu}\equiv {{\partial L}\over{\partial \left( \partial _\nu \phi \right)}}  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
 
 The conservation current \(\partial _\nu T^{\mu\nu}=0\) represents:
 

@@ -39,6 +39,7 @@
 						<li><a href="#f">古典諾特定理</a></li>
 
 						<li><a href="#g">Maximal Symmetry Action</a></li>
+						<li><a href="#g1">Ostrogradsky instability與高次微分</a></li>
 						<li><a href="#h">淺談Particle與EM Field交互作用下的Action</a></li>
 						<li><a href="#i">Free Particle Action的變分</a></li>
 
@@ -120,7 +121,8 @@
 \(\to\)<a href="./PoLA-en.html">English Version</a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br>
-Update 2024.09.04
+Update 2024.11.18：新增-<a href="#g1">Ostrogradsky instability與高次微分</a>
+
 </p>
 <ol>
 <section id="a">
@@ -214,8 +216,7 @@ Euler-Lagrange equation
 <table cellpadding="1" border="1">
 <tr><td><a href="./Image/P29.png"><img src="./Image/P27.png" alt="取代文字" width=98% height="auto"></a></td><td><a href="./Image/P28.png"><img src="./Image/P30.png" alt="取代文字" width=98% height="auto"></a></td></tr>
 </table>
- 
-
+ 
 針對同一種泛函（Functional）的積分問題
 $$S[F(x,\dot{x},t)]=\int_a^b F(x,\dot{x},t)dt $$
 當我們針對\(x\)做變分， 
@@ -513,6 +514,96 @@ $${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=\bar{p}$$
 </div>
 </section>
 
+<section id="g1">
+<div class="container">
+<header class="major">
+	<h2><li>Ostrogradsky instability與高次微分</li></h2>
+</header>
+
+<p style="text-align:justify">
+
+
+    傳統上，我們可以透過許多方式，判斷 EoM 最多是二次微分方程式。例如邊界條件，在牛頓力學中只需要知道以下其中一個資訊：
+    <ol>
+        <li>起始位置時間 \((q, t_i)\) 與終點位置時間 \((q_f, t_f)\)</li>
+        <li>起始位置時間 \((q_i, t_i)\) 與起始速度 \( \dot{q}_i \)</li>
+    </ol>
+    就可以唯一決定物體的運動行為。換句話說，物理的路徑只跟前述條件擇一有關。這對應到 EoM 是二次微分方程式，例如 \(F = m \ddot{x}\)，起始條件只需要起始位置與起始速度。在 Lagrangian 體系中，EoM 是 Euler-Lagrange equation：
+    \[
+    \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0
+    \]
+    注意 \(\frac{d}{dt}\) 會讓物理量升一次微分，如果要讓 EoM 最多是二次微分，那 Lagrangian \(L\) 只能是 \(L(\dot{q}, q, t)\) 的函數。除了我們從經驗上（實驗上）判斷 EoM 是二次微分、\(L\) 只能是 \(L(\dot{q}, q, t)\) 的函數，事實上如果 Lagrangian \(L\) 包含更高階的導數，還會引發更嚴重的問題：
+    如果 \(L\) 包含二階以上的導數，則系統的 Hamiltonian \(H\)（即能量 \(E\)）不存在下限，我們稱之為 Ostrogradsky instability。能量 \(E\) 不存在下限在物理學上是非常嚴重的事情，在量子力學中，代表「不存在基態 Ground State」，粒子可以無下限地進入到負無窮的能量態；在熱統計力學中，配分函數（Partition function）
+    \[
+    Z = \sum_{E_i} e^{-\frac{E_i}{k_B T}}
+    \]
+    不收斂（\(Z \to +\infty \because \exists E_i  \to -\infty \)），無法決定不同組態的機率
+    \[
+    \rho_i = \frac{1}{Z} e^{-\frac{E_i}{k_B T}}
+    \]
+    所有物理量無法有效預測。
+<br><br>
+    <h3>傳統 Lagrangian 的 Hamiltonian</h3>
+    我們先回到傳統 Lagrangian \(L(\dot{q}, q, t)\) 對應的 Hamiltonian：
+    \[
+    H = \frac{\partial L}{\partial \dot{q}} \dot{q} - L
+    \]
+    我們從朗道（Landau）的論證中，因為我們相信空間的均向性（isotropic, or homogenous in space and time）與座標獨立性（frame independent，即相對性原理 Principle of relativity，物理不與座標選取、正負號選取有關），Lagrangian \(L\) 只會是 \(\dot{q}^{2n}\) 和 \(q^{2n}\)，都是偶數次方，且 \(L\) 必須是純量。
+    更仔細地說，因為 \(\overrightarrow{\dot{q}}\)、\(\overrightarrow{q}\) 是向量，為了滿足上述需求，\(\overrightarrow{\dot{q}} \to \overrightarrow{\dot{q}} \cdot \overrightarrow{\dot{q}} = |\dot{q}|^2\)、\(\overrightarrow{q} \to \overrightarrow{q} \cdot \overrightarrow{q} = |q|^2\)，只與物理量的大小、不與方向有關，為偶數次方。
+    最簡單的簡諧震盪：
+    \[
+    L = \frac{m}{2} \dot{q}^2 - \frac{k}{2} q^2 \implies H = \frac{\partial L}{\partial \dot{q}} \dot{q} - L = \frac{m}{2} \dot{q}^2 + \frac{k}{2} q^2
+    \]
+    可以注意到 \(\frac{\partial L}{\partial \dot{q}} \dot{q} = m \dot{q}^2 \) 依舊維持偶數次方，能量 \(E\) 有下限。
+<br><br>
+    <h3>當 \(L\) 包含二次導數</h3>
+    如果我們允許 Lagrangian \(L\) 包含二次導數，即 \(L = L(\ddot{q}, \dot{q}, q, t)\)，可以推導出 EoM：
+    \[
+    \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} = 0
+    \]
+    這導致 EoM 成為四次微分方程，微分方程需要依賴起始位置 \(q(0)\)、起始速度 \(\dot{q}(0)\)、起始加速度 \(\ddot{q}(0)\) 外，還需要起始急跳度 \(\dddot{q}(0)\)！
+    即便 \(L\) 多考慮二次導數，EoM 卻需要考慮到三次微分，這顯得不合理。
+
+    <h3>Hamiltonian 的影響</h3>
+    在這種情況下，Hamiltonian 可以表示為：
+    \[
+    H = \frac{\partial L}{\partial \ddot{q}} \ddot{q} + \left( \frac{\partial L}{\partial \dot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}} \right) \dot{q} - L
+    \]
+    。在前面討論中，因為均向性和相對性原理的要求，我們可以推論 \(\ddot{q}\)、\(\dot{q}\)、\(q\) 在 Lagrangian \(L\) 中都是偶數次方，所以 
+        \[
+        \frac{\partial L}{\partial \ddot{q}} \ddot{q}, \quad \frac{\partial L}{\partial \dot{q}} \dot{q}
+        \]
+        依然為偶數次，並且恆正。然而
+        \[
+        \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \right) \dot{q}
+        \]
+        會導致 \(\ddot{q}\) 與 \(\dot{q}\) 形成奇數次，從而允許 Hamiltonian \(H\) 沒有下限。此即為 Ostrogradsky 不穩定性。<br><br>
+
+
+<table cellpadding="1" border="1">
+<tr><td>
+    <h3>更一般的情況</h3>
+    如果讀者有興趣，可以考慮 \(L = L\left(\frac{d^n q}{dt^n}, \dots, \frac{dq}{dt}, q, t\right)\)，對應的 EoM 和 Hamiltonian 為：
+    \[
+    \sum_{i=0}^n (-1)^i \frac{d^i}{dt^i} \left[ \frac{\partial L}{\partial \left(\frac{d^i q}{dt^i}\right)} \right] = 0
+    \]
+    \[
+    H = \sum_{i=1}^n \sum_{j=1}^i (-1)^{i-j} \left[ \frac{d^{i-j}}{dt^{i-j}} \frac{\partial L}{\partial \left(\frac{d^i q}{dt^i}\right)} \right] \frac{d^j q}{dt^j} - L
+    \]
+    可以注意幾點：
+    <ol>
+        <li>如果 \(L\) 依賴於 \(n\) 次導數，則 EoM 會變成 \(2n\) 次微分方程，起始條件會依賴到 \(2n-1\) 次微分，\(2n-1≥n\)，等號成立於\(n=1\)，故不讓起始條件超出原本\(L\)依賴的次數僅可能為\(1\)。</li>
+        <li>一旦 \(n > 1\)，Hamiltonian \(H\) 會出現奇次項，導致 \(H\) 沒有下限。</li>
+    </ol>
+    以上論述使得 \(L\) 依賴於一次導數較為合理。
+</td></tr>
+</table>
+
+</p>
+</div>
+</section>
+
+
 
 
 <section id="h">
@@ -550,14 +641,17 @@ $$\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0$$
 Free particle的Action \(S_P\)為
 $$S_P=\int _a^b  -mc^2 d\tau  $$
 經過變分
-$$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
-
+$$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
 看起來\(d\tau \)好像與\(\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu\) 變分無關，不過回憶一件事情
 $$∵c^2  d\tau  ^2=d\eta ^\mu  d\eta _\mu $$
 $$∴cd\tau =\sqrt{d\eta ^\mu  d\eta _\mu}$$
 所以
 $$\delta S_P=-mc\int _a^b  \delta \sqrt{d\eta ^\mu  d\eta _\mu}$$
 $$=-mc\int _a^b  {1\over 2}  {\color{red}{\delta d\eta ^\mu \cdot d\eta _\mu +d\eta ^\mu \cdot \delta d\eta _\mu} \over \sqrt{d\eta ^\mu  d\eta _\mu}} $$
+
+
+
+
 <table cellpadding="1" border="1">
 <tr><td>
 
@@ -622,8 +716,7 @@ $$S_{PF}=\int _a^b  -{e \over c}  A_\mu  d\eta ^\mu   $$
 完整的描述Charge Particle運動即為
 $$S=S_P+S_{PF}=\int _a^b  -mc^2 d\tau  +\int _a^b  -{e\over c}  A_\mu  d\eta ^\mu   $$
  
- 
-
+ 
 在這邊，我們考慮Charge Particle在時空中的路徑作\(\eta ^\mu\) 變分
 $$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
 雖然我們沒有對EM Field \(A^\mu\) 作變分，但是走不同路徑感受到的位能是不一樣的，所以Action走不同的路徑會有不同的\(A^\mu \)（意思是\(A^\mu \) 的變化來自於路徑 \(\eta ^\mu\) 不同，而不是對\(A^\mu\) 作變分）
@@ -760,8 +853,7 @@ $$A^\mu \to A^\mu +\delta A^\mu $$
 <a href="./Image/P33.png"><img src="./Image/P33.png" alt="取代文字" width=90% height="auto"></a><br>
 $$J^\mu =\rho_e {dx^\mu \over d\tau} =J^\mu  (x^\nu )$$
 $$d^4 x=d^4 x(x^\nu )$$
-$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  \left(A^\omega \right)$$	 
-
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  \left(A^\omega \right)$$	 
 可見只有電磁張量\(F^{\mu \nu}\) 會受到\(A^\mu \)的變分\(A^\mu \to A^\mu +\delta A^\mu\) 有關
 $$F^{\mu \nu}  \left(A^\omega  \right)\to F^{\mu \nu}  (A^\omega +\delta A^\omega  )=F^{\mu \nu}  \left(A^\omega  \right)+\delta F^{\mu \nu} $$
 所以\(S_{PF}\)的變分很簡單
@@ -1242,13 +1334,13 @@ $$=\bar{\phi} ( \bar{x} ^\alpha )-\phi ( \bar{x} ^\alpha )+\phi ( \bar{x} ^\alph
 $$=\delta \phi +{\partial \phi \over \partial x^\alpha } \delta x^\alpha$$
 諾特定理探討變分後Action的差別：
 $$\delta S=\delta \int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
-$$=\int   \mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ] d^4 x -\int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
+$$=\int   \mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\bar{\mu}  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ] d^4 \bar{x} -\int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
 很明顯可以發現到連積分的4-volune \(d^4 \bar{x}\)都發生變化。可以用乘法的微分來思考
-\(\delta S=\delta \int   \mathcal{L}d^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x \)
+$$\delta S=\delta \int   \mathcal{L}d^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x $$
 第一項\(\delta \mathcal{L}\)在處理時要非常小心
-$$\delta \mathcal{L}=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
-$$=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]+\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
-$$={\mathcal{L}[\phi +\delta \phi ,\partial _\mu  \phi +\delta (\partial _\mu  \phi ), \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]}+{\mathcal{L}[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}$$
+$$\delta \mathcal{L}=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\bar{\mu}  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\bar{\mu}  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\bar{\mu}  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]+\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\bar{\mu}  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$={\mathcal{L}[\phi +\delta \phi ,\partial _\bar{\mu}  \phi +\delta (\partial _\bar{\mu}  \phi ), \bar{x} ^\mu  ]-L[\phi ,\partial _\bar{\mu}  \phi , \bar{x} ^\mu  ]}+{\mathcal{L}[\phi ,\partial _\bar{\mu}  \phi , \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}$$
 $$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi +{\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta (\partial _\mu  \phi )}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
 
 
@@ -1305,9 +1397,9 @@ $$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )} 
 <p style="text-align:justify">
 
 在討論時空對稱性時，我們固定物理量\(\phi \)不受變分影響，\(\Psi=0\)時，只剩下
-$$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha \right)=0$$
+$$\partial _\mu  \left[\left({\partial \mathcal{L}\over\partial \left(\partial _\mu  \phi\right) }  \partial _\alpha \phi - \delta ^\mu  _\alpha L \right) Χ^\alpha \right]=0$$
 我們定義能量動量張量Energy momentum tensor \(T^{\mu\nu}\)
-$$T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu \phi )  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
+$$T^{\mu\nu}\equiv {{\partial L}\over{\partial \left( \partial _\nu \phi \right)}}  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
 守恆流\(\partial _\nu T^{\mu\nu}=0\)分別代表
 
 $$\partial _\nu T^{0\nu}=0能量守恆$$
