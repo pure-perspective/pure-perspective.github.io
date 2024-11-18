@@ -359,7 +359,7 @@ Adding \(\dot{f}\) does not change the EoM.
 </header>
 <p style="text-align:justify">
 
-When studying physics, the most fundamental physical law is the Principle of Relativity. One way to describe it is: for all inertial frames of reference (at least in this discussion, we are not considering General Relativity), the same physical laws apply. In other words, all inertial observers use the same set of physical laws and have the same physical equations, which means they are "form invariant." In Newtonian mechanics, for example, \( F = ma \) remains the same in another inertial frame as \( \bar{F} = \bar{ma} \). My teacher, Professor Ding-Yi Zhou, often used a vivid analogy: if the laws of physics did not adhere to the Principle of Relativity, there would be infinitely many physical laws corresponding to infinitely many inertial frames, making devices like mobile phones impossible to use. For instance, if you boarded an airplane, the physical laws governing the devices made on the ground would no longer apply, making those devices inoperative. It can be said that the Principle of Relativity is one of the most fundamental assumptions in the study of physics. Since Newtonian mechanics is form invariant, we should also discuss whether the Euler-Lagrange equation is also form invariant under different coordinate systems.<br>
+When studying physics, the most fundamental physical law is the Principle of Relativity. One way to describe it is: for all inertial frames of reference (at least in this discussion, we are not considering General Relativity), the same physical laws apply. In other words, all inertial observers use the same set of physical laws and have the same physical equations, which means they are "form invariant." In Newtonian mechanics, for example, \( F = ma \) remains the same in another inertial frame as \( \bar{F} = m\bar{a} \). My teacher, Professor Ding-Yi Zhou, often used a vivid analogy: if the laws of physics did not adhere to the Principle of Relativity, there would be infinitely many physical laws corresponding to infinitely many inertial frames, making devices like mobile phones impossible to use. For instance, if you boarded an airplane, the physical laws governing the devices made on the ground would no longer apply, making those devices inoperative. It can be said that the Principle of Relativity is one of the most fundamental assumptions in the study of physics. Since Newtonian mechanics is form invariant, we should also discuss whether the Euler-Lagrange equation is also form invariant under different coordinate systems.<br>
 
 Here, we will first discuss the simplest example, called Point Transformation. Suppose that the physics studied in the \( q \) inertial frame satisfies:
 
@@ -567,26 +567,90 @@ Beyond empirical and experimental observations suggesting that the EoM is second
     Notably, \(\frac{\partial L}{\partial \dot{q}} \dot{q} = m \dot{q}^2 \) remains even powers, ensuring the energy \(E\) has a lower bound.
 <br><br>
     <h3>When \(L\) Includes Higher-Order Derivatives</h3>
-    If we allow the Lagrangian \(L\) to include second derivatives, i.e., \(L = L(\ddot{q}, \dot{q}, q, t)\), the EoM becomes:
-    \[
-    \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} = 0
-    \]
-    This results in a fourth-order differential equation. Such an equation requires initial conditions for \(q(0)\), \(\dot{q}(0)\), \(\ddot{q}(0)\), and the jerk \(\dddot{q}(0)\). Even if \(L\) only considers second derivatives, the EoM still requires third derivatives, which seems unreasonable.
-
+    If we allow the Lagrangian \(L\) to include second derivatives, i.e., \(L = L(\ddot{q}, \dot{q}, q, t)\), we can derive the EoM using the principle of variation:
+    
+    
+        \[
+        \delta L = \frac{\partial L}{\partial \ddot{q}} \delta \ddot{q} + \frac{\partial L}{\partial \dot{q}} \delta \dot{q} + \frac{\partial L}{\partial q} \delta q
+        \]
+        \[
+        = \frac{\partial L}{\partial \ddot{q}} \frac{d}{dt} \delta \dot{q} + \frac{\partial L}{\partial \dot{q}} \frac{d}{dt} \delta q + \frac{\partial L}{\partial q} \delta q
+        \]
+        \[
+        = \frac{d}{dt} \left(\frac{\partial L}{\partial \ddot{q}} \delta \dot{q}\right) - \frac{d}{dt} \left(\frac{\partial L}{\partial \ddot{q}}\right) \delta \dot{q} + \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{q}} \delta q\right) - \frac{d}{dt} \left(\frac{\partial L}{\partial \dot{q}}\right) \delta q + \frac{\partial L}{\partial q} \delta q
+        \]
+        \[
+        = \frac{d}{dt} \left(\frac{\partial L}{\partial \ddot{q}} \delta \dot{q} + \frac{\partial L}{\partial \dot{q}} \delta q\right) - \frac{d}{dt} \left[\frac{d}{dt} \left(\frac{\partial L}{\partial \ddot{q}}\right) \delta q\right] + \frac{d^2}{dt^2} \left(\frac{\partial L}{\partial \ddot{q}}\right) \delta q + \left(\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}\right) \delta q
+        \]
+        \[
+        = \frac{d}{dt} \left[\frac{\partial L}{\partial \ddot{q}} \delta \dot{q} + \left(\frac{\partial L}{\partial \dot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}}\right) \delta q\right] + \left(\frac{\partial L}{\partial q} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}}\right) \delta q
+        \]
+    
+    
+        The first term represents the boundary term, while the second term gives the EoM:
+    
+    
+        \[
+        \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} = 0
+        \]
+    
+    
+        First, the boundary term introduces third derivatives \(\dddot{q}\) due to \(\frac{d}{dt} \frac{\partial L}{\partial \ddot{q}}\). To make the variation valid, we must further consider \(\dddot{q}_i = \dddot{q}_f = 0\), which goes beyond the second-order derivatives in \(L(\ddot{q}, \dot{q}, q, t)\).
+    
+    
+        On the other hand, the EoM involves \(\frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}}\), leading to a fourth-order differential equation. Such an equation requires not only the initial position \(q(0)\), initial velocity \(\dot{q}(0)\), and initial acceleration \(\ddot{q}(0)\), but also the initial jerk \(\dddot{q}(0)\). Even though \(L\) includes only second derivatives, the EoM demands consideration of third derivatives, which seems unreasonable.
+    
+    <br><br>
     <h3>The Effect on the Hamiltonian</h3>
-    In this case, the Hamiltonian can be expressed as:
-    \[
-    H = \frac{\partial L}{\partial \ddot{q}} \ddot{q} + \left( \frac{\partial L}{\partial \dot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}} \right) \dot{q} - L
-    \]
-    .In the previous discussion, based on isotropy and the principle of relativity, we can infer that \(\ddot{q}\), \(\dot{q}\), and \(q\) in the Lagrangian \(L\) are all even powers. Therefore,
+    
+        Starting from the Lagrangian \(L\), consider the following formula:
+    
+    
+        \[
+        \frac{dL}{dt} = \frac{\partial L}{\partial \ddot{q}} \frac{d\ddot{q}}{dt} + \frac{\partial L}{\partial \dot{q}} \frac{d\dot{q}}{dt} + \frac{\partial L}{\partial q} \frac{dq}{dt} + \frac{\partial L}{\partial t}
+        \]
+    
+    
+        Rearranging and simplifying, we get:
+    
+    
+        \[
+        \frac{\partial L}{\partial t} = \frac{dL}{dt} - \frac{\partial L}{\partial \ddot{q}} \frac{d\ddot{q}}{dt} - \frac{\partial L}{\partial \dot{q}} \frac{d\dot{q}}{dt} - \frac{\partial L}{\partial q} \dot{q}
+        \]
+        \[
+        = \frac{dL}{dt} - \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \ddot{q} \right) + \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \right) \ddot{q} - \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \dot{q} \right) + \frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) \dot{q} - \frac{\partial L}{\partial q} \dot{q}
+        \]
+        \[
+        = \frac{d}{dt} \left[ L - \frac{\partial L}{\partial \ddot{q}} \ddot{q} + \left( \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}} - \frac{\partial L}{\partial \dot{q}} \right) \dot{q} \right] - \left( \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} \right) \dot{q}
+        \]
+    
+    
+        The second term corresponds to EoM = 0, while the first term gives the Hamiltonian:
+    
+    
+        \[
+        H = \frac{\partial L}{\partial \ddot{q}} \ddot{q} + \left( \frac{\partial L}{\partial \dot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \ddot{q}} \right) \dot{q} - L
+        \]
+    
+    
+        In the previous discussion, based on isotropy and the principle of relativity, we can infer that \(\ddot{q}\), \(\dot{q}\), and \(q\) in the Lagrangian \(L\) are all even powers. Therefore:
+    
+    
         \[
         \frac{\partial L}{\partial \ddot{q}} \ddot{q}, \quad \frac{\partial L}{\partial \dot{q}} \dot{q}
         \]
-        remain even and always positive. However,
+    
+    
+        remain even and always positive. However:
+    
+    
         \[
         \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \right) \dot{q}
         \]
+    
+    
         introduces odd terms involving \(\ddot{q}\) and \(\dot{q}\), allowing the Hamiltonian \(H\) to lack a lower bound. This is the essence of Ostrogradsky instability.
+
 <br><br>
 
 <table cellpadding="1" border="1">
