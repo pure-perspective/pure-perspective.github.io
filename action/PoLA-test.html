@@ -1789,7 +1789,24 @@ T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \
 Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
 </p>
 
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
 <div id="gitalk-container"></div>
+
+
+<script>
+var gitalk = new Gitalk({
+  clientID: Ov23liJ9Q2qUstM8XXho, //上面申请的Client ID
+  clientSecret: 4672506b0f1cad69a31ef6e0c1156b4d72e90d98, //上面申请的Client Secret
+  repo: pure-perspective.github.io, //GitHub仓库，评论可以在里面查询
+  owner: ‘pure-perspective’, //GitHub的用户名
+  admin: [‘pure-perspective’], //这里也是填GitHub的用户名，不过是数组形式，如['user1','user2']
+  id: location.pathname,      // Ensure uniqueness and length less than 50 唯一值，如果和其他页面一样，则两个页面显示的评论都一样
+  distractionFreeMode: true  // Facebook-like distraction free mode})gitalk.render('gitalk-container')
+});
+gitalk.render('gitalk-container'); // 渲染 Gitalk 評論區
+</script>
 
 
 
