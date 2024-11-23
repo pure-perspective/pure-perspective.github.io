@@ -580,9 +580,7 @@ $${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=\bar{p}$$
     \[
     \frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}} + \frac{\partial L}{\partial q} = 0
     \]
-首先，在邊界項會因為 \(\frac{d}{dt} \frac{\partial L}{\partial \ddot{q}}\) 會出現三次微分項 \(\dddot{q}\)，這意味著，要讓變分成立時，邊界項還需進一步考慮 \(\dddot{q}_i = \dddot{q}_f = 0\)，超出了 \(L(\ddot{q}, \dot{q}, q, t)\) 中最多到二次微分的項目。<br>
-
-另一方面，EoM 因為 \(\frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}}\)，這導致 EoM 成為四次微分方程，微分方程需要依賴起始位置 \(q(0)\)、起始速度 \(\dot{q}(0)\)、起始加速度 \(\ddot{q}(0)\) 外，還需要起始急跳度 \(\dddot{q}(0)\)！
+EoM 因為 \(\frac{d^2}{dt^2} \frac{\partial L}{\partial \ddot{q}}\)，這導致 EoM 成為四次微分方程，微分方程需要依賴起始位置 \(q(0)\)、起始速度 \(\dot{q}(0)\)、起始加速度 \(\ddot{q}(0)\) 外，還需要起始急跳度 \(\dddot{q}(0)\)！
     即便 \(L\) 多考慮二次導數，EoM 卻需要考慮到三次微分，這顯得不合理。
 <br><br>
     <h3>Hamiltonian 的影響</h3>
@@ -615,7 +613,7 @@ $${\partial L\over \partial \dot{q} } +{\partial f\over\partial q}=\bar{p}$$
         \]
         依然為偶數次，並且恆正。然而
         \[
-        \frac{d}{dt} \left( \frac{\partial L}{\partial \ddot{q}} \right) \dot{q}
+        \left( \frac{d}{dt}  \frac{\partial L}{\partial \ddot{q}} \right) \dot{q}
         \]
         會導致 \(\ddot{q}\) 與 \(\dot{q}\) 形成奇數次，從而允許 Hamiltonian \(H\) 沒有下限。此即為 Ostrogradsky 不穩定性。<br><br>
 
