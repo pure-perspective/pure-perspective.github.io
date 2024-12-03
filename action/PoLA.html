@@ -64,6 +64,7 @@
 						<li><a href="#x">諾特定理與對稱性-時空與能量動量守恆</a></li>
 
 <li><a href="#x1">邁向廣義相對論</a></li>
+<li><a href="#x2">淺談希爾伯特變分</a></li>
 						<!--<li><a href="#y">Infinitesimal Poincare Transformation</a></li>
 						<li><a href="#z">Maximal Symmetry Action-Field theory</a></li>
 						<li><a href="#aa">EM field energy-momentum tensor and “standard” symmetrization procedure</a></li>
@@ -125,6 +126,7 @@
 \(\to\)<a href="./PoLA-en.html">English Version</a><br>
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br><br>
+Update 2024.12.03：新增-<a href="#x2">淺談希爾伯特變分</a><br>
 Update 2024.12.02：新增-<a href="#x1">邁向廣義相對論</a><br>
 Update 2024.11.28：新增-<a href="#f1">一般教科書上守恆量的推導</a><br>
 Update 2024.11.18：新增-<a href="#g1">Ostrogradsky instability與高次微分</a>
@@ -1630,6 +1632,77 @@ $${\partial L\over \partial \dot{\theta}_i } 角動量守恆$$
             </p>
 </div>
 </section>
+
+
+<section id="x2">
+<div class="container">
+<header class="major">
+	<h2><li>淺談希爾伯特變分</li></h2>
+            </header>
+
+            <p style="text-align:justify">
+                在傳統廣義相對論的框架下，\(\Gamma^\rho_{\nu\sigma}\) 聯絡採用「度規相容（metric compatible）」與「無撓率（torsion-free）」的假設。前者「度規相容（metric compatible）」大意是說度規沿著 \(\Gamma^\rho_{\nu\sigma}\) 聯絡做「平行移動（parallel transport）」的時候不變：
+                \[
+                \nabla_\beta g_{\mu\nu} = g_{\mu\nu;\gamma} = g_{\mu\nu,\gamma} - g_{\alpha\nu} \Gamma^\alpha_{\mu\gamma} - g_{\alpha\mu} \Gamma^\alpha_{\nu\gamma} = 0
+                \]
+                白話來說，就是物體的長度從 A 點平移到 B 點長度不變。
+            </p>
+            <p style="text-align:justify">
+                後者「無撓率（torsion-free）」的假設則在於 \(\Gamma^\rho_{\nu\sigma}\) 聯絡的兩個下標是對稱的：
+                \[
+                \Gamma^\rho_{\nu\sigma} = \Gamma^\rho_{\sigma\nu}
+                \]
+                數學上有定理可以證明，給定度規分佈下，可以唯一決定無撓率的 \(\Gamma^\rho_{\nu\sigma}\) 聯絡。有興趣的讀者可以參考 Loring W. Tu 的著作 <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i> 中的 Theorem 6.6。
+            </p>
+            <p style="text-align:justify">
+                這兩個條件可以導出聯絡與度規的關係：
+                \[
+                \Gamma^\alpha_{\mu\gamma} = \frac{1}{2} g^{\alpha\nu} \left( g_{\nu\mu,\gamma} + g_{\nu\gamma,\mu} - g_{\mu\gamma,\nu} \right)
+                \]
+                表明 \(\Gamma^\rho_{\nu\sigma}\) 聯絡與度規的一次微分有關，進一步可以表明 \(R^\alpha_{\mu\beta\nu}\)、\(R_{\mu\nu}\)、\(R\) 會與度規的二次微分有關。
+            </p>
+            <p style="text-align:justify">
+                重力的 Lagrangian density \(L_G\) 表示為：
+                \[
+                L_G = \frac{c^4}{16\pi G} R \sqrt{-g} = L_G \left( g_{\mu\nu}, g_{\mu\nu,\alpha}, g_{\mu\nu,\alpha\beta} \right)
+                \]
+                希爾伯特利用對度規（metric）變分，可以得到愛因斯坦場方程式。不過在這種觀點下，\(L_G\) 會與度規的二次微分有關。
+            </p>
+            <p style="text-align:justify">
+                前文提及 Ostrogradsky instability，我們預期 \(L\) 只會依賴於場的一次微分，否則會導致能量沒有下限的問題。下一節我們將利用 Palatini 變分法，將聯絡場與度規場視作獨立的場分別變分，亦可得到相同的結論。
+            </p>
+            <p style="text-align:justify">
+                此時，由於聯絡場與度規場各自獨立，\(R_{\mu\nu}\) 只是聯絡的一次微分，因此 \(L_G\) 可以寫成：
+                \[
+                L_G = \frac{c^4}{16\pi G} g^{\mu\nu} R_{\mu\nu} \sqrt{-g} = L_G \left( g^{\mu\nu}, \Gamma^\alpha_{\mu\gamma}, \Gamma^\alpha_{\mu\gamma,\beta} \right)
+                \]
+                這樣可以安全地避免二次微分問題。
+            </p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

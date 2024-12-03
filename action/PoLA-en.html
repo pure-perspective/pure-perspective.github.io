@@ -56,9 +56,8 @@
 <li><a href="#u">Other Possibilities That Do Not Affect EoM</a></li>
 <li><a href="#v">Noether Theorem in Field Theory</a></li>
 <li><a href="#x">Noether Theorem and Symmetry - Spacetime and Energy-Momentum Conservation</a></li>
-<li><a href="#x1">Toward General Relativity</a></li>
-						
-
+<li><a href="#x1">Toward General Relativity</a></li>						
+<li><a href="#x2">An Introduction to Hilbert Variation</a></li>
 
 </ul>
 				</nav>
@@ -112,6 +111,7 @@
 \(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
 \(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br><br>
 
+Update 2024.12.03：New--<a href="#x2">An Introduction to Hilbert Variation</a><br>
 Update 2024.12.02：New--<a href="#x1">Toward General Relativity</a><br>
 Update 2024.11.28：New--<a href="#f1">Conservation Laws Derivation in Conventional Textbooks</a><br>
 Update 2024.11.18：New--<a href="#g1">Ostrogradsky Instability and Higher-Order Derivatives</a><br>
@@ -1929,6 +1929,79 @@ $${\partial L\over \partial \dot{\theta}_i }  \text{ Angular momentum conservati
 </p>
 </div>
 </section>
+
+
+<section id="x2">
+<div class="container">
+<header class="major">
+	<h2><li>An Introduction to Hilbert Variation</li></h2>
+</header>
+
+<p style="text-align:justify">
+    Within the framework of traditional general relativity, the connection \(\Gamma^\rho_{\nu\sigma}\) adopts the assumptions of "metric compatibility" and "torsion-free." The former, "metric compatibility," essentially means that the metric remains unchanged during "parallel transport" along the connection \(\Gamma^\rho_{\nu\sigma}\):
+    \[
+    \nabla_\beta g_{\mu\nu} = g_{\mu\nu;\gamma} = g_{\mu\nu,\gamma} - g_{\alpha\nu} \Gamma^\alpha_{\mu\gamma} - g_{\alpha\mu} \Gamma^\alpha_{\nu\gamma} = 0
+    \]
+    In simpler terms, the length of an object does not change when transported from point A to point B.
+</p>
+<p style="text-align:justify">
+    The latter, "torsion-free," assumes that the two lower indices of the connection \(\Gamma^\rho_{\nu\sigma}\) are symmetric:
+    \[
+    \Gamma^\rho_{\nu\sigma} = \Gamma^\rho_{\sigma\nu}
+    \]
+    Mathematically, there is a theorem that proves that given a metric distribution, the torsion-free connection \(\Gamma^\rho_{\nu\sigma}\) is uniquely determined. Readers interested in the details can refer to Theorem 6.6 in Loring W. Tu's book <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i>.
+</p>
+<p style="text-align:justify">
+    These two conditions lead to the relationship between the connection and the metric:
+    \[
+    \Gamma^\alpha_{\mu\gamma} = \frac{1}{2} g^{\alpha\nu} \left( g_{\nu\mu,\gamma} + g_{\nu\gamma,\mu} - g_{\mu\gamma,\nu} \right)
+    \]
+    This indicates that the connection \(\Gamma^\rho_{\nu\sigma}\) is related to the first derivative of the metric. Furthermore, it can be shown that \(R^\alpha_{\mu\beta\nu}\), \(R_{\mu\nu}\), and \(R\) are related to the second derivative of the metric.
+</p>
+<p style="text-align:justify">
+    The gravitational Lagrangian density \(L_G\) is expressed as:
+    \[
+    L_G = \frac{c^4}{16\pi G} R \sqrt{-g} = L_G \left( g_{\mu\nu}, g_{\mu\nu,\alpha}, g_{\mu\nu,\alpha\beta} \right)
+    \]
+    Hilbert derived Einstein's field equations through variation with respect to the metric. However, from this perspective, \(L_G\) depends on the second derivative of the metric.
+</p>
+<p style="text-align:justify">
+    As mentioned earlier, the Ostrogradsky instability implies that \(L\) should depend only on the first derivative of the field; otherwise, it may lead to unbounded energy. In the next section, we will use the Palatini variation, treating the connection field and the metric field as independent fields and varying them separately, which leads to the same conclusions.
+</p>
+<p style="text-align:justify">
+    In this case, since the connection field and the metric field are independent, \(R_{\mu\nu}\) only involves the first derivative of the connection. Therefore, \(L_G\) can be written as:
+    \[
+    L_G = \frac{c^4}{16\pi G} g^{\mu\nu} R_{\mu\nu} \sqrt{-g} = L_G \left( g^{\mu\nu}, \Gamma^\alpha_{\mu\gamma}, \Gamma^\alpha_{\mu\gamma,\beta} \right)
+    \]
+    This safely avoids the problem of second derivatives.
+</p>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!--
