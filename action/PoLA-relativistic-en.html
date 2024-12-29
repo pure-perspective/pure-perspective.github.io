@@ -1,0 +1,2066 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Relativistic Principle of Least Action</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<!--<span class="image avatar"><img src="images/photo.png" alt="" /></span>-->
+					<!--<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>-->
+					<h1 id="logo"><a href="#">Relativistic Principle of Least Action</a></h1>
+		
+					<!--<h1 id="logo"><a href="#">Peir-Ru Wang</a></h1>-->
+					<!--<p style="text-align:justify">Physics<br />Materials Science<br />Mechanical Engineering</p>-->
+					<!--<a href="./20240701 resume-AP21-web.pdf"><b>RESUME</b></a>-->
+				</header>
+				<nav id="nav">
+					<ul>
+						
+
+<li><a href="#h" class="active">A Brief Discussion on Particle and EM Field Interaction Action</a></li>
+<li><a href="#i">Variation of Free Particle Action</a></li>
+<li><a href="#j">Variation and Equations of Motion for a Charged Particle in an EM Field</a></li>
+<li><a href="#k">4-Volume \(d^4 x\) and Lagrangian Density \(\mathcal{L}\)</a></li>
+<li><a href="#l">Maxwell's Equations</a></li>
+<li><a href="#m">Gauge Invariance in Electromagnetism</a></li>
+<li><a href="#n">Gauge Invariance and Action Variation</a></li>
+<li><a href="#o">A Brief Discussion on Gauge Invariance and the Continuity Equation</a></li>
+<li><a href="#p">Impossibility of \(A_\mu  A^\mu\) if Keeping Gauge Invariance</a></li>
+<li><a href="#q">A Brief Discussion on \(A_\mu  A^\mu\) in Quantum Field Theory - Photon Mass</a></li>
+<li><a href="#r">Continuous Fields and the Wave Equation</a></li>
+<li><a href="#s">Classical Field Theory</a></li>
+<li><a href="#t">Non-uniqueness of Lagrangian Density in Field Theory</a></li>
+<li><a href="#u">Other Possibilities That Do Not Affect EoM</a></li>
+<li><a href="#v">Noether Theorem in Field Theory</a></li>
+<li><a href="#x">Noether Theorem and Symmetry - Spacetime and Energy-Momentum Conservation</a></li>
+<li><a href="#x1">Toward General Relativity</a></li>						
+<li><a href="#x2">An Introduction to Hilbert Variation</a></li>
+
+</ul>
+				</nav>
+				<footer>
+					<!--<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="#" class="icon solid fa-linkedin"><span class="label">linkedin</span></a></li>
+					</ul>-->
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						
+								<div class="image main" data-position="center">
+									<img src="./images/IMG_1357.jpg" alt="" />
+								</div> <!--上方封面照片，可以換成秋紅谷-->
+
+
+
+
+								<div class="container">
+
+
+
+<body>
+<header class="major">
+
+<h2>Relativistic Principle of Least Action</h2>
+</header>
+<p style="text-align:justify">
+\(\to\)<a href="./PoLA.html"><b>Chinese Version</b></a><br>
+\(\to\)<a href="../career/Action Principle-version 2019.pdf"><b>Lecture Note-Principle of Least Action(2019)</b></a><br>
+\(\to\)<a href="../career/Action Principle-version 2018.pdf"><b>Lecture Note-Principle of Least Action(2018)</b></a><br><br>
+
+Update 2024.12.03：New--<a href="#x2">An Introduction to Hilbert Variation</a><br>
+Update 2024.12.02：New--<a href="#x1">Toward General Relativity</a><br>
+</p>
+<ol>
+
+
+
+<section id="h">
+<div class="container">
+<header class="major">
+	<h2><li>A Brief Discussion on Particle and EM Field Interaction Action</li></h2>
+</header>
+
+<p style="text-align:justify">
+In classical mechanics, to fully describe a particle, one only needs to write down its Lagrangian:
+
+$$S=\int _a^b Ldt=\int _a^b  T-U dt $$
+$$=\int _a^b  T dt +\int _a^b  -U dt =S_P+S_{PF}$$
+
+Here, the kinetic term \(T\) can be regarded as the Action \(S_P\) of a free particle, and the potential term \(U\) is the Action \(S_{PF}\) of the interaction between the particle and the field. In electromagnetism, we learn that the field also carries momentum and energy, so the complete description of electromagnetic motion includes the Action \(S_F\) of the field:
+
+$$S=S_P+S_{PF}+S_F$$
+
+</p>
+</div>
+</section>
+
+<section id="i">
+<div class="container">
+<header class="major">
+	<h2><li>Variation of Free Particle Action</li></h2>
+</header>
+<p style="text-align:justify">
+
+In the relativistic case, to describe a free particle, we use the 4-displacement 
+$$\eta =\eta ^\mu  \hat{e} _\mu =(\tau ,\overrightarrow{0} )_{porper}=(t,\overrightarrow{\eta})$$
+
+to describe the trajectory of the particle, where \(\tau\) is the particle's proper time. Here, \(\eta ^\mu\) is used to distinguish the trajectory from spacetime (to accommodate subsequent discussions on Noether's theorem, it is necessary to rigorously distinguish between the trajectory and spacetime; the trajectory is a physical quantity, while spacetime is a coordinate system, which are different concepts). To describe the particle's velocity, we use the 4-Velocity \(U=U^\mu  \hat{e} _\mu =(\gamma c,\gamma \overrightarrow{v} )={d\eta ^\mu \over d\tau}  \hat{e} _\mu\), where \(\tau\) is the particle's proper time. Furthermore, \(U^\mu =U^\mu  (x^\nu )\), meaning that the velocity \(U^\mu\) changes with different coordinates \(x^\nu\) in spacetime. The idea here is that a free particle moves from point a to point b in spacetime, and we calculate the extremum of the Action \(S_P\) for different paths \(\eta ^\mu\) by varying \(x^\mu\):
+
+<a href="./Image/P31.png"><img src="./Image/P31.png" alt="Substitute text" width=70% height="auto"></a>
+
+$$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
+$$\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0$$
+
+The Action \(S_P\) for a free particle is:
+
+$$S_P=\int _a^b  -mc^2 d\tau  $$
+After variation:
+
+$$\delta S_P=\delta \int _a^b  -mc^2 d\tau  =-mc^2 \int _a^b \delta d\tau 	 $$
+
+It may seem that \(d\tau \) is unrelated to the variation \(\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu\), but recall:
+
+$$∵c^2  d\tau  ^2=d\eta ^\mu  d\eta _\mu $$
+$$∴cd\tau =\sqrt{d\eta ^\mu  d\eta _\mu}$$
+
+Thus:
+
+$$\delta S_P=-mc\int _a^b  \delta \sqrt{d\eta ^\mu  d\eta _\mu}$$
+$$=-mc\int _a^b  {1\over 2}  {\color{red}{\delta d\eta ^\mu \cdot d\eta _\mu +d\eta ^\mu \cdot \delta d\eta _\mu} \over \sqrt{d\eta ^\mu  d\eta _\mu}} $$
+
+<table cellpadding="1" border="1">
+<tr><td>
+
+Advanced: Thm.4: <br>
+The variation of a scalar is independent of the indices.
+Recall the metric tensor \(g_{\mu \nu}\):
+
+$$g_{\mu \nu} =\hat{e} _\mu \cdot \hat{e} _\nu $$
+$$g_{\mu \nu} =g_\nu \mu $$
+$$g^{\mu \nu} \equiv (g_{\mu \nu}  )^{-1}$$
+
+\(g^{\mu \nu}  g_{\nu \omega} = \delta ^\mu  _\omega  \) (Delta function, do not confuse it with the variation \(\delta\)).
+The metric tensor \(g_{\mu \nu}\) is an intrinsic property of spacetime (Intrinsic Property) and is independent of \(x^\mu\) <font color="red">(only considering special relativity here; in general relativity, it would be affected)</font>. This means that the variation with respect to \(x^\mu\) is independent of the metric \(g_{\mu \nu}\). The metric tensor can be used to raise or lower indices (Index lowering or raising):
+
+$$x^\mu =g^{\mu \nu}  x_\nu $$
+$$x_\mu =g_{\mu \nu}  x^\nu $$
+
+Since the variation with respect to \(x^\mu\) is independent of the metric \(g_{\mu \nu}\), we have:
+
+$$\delta x^\mu =g^{\mu \nu}  \delta x_\nu$$
+$$\delta x_\mu =g_{\mu \nu}  \delta x^\nu $$
+
+For a scalar, such as \(x^\mu  y_\mu \), the variation is:
+
+$$\delta (x^\mu  y_\mu  )=\delta x^\mu \cdot y_\mu +x^\mu \cdot \delta y_\mu $$
+$$=g^{\mu \nu}  \delta x_\nu \cdot g_{\mu \omega}  y^\omega +g^{\mu \nu}  x_\nu \cdot g_{\mu \omega}  \delta y^\omega $$
+$$=g^{\mu \nu}  g_{\mu \omega}  (\delta x_\nu \cdot y^\omega +x_\nu \cdot \delta y^\omega  )=g^{\color{red}{\nu \mu}}  g_{\mu \omega}  \delta (x_\nu  y^\omega  )$$
+$$= \delta ^\nu  _\omega  \delta (x_\nu  y^\omega  )=\delta (x_\omega  y^\omega  )=\delta (x_\mu  y^\mu  )$$
+
+Similarly:
+
+$$x^\mu  \delta y_\mu =x_\mu  \delta y^\mu $$
+Therefore:
+
+$$\color{red}{\delta dx^\mu \cdot dx_\mu +dx^\mu \cdot \delta dx_\mu} $$
+$$=\delta dx^\mu \cdot dx_\mu +dx_\mu \cdot \delta dx^\mu $$
+$$=2\delta dx^\mu \cdot dx_\mu $$
+</td></tr>
+</table>
+
+$$\delta S_P=-mc\int _a^b  {1\over 2}  {2\delta d\eta ^\mu\cdot d\eta _\mu  \over \sqrt{d\eta ^\mu  d\eta _\mu}} $$
+$$= -mc\int _a^b {\delta d\eta ^\mu \cdot d\eta _\mu \over cd\tau}$$
+$$ =-m\int _a^b  \delta d\eta ^\mu \cdot U_\mu   $$
+
+Using the method of Thm.1, we exchange \(\delta dx^\mu \) with \(d\delta x^\mu\), and perform integration by parts:
+
+$$\delta S_P=-m\int _a^b  U_\mu  d\delta \eta ^\mu $$
+$$=\color{red}{ -\left[ U_\mu  \delta \eta ^\mu  \right]\Big| _a^b}+m\int _a^b  dU_\mu  \delta \eta ^\mu$$   
+
+The boundary term <font color="red">is zero</font> because the boundary variation \(\delta \eta ^\mu  (a)=\delta \eta ^\mu  (b)=0\). The latter term can be multiplied and divided by \(d\tau\) without affecting the variation, according to Thm.3:
+
+$$\delta S_P=m\int _a^b  dU_\mu  \delta \eta ^\mu $$
+$$ =\int _a^b  {m (dU_\mu )\over d\tau}  \delta \eta ^\mu  d\tau  $$
+So, for a free particle, \(\delta S_P=0\) leads to:
+
+\(m {dU_\mu \over d\tau} =0\)
+
+Considering \(\mu =1\sim 3\):
+
+$$m {d\overrightarrow{v}\over d\tau} =0$$
+
+A free particle has no acceleration and maintains uniform motion.
+
+</p>
+</div>
+</section>
+
+
+
+<section id="j">
+<div class="container">
+<header class="major">
+	<h2><li>Variation and Equations of Motion for a Charged Particle in an EM Field</li></h2>
+</header>
+
+<p style="text-align:justify">
+
+In this section, we aim to explore how a charged particle moves under a given EM Field (note that "given EM Field" means we do not vary the EM Field itself). In relativistic electrodynamics, we write the 4-Potential as \(A = A^\mu  \hat{e} _\mu =\left(\phi,\overrightarrow{A}\right)\), using Gaussian units here. The Action \(S_{PF}\) for the interaction of the charged particle is written as:
+
+$$S_{PF}=\int _a^b  -{e \over c}  A_\mu  d\eta ^\mu   $$
+
+The complete description of the motion of the charged particle is given by:
+
+$$S=S_P+S_{PF}=\int _a^b  -mc^2 d\tau  +\int _a^b  -{e\over c}  A_\mu  d\eta ^\mu   $$
+
+Here, we consider varying the path \(\eta ^\mu\) of the charged particle in spacetime:
+
+$$\eta ^\mu \to \eta ^\mu +\delta \eta ^\mu $$
+
+Although we do not vary the EM Field \(A^\mu\), the potential experienced by the particle depends on the path taken. Hence, the Action for different paths will involve different values of \(A^\mu\) (meaning the change in \(A^\mu\) comes from the different paths \(\eta ^\mu\) rather than from varying \(A^\mu\)):
+
+$$A^\mu  (\eta ^\mu  )\to A^\mu  (\eta ^\mu +\delta \eta ^\mu  )=A^\mu  (\eta ^\mu  )+\delta A^\mu $$
+
+<table cellpadding="1" border="1">
+<tr><td><a href="./Image/P31.png"><img src="./Image/P31.png" alt="Substitute text" width=70% height="auto"></a></td></tr>
+</table>
+<table cellpadding="1" border="1">
+<tr><td><a href="./Image/P32.png"><img src="./Image/P32.png" alt="Substitute text" width=98% height="auto"></a></td></tr>
+</table>
+
+We calculate how \(\delta S_{PF}\) varies:
+
+$$\delta S_{PF}=\delta \int _a^b  -{e\over c}  A_\mu  d\eta ^\mu  $$
+$$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   -{e\over c}  \int _a^b  A_\mu \cdot \delta d\eta ^\mu  $$ 
+
+Using the method of Thm.1, we exchange \(\delta d\eta ^\mu \) with \(d\delta \eta ^\mu\):
+
+$$\delta d\eta ^\mu =d\delta \eta ^\mu $$
+
+and perform integration by parts, where the boundary term vanishes:
+
+$$\delta S_{PF}=-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   -{e\over c}  \int _a^b  A_\mu \cdot d\delta \eta ^\mu  $$
+$$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu    \color{red}{ -\left[{e\over c}  A_\mu \cdot \delta \eta ^\mu \right]  \Big|_a^b}+{e\over c}  \int _a^b   dA _\mu \cdot \delta \eta ^\mu  $$ 
+
+Using Thm.3, multiplying and dividing by \(d\tau \) does not affect the variation:
+
+$$\delta S_{PF}=-{e\over c}  \int _a^b  \delta A_\mu \cdot d\eta ^\mu   +{e\over c}  \int _a^b   dA _\mu \cdot \delta \eta ^\mu  $$
+$$ =-{e\over c}  \int _a^b  \delta A_\mu \cdot {d\eta ^\mu \over \color{red}{d\tau}}  \color{red}{d\tau}  +{e\over c}  \int _a^b   {dA _\mu \over \color{red}{d\tau}}  \color{red}{d\tau} \cdot \delta \eta ^\mu   $$
+
+Since:
+
+$$\delta A_\mu ={\partial A_\mu \over \partial x ^\nu } \delta \eta ^\nu $$
+
+and
+
+$${dA_\mu \over d\tau} ={\partial A_\mu \over \partial x^\nu  }  {d\eta ^\nu \over d\tau} ={\partial A_\mu \over \partial x^\nu  } U^\nu $$
+
+Substituting these, we get:
+
+$$\delta S_{PF}=-{e\over c}  \int _a^b  {\partial A_\mu \over\partial x^\nu } \delta \eta ^\nu \cdot u^\mu  d\tau  +{e\over c}  \int _a^b  {\partial A_\mu \over \partial x^\nu  } U^\nu  d\tau \cdot \delta \eta ^\mu$$   
+$$=-{e\over c}  \int _a^b  (\partial _\nu  A_\mu  ) u^\mu  \delta \eta ^\nu  d\tau  +{e\over c}  \int _a^b  \left(\partial _\nu  A_\mu  \right) U^\nu  \delta \eta ^\mu  d\tau $$ 
+
+We want to factor out the variation \(\delta \eta ^\nu \) and \(\delta \eta ^\mu\) together, but the indices do not match. However, since each term's indices \(\mu\) and \(\nu\) are dummy indices, we can interchange them \(\mu \leftrightarrow \nu\). By swapping \(\mu\) and \(\nu\) in the first term, we can combine the terms:
+
+$$\delta S_{PF}=-{e\over c}  \int _a^b  \left(\partial _\color{red}{\mu}  A_\color{red}{\nu}  \right) U^\color{red}{\nu}  \delta \eta ^\color{red}{\mu}  d\tau  +{e\over c}  \int _a^b  (\partial _\nu  A_\mu  ) U^\nu  \delta \eta ^\mu  d\tau $$
+$$=-{e\over c}  \int _a^b  (\partial _\mu  A_\nu -\partial _\nu  A_\mu  ) U^\nu  \delta \eta ^\mu  d\tau  $$
+
+Considering the full motion of the charged particle in the EM Field:
+
+$$\delta S=\delta S_P+\delta S_{PF}=0$$
+
+Thus:
+
+$$\delta S_P+\delta S_{PF}=\int _a^b  m {dU_\mu \over d\tau}   \delta \eta ^\mu  d\tau -{e\over c}  \int _a^b  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu  \delta \eta ^\mu  d\tau  $$
+$$=\int _a^b \left[m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu  \right]  \delta \eta ^\mu  d\tau =0$$
+
+We obtain:
+
+$$m {dU_\mu \over d\tau} -{e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu =0$$
+
+$$m {dU_\mu \over d\tau} ={e\over c}  \left(\partial _\mu  A_\nu -\partial _\nu  A_\mu  \right) U^\nu \equiv {e\over c}  F_{\mu \nu}  U^\nu $$
+
+We define the electromagnetic tensor:
+
+$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu $$
+
+The relationship between the electric field \(\overrightarrow{E}\), the magnetic field \(\overrightarrow{B}\), and the potentials \(\phi\), \(\overrightarrow{A}\) (in Gaussian units):
+
+$$ \overrightarrow{E}=-\nabla \phi-{1\over c}  {\partial \overrightarrow{A}\over \partial t}$$
+$$\overrightarrow{B}=\nabla \times \overrightarrow{A} $$
+
+Where:
+
+$$A_\nu \to \left(\phi,-A_x,-A_y,-A_z \right)$$
+$$\partial _\mu \to \left({\partial \over \partial x^0},{\partial \over \partial x^1 },{\partial \over \partial x^2},{\partial \over \partial x^3 }\right)=\left({\partial \over \partial ct},{\partial \over \partial x },{\partial \over \partial y},{\partial \over \partial z }\right)$$
+
+We can calculate:
+
+$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu =\left(\begin{matrix}0 & E_x & E_y & E_z\\ -E_x & 0 & -B_z & B_y \\ -E_y & B_z & 0 & -B_x \\ -E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+
+</p>
+</div>
+</section>
+
+
+<section id="k">
+<div class="container">
+<header class="major">
+	<h2><li>4-Volume \(d^4 x\) and Lagrangian Density \(\mathcal{L}\)</li></h2>
+</header>
+
+<p style="text-align:justify">
+
+Since spacetime is equivalent under relativity, physicists use the Principle of Relativity and the Principle of Least Action to write the Action \(S\) in scalar form, ensuring that \(\delta S = 0\) in any coordinate system. The Actions we listed earlier are:
+
+$$S_P=-mc^2 \int _a^b d\tau $$
+
+$$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   $$
+
+$$S=S_P+S_{PF}=-mc^2 \int _a^b d\tau -{e\over c}  \int _a^b  A_\mu  dx^\mu   $$
+$$=\int _a^b  -\gamma mc^2-\gamma e \phi+{e\over c}  \overrightarrow{A} \cdot \gamma \overrightarrow{v}  dt =\int _a^b Ldt$$
+
+Although these Actions satisfy the scalar requirement, the Lagrangian \(L\) itself is not a scalar, as it varies under different coordinate systems. Physicists, therefore, aim to rewrite the Lagrangian \(L\) as a scalar. We define the 4-Volume \(d^4 x=dc\tau dV=dc\tau dxdydz\) and rewrite the original Action as:
+
+$$S_P=-mc^2 \int _a^b d\tau =-\int   \rho_m dV  c^2 \int _a^b d\tau $$
+$$=-∬  \rho_m cdc\tau dV =\int   -\rho_m cd^4 x $$
+
+$$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   =-{\int  \rho_e dV \over c} \int _a^b  A_\mu   {dx^\mu \over d\tau}  d\tau  $$
+$$=-{1 \over c} ∬  \rho_e A_\mu  u^\mu  d\tau dV =-{1 \over c^2}  ∬  A_\mu  J^\mu  dc\tau d^4 x $$
+$$=-{1 \over c^2}   \int   A_\mu  J^\mu  d^4 x $$
+
+Here, \(J = J^\mu  \hat{e} _\mu = \rho_e u^\mu  \hat{e} _\mu\) is the 4-current density. Notably, \(d^4 x\) is an invariant, making it a scalar. Additionally, when we add the EM Field Action \(S_F\):
+
+$$S_F=-{1 \over 16\pi c} \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x $$
+$$S=S_P+S_{PF}+S_F$$
+$$=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
+$$ \equiv \int   \mathcal{L} d^4 x $$
+
+Since the 4-Volume \(d^4 x\) is a scalar and the Action is also a scalar, \(\mathcal{L}\) must be a scalar as well. We call \(\mathcal{L}\) the Lagrangian density. The Lagrangian density \(\mathcal{L}\) remains a scalar and is invariant in any coordinate system:
+
+$$\mathcal{L}=-\rho_m c-{1\over c^2}  A_\mu  J^\mu -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu} $$
+
+<table cellpadding="1" border="1">
+<tr><td>
+Advanced: \(d^4 x\) is an invariant<br>
+<b>Physical Proof</b><br>
+Due to Time Dilation and Length Contraction being opposite effects, if \(\tau\) and \(\bar{x}\) are the proper time and proper length:
+
+$$t=\gamma \tau $$
+$$x={\bar{x} \over \gamma} $$
+
+Therefore:
+
+$$dctdx=dc\left(\gamma \tau \right)d{\bar{x} \over \gamma }=dc\tau d\bar{x}$$
+
+<b>Mathematical Proof</b><br>
+Recall the Jacobian \(J\):
+
+$$dxdy=rdrdθ=J\left(r,\theta\right)drd\theta$$
+
+Where:
+
+$$J\left(r,\theta\right)=\left| \begin{matrix} {\partial x \over \partial r} & {\partial x \over \partial \theta} \\ {\partial y \over \partial r} & {\partial y \over \partial \theta}  \end{matrix} \right|
+=\left| \begin{matrix} {\partial rcos\theta \over \partial r} & {\partial rcos\theta \over \partial \theta} \\ {\partial rsin\theta \over \partial r} & {\partial rsin\theta \over \partial \theta}  \end{matrix} \right| $$
+
+$$=\left| \begin{matrix} { cos\theta} & { -rsin\theta} \\ { sin\theta} & { rcos\theta}  \end{matrix} \right|=r $$
+
+Similarly:
+
+$$dc\bar{t} d\bar{x}=J\left(ct,x\right)dctdx=\left| \begin{matrix} {\partial c\bar{t} \over \partial ct} & {\partial c\bar{t} \over \partial x} \\ {\partial \bar{x} \over \partial ct} & {\partial \bar{x} \over \partial x}  \end{matrix} \right|dctdx$$
+
+Recall the Lorentz transformation:
+
+$$c\bar{t} =\gamma (ct-\beta x)$$
+$$\bar{x}=\gamma (x-\beta ct)$$
+
+Substituting these back:
+
+$$dc\bar{t} d \bar{x}=\left| \begin{matrix} \gamma & -\beta \gamma \\ -\beta \gamma & \gamma  \end{matrix} \right|dctdx $$
+$$=\gamma ^2 (1-\beta ^2 )dctdx=dctdx$$
+
+Thus, \(d^4 x\) is an invariant under Lorentz transformation.
+</td></tr>
+</table>
+</p>
+</div>
+</section>
+
+<section id="l">
+<div class="container">
+<header class="major">
+	<h2><li>Maxwell's Equations</li></h2>
+</header>
+<p style="text-align:justify">
+In this section, we discuss the distribution of the EM Field given a source (meaning we do not vary the distribution \(\eta^\mu\) of the source). The relevant action is:
+
+$$S_{PF}+S_F=\int   -\rho_m c-{1\over c^2}  A_\mu  J^\mu d^4 x +\int -{1 \over 16\pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x$$
+
+To understand the distribution of the EM Field, we vary \(A^\mu\):
+
+$$A^\mu \to A^\mu +\delta A^\mu $$
+
+We observe whether \(J^\mu\), \(d^4 x\), or \(F^{\mu \nu}\) are affected:<br>
+
+<a href="./Image/P33.png"><img src="./Image/P33.png" alt="Substitute text" width=90% height="auto"></a><br>
+
+$$J^\mu =\rho_e {dx^\mu \over d\tau} =J^\mu  (x^\nu )$$
+$$d^4 x=d^4 x(x^\nu )$$
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu}  \left(A^\omega \right)$$	 
+
+Only the electromagnetic tensor \(F^{\mu \nu}\) is affected by the variation \(A^\mu \to A^\mu +\delta A^\mu\):
+
+$$F^{\mu \nu}  \left(A^\omega  \right)\to F^{\mu \nu}  (A^\omega +\delta A^\omega  )=F^{\mu \nu}  \left(A^\omega  \right)+\delta F^{\mu \nu} $$
+
+Thus, the variation of \(S_{PF}\) is straightforward:
+
+$$\delta S_{PF}=\delta \int   -{1 \over c^2}  A_\mu  J^\mu  d^4 x$$
+$$ =-{1 \over c^2}  \int   \delta A_\mu \cdot J^\mu  d^4 x $$
+
+The variation of \(S_F\) is more complex:
+
+$$S_F=-{1 \over 16 \pi c} \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x$$ 
+$$\delta S_F=-{1 \over 16 \pi c} \delta \int   F_{\mu \nu}  F^{\mu \nu}  d^4 x =-{1 \over 16 \pi c} \int   \delta F_{\mu \nu} \cdot F^{\mu \nu} +F_{\mu \nu} \cdot  \delta F ^{\mu \nu}  d^4 x $$
+
+Using Thm.4 (variation of scalars is independent of upper and lower indices):
+
+$$\delta F_{\mu \nu} \cdot F^{\mu \nu} =F_{\mu \nu} \cdot  \delta F ^{\mu \nu}$$
+
+Hence, there is a factor of two:
+
+$$\delta S_F=-{1 \over 16 \pi c} \int   2\delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x =-{1 \over 8 \pi c} \int   \delta F_{\mu \nu} \cdot F^{\mu \nu}  d^4 x $$
+
+Substitute:
+
+$$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu -\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+$$=-{1 \over 8 \pi c} \int   \delta (\partial _\mu  A_\nu  )\cdot F^{\mu \nu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+
+Since \(\mu\) and \(\nu\) are dummy indices, we can swap \(\mu \leftrightarrow \nu\) in the first term:
+
+$$\delta S_F=-{1 \over 8 \pi c} \int   \delta (\partial _\color{red}{\nu}  A_\color{red}{\mu}  )\cdot F^\color{red}{\nu \mu}  d^4 x +{1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+$$={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (-F^\nu \mu +F^{\mu \nu}  ) d^4 x $$
+
+Recall the electromagnetic tensor:
+
+$$F^{\mu \nu} =\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =\left(\begin{matrix}0 & -E_x & -E_y & -E_z\\ E_x & 0 & -B_z & B_y \\ E_y & B_z & 0 & -B_x \\ E_z & -B_y & B_x & 0 \end{matrix}\right)$$
+
+Since \(F^{\mu \nu}\) is an antisymmetric tensor, \(F^\nu \mu =-F^{\mu \nu} \). Substituting:
+
+$$\delta S_F={1 \over 8 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot (F^\color{red}{\mu \nu} +F^{\mu \nu}  ) d^4 x ={1 \over 4 \pi c} \int   \delta (\partial _\nu  A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+
+Using Thm.1, we can exchange \(\delta\) and \(\partial _\nu\):
+
+$$\delta (\partial _\nu  A_\mu  )=\partial _\nu  (\delta A_\mu  )$$
+$$\delta S_F={1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu  )\cdot F^{\mu \nu}  d^4 x $$
+
+Using the chain rule:
+
+$$\partial _\nu  (\delta A_\mu  )\cdot F^{\mu \nu} =\partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  )-\delta A_\mu \cdot \partial _\nu  (F^{\mu \nu}  )$$
+
+Splitting the integral into two parts:
+
+$$\delta S_F={1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  ) d^4 x -{1 \over 4 \pi c} \int   \delta A_\mu \cdot \partial _\nu  (F^{\mu \nu}  ) d^4 x $$
+
+<table cellpadding="1" border="1">
+<tr><td>
+Recall the Divergence Theorem:
+$$\int    \nabla \cdot \overrightarrow{F}dV =∮  \overrightarrow{F}\cdot d\overrightarrow{S}  $$
+A volume integral can be rewritten as a surface integral. Written in terms of the Levi-Civita symbol:
+$$\int   \partial _\nu  F^\nu  dV =∮  F^\nu  dS_\nu $$  
+</td></tr>
+</table>
+
+Thus, using the Divergence Theorem, the first term vanishes since the variation \(\delta A_\mu\) on the boundary is zero:
+
+$${1 \over 4 \pi c} \int   \partial _\nu  (\delta A_\mu \cdot F^{\mu \nu}  ) d^4 x ={1 \over 4 \pi c} ∮  \delta A_\mu \cdot F^{\mu \nu}  dS_\nu   =0$$
+
+Therefore:
+
+$$\delta S_F=-{1 \over 4 \pi c} \int   \partial _\nu  (F^{\mu \nu}  )\cdot \delta A_\mu  d^4 x $$
+
+Combining \(\delta S_{PF} + \delta S_F\):
+
+$$\delta S_{PF}+\delta S_F=-{1 \over c^2}  \int   J^\mu \cdot \delta A_\mu  d^4 x -{1 \over 4 \pi c} \int   \partial _\nu  (F^{\mu \nu}  )\cdot \delta A_\mu  d^4 x$$ 
+$$=\int   \left[-{1 \over c^2}  J^\mu -{1 \over 4 \pi c} \partial _\nu  F^{\mu \nu}  \right]\delta A_\mu  d^4 x =0$$
+
+Thus, we obtain:
+
+$$-{1 \over c^2}  J^\mu -{1 \over 4 \pi c} \partial _\nu  F^{\mu \nu} =0$$
+$$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
+
+<table cellpadding="1" border="1">
+<tr><td>
+Recall Maxwell's equations in Gaussian units:
+$$ \nabla \cdot \overrightarrow{E}=4\pi \rho_e$$
+$$ \nabla \cdot \overrightarrow{B}=0$$
+$$ \nabla ×\overrightarrow{E}=-{1 \over c}  {\partial \overrightarrow{B} \over \partial t}$$
+$$ \nabla ×\overrightarrow{B}={4\pi \over c} \overrightarrow{J}+{1 \over c}  {\partial \overrightarrow{E} \over \partial t }$$
+</td></tr>
+</table>
+
+<table cellpadding="1" border="1">
+<tr><td>
+$$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu \to \left( \begin{matrix}  \nabla \cdot \overrightarrow{E}=4\pi \rho_e \\ \nabla ×\overrightarrow{B}={4\pi \over c} \overrightarrow{J}+{1 \over c}  {\partial \overrightarrow{E}\over \partial t}  \end{matrix}\right)$$
+</td></tr>
+</table>
+
+$$F_{\mu \nu} =\partial _\mu  A_\nu -\partial _\nu  A_\mu $$
+
+The electromagnetic tensor has a special identity (Bianchi identity):
+
+$$\partial _\omega  F_{\mu \nu} +\partial _\mu  F_{\nu \omega} +\partial _\nu  F_{\omega \mu} =\partial _{[\omega}  F_{\mu \nu ]} =0$$
+
+Expanding:
+
+$$\partial _\omega  (\partial _\mu  A_\nu -\partial _\nu  A_\mu )+\partial _\mu  (\partial _\nu  A_\omega -\partial _\omega  A_\nu )+\partial _\nu  (\partial _\omega  A_\mu -\partial _\mu  A_\omega )=0$$
+$$\partial _\omega  \partial _\mu  A_\nu -\partial _\omega  \partial _\nu  A_\mu +\partial _\mu  \partial _\nu  A_\omega -\partial _\mu  \partial _\omega  A_\nu +\partial _\nu  \partial _\omega  A_\mu -\partial _\nu  \partial _\mu  A_\omega =0$$
+
+This relation yields:
+
+<table cellpadding="1" border="1">
+<tr><td>
+$$ \partial _\omega  F_{\mu \nu} +\partial _\mu  F_{\nu \omega} +\partial _\nu  F_{\omega \mu} =0 \to \left( \begin{matrix}  \nabla \cdot \overrightarrow{B}=0 \\ \nabla ×\overrightarrow{E}=-{1 \over c}  {\partial \overrightarrow{B} \over \partial t}  \end{matrix}\right)$$
+</td></tr>
+</table>
+</p>
+</div>
+</section>
+
+<section id="m">
+<div class="container">
+<header class="major">
+	<h2><li>Gauge Invariance in Electromagnetism</li></h2>
+</header>
+<p style="text-align:justify">
+In electromagnetism, we define the relationship between the potentials \(\phi\), \(\overrightarrow{A}\), and the electric field \(\overrightarrow{E}\), and the magnetic field \(\overrightarrow{B}\):
+
+$$ \overrightarrow{E}=- \nabla \phi -{1 \over c}  {\partial \overrightarrow{A}\over \partial t}$$
+$$\overrightarrow{B}= \nabla ×\overrightarrow{A} $$
+
+However, the potentials \(\phi\) and \(\overrightarrow{A}\) are not unique, and we can introduce a gauge function \(G(ct,\overrightarrow{x})\):
+
+$$\bar{\phi} =\phi +{1 \over c}  {\partial G \over \partial t}$$
+$$\overrightarrow{\bar{A}}=\overrightarrow{A}- \nabla G$$
+
+The electric field \(\overrightarrow{E}\) and the magnetic field \(\overrightarrow{B}\) remain unchanged:
+
+$$\overrightarrow{\bar{E}}=- \nabla \bar{\phi}-{1 \over c}  {\partial \overrightarrow{\bar{A}}\over \partial t}$$
+$$=- \nabla \phi - \color{red}{\nabla {1 \over c}  {\partial G \over \partial t}}-{1 \over c}  {\partial \overrightarrow{A}\over \partial t}+\color{red}{{1 \over c}  {\partial ( \nabla G)\over\partial t}}$$
+$$=- \nabla \phi -{1 \over c}  {\partial \overrightarrow{A}\over \partial t}=\overrightarrow{E}$$
+
+$$\overrightarrow{\bar{B}}= \nabla ×\overrightarrow{\bar{A}}= \nabla ×\overrightarrow{A}- \nabla × \nabla G= \nabla ×\overrightarrow{A}=\overrightarrow{B} $$
+
+<table cellpadding="1" border="1">
+<tr><td>
+Note: \(\nabla × \nabla G=0\)
+$$( \nabla × \nabla G)_i=\varepsilon _{ijk} \partial _j \partial _k G$$
+$$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G+{1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G$$
+$$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G+{1 \over 2} \varepsilon _{i\color{red}{kj}} \partial _\color{red}{k} \partial _\color{red}{j} G$$
+$$={1 \over 2} \varepsilon _{ijk} \partial _j \partial _k G \color{red}{-}{1 \over 2} \varepsilon _{i\color{red}{jk}} \partial _j \partial _k G=0$$
+</td></tr>
+</table>
+
+In relativity, the above operation can be written in the form of 4-potentials:
+
+$$(\bar{\phi},\overrightarrow{\bar{A}} )=(\phi ,\overrightarrow{A} )+(\partial _{ct} G,- \nabla G)=(\phi ,\overrightarrow{A} )+(\partial _{ct},- \nabla )G$$
+
+Recall:
+
+$$\partial ^\mu =(\partial _{ct},- \nabla )$$
+
+Thus:
+
+ $$\bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
+
+<table cellpadding="1" border="1">
+<tr><td>
+Coulomb gauge condition: Non-relativistic
+$$ \nabla \cdot \overrightarrow{A}=0$$
+</td></tr>
+</table>
+
+<table cellpadding="1" border="1">
+<tr><td>
+Lorenz gauge condition: Relativistic, satisfies Lorentz transformation
+$$ \nabla \cdot \overrightarrow{A}+{1 \over c}  {\partial \phi \over \partial t}=0$$
+Written in scalar form:
+$$\partial _\mu  A^\mu =0$$
+Thus, it satisfies the relativistic transformation.
+</td></tr>
+</table>
+
+As previously shown, the electric field \(\overrightarrow{E}\) and the magnetic field \(\overrightarrow{B}\) remain unchanged under a gauge transformation:
+
+$$\overrightarrow{\bar{E}}=\overrightarrow{E}$$
+$$\overrightarrow{\bar{B}}=\overrightarrow{B}$$
+
+This indicates that \(F^{\mu \nu}\) also remains unchanged under a gauge transformation:
+
+$$ \bar{F} ^{\mu \nu} =F^{\mu \nu} $$
+
+We can also prove this:
+
+$$\bar{F} ^{\mu \nu} =\partial ^\mu   \bar{A} ^\nu -\partial ^\nu   \bar{A} ^\mu$$
+$$=\partial ^\mu  (A^\nu +\partial ^\nu  G)-\partial ^\nu  (A^\mu +\partial ^\mu  G)$$
+$$=\partial ^\mu  A^\nu +\color{red}{\partial ^\mu  \partial ^\nu  G}-\partial ^\nu  A^\mu -\color{red}{\partial ^\nu  \partial ^\mu  G}$$
+$$=\partial ^\mu  A^\nu -\partial ^\nu  A^\mu =F^{\mu \nu} $$
+
+</p>
+</div>
+</section>
+
+<section id="n">
+<div class="container">
+<header class="major">
+	<h2><li>Gauge Invariance and Action Variation</li></h2>
+</header>
+<p style="text-align:justify">
+In this section, we discuss how adding a gauge does not change the variation of the action, meaning that the equations of motion are unaffected by gauge changes, representing gauge invariance. When adding a gauge:
+
+$$ \bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
+
+We observe which terms in the action \(S=S_P+S_{PF}+S_F\) are affected:
+
+$$S_P=-mc^2 \int _a^b d\tau =\int   -\rho_m cd^4 x $$
+$$S_{PF}=-{e\over c}  \int _a^b  A_\mu  dx^\mu   =-{1 \over c^2}  \int   A_\mu  J^\mu  d^4 x $$
+$$S_F=\int   -{1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}  d^4 x $$
+
+Since we have already proven that \(F^{\mu \nu}\) is not affected by gauge transformations and \(S_P\) does not involve \(A^\mu\), the only affected term is \(S_{PF}\):
+
+$$\bar{S}_{PF}=-{e\over c}  \int _a^b   \bar{A} _\mu  dx^\mu   =-{1 \over c^2}  \int    \bar{A} _\mu  J^\mu  d^4 x $$
+
+Now, let's vary \(\bar{S}_{PF}\):
+
+$$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int    \bar{A} _\mu  J^\mu  d^4 x =-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2}  \delta \int   \partial _\mu  G \cdot J ^\mu  d^4 x }$$
+
+Applying the chain rule:
+
+$$\partial _\mu  G \cdot J ^\mu =\partial _\mu  (GJ^\mu  )-G\partial _\mu  J^\mu $$
+
+This yields:
+
+$$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2} { \delta \int  \partial _\mu  \left(GJ^\mu \right) d^4 x + {1 \over c^2}  \delta \int   G\partial _\mu  J^\mu  d^4 x} } $$
+
+The middle term, using the Divergence Theorem:
+
+$$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x \color{red}{-{1 \over c^2}  {\delta \left[ ∮  GJ^\mu  dS_\mu   \right]}{ +{1 \over c^2}  \delta \int G \left[\partial _\mu  J^\mu  \right] d^4 x }}$$
+
+The middle term is zero since the variation on the boundary is zero:
+
+$$\color{red}{\delta \left[∮  GJ^\mu  dS_\mu   \right]=0}$$
+
+Finally, recall the continuity equation:
+
+$${\partial \rho_e \over \partial t}+ \nabla \cdot \overrightarrow{J}=0$$
+
+In relativistic form:
+
+$$\partial _\mu  J^\mu =0$$
+
+Thus, the last term is also zero:
+
+$$\color{red}{\delta \int   G \left[\partial _\mu  J^\mu  \right] d^4 x =0}$$
+
+Therefore:
+
+$$\delta \bar{S}_{PF}=-{1 \over c^2}  \delta \int   A_\mu  J^\mu  d^4 x =\delta S_{PF}$$
+
+This shows that adding a gauge does not change the variation of the action, indicating gauge invariance.
+</p>
+</div>
+</section>
+
+<section id="o">
+<div class="container">
+<header class="major">
+	<h2><li>A Brief Discussion on Gauge Invariance and the Continuity Equation</li></h2>
+</header>
+<p style="text-align:justify">
+In the previous derivation, we used the continuity equation to show that the action's variation satisfies gauge invariance, corresponding to charge conservation. In the later development of physics, the process was reversed: when we require the action to satisfy gauge invariance, we derive the continuity equation and charge conservation. The variation process is the same, with the only difference being that we enforce:
+
+$${1 \over c^2}  \delta \int   G[\partial _\mu  J^\mu  ] d^4 x =0$$
+
+to ensure that the variation result is unaffected by the gauge, leading to:
+
+$$\partial _\mu  J^\mu =0$$
+
+By studying this, we can understand why physicists often say that the action is powerful: writing down the action allows us to derive all experimentally observed equations. However, in the actual development of the action, experiments must first obtain some or all of the equations of motion, and physicists use physical reasoning to guess the form of the action, which then allows them to derive other deeper physics. Since classical electromagnetism is fully developed, all the equations have been obtained experimentally, so deriving the variation of the action to obtain \(F^{\mu \nu}\) or Maxwell's equations seems like reverse-engineering the problem from the answer. Nevertheless, historically, physicists derived charge conservation experimentally and then rewrote it in terms of the action, linking charge conservation and gauge invariance rigorously through Noether's theorem. This is similar to how Newtonian mechanics, through the principle of virtual work, leads to the Hamilton principle in action. Physicists can then use the action to derive Newtonian mechanics, but the action framework can also describe electromagnetism and even later quantum mechanics (Feynman's path integral). The action plays a crucial role in extending physics.
+
+</p>
+</div>
+</section>
+
+<section id="p">
+<div class="container">
+<header class="major">
+	<h2><li>Impossibility of \(A_\mu  A^\mu\) if Keeping Gauge Invariance</li></h2>
+</header>
+<p style="text-align:justify">
+If we maintain gauge invariance, we can argue that the action will not include a term like \(A_\mu  A^\mu\), as the variation of \(A^\mu\) (i.e., \(A^\mu \to A^\mu +\delta A^\mu\)) would lead to changes in the equations of motion:
+
+$$S=-{1 \over c^2}  \int   A_\mu  A^\mu  d^4 x $$
+
+Adding a gauge \(\partial ^\mu  G\):
+
+$$ \bar{A} ^\mu =A^\mu +\partial ^\mu  G$$
+
+Expanding the action:
+
+$$\bar{S}=-{1 \over c^2}  \int    \bar{A} _\mu   \bar{A} ^\mu  d^4 x $$
+$$=-{1 \over c^2}  \int   (A_\mu +\partial _\mu  G)(A^\mu +\partial ^\mu  G) d^4 x $$
+$$=-{1 \over c^2}  \int   A_\mu  A^\mu  d^4 x -{1 \over c^2}  \int   2A^\mu \cdot \partial _\mu  Gd^4 x -{1 \over c^2}  \int   \partial _\mu  G\cdot \partial ^\mu  Gd^4 x $$
+
+Since the gauge \(\partial ^\mu  G\) is independent of the 4-potential \(A^\mu\), the variation \(A^\mu \to A^\mu +\delta A^\mu\) does not affect \(\partial ^\mu  G\). We compare the variations of \(S\) and \(\bar{S}\):
+
+**For \(S\):**
+
+$$\delta S=-{1 \over c^2}  \delta \int   A_\mu  A^\mu  d^4 x$$
+$$ =-{2 \over c^2}  \int   A_\mu  \delta A^\mu  d^4 x$$ 
+
+**For \(\bar{S}\):**
+
+$$\delta \bar{S}=-{1 \over c^2}  \delta \int   A_\mu  A^\mu  d^4 x -{1 \over c^2}  \delta \int   2A_\mu  \partial ^\mu  Gd^4 x -\color{red}{0（\partial ^\mu  G has no variation）}$$
+
+The first term is the original variation:
+
+$$\delta \bar{S}=-{2 \over c^2}  \int   A_\mu  \delta A^\mu  d^4 x -{2 \over c^2}  \delta \int   A^\mu \cdot \partial _\mu  Gd^4 x $$
+$$=-{2 \over c^2}  \int   (A_\mu +\partial _\mu  G)\delta A^\mu  d^4 x $$
+
+Comparing, we find that they are different, which would lead to the breakdown of gauge invariance. Therefore, to maintain gauge invariance, the term \(A_\mu  A^\mu\) would not appear. Of course, if one day experiments show that gauge invariance is incorrect, it might be possible to introduce an \(A_\mu  A^\mu\) term.
+</p>
+</div>
+</section>
+
+<section id="q">
+<div class="container">
+<header class="major">
+	<h2><li>A Brief Discussion on \(A_\mu  A^\mu\) in Quantum Field Theory - Photon Mass</li></h2>
+</header>
+<p style="text-align:justify">
+While this content mainly discusses classical mechanics, here we briefly touch on how \(A_\mu  A^\mu\) corresponds to photon mass in quantum field theory. The Klein–Gordon equation describes spin-0 particles and is derived simply from relativity, based on the 4-momentum:
+
+$$P_\mu  P^\mu =m^2 c^2$$
+
+In quantum field theory, physical quantities are rewritten as operators acting on the wave function \(\phi\):
+
+$$\hat{P} _\mu  \hat{P} ^\mu  \phi =m^2 c^2 \phi $$
+
+In quantum field theory, the momentum operator is:
+
+$$\hat{P} ^\mu =i\hbar \partial ^\mu $$
+
+Substituting:
+
+$$(i\hbar \partial _\mu  )(i\hbar \partial ^\mu  )\phi =m^2 c^2 \phi $$
+$$-\hbar ^2 \partial _\mu  \partial ^\mu  \phi =m^2 c^2 \phi $$
+
+This yields the Klein–Gordon equation:
+
+$$(\hbar ^2 \partial _\mu  \partial ^\mu +m^2 c^2 )\phi =0$$
+
+If we set \(\hbar =c=1\) (Planck units or natural units):
+
+$$(□+m^2 )\phi =0$$
+
+This is the common form. In quantum field theory, the Lagrangian density for a spin-1 massive particle is:
+
+$$L=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu +{1 \over 2} m^2 A_\nu  A^\nu  (with \hbar =c=1)$$
+
+Varying \(\delta A^\nu\) satisfies:
+
+$$\partial ^\mu  \left({\partial L \over \partial \left(\partial ^\mu  A^\nu  \right)} \right)-{\partial L\over \partial A^\nu  }=0$$
+
+This yields:
+
+$$-\partial ^\mu  (\partial _\mu  A_\nu  )-m^2 A_\nu =0\to \partial ^\mu  \partial _\mu  A_\nu +m^2 A_\nu =0$$
+$$(□+m^2 ) A_\nu =0$$
+
+This is the Klein–Gordon equation describing a spin-1 massive particle's equation of motion. We can see that \(A_\nu  A^\nu\) corresponds to the photon's mass. However, the correct Lagrangian density to describe a spin-1 massless particle is not \(\mathcal{L}=-{1 \over 2} \partial _\mu  A_\nu  \partial ^\mu  A^\nu\), but rather:
+
+$$\mathcal{L}=-{1\over 4} F_{\mu \nu}  F^{\mu \nu} $$
+
+Further details involve technical aspects of eliminating two degrees of freedom in the 4-potential to correspond to the two polarization states of the photon, but this discussion goes beyond the scope of this document.
+</p>
+</div>
+</section>
+
+<section id="r">
+<div class="container">
+<header class="major">
+	<h2><li>Continuous Fields and the Wave Equation</li></h2>
+</header>
+<p style="text-align:justify">
+<a href="./Image/P34.png"><img src="./Image/P34.png" alt="Substitute text" width=98% height="auto"></a><br>
+Transitioning from a single particle to a continuous field, physicists describe a continuous field by linking an infinite number of harmonic oscillators. For an infinite number of harmonic oscillators, we can write the Lagrangian:
+
+$$\mathcal{L}=∑_n^\infty  {1 \over 2} m\eta  ̇_n-{1 \over 2} k(\eta _n-\eta _(n-1) )^2  $$
+
+Where \(\eta_n\) is the amplitude at position \(n\), and \(\eta  ̇_n\) is the velocity of oscillation at position \(n\).<br>
+
+<a href="./Image/P35.png"><img src="./Image/P35.png" alt="Substitute text" width=98% height="auto"></a><br>
+
+In the continuous field, the Lagrangian is:
+
+$$\mathcal{L}=\int   {1 \over 2} \rho\left({\partial \eta \over\partial t}\right)^2-{1 \over 2} Y\left({\partial \eta \over\partial x}\right)^2 dx $$
+
+Where \(\rho\) is the mass density, and \(Y\) is the Young's modulus.<br>
+ 
+<a href="./Image/P36.png"><img src="./Image/P36.png" alt="Substitute text" width=98% height="auto"></a><br>
+
+In three dimensions, the Lagrangian is:
+
+$$\mathcal{L}=\int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 dV$$ 
+
+It is evident that the Lagrangian density \(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\). Similarly, we can use the variational principle to obtain the equation of motion for the continuous field. The action is:
+
+$$S=\int   Ld^4 x =\int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 d^4 x $$
+
+Varying the field amplitude \(\eta (x^\mu  )\to \eta (x^\mu  )+\delta \eta (x^\mu  )\), the action should be an extremum:
+ 
+$$\delta S=\delta \int   {1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2 d^4 x $$
+$$=\int   \rho\partial _t \eta *\delta (\partial _t \eta )-Y \nabla \eta *\delta ( \nabla \eta ) d^4 x $$
+
+Exchanging the variation and differentiation:
+
+$$=\int   \rho\partial _t \eta \partial _t (\delta \eta )-Y \nabla \eta  \nabla (\delta \eta ) d^4 x $$
+$$=\int   \rho\partial _t \eta \partial _t (\delta \eta ) d^4 x -\int   Y \nabla \eta  \nabla (\delta \eta ) d^4 x $$
+$$=\int   \partial _t (\rho\partial _t \eta \delta \eta ) d^4 x -\int   \partial _t (\rho\partial _t \eta )*\delta \eta d^4 x -\int    \nabla (Y \nabla \eta \delta \eta ) d^4 x +\int    \nabla (Y\eta )*\delta \eta d^4 x $$
+$$=\left[-\int   \partial _t (\rho\partial _t \eta )*\delta \eta d^4 x +\int    \nabla (Y\eta )*\delta \eta d^4 x \right]+\left[\int   \partial _t (\rho\partial _t \eta \delta \eta ) d^4 x -\int    \nabla (Y \nabla \eta \delta \eta ) d^4 x \right]$$
+
+The boundary terms, using integration by parts, give:
+
+$$=-\int   \left[\rho\partial _t^2 \eta -Y \nabla ^2 \eta \right]*\delta \eta d^4 x +\left[\int   \rho\partial _t \eta \delta \eta d^3 x \Big|_{t_1}^{t_2}- \int   Y \nabla \eta \delta \eta d^3 x \Big|_{\partial x,\partial y,\partial z} \right]$$
+$$=-\int   [\rho\partial _t^2 \eta -Y \nabla ^2 \eta ]*\delta \eta d^4 x +0$$
+
+Since \(\delta \eta\) is arbitrary, we obtain:
+
+$$\rho\partial _t^2 \eta -Y \nabla ^2 \eta =0$$
+$$ \nabla ^2 \eta ={\rho \over Y} \partial _t^2 \eta $$
+
+Setting \(v=\sqrt{{Y\over \rho}}\):
+
+$$\nabla ^2 \eta ={1\over v^2}  \partial _t^2 \eta $$
+
+This is the wave equation.
+
+</p>
+</div>
+</section>
+
+<section id="s">
+<div class="container">
+<header class="major">
+	<h2><li>Classical Field Theory</li></h2>
+</header>
+<p style="text-align:justify">
+In classical field theory, the continuous field amplitude \(\eta\) is extended to classical field quantities, which can be scalar fields \(\phi\), vector fields \(V^\mu\), tensor fields \(T^{\mu\nu}\), and so on. Starting with a simple scalar field \(\phi =\phi (x^\mu  )\), which is a function of spacetime, we find the equation of motion for \(\phi\) using the variational principle. The action is written as:
+
+$$S=\int  \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x $$
+
+Assuming the Lagrangian density \(\mathcal{L}\) is a function of \(\phi\) and \(\partial _\mu  \phi\), and varying \(\phi \to \phi +\delta \phi\):
+
+$$\phi \to \phi +\delta \phi 、\partial _\mu  \phi \to \partial _\mu  \phi +\delta \partial _\mu  \phi $$
+
+<a href="./Image/P37.png"><img src="./Image/P37.png" alt="Substitute text" width=98% height="auto"></a><br>
+
+The variation of the action is:
+
+$$\delta S=\delta \int   \mathcal{L}[\phi ,\partial _\mu  \phi ] d^4 x =\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi +{\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \partial _\mu  \phi  d^4 x $$
+$$=\int   {\partial \mathcal{L} \over \partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\delta \phi  d^4 x +\int   \partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi \right)  d^4 x $$
+
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x + ∮_{\partial V}   {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}  \delta \phi  d^3 x $$
+
+$$=\int   \left[{\partial \mathcal{L} \over \partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over \partial (\partial _\mu  \phi )} \right)\right]\delta \phi  d^4 x +0$$
+
+Since \(\delta \phi\) is arbitrary, for any classical physical quantity \(\phi\), it must satisfy the Euler-Lagrange equation:
+
+$${\partial \mathcal{L} \over \partial \phi} -\partial _\mu  {\partial \mathcal{L}\over \partial (\partial _\mu  \phi )}=0$$
+
+Similarly, we can return to the example of the continuous field \(\mathcal{L}={1 \over 2} \rho(\partial _t \eta )^2-{1 \over 2} Y( \nabla \eta )^2\), which satisfies:
+
+$${\partial \mathcal{L} \over \partial \phi} -\partial _t {\partial \mathcal{L}\over\partial (\partial _t \phi ) }- \nabla {\partial \mathcal{L}\over \partial ( \nabla \phi ) }=0$$
+
+This quickly yields:
+
+$$-\rho\partial _t^2 \eta +Y \nabla ^2 \eta =0\to  \nabla ^2 \eta ={1\over v^2}  \partial _t^2 \eta $$
+
+If we generalize the scalar field \(\phi\) to vector fields, such as 4-displacement \(x^\nu\) or 4-potential \(A^\nu\), the above variation only needs to replace \(\phi\) with \(A^\nu\), yielding:
+
+$${\partial \mathcal{L}\over \partial x^\nu}-{d\over d\tau}  {\partial \mathcal{L}\over (\partial U^\nu )}=0 \quad (Lorentz-force)$$
+$${\partial \mathcal{L}\over \partial A^\nu  }-\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  A^\nu  ) }=0 \quad (Field-equation)$$
+
+Returning to the action for the electromagnetic field:
+
+$$S=S_P+S_{PF}+S_F$$
+$$=-\int   P_\mu  U^\mu  d\tau  -\int   {e\over c}  A_\mu  U^\mu  d\tau  -\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x $$
+$$=\int   -\rho_m c-{1 \over c^2}  A_\mu  J^\mu -{1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x $$
+
+First, we calculate the Lorentz force:
+
+$${\partial \mathcal{L}\over \partial x^\nu}-{d\over d\tau}  {\partial \mathcal{L}\over (\partial U^\nu )}=0$$
+
+The only terms related to \(x^\nu\) are in \(S_P\) and \(S_{PF}\), so we handle them:
+
+$$\mathcal{L}=-P_\mu  U^\mu -{e\over c}  A_\mu  U^\mu $$
+
+$${\partial \left(-{e\over c}  A_\mu  U^\mu  \right)\over\partial x^\nu} -{d\over d\tau}  {\partial \left(-P_\mu  U^\mu -{e\over c}  A_\mu  U^\mu  \right)\over\partial U^\nu  }=0$$
+
+$$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )-{d\over d\tau}  \left(-P_\nu-{e\over c}  A_\nu  \right)=0$$
+$$\to-{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}   {dA_\nu \over d\tau } =0$$
+$$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}   {\partial A_\nu \over \partial x^\mu  }  {dx^\mu \over d\tau} =0$$
+$$\to -{e\over c}  U^\mu  (\partial _\nu A_\mu  )+{dP_\nu \over d\tau } +{e\over c}  U^\mu  (\partial _\mu  A_\nu  )=0$$
+$$\to {dP_\nu \over d\tau } +{e\over c}  U^\mu  (\partial _\mu  A_\nu -\partial _\nu A_\mu  )=0$$
+$$\to {dP_\mu \over d\tau } =-{e\over c}  U^\nu F_{\nu\mu} $$
+$$\to {dP_\mu \over d\tau } ={e\over c}  F_{\mu \nu} U^\nu$$
+
+We quickly obtain the Lorentz force. Next, we handle the field equation:
+
+$$\partial ^\mu  {\partial \mathcal{L}\over \partial (\partial ^\mu  A^\nu  ) }-{\partial \mathcal{L} \over \partial A^\nu   }=0$$
+$$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\alpha\beta}   {\partial F^{\alpha\beta}\over \partial (\partial ^\mu  A^\nu)  } \right]+{1 \over c^2}  J_\nu=0$$
+
+Since:
+
+$${\partial F^{\alpha\beta} \over \partial (\partial ^\mu  A^\nu  )} ={\partial (\partial ^\alpha A^\beta -\partial ^\beta  A^\alpha ) \over \partial (\partial ^\mu  A^\nu  )}= \delta ^\alpha _\mu   \delta ^\beta  _\nu- \delta ^\beta  _\mu   \delta ^\alpha _\nu$$
+
+We have:
+
+$$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\alpha\beta}  ( \delta ^\alpha _\mu   \delta ^\beta  _nu- \delta ^\beta  _\mu   \delta ^\alpha _\nu )\right]+{1 \over c^2}  J_\nu=0$$
+$$\partial ^\mu  \left[-{1 \over 8 \pi c} F_{\mu\nu}+{1 \over 8 \pi c} F_{\nu\mu}  \right]+{1 \over c^2}  J_\nu=0$$
+
+Since \(-F_{\mu\nu}=F_{\nu\mu}\):
+
+$$\partial ^\mu  \left[{1 \over 4 \pi c} F_{\nu\mu}  \right]+{1 \over c^2}  J_\nu=0$$
+$$\partial _\nu  F^{\mu \nu} =-{4\pi \over c} J^\mu $$
+
+</p>
+</div>
+</section>
+
+<section id="t">
+<div class="container">
+<header class="major">
+	<h2><li>Non-uniqueness of Lagrangian Density in Field Theory</li></h2>
+</header>
+<p style="text-align:justify">
+As mentioned earlier, adding a total time derivative term \(f=f(q,t)\) to the Lagrangian does not change the EoM. There is a corresponding extension in field theory, where \(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\). It is important to note that \(f^\mu =f^\mu  (\phi ,x^\mu  )\) can only be a function of \((\phi ,x^\mu  )\). This can be analyzed from two perspectives. The first is the simplest, considering the boundary of variation:
+
+$$\delta S=\delta \int   (\mathcal{L}+\partial _\mu  f^\mu  ) d^4 x =\delta \left[\int  \mathcal{L}d^4 x +\int   \partial _\mu  f^\mu  d^4 x \right]$$
+$$=\delta \int _a^b \mathcal{L}dt+\delta ∮ f^\mu   d^3 S_\mu =\delta \int _a^b \mathcal{L}dt$$
+
+Where \(\int   \partial _\mu  f^\mu  d^4 x =∮ f^\mu   d^3 S_\mu \) uses Gauss's theorem, and \(\delta ∮ f^\mu   d^3 S_\mu =0\) comes from the invariance of boundary variation.
+
+Another method is to directly expand and observe whether \(\mathcal{L}+\partial _\mu  f^\mu\) satisfies:
+
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }=0$$
+<br>
+
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  {\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }= {\partial\mathcal{L}\over\partial \phi} -\partial _\mu  {\partial L\over\partial (\partial _\mu  \phi ) }+{\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
+$$={\partial (\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu  {\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }$$
+
+Using
+
+$$df^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } d\phi +{\partial f^\mu \over \partial x^\nu  }\Big|_\phi  dx^\nu $$
+$$\to \partial _\mu  f^\mu ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{\partial f^\mu \over\partial x^\mu } \Big|_\phi $$
+Further partial differentiation:
+
+$${\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )} ={\partial f^\mu \over\partial \phi }\Big|_{x^\mu  } \color{red}{ dot-cancelation-analogy}$$
+
+Additionally,
+
+$${\partial (\partial _\mu  f^\mu  )\over\partial \phi }\Big|_{x^\mu}={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi + {\partial f^\mu \over\partial x^\mu  }\Big|_\phi\right) $$
+$$={ \partial \over\partial \phi }\Big|_{x^\mu} \left({\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \right)\partial _\mu  \phi +{\partial \over\partial \phi}\Big|_{x^\mu  }\left( {\partial f^\mu \over\partial x^\mu  }\Big|_\phi \right)$$
+
+$$={ \partial \over\partial \phi }\Big|_{x^\mu  } {\partial f^\mu \over\partial \phi }\Big|_{x^\mu } \partial _\mu  \phi +{ \partial \over\partial x^\mu  }\Big|_\phi  { \partial f^\mu \over\partial \phi} \Big|_{x^\mu } $$
+$$=\partial _\mu \left( {\partial f^\mu \over\partial \phi} \right)\to \partial _\mu and {\partial\over\partial \phi} commute$$
+
+Thus,
+
+$${\partial (\partial _\mu  f^\mu  )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi ) }\right)=\partial _\mu   {\partial f^\mu \over\partial \phi} -\partial _\mu {\partial f^\mu \over\partial \phi} =0 $$
+
+Therefore,
+
+$${\partial (\mathcal{L}+\partial _\mu  f^\mu  )\over\partial \phi }-\partial _\mu \left({ (\partial (L+\partial _\mu  f^\mu  )\over\partial (\partial _\mu  \phi )}\right)={\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi ) }\right)=0$$
+
+Adding \(\partial _\mu  f^\mu \) does not change the EoM.
+</p>
+</div>
+</section>
+
+<section id="u">
+<div class="container">
+<header class="major">
+	<h2><li>Other Possibilities That Do Not Affect EoM</li></h2>
+</header>
+<p style="text-align:justify">
+<b><font color="red">This section is a conjecture by the author and is not yet confirmed to be correct</font></b><br>
+As mentioned earlier, adding a total time derivative term \(f=f(q,t)\) to the Lagrangian does not change the EoM. There is a corresponding extension in field theory, where \(\mathcal{L}\to \bar{\mathcal{L}} =\mathcal{L}+\partial _\mu  f^\mu\). It is important to note that \(f^\mu =f^\mu  (\phi ,x^\mu  )\) can only be a function of \((\phi ,x^\mu  )\). Here, we discuss the conditions under which \(f=f(q,\dot{q} ,t)\) and \(f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )\) might not change the EoM. In principle, we require:
+
+$$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
+$${\partial (\partial _\alpha f^\alpha )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\alpha f^\alpha )\over\partial (\partial _\mu  \phi )}\right )=0)$$
+
+Extended dot cancellation for \(f=f(q,\dot{q} ,t)\) type:
+
+$${\partial \dot{f} \over \partial \dot{q} } ={d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}$$
+$$ {\partial \dot{f} \over\partial q}-{d\over dt}   {\partial \dot{f} \over \partial \dot{q} } =0$$
+$$\to {d\over dt}   {\partial f\over\partial q}-{d\over dt}  \left({d\over dt}   {\partial f\over\partial \dot{q}  }+{\partial f\over\partial q}\right)=0$$
+$$\to  {d^2\over dt^2}  {\partial f\over\partial \dot{q}  }=0$$
+$$\to f=(at+b) \dot{q} +g(q,t)$$
+
+<br><br><br>
+
+$${\partial (\partial _\alpha f^\alpha ) \over \partial (\partial _\mu  \phi )} =\partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} +{\partial f^\mu \over\partial \phi }$$
+$${\partial (\partial _\alpha f^\alpha )\over\partial \phi} -\partial _\mu  \left({\partial (\partial _\alpha f^\alpha )\over\partial (\partial _\mu  \phi )}\right )=0$$
+$$\partial _\alpha  {\partial f^\alpha\over\partial \phi} -\partial _\mu  \left(\partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} +{\partial f^\mu \over\partial \phi }\right)=0$$
+$$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu  \phi )} =0$$
+$$\partial _\mu  \partial _\alpha  {\partial f^\alpha\over\partial (\partial _\mu   A^\gamma )} =0$$
+
+</p>
+</div>
+</section>
+
+<section id="v">
+<div class="container">
+<header class="major">
+	<h2><li>Noether Theorem in Field Theory</li></h2>
+</header>
+<p style="text-align:justify">
+When discussing variational principles, Noether's theorem is an essential companion. Noether's theorem states that if a system's Lagrangian \(\phi\) possesses a continuous transformation \(\phi \to \phi +\delta \alpha\) that leaves the action invariant (\(\delta S=0\)), there exists a corresponding conserved current. This can be applied to:
+
+$$Time-translation-invariance \leftrightarrow  Energy-conservation$$
+$$Spatial-translation-invariance \leftrightarrow  Momentum-conservation$$
+
+The generalized proof is as follows: Given the Lagrangian density \(\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]\), we now consider variations with respect to both the field \(\phi\) and spacetime coordinates \(x^\mu\):
+
+$$x^\mu \to  \bar{x} ^\mu =x^\mu +\delta x^\mu $$
+$$\phi \to \bar{\phi}=\phi +\delta \phi $$
+
+However, since \(\phi =\phi (x^\alpha )\) is a function of spacetime, after the variations of both \(\phi\) and \(x^\mu\), \(\phi (x^\alpha )\to \bar{\phi} ( \bar{x} ^\alpha )\) can be expressed as \(\bar{\phi} ( \bar{x} ^\alpha )\equiv \phi (x^\alpha )+\Delta\phi \), where:
+
+$$\Delta\phi =\bar{\phi} ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
+$$=\bar{\phi} ( \bar{x} ^\alpha )-\phi ( \bar{x} ^\alpha )+\phi ( \bar{x} ^\alpha )-\phi (x^\alpha )$$
+$$=\delta \phi +{\partial \phi \over \partial x^\alpha } \delta x^\alpha$$
+
+Noether's theorem examines the difference in the action after variation:
+
+$$\delta S=\delta \int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
+$$=\int   \mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ] d^4 x -\int   \mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ] d^4 x $$
+
+It is clear that even the integral's 4-volume \(d^4 \bar{x}\) changes. Consider the differential product:
+
+\(\delta S=\delta \int   \mathcal{L}d^4 x =\int   \delta\mathcal{L} d ^4 x +\int  \mathcal{L}\delta d^4 x \)
+
+The first term, \(\delta \mathcal{L}\), must be handled with care:
+
+$$\delta \mathcal{L}=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$=\mathcal{L}[\bar{\phi} ( \bar{x} ^\alpha ),\partial _\mu  \bar{\phi} ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]+\mathcal{L}[\phi ( \bar{x} ^\alpha ),\partial _\mu  \phi ( \bar{x} ^\alpha ), \bar{x} ^\mu  ]-\mathcal{L}[\phi (x^\alpha ),\partial _\mu  \phi (x^\alpha ),x^\mu  ]$$
+$$={\mathcal{L}[\phi +\delta \phi ,\partial _\mu  \phi +\delta (\partial _\mu  \phi ), \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]}+{\mathcal{L}[\phi ,\partial _\mu  \phi , \bar{x} ^\mu  ]-L[\phi ,\partial _\mu  \phi ,x^\mu  ]}$$
+$$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi +{\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta (\partial _\mu  \phi )}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
+
+Using \(\partial _\mu \) to bring to the front:
+
+$$={{\partial \mathcal{L}\over\partial \phi}  \delta \phi -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\delta \phi +\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)}+{{\partial \mathcal{L}\over \partial x^\mu  } \delta x^\mu  }$$
+
+Note that \(\left[{\partial \mathcal{L}\over\partial \phi} -\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )} \right)\right]\delta \phi\) is the Euler-Lagrange equation, which equals zero. Therefore:
+
+$$\delta \mathcal{L}=\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu $$
+
+The second term, \(\delta d^4 x\), involves the Jacobian:
+
+$$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}d^4 \bar{x}  -\int  \mathcal{L}d^4 x $$
+$$d^4 \bar{x}=J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right) d^4 x$$
+
+\(J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)\) is the Jacobian determinant:
+
+$${\partial  \bar{x} ^\mu \over\partial x^\nu  }={\partial (x^\mu +\delta x^\mu  )\over\partial x^\nu }= \delta ^\mu  _\nu +\partial _\nu  \delta x^\mu $$
+
+The Jacobian determinant is calculated as:
+
+$$J\left({\partial  \bar{x} ^\mu \over\partial x^\nu  }\right)=1+\partial _\mu  \delta x^\mu $$
+
+So:
+
+$$\int  \mathcal{L}\delta d^4 x =\int  \mathcal{L}*\partial  _\mu  \delta x^\mu   d^4 x $$
+
+Combining the two terms:
+
+$$\delta S=\delta \int   \mathcal{L}d^4 x =\int   \left[\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  \mathcal{L}*\delta x^\mu  \right] d^4 x +\int   \left[\mathcal{L} *\partial  _\mu  \delta x^\mu  \right]  d^4 x $$
+
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi \right)+\partial _\mu  (\mathcal{L}\delta x^\mu  )  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \delta \phi +\mathcal{L}\delta x^\mu  \right)  d^4 x $$
+$$=\int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Delta\phi -\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\delta x^\alpha \right)  d^4 x$$
+
+Set
+
+$$\left(\begin{matrix} \delta x^\alpha \\ \Delta\phi \end{matrix}\right)=\varepsilon\left(\begin{matrix} Χ^\alpha \\ \Psi \end{matrix}\right)$$
+
+\(Χ^\alpha\) and \(\Psi\) are symmetry generators:
+
+$$\delta S=\varepsilon \int   \partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha \right)  d^4 x =0$$
+
+Since \(\varepsilon \) is arbitrary:
+
+$$\partial _\mu  \left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha \right)\equiv \partial _\mu  N^\mu =0$$
+
+Define the Noether current:
+
+$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \Psi-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
+
+Where \({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}\) corresponds to the conserved current for the symmetry transformation \(\Psi\) of the field \(\phi\), and \(\left({\partial \mathcal{L}\over\partial (\partial _\mu  \phi )}  \partial _\alpha \phi - \delta ^\mu  _\alpha \mathcal{L}\right)\) corresponds to the conserved current under the transformation \(Χ^\alpha\) of spacetime \(x^\mu\).
+
+<br><br>
+
+For vector fields \(\alpha^\nu\):
+
+$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu )}  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha \mathcal{L}\right) Χ^\alpha $$
+</p>
+</div>
+</section>
+
+
+
+<section id="x">
+<div class="container">
+<header class="major">
+	<h2><li>Noether Theorem and Symmetry - Spacetime and Energy-Momentum Conservation</li></h2>
+</header>
+<p style="text-align:justify">
+When discussing spacetime symmetry, we fix the field \(\phi \) such that it is unaffected by variations (\(\Psi=0\)). We are left with:
+
+$$\partial _\mu  \left[\left({\partial \mathcal{L}\over\partial \left(\partial _\mu  \phi\right) }  \partial _\alpha \phi - \delta ^\mu  _\alpha L \right) Χ^\alpha \right]=0$$
+
+We define the energy-momentum tensor \(T^{\mu\nu}\):
+
+$$T^{\mu\nu}\equiv {{\partial L}\over{\partial \left( \partial _\nu \phi \right)}}  \partial ^\mu  \phi -\eta ^{\mu\nu} L$$
+
+The conservation current \(\partial _\nu T^{\mu\nu}=0\) represents:
+
+$$\partial _\nu T^{0\nu}=0 \text{ Energy conservation}$$
+$$\partial _\nu T^{i\nu}=0 \text{ Momentum conservation}$$
+
+In relativity, the energy-momentum tensor for a free particle is:
+
+$$T^{\mu\nu}\equiv mU^\mu  U^\nu$$
+
+For a classical particle, returning to non-relativistic terms, the trajectory \(q\) only depends on \(t\):
+
+$$T^{\mu\nu}=T^{00}={\partial L\over \partial \dot{q} }  \dot{q} -L=H$$
+
+\(T^{00}\) is the Hamiltonian, representing energy conservation:
+
+$$\partial _\nu T^{0\nu}=\partial _0 T^{00}={dH \over dt}=0$$
+
+The energy does not change with time!
+
+<br><br>
+
+Classical Noether theorem can be stated as:
+
+<table cellpadding="1" border="1">
+<tr><td>$$Classical Non-relativistic$$</td><td>$$Relativistic$$</td></tr>
+<tr><td>$$S=\int  Ldt $$</td><td>$$S=\int \mathcal{L}d^4 x$$</td></tr>
+<tr><td>$$N\equiv {\partial L\over\partial \dot{q} _i } Q_i-\left({\partial L\over\partial \dot{q} _i } \dot{q} _i-L\right)T$$</td>
+<td>$$N^\mu \equiv {\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \Psi^\nu-\left({\partial \mathcal{L}\over\partial (\partial _\mu  \alpha^\nu ) }  \partial _\alpha \alpha^\nu- \delta ^\mu  _\alpha L\right) Χ^\alpha $$</td></tr>
+</table>
+
+In classical mechanics, time \(t\) plays the role corresponding to spacetime \(x^\mu\), so time symmetry represents energy conservation. Other symmetries \(Q_i\) can represent spatial \(q_i\) or angular \(\theta_i\) coordinates, with:
+
+$${\partial L\over\partial \dot{q} _i }  \text{ Momentum conservation}$$
+$${\partial L\over \partial \dot{\theta}_i }  \text{ Angular momentum conservation}$$
+
+</p>
+</div>
+</section>
+
+<section id="x1">
+<div class="container">
+<header class="major">
+	<h2><li>Toward General Relativity</li></h2>
+</header>
+
+<p style="text-align:justify">
+    The foundations of classical field theory are electromagnetism and general relativity. Classical electromagnetism, due to its linear properties, is often used as a testing paradigm for many physical theories. It serves as the foundational demonstration for the relativistic principle of least action, and quantum field theory was initially pioneered by quantum electrodynamics.
+</p>
+<p style="text-align:justify">
+    On the other hand, general relativity successfully integrates gravitational effects into the curvature of spacetime through the equivalence principle and the generalized principle of relativity, providing new insights into the physical reality of spacetime. Similarly, Einstein's field equations can also be derived through the variation of the Hilbert-Einstein action.
+</p>
+<p style="text-align:justify">
+    The Hilbert-Einstein action, formulated by Hilbert in 1915 almost simultaneously with Einstein, derives Einstein's field equations. The core mathematical model of general relativity is (pseudo-)Riemannian geometry. In simple terms, it uses a manifold's tangent bundle with a point-wise variable metric \(g_{\mu\nu}\), endowing it with a new structure distinct from the flat Euclidean space. This constitutes an important branch of non-Euclidean geometry.
+</p>
+<p style="text-align:justify">
+    The Hilbert-Einstein action is expressed as:
+    \[
+    S = \int \mathcal{L} \sqrt{-g} \, d^4x = \frac{c^4}{16\pi G} \int R \sqrt{-g} \, d^4x + \int \mathcal{L}_M \sqrt{-g} \, d^4x
+    \]
+    where:
+    \[
+    \mathcal{L} = \left( \frac{c^4}{16\pi G} R + \mathcal{L}_M \right) \sqrt{-g} = \left( \frac{1}{2\kappa} R + \mathcal{L}_M \right) \sqrt{-g}
+    \]
+    \(R = g^{\mu\nu} R_{\mu\nu} = g^{\mu\nu} \delta^\beta_\alpha R^\alpha_{\mu\beta\nu}\) is the Ricci scalar, \(R_{\mu\nu}\) is the Ricci curvature tensor, \(R^\alpha_{\mu\beta\nu}\) is the Riemann curvature tensor, \(g = \det(g_{\mu\nu})\), and \(\mathcal{L}_M\) is the Lagrangian density of matter.
+</p>
+<p style="text-align:justify">
+    The curvature tensor \(R^\alpha_{\mu\beta\nu}\) is defined as:
+    \[
+    R^\rho_{\sigma\mu\nu} = \partial_\mu \Gamma^\rho_{\nu\sigma} - \partial_\nu \Gamma^\rho_{\mu\sigma} + \Gamma^\rho_{\mu\lambda} \Gamma^\lambda_{\nu\sigma} - \Gamma^\rho_{\nu\lambda} \Gamma^\lambda_{\mu\sigma}
+    \]
+    where \(\Gamma^\rho_{\nu\sigma}\) is the tangent connection, commonly referred to as the Christoffel symbol in introductory general relativity textbooks. It can be understood as describing the variation of basis vectors at different points in a non-flat coordinate system.
+</p>
+<p style="text-align:justify">
+    Interestingly, the tangent connection \(\Gamma^\rho_{\nu\sigma}\) and the curvature tensor \(R^\alpha_{\mu\beta\nu}\) hold a similar status in mathematical language to the electromagnetic field's \(A_\sigma\) and \(F_{\beta\mu}\). In fact, by "hiding" the first two indices of the tangent connection \(\Gamma^\rho_{\nu\sigma}\) and the curvature tensor \(R^\alpha_{\mu\beta\nu}\), we can express them as:
+    \[
+    \Gamma^\rho_{\nu\sigma} = \left(\Gamma^\rho_\nu \right)_\sigma = \mathbf{\Gamma}_\sigma \leftrightarrow A_\sigma
+    \]
+    \[
+    R^\alpha_{\mu\beta\nu} = \left(R^\alpha_\mu \right)_{\beta\nu} = \mathbf{R}_{\beta\nu} \leftrightarrow F_{\beta\nu}
+    \]
+</p>
+<p style="text-align:justify">
+    The first two indices are not vector indices but "Lie algebra indices." Readers who have the opportunity to study gauge theory (or Yang-Mills theory) can delve deeper into how electromagnetic interactions \(U(1)\), weak interactions \(SU(2)\), and strong interactions \(SU(3)\) are unified under the principal connection.
+</p>
+<p style="text-align:justify">
+    In fact, one can explore the similarities between general relativity and gauge theory or refer to Nobel laureate Chen-Ning Yang's seminal paper <a href="https://doi.org/10.1103/PhysRevD.12.3845" target="_blank">10.1103/PhysRevD.12.3845</a>, the popular science article "Chen-Ning Yang and Modern Mathematics," or Singer's article in "The Mathematical Heritage of Hermann Weyl (1988, American Mathematical Society)."
+</p>
+</div>
+</section>
+
+
+<section id="x2">
+<div class="container">
+<header class="major">
+	<h2><li>An Introduction to Hilbert Variation</li></h2>
+</header>
+
+<p style="text-align:justify">
+    Within the framework of traditional general relativity, the connection \(\Gamma^\rho_{\nu\sigma}\) adopts the assumptions of "metric compatibility" and "torsion-free." The former, "metric compatibility," essentially means that the metric remains unchanged during "parallel transport" along the connection \(\Gamma^\rho_{\nu\sigma}\):
+    \[
+    \nabla_\beta g_{\mu\nu} = g_{\mu\nu;\gamma} = g_{\mu\nu,\gamma} - g_{\alpha\nu} \Gamma^\alpha_{\mu\gamma} - g_{\alpha\mu} \Gamma^\alpha_{\nu\gamma} = 0
+    \]
+    In simpler terms, the length of an object does not change when transported from point A to point B.
+</p>
+<p style="text-align:justify">
+    The latter, "torsion-free," assumes that the two lower indices of the connection \(\Gamma^\rho_{\nu\sigma}\) are symmetric:
+    \[
+    \Gamma^\rho_{\nu\sigma} = \Gamma^\rho_{\sigma\nu}
+    \]
+    Mathematically, there is a theorem that proves that given a metric distribution, the torsion-free connection \(\Gamma^\rho_{\nu\sigma}\) is uniquely determined. Readers interested in the details can refer to Theorem 6.6 in Loring W. Tu's book <i>Differential Geometry: Connections, Curvature, and Characteristic Classes</i>.
+</p>
+<p style="text-align:justify">
+    These two conditions lead to the relationship between the connection and the metric:
+    \[
+    \Gamma^\alpha_{\mu\gamma} = \frac{1}{2} g^{\alpha\nu} \left( g_{\nu\mu,\gamma} + g_{\nu\gamma,\mu} - g_{\mu\gamma,\nu} \right)
+    \]
+    This indicates that the connection \(\Gamma^\rho_{\nu\sigma}\) is related to the first derivative of the metric. Furthermore, it can be shown that \(R^\alpha_{\mu\beta\nu}\), \(R_{\mu\nu}\), and \(R\) are related to the second derivative of the metric.
+</p>
+<p style="text-align:justify">
+    The gravitational Lagrangian density \(L_G\) is expressed as:
+    \[
+    L_G = \frac{c^4}{16\pi G} R \sqrt{-g} = L_G \left( g_{\mu\nu}, g_{\mu\nu,\alpha}, g_{\mu\nu,\alpha\beta} \right)
+    \]
+    Hilbert derived Einstein's field equations through variation with respect to the metric. However, from this perspective, \(L_G\) depends on the second derivative of the metric.
+</p>
+<p style="text-align:justify">
+    As mentioned earlier, the Ostrogradsky instability implies that \(L\) should depend only on the first derivative of the field; otherwise, it may lead to unbounded energy. In the next section, we will use the Palatini variation, treating the connection field and the metric field as independent fields and varying them separately, which leads to the same conclusions.
+</p>
+<p style="text-align:justify">
+    In this case, since the connection field and the metric field are independent, \(R_{\mu\nu}\) only involves the first derivative of the connection. Therefore, \(L_G\) can be written as:
+    \[
+    L_G = \frac{c^4}{16\pi G} g^{\mu\nu} R_{\mu\nu} \sqrt{-g} = L_G \left( g^{\mu\nu}, \Gamma^\alpha_{\mu\gamma}, \Gamma^\alpha_{\mu\gamma,\beta} \right)
+    \]
+    This safely avoids the problem of second derivatives.
+</p>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<section id="y">
+<div class="container">
+<header class="major">
+	<h2><li>Infinitesimal Poincare Transformation</li></h2>
+</header>
+<p style="text-align:justify">
+<div id="here"></div>
+龐加萊群是四維平移群加上勞倫茲群SO(1,3)。勞倫茲群是維持平時空度規張量\eta _{\mu \nu} 在勞倫茲變換 \lambda ^\alpha _\beta 下不變
+\eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} 
+假設g_a∈so(1,3)是SO(1,3)的李代數中的generator， \lambda ^\alpha _\beta 是SO(1,3)的representation(?)
+ \lambda ^\alpha _\beta  (e^(θ^a g_a ) )= \lambda ^\alpha _\beta  (I+θ^a g_a )= \delta ^\alpha _\beta + \omega ^\alpha _\beta 
+必須滿足
+\eta _\alpha\beta = \lambda ^\mu  _\alpha  \lambda ^\nu  _\beta  \eta _{\mu \nu} =( \delta ^\mu  _\alpha+ \omega ^\mu  _\alpha )( \delta ^\nu  _\beta + \omega ^\nu  _\beta  ) \eta _{\mu \nu} = \delta ^\mu  _\alpha  \delta ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\mu  _\alpha  \omega ^\nu  _\beta  \eta _{\mu \nu} + \delta ^\nu  _\beta   \omega ^\mu  _\alpha \eta _{\mu \nu} 
+=\eta _\alpha\beta + \omega ^\nu  _\beta  \eta _\alpha\nu + \omega ^\mu  _\alpha \eta _\mu \beta =\eta _\alpha\beta +\omega _\alpha\beta +\omega _\beta \alpha
+Hence
+\omega _\alpha\beta =-\omega _\beta \alpha
+x^\alpha\to  \lambda ^\mu  _\alpha x^\alpha=x^\alpha+ \omega ^\mu  _\alpha x^\alpha\to \delta x^\alpha~Χ^\alpha= \omega ^\alpha _\beta  x^\beta 
+\partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi }  \partial _\alpha \phi - \delta ^\mu  _\alpha L) Χ^\alpha )=0
+\partial _\mu  ( T_\alpha ^\mu   \omega ^\alpha _\beta  x^\beta  )=0\to \partial _\mu  (T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0
+\partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta  )=0\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta +{1 \over 2} T^\beta \mu  \omega _\beta \alpha x^\alpha )=0
+\to \partial _\mu  ({1 \over 2} T^\alpha\mu  \omega _\alpha\beta  x^\beta -{1 \over 2} T^\beta \mu  \omega _\alpha\beta  x^\alpha )=0\to {1 \over 2} \omega _\alpha\beta  \partial _\mu  (T^\alpha\mu  x^\beta -T^\beta \mu  x^\alpha )=0
+   </p>
+</div>
+</section>
+
+<section id="z">
+<div class="container">
+<header class="major">
+	<h2><li>Maximal Symmetry Action-Field theory</li></h2>
+</header>
+<p style="text-align:justify">
+<b><font color="red">本節為筆者推論，還不確定是否正確</font></b><br>
+
+前面提到Lagrangian density L的不唯一性，我們可以添加\partial _\mu  f^\mu 而不改變EoM。以下來討論添加\partial _\mu  f^\mu 對諾特定理的影響。我們只需先將L\to \bar{L} =L+\partial _\mu  f^\mu 改寫結論即可
+\delta S=\int   \partial _\mu  ((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \Delta\phi -((\partial \bar{L} )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha \bar{L}  )\delta x^\alpha )  d^4 x 
+=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+注意f^\mu =f^\mu  (\phi ,x^\mu  )，適用類似dot cancellation，\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) =├ {\partial f^\mu \over\partial \phi }┤|_(x^\mu  )，所以
+\delta S=\int   \partial _\mu  ({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi }\Delta\phi -({\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +{\partial f^\mu \over\partial \phi } \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  )\delta x^\alpha )  d^4 x 
+如果當原本的Lagrangian density L不具備對稱性，我們有機會透過{\partial f^\mu \over\partial \phi }做修正，因為f^\mu =f^\mu  (\phi ,x^\mu  )所以{\partial f^\mu \over\partial \phi }={\partial f^\mu \over\partial \phi } (\phi ,x^\mu  )，只要{\partial f^\mu \over\partial \phi }不是\partial _\mu  \phi 的函數，我們可以用{\partial f^\mu \over\partial \phi }=-\partial L/\partial (\partial _\mu  \phi ) +const V^\mu 消除微分不為零的部分使得\delta S=0，對應軌跡\phi 變分不變的守恆量為\partial L/\partial (\partial _\mu  \phi ) +{\partial f^\mu \over\partial \phi }，我們可以稱作此Lagrangian density L+\partial _\mu  f^\mu 對應的Action為Maximal Symmetry Action。
+\partial _\mu  {\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial _\mu  (\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) )=\partial (L+\partial _\nu  f^\nu  )/\partial \phi =\partial L/\partial \phi +\partial (\partial _\nu  f^\nu  )/\partial \phi 
+\partial _\mu  {{\partial \mathcal{L}\over\partial (\partial _\mu  \phi } +\partial (\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi ) ) \partial _\alpha \phi - \delta ^\mu  _\alpha L- \delta ^\mu  _\alpha \partial _\nu  f^\nu  }=\partial _\mu  {\partial (L+\partial _\nu  f^\nu  )/\partial (\partial _\mu  \phi )  \partial _\alpha \phi - \delta ^\mu  _\alpha (L+\partial _\nu  f^\nu  )}
+=\delta (L+\partial _\nu  f^\nu  )/(\delta x^\mu  )=\delta L/(\delta x^\mu  )+(\delta \partial _\nu  f^\nu )/(\delta x^\mu  )
+
+\partial _\nu  f^\nu =(\delta f^\nu )/\delta \phi  \phi _(,\nu )+(\delta f^\nu )/(\delta x^\nu  )\to d(f_(,\nu )^\nu  )=\phi _(,\nu ) d((\delta f^\nu )/\delta \phi )+(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+d((\delta f^\nu )/(\delta x^\nu  ))
+=\phi _(,\nu ) (\delta /\delta \phi   (\delta f^\nu )/\delta \phi  d\phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi  dx^\gamma  )+(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+(\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ) d\phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  ) dx^\gamma  )
+=(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))d\phi +(\delta f^\nu )/\delta \phi  d\phi _(,\nu )+(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  ))dx^\gamma 
+
+{ (\partial L/\partial \phi =-\partial (\partial _\nu  f^\nu  )/\partial \phi =-(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))@\delta L/(\delta x^\gamma  )=-(\delta \partial _\nu  f^\nu )/(\delta x^\gamma  )=-(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  )) )┤
+{ (\partial L/\partial \phi =-(\phi _(,\nu )  \delta /\delta \phi   (\delta f^\nu )/\delta \phi +\delta /\delta \phi   (\delta f^\nu )/(\delta x^\nu  ))@\delta L/(\delta x^\gamma  )=-(\phi _(,\nu )  \delta /(\delta x^\gamma  )  (\delta f^\nu )/\delta \phi +\delta /(\delta x^\gamma  )  (\delta f^\nu )/(\delta x^\nu  )) )┤
+\to ( (\partial /\partial \phi @\delta /(\delta x^\gamma  )))L=-( (\phi _(,\nu )  \delta /\delta \phi &\delta /\delta \phi @\phi _(,\nu )  \delta /(\delta x^\gamma  )&\delta /(\delta x^\gamma  )))( (\partial /\partial \phi @\delta /(\delta x^\gamma  ))) f^\nu 
+</p>
+</div>
+</section>
+
+<section id="aa">
+<div class="container">
+<header class="major">
+	<h2><li>EM field energy-momentum tensor and “standard” symmetrization procedure</li></h2>
+</header>
+<p style="text-align:justify">
+對任何物理系統，都具備能量和動量，故討論系統的energy-momentum tensor是場論中不可或缺的。回憶電磁場的Action，
+S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
+根據energy momentum tensor的定義
+T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L
+須滿足 T^{\mu\nu} _(,\nu )=0。計算得
+T_F^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L_F=\partial (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu )  \partial (A_(\beta ,\alpha)-A_(\alpha,\beta ) )/(\partial A_(\gamma ,\nu) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 8 \pi c} F^{\alpha\beta}   A_\gamma  ^(,\mu ) ( \delta ^\gamma  _\beta   \delta ^\nu _\alpha- \delta ^\gamma  _\alpha  \delta ^\nu _\beta  )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 8 \pi c} (F^\nu\gamma   A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 8 \pi c} (-F^\gamma \nu  A_\gamma  ^(,\mu )-F^\gamma \nu  A_\gamma  ^(,\mu ) )-\eta ^{\mu\nu} (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+檢查source-free的energy-momentum conservation
+ T_F^{\mu\nu} _(,\nu )={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 16 \pi c} \partial ^\mu  (F_{\alpha\beta}  F^{\alpha\beta}  )
+={1 \over 4 \pi c}  F^\gamma \nu _(,\nu )  A_\gamma  ^(,\mu )+{1 \over 4 \pi c} F^\gamma \nu   A_\gamma  ^(,\mu ) _(,\nu )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} F^{\alpha\beta}    A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} F_{\alpha\beta}  F^(\alpha\beta ,\mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)-A^(\alpha,\beta ) )   A_\alpha ^(,\mu ) _(,\beta )+{1 \over 8 \pi c} (A_(\beta ,\alpha)-A_(\alpha,\beta ) )(A^(\beta ,\alpha\mu )-A^(\alpha,\beta \mu ) )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} (A^(\beta ,\alpha)   A_\alpha ^(,\mu ) _(,\beta )-A^(\alpha,\beta )   A_\alpha ^(,\mu ) _(,\beta ) )+{1 \over 8 \pi c} (A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-A_(\beta ,\alpha) A^(\alpha,\beta \mu )-A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+A_(\alpha,\beta ) A^(\alpha,\beta \mu ) )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 4 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 4 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )+{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\alpha,\beta \mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\alpha,\beta \mu )+{1 \over 8 \pi c} A_(\beta ,\alpha) A^(\beta ,\alpha\mu )-{1 \over 8 \pi c} A_(\alpha,\beta ) A^(\beta ,\alpha\mu )
+={1 \over 4 \pi c}  F^{\alpha\beta}  _(,\beta )  A_\alpha ^(,\mu )
+因為source-free， F^{\alpha\beta}  _(,\beta )=0，所以 T_F^{\mu\nu} _(,\nu )=0，滿足energy-momentum conservation。
+值得注意的是，由諾特定理得到的能量動量張量常常是不對稱的，因為能量動量張量的不對稱會導致角動量不守恆，故通常會將電磁場的能量動量張量對稱化。如果添加一項 t_F^{\mu\nu} _(,\nu )=0，則不會改變能量守恆性，通常會加入
+t_F^{\mu\nu}=-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma )
+使得
+T_F^{\mu\nu}+t_F^{\mu\nu}={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+={1 \over 4 \pi c} F^\gamma \nu  F^\mu  _\gamma +{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} ={1 \over 4 \pi c}  F^\mu  _\gamma  F^\gamma \nu+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+Check  t_F^{\mu\nu} _(,\nu)=0
+ t_F^{\mu\nu} _(,\nu)=-{1 \over 4 \pi c}  F^\gamma \nu _(,\nu)  A^\mu  _(,\gamma )-{1 \over 4 \pi c} F^\gamma \nu  A^\mu  _(,\gamma \nu)=0-{1 \over 4 \pi c} (A^(\nu,\gamma )-A^(\gamma ,\nu) )  A^\mu  _(,\gamma \nu)
+=-{1 \over 4 \pi c} (A^(\nu,\gamma )  A^\mu  _(,\gamma \nu)-A^(\gamma ,\nu)  A^\mu  _(,\gamma \nu) )=-{1 \over 4 \pi c} (A^(\gamma ,\nu)  A^\mu  _(,\nu\gamma )-A^(\gamma ,\nu)  A^\mu  _(,\gamma \nu) )=0
+故對應到電磁場的能量動量張量寫為
+T_EM^{\mu\nu}={1 \over 4 \pi c}  F^\mu  _\gamma  F^\gamma \nu+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+
+</p>
+</div>
+</section>
+
+<section id="ab">
+<div class="container">
+<header class="major">
+	<h2><li>討論利用Lagrangian不唯一性引入對稱的EM張量</li></h2>
+</header>
+<p style="text-align:justify">
+
+
+回憶電磁場的Action，
+S_F=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu}   d^4 x 
+根據energy momentum tensor的定義
+T^{\mu\nu}\equiv \partial L/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} L={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )+{1 \over 16 \pi c} \eta ^{\mu\nu} F_{\alpha\beta}  F^{\alpha\beta} 
+我們試圖利用
+S_F^'=-\int   {1 \over 16 \pi c} F_{\mu \nu}  F^{\mu \nu} +\partial _\mu  f^\mu   d^4 x 
+令
+t^{\mu\nu}\equiv \partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu\nu} (\partial _\alpha f^\alpha )
+
+使得
+T^{\mu\nu}+t^{\mu\nu}=T^\nu\mu +t^\nu\mu 
+且
+ t^{\mu\nu} _(,\nu )=[\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu  A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0
+。由T^{\mu\nu}+t^{\mu\nu}=T^\nu\mu +t^\nu\mu \to T^{\mu\nu}-T^\nu\mu =-(t^{\mu\nu}+t^\nu\mu  )，我們先觀察T^{\mu\nu}-T^\nu\mu 不對稱的狀況
+T^{\mu\nu}-T^\nu\mu ={1 \over 4 \pi c} F^\gamma \nu  A_\gamma  ^(,\mu )-{1 \over 4 \pi c} F^\gamma \mu   A_\gamma  ^(,\nu)={1 \over 4 \pi c} [(A^(\nu,\gamma )-A^(\gamma ,\nu) )  A_\gamma  ^(,\mu )-(A^(\mu ,\gamma )-A^(\gamma ,\mu ) )  A_\gamma  ^(,\nu) ]
+={1 \over 4 \pi c} [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\gamma ,\nu)  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu)+A^(\gamma ,\mu )  A_\gamma  ^(,\nu) ]={1 \over 4 \pi c} [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu) ]
+=-[(-{1 \over 4 \pi c} A^(\nu,\gamma )  A_\gamma  ^(,\mu ) )-(-{1 \over 4 \pi c} A^(\mu ,\gamma )  A_\gamma  ^(,\nu) )]=-(t^{\mu\nu}-t^\nu\mu  )=-(\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  )  \partial ^\mu  A_\gamma -\partial (\partial _\alpha f^\alpha )/\partial (\partial _\mu  A_\gamma  )  \partial ^\nu A_\gamma  )
+
+不對稱性是否為A^(\alpha,\beta )的函數?
+\partial /(\partial A^(\alpha,\beta ) ) [A^(\nu,\gamma )  A_\gamma  ^(,\mu )-A^(\mu ,\gamma )  A_\gamma  ^(,\nu) ]=\delta _\alpha^\nu \delta _\beta ^\gamma   A_\gamma  ^(,\mu )+A^(\nu,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\mu -\delta _\alpha^\mu  \delta _\beta ^\gamma   A_\gamma  ^(,\nu)-A^(\mu ,\gamma ) \eta _\alpha\gamma  \delta _\beta ^\nu 
+=\delta _\alpha^\nu  A_\beta  ^(,\mu )+ A^\nu  _(,\alpha) \delta _\beta ^\mu -\delta _\alpha^\mu   A_\beta  ^(,\nu)- A^\mu  _(,\alpha) \delta _\beta ^\nu ≠0
+不對稱性是A^(\alpha,\beta )的函數，無法利用f^\mu =f^\mu  (\phi ,x^\mu  )，需要f^\mu =f^\mu  (\phi ,\partial _\mu  \phi ,x^\mu  )，必須滿足
+\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0
+要求
+{ ([\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu  A_\gamma  )  \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0@\partial _\mu  \partial _\alpha  (\partial f^\alpha)/\partial (\partial _\mu  A^\gamma  ) =0)┤
+
+猜
+\partial (\partial _\alpha f^\alpha )/\partial (\partial _\nu A_\gamma  ) =-{1 \over 4 \pi c} A^(\nu,\gamma )
+[-{1 \over 4 \pi c} A^(\nu,\gamma ) \partial ^\mu  A_\gamma -\eta ^{\mu \nu}  (\partial _\alpha f^\alpha )]_(,\nu )=0
+[-{1 \over 4 \pi c} A^(\nu,\gamma ) \partial ^\mu  A_\gamma -(\partial ^\mu  f^\nu  )]_(,\nu )=0
+-{1 \over 4 \pi c} \partial _\nu  (A^(\nu,\gamma ) \partial ^\mu  A_\gamma  )-\partial ^\mu  \partial _\nu  f^\nu =0
+\partial ^\mu  \partial _\nu  f^\nu =-{1 \over 4 \pi c} \partial _\nu  (A^(\nu,\gamma ) \partial ^\mu  A_\gamma  )=-{1 \over 4 \pi c} \partial _\nu  \partial ^\mu  (A^(\nu,\gamma ) A_\gamma  )+\partial _\nu   {1 \over 4 \pi c} (A^(\nu,\gamma \mu ) A_\gamma  )
+正則場方程式
+討論Hamiltonian在場的應用，考慮
+L=L(\phi _(,\alpha),\phi ,x^\alpha )
+具備Euler-Lagrange eq
+\partial L/\partial \phi -\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))=0
+定義
+\pi ^\alpha=\partial L/(\partial \phi _(,\alpha) )
+H=\pi ^\alpha \phi _(,\alpha)-L
+即是H= T^\mu  _\mu 。一樣計算
+dH=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-dL
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial L/\partial \phi  d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)-\partial _\alpha (\partial L/(\partial \phi _(,\alpha) ))d\phi -\partial L/(\partial \phi _(,\alpha) ) d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=\phi _(,\alpha) d\pi ^\alpha+\pi ^\alpha d\phi _(,\alpha)- \pi ^\alpha _(,\alpha) d\phi -\pi ^\alpha d\phi _(,\alpha)-\partial L/(\partial x^\alpha ) dx^\alpha
+=- \pi ^\alpha _(,\alpha) d\phi +\phi _(,\alpha) d\pi ^\alpha-\partial L/(\partial x^\alpha ) dx^\alpha
+很清楚的
+{ (\partial H/\partial \phi =- \pi ^\alpha _(,\alpha)@\partial H/(\partial \pi ^\alpha )=\phi _(,\alpha) )┤
+如果是向量場\alpha^\nu
+L=L(A^(\alpha,\beta ),\alpha^\alpha,x^\alpha )
+具備Euler-Lagrange eq
+\partial L/(\partial \alpha^\alpha )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))=0
+定義
+=\partial L/(\partial A^(\alpha,\beta ) )
+H=\pi _\alpha\beta  A^(\alpha,\beta )-L
+即是H= T^\mu  _\mu 。一樣計算
+dH=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-dL
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial \alpha^\alpha ) d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )-\partial ^\beta  (\partial L/(\partial A^(\alpha,\beta ) ))d\alpha^\alpha-\partial L/(\partial A^(\alpha,\beta ) ) dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha
+=A^(\alpha,\beta ) d\pi _\alpha\beta +\pi _\alpha\beta  dA^(\alpha,\beta )- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha-\pi _\alpha\beta  dA^(\alpha,\beta )-\partial L/(\partial x^\alpha ) dx^\alpha x
+=- \pi _\alpha\beta  ^(,\beta ) d\alpha^\alpha+A^(\alpha,\beta ) d\pi _\alpha\beta -\partial L/(\partial x^\alpha ) dx^\alpha
+很清楚的
+{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤
+
+</p>
+</div>
+</section>
+
+
+<section id="ac">
+<div class="container">
+<header class="major">
+	<h2><li>場正則轉換方程式</li></h2>
+</header>
+<p style="text-align:justify">
+
+{ (\delta S=\delta \int  \mathcal{L}d^4 x =\delta \int   H+\pi _\alpha\beta  A^(\alpha,\beta )  d^4 x @\delta \bar{S}=\delta \int   \bar{L}   d^4 x =\delta \int   M+\pi _\alpha\beta  Q^(\alpha,\beta )  d^4 x )┤
+
+H+\pi _\alpha\beta  A^(\alpha,\beta )- \omega _\beta  ^(,\beta )=M+\pi _\alpha\beta  Q^(\alpha,\beta )
+ \omega _\beta  ^(,\beta )= (H-M)+\pi _\alpha\beta  A^(\alpha,\beta )-\pi _\alpha\beta  Q^(\alpha,\beta )
+d\omega _\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
+{ ((\partial \omega _\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+Define type 1
+d\omega _1\beta = (H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha
+{ ((\partial \omega _1\beta )/(\partial \alpha^\alpha )=\pi _\alpha\beta @(\partial \omega _1\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+Define type 2
+\omega _2\beta =\omega _1\beta -\pi _\alpha\beta  A^\alpha
+d\omega _2\beta =d\omega _1\beta -d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
+=(H-M)dx_\beta +\pi _\alpha\beta  dA^\alpha-\pi _\alpha\beta  dQ^\alpha-d\pi _\alpha\beta  A^\alpha-\pi _\alpha\beta  dA^\alpha
+=(H-M)dx_\beta -A^\alpha d\pi _\alpha\beta -\pi _\alpha\beta  dQ^\alpha
+{ ((\partial \omega _2\beta )/(\partial \pi _\alpha\beta  )=-\alpha^\alpha@(\partial \omega _2\beta )/(\partial Q^\alpha )=-\pi _\alpha\beta  )┤
+
+
+
+Symplectic approach H=M
+
+{ (\partial H/(\partial \alpha^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=A^(\alpha,\beta ) )┤\to { (\partial M/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial M/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤\to { (\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )@\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta ) )┤
+\partial H/(\partial Q^\alpha )=- \pi _\alpha\beta  ^(,\beta )
+\partial H/(\partial Q^\alpha )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial Q^\alpha )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )
+- \pi _\alpha\beta  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  ) A^(\gamma ,\beta )-(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=-(\partial \pi _\alpha\beta )/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )+(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
+{ ((\partial \alpha^\gamma )/(\partial Q^\alpha )=(\partial \pi _\alpha\beta )/(\partial \pi _\gamma \beta  )@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial \pi _\alpha\varepsilon )/(\partial A^\gamma  ))┤
+\partial H/(\partial \pi _\alpha\beta  )=Q^(\alpha,\beta )
+\partial H/(\partial \pi _\alpha\beta  )=\partial H/(\partial \alpha^\gamma  )  (\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )+\partial H/(\partial \pi _\gamma \varepsilon  )  (\partial \pi _\gamma \varepsilon )/(\partial \pi _\alpha\beta  )
+Q^(\alpha,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ) A^(\gamma ,\beta )+(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \varepsilon  )  \pi _\gamma \varepsilon  ^(,\beta )=(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  )  \partial H/(\partial \pi _\gamma \beta  )-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )  \partial H/(\partial \alpha^\gamma  )
+{ ((\partial \alpha^\gamma )/(\partial \pi _\alpha\beta  )=-(\partial Q^(\alpha,\beta ))/(\partial \pi _\gamma \beta  )????????@(\partial \pi _\gamma \varepsilon )/(\partial Q^\alpha )=-(\partial Q^(\alpha,\beta ))/(\partial A^\gamma  ))┤
+</p>
+</div>
+</section>
+
+<section id="ad">
+<div class="container">
+<header class="major">
+	<h2><li>Hamiltonian變分</li></h2>
+</header>
+<p style="text-align:justify">
+
+S=\int  \mathcal{L}dt =\int   p\dot{q} -H dt =\int   pdq-Hdt 
+{ (q\to q+\delta q@p\to p+\delta p)┤
+\delta S=\delta \int   pdq-Hdt =\int   \delta pdq+p\delta dq-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
+=\int   \delta pdq-dp\delta q-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
+=\int   \delta p\dot{q} dt-p ̇dt\delta q-\partial H/\partial q \delta qdt-\partial H/\partial p \delta pdt 
+=\int  (\dot{q} \delta p-p ̇\delta q-\partial H/\partial q \delta q-\partial H/\partial p \delta p)dt
+=\int  [-(p ̇+\partial H/\partial q)\delta q+(\dot{q} -\partial H/\partial p)\delta p]dt
+{ (\partial H/\partial q=-p ̇@\partial H/\partial p=\dot{q}  )┤
+{ (\partial S/\partial t=-H@\partial S/\partial q=p)┤\to (\partial ^2 S)/\partial q\partial t=-\partial H/\partial q=p ̇=\partial p/\partial t=(\partial ^2 S)/\partial t\partial q
+</p>
+</div>
+</section>
+
+<section id="ae">
+<div class="container">
+<header class="major">
+	<h2><li>廣義相對論</li></h2>
+</header>
+<p style="text-align:justify">
+
+S=\int  \mathcal{L}√(-g) d^4 x =c^4/16\pi G \int   R√(-g) d^4 x +\int   \mathcal{L}_M √(-g) d^4 x 
+L=(c^4/16\pi G R+\mathcal{L}_M ) √(-g)=({1 \over 2}\kappa R+\mathcal{L}_M ) √(-g)
+
+ R^\rho _\sigma {\mu \nu} =\partial _\mu   \gamma ^\rho _\nu \sigma -\partial _\nu   \gamma ^\rho _\mu \sigma + \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma - \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma 
+\delta  R^\rho _\sigma {\mu \nu} =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma -\partial _\nu  \delta  \gamma ^\rho _\mu \sigma +\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma -\delta  \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma - \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma 
+\delta  \gamma ^\rho _\mu \sigma  is a tensor though  \gamma ^\rho _\mu \sigma  is not. Transformation law of   \gamma ^\rho _\mu \sigma  is
+ \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ) destroy the tensor characteristic. For another connection  \gamma  ̃^\rho _\mu \sigma 
+ \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
+The difference \delta  \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )= \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )- \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ ) obey tensor transformation law:
+\delta  \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )= \gamma  ̃^\gamma  ̅  _(\alpha ̅\beta  ̅ )- \gamma ^\gamma  ̅  _(\alpha ̅\beta  ̅ )=( \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )-( \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )+(\partial ^2 x^\rho)/(\partial x^\alpha ̅  \partial x^\beta  ̅  ))  (\partial x^\nu  ̅ )/(\partial x^\rho )
+= \gamma  ̃^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )  (\partial x^\nu  ̅ )/(\partial x^\rho )- \gamma ^\rho _\mu \sigma   (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )  (\partial x^\nu  ̅ )/(\partial x^\rho )
+=\delta  \gamma ^\rho _\mu \sigma   (\partial x^\nu  ̅ )/(\partial x^\rho )  (\partial x^\mu )/(\partial x^\alpha ̅  )  (\partial x^\sigma )/(\partial x^\beta  ̅  )
+Covariant derivative of \delta  \gamma ^\rho _\mu \sigma 
+ \nabla _\mu  \delta  \gamma ^\rho _\nu \sigma =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda 
+ \nabla _\nu  \delta  \gamma ^\rho _\mu \sigma =\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma - \gamma ^\lambda  _\nu \mu  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\nu \sigma  \delta  \gamma ^\rho _\mu \lambda 
+Red terms are missing in \delta  R^\rho _\sigma {\mu \nu} 
+\delta  R^\rho _\sigma {\mu \nu} =\partial _\mu  \delta  \gamma ^\rho _\nu \sigma -\partial _\nu  \delta  \gamma ^\rho _\mu \sigma +\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma -\delta  \gamma ^\rho _\nu \lambda   \gamma ^\lambda  _\mu \sigma - \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma 
+=(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )-(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
+We can add 0=- \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda + \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda 
+\delta  R^\rho _\sigma {\mu \nu} =(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )- \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda + \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda -(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
+=(\partial _\mu  \delta  \gamma ^\rho _\nu \sigma + \gamma ^\rho _\mu \lambda  \delta  \gamma ^\lambda  _\nu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda - \gamma ^\lambda  _\mu \sigma  \delta  \gamma ^\rho _\nu \lambda  )-(\partial _\nu  \delta  \gamma ^\rho _\mu \sigma + \gamma ^\rho _\nu \lambda  \delta  \gamma ^\lambda  _\mu \sigma - \gamma ^\lambda  _{\mu \nu}  \delta  \gamma ^\rho _\sigma \lambda -\delta  \gamma ^\rho _\mu \lambda   \gamma ^\lambda  _\nu \sigma  )
+= \nabla _\mu  \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\mu \sigma 
+Or, one can use local inertial frame  \gamma ^\rho _\nu \sigma =0 to simplified.
+Ricci tensor \delta R_\sigma \nu  and Ricci scalar \delta R
+\delta R_\sigma \nu =\delta  R^\rho _\sigma \rho\nu = \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma 
+\delta R=\delta (g^\sigma \nu  R_\sigma \nu  )=R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  \delta R_\sigma \nu =R_\sigma \nu  \delta g^\sigma \nu +g^\sigma \nu  ( \nabla _\rho \delta  \gamma ^\rho _\nu \sigma - \nabla _\nu  \delta  \gamma ^\rho _\rho\sigma  )
+Using  \nabla _\rho g^\sigma \nu =0
+\delta R=R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\equiv R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho A^\rho
+√(-g) \delta R=√(-g) R_\sigma \nu  \delta g^\sigma \nu +√(-g)  \nabla _\rho A^\rho=√(-g) R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (√(-g) A^\rho )
+So  \nabla _\rho (√(-g) A^\rho ) is a total derivative will vanish at boundary. So √(-g)  \delta R/(\delta g^\sigma \nu  )=√(-g) R_\sigma \nu 
+
+\delta √(-g)={1 \over 2}  (-\delta g)/√(-g)={1 \over 2}  (-\delta g)/√(-g)={1 \over 2}  (-gg_{\mu \nu}  \delta g^{\mu \nu} )/√(-g)=-{1 \over 2} √(-g) g_\sigma \nu  \delta g^\sigma \nu 
+\delta S_G=1/16\pi  \delta \int   R√(-g) d^4 x =1/16\pi  \int   √(-g) \delta R+R\delta √(-g) d^4 x 
+=1/16\pi  \int   √(-g) [R_\sigma \nu  \delta g^\sigma \nu + \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )]-{1 \over 2} Rg_\sigma \nu  √(-g) \delta g^\sigma \nu  d^4 x 
+=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +1/16\pi  \int    \nabla _\rho (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\delta g^\sigma \nu  √(-g) d^4 x 
+=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +1/16\pi  ∮  (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )\delta g^\sigma \nu  √(-g) d^4 x -1/16\pi  \int   (g^\sigma \nu  \delta  \gamma ^\rho _\nu \sigma -g^\sigma \nu  \delta  \gamma ^\rho _\rho\sigma  )  \nabla _\rho \delta g^\sigma \nu  √(-g) d^4 x 
+=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x +0-0=1/16\pi  \int   (R_\sigma \nu -{1 \over 2} Rg_\sigma \nu  ) √(-g) \delta g^\sigma \nu  d^4 x 
+
+
+
+\delta (\mathcal{L}_M √(-g))/(\delta g^\sigma \nu  )=√(-g)  (\delta \mathcal{L}_M)/ \delta g ^\sigma \nu  -{1 \over 2} √(-g) g_\sigma \nu  \mathcal{L}_M\equiv {1 \over 2} √(-g) T_\sigma \nu 
+T_\sigma \nu =2 (\delta \mathcal{L}_M)/(\delta g^\sigma \nu  )-g_\sigma \nu  \mathcal{L}_M
+L_(EM Field)=-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta} =-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon 
+T_\sigma \nu =2 (\delta L_(EM Field))/(\delta g^\sigma \nu  )-g_\sigma \nu  L_(EM Field)
+=2 \delta (-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (-{1 \over 16 \pi c} g^\alpha\gamma  g^\beta \varepsilon  F_{\alpha\beta}  F_\gamma \varepsilon  )
+=-2/16\pi c F^{\alpha\beta}  F^\gamma \varepsilon   \delta (g^\alpha\gamma  g^\beta \varepsilon  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-2/16\pi c F^{\alpha\beta}  F^\gamma \varepsilon  ( \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-2/16\pi c (F^{\alpha\beta}  F^\gamma \varepsilon   \delta ^\sigma  _\alpha  \delta ^\nu _\gamma  g_\beta \varepsilon +F^{\alpha\beta}  F^\gamma \varepsilon  g_\alpha\gamma   \delta ^\sigma  _\beta   \delta ^\nu _\varepsilon  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-2/16\pi c (F^\sigma \beta  F^\nu\varepsilon  g_\beta \varepsilon +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-2/16\pi c (F^\sigma \alpha F^\nu\gamma  g_\alpha\gamma +F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma  )-g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-4/16\pi c F^\alpha\sigma  F^\gamma \nu g_\alpha\gamma -g_\sigma \nu  (-{1 \over 16 \pi c} F_{\alpha\beta}  F^{\alpha\beta}  )
+=-{1 \over 4 \pi c} F^\alpha\sigma   F_\alpha ^\nu+{1 \over 16 \pi c} g_\sigma \nu  F_{\alpha\beta}  F^{\alpha\beta} 
+
+
+\DeltaL=g^\alpha\beta   \nabla _\alpha f_\beta 
+T_\sigma \nu =2 \delta \DeltaL/(\delta g^\sigma \nu  )-g_\sigma \nu  \DeltaL=2 \delta (g^\alpha\beta   \nabla _\alpha f_\beta  )/(\delta g^\sigma \nu  )-g_\sigma \nu  (g^\alpha\beta   \nabla _\alpha f_\beta  )
+=2 \nabla _\sigma  f_\nu -g_\sigma \nu   \nabla ^\alpha f_\alpha
+
+
+
+</p>
+</div>
+</section>
+
+
+-->
+<p style="text-align:justify">
+<b>Postscript</b><br>
+I would like to express my gratitude to my two Teachers at National Tsing Hua University: Professor Kuo-An Wu and Professor Ding-Yi Chou. Professor Wu taught me theoretical mechanics during my undergraduate studies, while Professor Chou guided me through classical mechanics and general relativity. Their passion for teaching and dedication allowed me to appreciate the beauty of classical physics. =)<br><br><br>
+<a href="../action/Pure-Perspective.html"><b>Index</b></a><br>
+<a href="../career/CV.html">About me</a><br><br><br>
+Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+
+</p>
+
+
+
+
+
+
+
+							<!--
+									<ul class="feature-icons">
+										<li class="icon solid fa-code">Write all the code</li>
+										<li class="icon solid fa-cubes">Stack small boxes</li>
+										<li class="icon solid fa-book">Read books and stuff</li>
+										<li class="icon solid fa-coffee">Drink much coffee</li>
+										<li class="icon solid fa-bolt">Lightning bolt</li>
+										<li class="icon solid fa-users">Shadow clone technique</li>
+									</ul>
+								</div>
+							</section>-->
+
+						<!-- Three -->
+							<!--<section id="three">
+								<div class="container">
+									<h3>A Few Accomplishments</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<div class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Possibly broke spacetime</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Terraformed a small moon</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Snapped dark matter in the wild</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>-->
+
+						<!-- Four -->
+							<!-- <section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>-->
+
+						<!-- Five -->
+						<!--
+							<section id="four">
+								<div class="container">
+									<h3>Elements</h3>
+
+									<section>
+										<h4>Text</h4>
+										<p style="text-align:justify">This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+										<hr />
+										<header>
+											<h4>Heading with a Subtitle</h4>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<header>
+											<h5>Heading with a Subtitle</h5>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<h5>Heading Level 5</h5>
+										<h6>Heading Level 6</h6>
+										<hr />
+										<h5>Blockquote</h5>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h5>Preformatted</h5>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+									<section>
+										<h4>Lists</h4>
+										<div class="row">
+											<div class="col-6 col-12-xsmall">
+												<h5>Unordered</h5>
+												<ul>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+												<h5>Alternate</h5>
+												<ul class="alt">
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<h5>Ordered</h5>
+												<ol>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ol>
+												<h5>Icons</h5>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h5>Actions</h5>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Default</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Default</a></li>
+										</ul>
+										<ul class="actions small">
+											<li><a href="#" class="button primary small">Small</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<div class="row">
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+													<li><a href="#" class="button alt">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6 col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+													<li><a href="#" class="button alt small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+													<li><a href="#" class="button alt fit">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+													<li><a href="#" class="button alt small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+									<section>
+										<h4>Table</h4>
+										<h5>Default</h5>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h5>Alternate</h5>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+									<section>
+										<h4>Buttons</h4>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Alternate</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button alt fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Primary</span></li>
+											<li><span class="button disabled">Default</span></li>
+											<li><span class="button alt disabled">Alternate</span></li>
+										</ul>
+									</section>
+
+									<section>
+										<h4>Form</h4>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High Priority</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy of this message</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">I am a human and not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" /></li>
+														<li><input type="reset" value="Reset" class="alt" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+									<section>
+										<h4>Image</h4>
+										<h5>Fit</h5>
+										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
+										<div class="box alt">
+											<div class="row gtr-50 gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h5>Left &amp; Right</h5>
+										<p style="text-align:justify"><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										<p style="text-align:justify"><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									</section>
+
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Footer -->
+					<!--<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>-->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
