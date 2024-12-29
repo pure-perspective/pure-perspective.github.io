@@ -1,0 +1,1636 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>超導量子位元</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<!--<span class="image avatar"><img src="images/photo.png" alt="" /></span>-->
+					<!--<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>-->
+					<h1 id="logo"><a href="#">超導量子位元</a></h1>
+		
+					<!--<h1 id="logo"><a href="#">Peir-Ru Wang</a></h1>-->
+					<!--<p style="text-align:justify">Physics<br />Materials Science<br />Mechanical Engineering</p>-->
+					<!--<a href="./20240701 resume-AP21-web.pdf"><b>RESUME</b></a>-->
+				</header>
+				<nav id="nav">
+					<ul>
+<li><a href="#a0" class="active">量子計算硬體基礎</a></li>
+<li><a href="#a">量子LC電路介紹</a></li>
+<li><a href="#b">LC電路的正則量子化</a></li>
+  <li><a href="#c">動能與位能項的互換</a></li>
+  <li><a href="#d">形式化 Lagrangian 動能與位能的互換</a></li>
+  <li><a href="#e">約瑟夫森節的非線性電感性質</a></li>
+  <li><a href="#f">雙約瑟夫森節（SQUID）的非線性電感性質</a></li>
+  <li><a href="#g">Transmon的性質</a></li>
+  <li><a href="#app1">附錄：電磁場下薛丁格方程式的機率流</a></li>
+  <li><a href="#app2">附錄：微擾理論下的能階修正計算</a></li>
+						
+
+</ul>
+				</nav>
+				<footer>
+					<!--<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="#" class="icon solid fa-linkedin"><span class="label">linkedin</span></a></li>
+					</ul>-->
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						
+								<div class="image main" data-position="center">
+									<img src="./images/IMG_1357.jpg" alt="" />
+								</div> <!--上方封面照片，可以換成秋紅谷-->
+
+
+
+
+								<div class="container">
+
+
+
+<body>
+
+<header class="major">
+
+<h2>超導量子位元</h2>
+</header>
+<p>
+\(\to\)<a href="./SCQubit-en.html">English Version</a><br>
+
+Update 2024.12.29：<a href="#a">主題建立</a><br>
+
+</p>
+<ol>
+
+<section id="a0">
+  <div class="container">
+    <header class="major">
+      <h2><li>量子計算硬體基礎</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      量子計算在特定問題上蘊含遠超古典電腦的運算潛力，其硬體卻也面臨控制困難、操作時間過短的問題。量子計算的硬體以量子位元作為的核心元件，還需搭配操控量子位元狀態的驅動元件、量子位元狀態的讀取元件。此外，因為量子位元容易受到外界干擾的特性，量子位元的校正/微調元件、量子糾錯元件等。簡而言之可以包含以下：
+    </p>
+
+    <ul>
+      <li>量子位元</li>
+      <li>驅動</li>
+      <li>讀取</li>
+      <li>校正</li>
+      <li>糾錯</li>
+    </ul>
+
+    <p style="text-align:justify">
+      事實上，在現今的記憶體中，其實也包含以上不同的硬體分工，只是在量子計算裡面，以上不同元件需要整體考慮。更具體一點的講法，因為不同元件會互相交互作用，當我們利用量子物理學，寫下其整個量子電路的 Hamiltonian（或薛丁格方程式），其交互作用像會去"修正"量子位元本身的特性，一方面我們利用"修正"的特性來操作和讀取量子位元的資訊，然而另一方面卻也導致量子位元受到影響，偏離理想狀態、導致錯誤產生。
+    </p>
+
+    <p style="text-align:justify">
+      本文專注在超導量子電路，量子電路中包含的元件分類如下（兩種切入點）：
+    </p>
+
+    <table style="width: 100%; border-collapse: collapse; text-align: left; border: 1px solid black;">
+      <tr>
+        <th style="border: 1px solid black; padding: 10px;">以功能性為觀點</th>
+        <td style="border: 1px solid black; padding: 10px;">
+          1. 量子位元（資料儲存）<br>
+          2. 驅動：耦合電路或 LC 共振器（作運算）<br>
+          3. 讀取（readout）：LC 共振器與饋線<br>
+          4. 校正：Flux line（改變量子位元頻率）<br>
+          5. 糾錯：量子位元（糾錯用）
+        </td>
+      </tr>
+      <tr>
+	<th style="border: 1px solid black; padding: 10px;">以元件種類為觀點</th>
+        
+        <td style="border: 1px solid black; padding: 10px;">
+          1. LC 電路<br>
+          &nbsp;&nbsp;&nbsp;<b>a.</b> LC 共振器（線性 LC 電路）：用作讀取量子位元狀態（readout resonator），有時也可以作為量子位元間耦合（間接耦合）<br>
+          &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元（非線性 LC 電路）：部分作為資料儲存、部分作為糾錯用位元<br><br>
+          2. 饋線（feedline）：外部訊號送入與讀出<br><br>
+          3. 耦合元件：<br>
+          &nbsp;&nbsp;&nbsp;<b>a.</b> 操作、改變量子位元狀態<br>
+          &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元之間的直接耦合<br>
+          &nbsp;&nbsp;&nbsp;<b>c.</b> 將外部訊號與各元件交換訊號<br><br>
+          4. Flux line：調整改變量子位元頻率，讓量子位元在指定頻率運作
+        </td>
+      </tr>
+    </table>
+
+
+<div style="text-align: center;">
+  <a href="./Image/SIngle Qubit circuit.png">
+    <img src="./Image/SIngle Qubit circuit.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+    <p style="text-align:justify">
+      arxiv.org/pdf/2106.11352
+      <br>
+      首先可以先欣賞一下單量子位元的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feedline 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/2 qubit 1 resonator.png">
+    <img src="./Image/2 qubit 1 resonator.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      doi.org/10.1038/nature08121
+      <br>
+      這張圖是兩個量子位元（Transmon）藉由一個 resonator 耦合在一起（間接耦合），可以注意的是下方一行文字寫這個 resonator 兼具耦合兩個量子位元的功能。
+    </p>
+
+
+<div style="text-align: center;">
+  <a href="./Image/4 qubit.png">
+    <img src="./Image/4 qubit.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      這張圖是四個 Qubit，中間由 bus resonator 串連耦合四個 Qubit。其中四個接頭直通 Qubit，是 flux-line，另外左上跟右下各有一條 readout feedline I/O，各自連結到兩個 readout resonator 並與 Qubit 耦合（等於說一條 readout feedline 會同時讀取兩個 Qubit）。
+    </p>
+
+
+<div style="text-align: center;">
+  <a href="./Image/5Q.png">
+    <img src="./Image/5Q.png" alt="取代文字" style="width: 80%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      doi.org/10.1038/nature13171
+      <br>
+      這張是另一種 5 qubit layout 的示意圖。其中 Z 是 flux line，XY 是 Drive line，5 個 Qubit 是直接電容耦合。此外，每個 qubit 都有自己的 readout resonator，在上方併入（此圖顯是是電感耦合）到 readout line。
+    </p>
+
+<p style="font-weight: bold; font-size: 1.2em;">邁向多 Qubit 模組</p>
+<div style="text-align: center;">
+  <a href="./17 surface.png">
+    <img src="./Image/17 surface.png" alt="取代文字" style="width: 43%; height: auto;">
+  </a>
+  <a href="./Starmon.png">
+    <img src="./Image/Starmon.png" alt="取代文字" style="width: 55%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+      https://arxiv.org/pdf/1612.08208
+      
+      <br>
+      要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。下圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，原形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feedline。
+    </p>
+
+    
+  </div>
+</section>
+
+
+
+<section id="a">
+<div class="container">
+<header class="major">
+	<h2><li>量子LC電路介紹</li></h2>
+</header>
+
+<p style="text-align:justify">
+量子物理中常見的簡諧震盪，經過量子化後能產生離散的能階，這正是量子計算基礎中的量子位元所依賴的概念。量子位元需要以具有量子效應的元件為基礎，利用超導體作為量子材料，結合 LC 震盪電路的概念，製造出超導量子位元。本節將首先討論 LC 電路的量子化過程。
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/LC.png">
+    <img src="./Image/LC.png" alt="取代文字" style="width: 30%; height: auto;">
+  </a>
+</div>
+
+    <p style="text-align:justify">
+      一個基礎的 \(LC\) 震盪電路包含一個電感 \(L\) 和一個電容 \(C\)。定義電容攜帶的電荷為 \(Q\)，當電容儲存的電荷改變速度（即 \(\dot{Q}\)）時，即表示電路上的流動電流。電容和電感分別儲存的能量可表達為：
+      \[
+      E_C = \frac{Q^2}{2C}, \quad E_L = \frac{L\dot{Q}^2}{2}.
+      \]
+      我們可以將 \(E_L\) 視為動能項 \(T\)，將 \(E_C\) 視為位能項 \(U\)，從而定義拉格朗日量 \(L\)：
+      \[
+      \mathcal{L}(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C}.
+      \]
+    </p>
+    <p style="text-align:justify">
+      根據歐拉-拉格朗日方程：
+      \[
+      \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{Q}} - \frac{\partial \mathcal{L}}{\partial Q} = 0,
+      \]
+      我們得到：
+      \[
+      L\ddot{Q} + \frac{Q}{C} = 0 \implies \ddot{Q} + \frac{Q}{LC} = 0,
+      \]
+      即描述一個以頻率 \(\omega = \frac{1}{\sqrt{LC}}\) 震盪的簡諧運動。
+</p>
+</div>
+</section>
+
+<section id="b">
+<div class="container">
+<header class="major">
+	<h2><li>LC電路的正則量子化</li></h2>
+</header>
+<p style="text-align:justify">
+正則量子化是針對古典系統引入量子結構的一套方法，其核心是將 Hamiltonian 的 Poisson 結構替換為對易關係（commutator relation）。在前一節中，我們已經給出了 Lagrangian，現在透過 Lagendre 變換即可得到 Hamiltonian。
+    </p>
+
+    <p style="text-align:justify">
+      正則動量 \(\Phi_\#\) 定義為：
+      \[
+      \Phi_\# \equiv \frac{\partial L}{\partial \dot{Q}} = L\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
+      \]
+      此處 \(\Phi_\#\) 的單位與磁通量相同，可以視為電感內部的磁通量。Hamiltonian \(H(\Phi_\#, Q)\) 定義為：
+      \[
+      H \equiv \Phi_\# \dot{Q} - L = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      在量子系統中，正則座標 \(q\) 和正則動量 \(p\) 滿足對易關係：
+      \[
+      [x, p] = i\hbar.
+      \]
+      對於本文中的參數，量子化條件為：
+      \[
+      [Q, \Phi_\#] = i\hbar.
+      \]
+</p>
+
+    <p style="text-align:justify; color:blue;">
+      本文目前採用 \(\Phi_\#\) 作為記號，這是因為與傳統文章採用的方式相反。傳統文章中，Hamiltonian 對於 \(\Phi_\#\) 與 \(Q\) 的地位是對稱的，定義誰是正則座標、誰是正則動量「似乎」是可以對換的（然而，Lagrangian 中動能和位能是反對稱的）。因此，本文直接反過來，將磁通量的部分作為廣義坐標，記為 \(\Phi\)，而 \(Q\) 作為廣義動量。
+    </p>
+
+    <p style="text-align:justify; color:blue;">
+      在這種情況下，量子化條件變為：
+      \[
+      [\Phi, Q] = i\hbar,
+      \]
+      與本文的選擇差一個負號，即：
+      \[
+      \Phi = -\Phi_\#.
+      \]
+      這個負號也可以由 Lagrangian 的反對稱性進一步解釋。
+    </p>
+
+    <p style="text-align:justify">
+有一種說法是因為後續會利用非線性的電感元件:約瑟夫森節（Josephson junction）取代線性電感，此非線性項如果出現在位能項比較好理解。不過，後面在驅動量子位元的時候，也是施加電容電壓來驅動，此時卻反而像驅動動能而不是驅動位能。以計算而言，誰是動能誰是位能是沒有差的。
+</p>
+
+    <p style="text-align:justify">
+
+      我們引入新的變量 \(a\)、\(a^\dagger\)：
+      \[
+      a = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( Q + i\sqrt{\frac{C}{L}} \Phi_\# \right), \quad
+      a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( Q - i\sqrt{\frac{C}{L}} \Phi_\# \right).
+      \]
+      反之，可以表示為：
+      \[
+      Q = \sqrt{\frac{\hbar}{2} \sqrt{\frac{C}{L}}} (a^\dagger + a), \quad
+      \Phi_\# = i\sqrt{\frac{\hbar}{2} \sqrt{\frac{L}{C}}} (a^\dagger - a).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      易證 \([a, a^\dagger] = 1\)：
+      \[
+      [a, a^\dagger] = aa^\dagger - a^\dagger a = \frac{1}{2\hbar} \sqrt{\frac{L}{C}} \left[ Q, \Phi_\# \right] = 1.
+      \]
+      我們可以利用 \(a\)、\(a^\dagger\) 重寫 Hamiltonian \(H(\Phi_\#, Q)\)：
+      \[
+      H = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
+      \]
+      其中 \(\omega = \frac{1}{\sqrt{LC}}\)。
+      展開後可得：
+      \[
+      H = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      最終得到量子化後的 Hamiltonian，每個能階差為 \(\hbar \omega\)。
+</p>
+</div>
+</section>
+
+
+<section id="c">
+  <div class="container">
+    <header class="major">
+      <h2><li>動能與位能項的互換</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      實際上，要正確地透過對易關係（commutator relation）進行量子化，需要嚴格規定 \(x, p\) 的對應關係，否則可能會出現負號上的偏差。承接前一節，我們知道：
+      \[
+      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial L}{\partial \dot{Q}} = \frac{\partial L}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
+      \]
+      現在，我們將 Lagrangian \(L\) 轉換到動量空間。
+    </p>
+
+    <p style="text-align:justify">
+      定義新的 Lagrangian \(\bar{L}\) 為：
+      \[
+      \bar{L} \equiv L - \frac{d}{dt} (\Phi_\# Q) = L - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
+      \]
+      展開後可得：
+      \[
+      \bar{L} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
+      \]
+      簡化為：
+      \[
+      \bar{L} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      注意，此時 \(L(Q, \dot{Q}) \to \bar{L}(\Phi_\#, \dot{\Phi}_\#)\)，動能與位能的角色互換。同時，有 \(\bar{L} = -L\)，對應於 Lagrangian 的反對稱性。為吸收這一反對稱性，我們定義新的變量：
+      \[
+      \Phi = -\Phi_\#.
+      \]
+      這使得：
+      \[
+      \bar{L}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      對應的正則動量 \(\Pi\)（並利用前述結果與 \(Q\) 進行聯繫）：
+      \[
+      \Pi \equiv \frac{\partial \bar{L}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Hamiltonian \(\bar{H}\) 定義為：
+      \[
+      \bar{H} = \Pi\dot{\Phi} - \bar{L} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
+      \]
+      與先前的 \(H\) 完全一致。此時的量子化條件為：
+      \[
+      [\Phi, \Pi] = [\Phi, Q] = i\hbar,
+      \]
+      與傳統條件相同。
+    </p>
+
+    <p style="text-align:justify">
+      定義新的變量 \(a\)、\(a^\dagger\)：
+      \[
+      a = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( \sqrt{\frac{C}{L}} \Phi + iQ \right), \quad
+      a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( \sqrt{\frac{C}{L}} \Phi - iQ \right).
+      \]
+      反之：
+      \[
+      \Phi = \sqrt{\frac{\hbar}{2} \sqrt{\frac{L}{C}}} (a^\dagger + a), \quad
+      Q = i\sqrt{\frac{\hbar}{2} \sqrt{\frac{C}{L}}} (a^\dagger - a).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      易證 \([a, a^\dagger] = 1\)：
+      \[
+      [a, a^\dagger] = aa^\dagger - a^\dagger a = \frac{1}{2\hbar} \sqrt{\frac{L}{C}} \left[ \Phi, Q \right] = 1.
+      \]
+      Hamiltonian \(H(\Phi, Q)\) 可改寫為：
+      \[
+      H = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
+      \]
+      由於 \(\omega = \frac{1}{\sqrt{LC}}\)，展開後可得：
+      \[
+      H = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      最終，我們再次得到量子化後的 Hamiltonian，其中每個能階的差異為 \(\hbar \omega\)。
+    </p>
+  </div>
+</section>
+
+<section id="d">
+  <div class="container">
+    <header class="major">
+      <h2><li>形式化 Lagrangian 動能與位能的互換</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      從 \(L(\dot{Q}, Q)\) 出發，基於 Lagrangian 動能與位能的反對稱性，我們定義對應 \(\dot{Q}\) 的正則動量 \(\Phi\) 時手動加入一個負號，以吸收反對稱性（否則後續的 Hamiltonian 會為負）：
+      \[
+      \Phi \equiv -\frac{\partial L}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial L}{\partial Q}.
+      \]
+      接下來，我們將 Lagrangian 換到 \((\dot{\Phi}, \Phi)\) 空間，即動量空間的 Lagrangian \(\bar{L}\)：
+      \[
+      \bar{L} \equiv L + \frac{d}{dt} (\Phi Q) = L + \dot{\Phi} Q + \Phi \dot{Q}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      利用微分的方式，可以證明 \(\bar{L} = \bar{L}(\dot{\Phi}, \Phi)\) 是 \((\dot{\Phi}, \Phi)\) 空間的函數：
+      \[
+      d\bar{L} = dL + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial L}{\partial \dot{Q}} d\dot{Q} + \frac{\partial L}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
+      \]
+      展開後，因為 \(-\Phi = \frac{\partial L}{\partial \dot{Q}}\)，我們有：
+      \[
+      d\bar{L} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      此時，對應 \(\dot{\Phi}\) 的正則動量 \(\Pi\) 為：
+      \[
+      \Pi = \frac{\partial \bar{L}}{\partial \dot{\Phi}} = Q,
+      \]
+      即與原來的 \(Q\) 相同。對應的 Hamiltonian \(\bar{H}\) 定義為：
+      \[
+      \bar{H} = \Pi \dot{\Phi} - \bar{L} = Q\dot{\Phi} - L - \dot{\Phi} Q - \Phi \dot{Q} = -L - \Phi \dot{Q}.
+      \]
+      最終形式為：
+      \[
+      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      這樣，我們可以簡化後續的推導，只需遵循以下步驟：
+      <ol>
+        <li>寫下 \(L(\dot{Q}, Q)\)。</li>
+        <li>定義 \(\Phi \equiv -\frac{\partial L}{\partial \dot{Q}}\)，並得到 \(\dot{Q}\) 與 \(\Phi\) 的關係。</li>
+        <li>直接求出對應的 Hamiltonian：
+          \[
+          \bar{H}(Q, \Phi) = -L - \Phi \dot{Q},
+          \]
+          並將 \(\dot{Q}\) 代入前述關係式。
+        </li>
+        <li>量子化條件：
+          \[
+          [Q, \Phi] = i\hbar.
+          \]
+        </li>
+      </ol>
+    </p>
+
+    <p style="text-align:justify">
+      這樣無需經過繁瑣的轉換 \(L(\dot{Q}, Q) \to \bar{L}(\dot{\Phi}, \Phi) \to \bar{H}(Q, \Phi)\)。特別是在後續引入外力耦合項時（如在推導如何驅動與讀取量子位元時，外部訊號與量子位元交互作用，或是兩個量子位元之間的耦合），如果按照繁瑣的推導，會出現類似於電磁場下的動量 \(p \to p - eA\) 的情況，在中間轉換時極度複雜。
+    </p>
+
+    <p style="text-align:justify; color:blue;">
+      註：注意到：
+      \[
+      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q} = -L + \frac{\partial L}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
+      \]
+      \(H(\Phi, Q)\) 就是傳統上熟悉的 Hamiltonian。同時，\(\bar{H} = H\) 再一次表明了 Hamiltonian 動能與位能的對稱性。
+    </p>
+  </div>
+</section>
+
+
+<section id="e">
+  <div class="container">
+    <header class="major">
+      <h2><li>約瑟夫森節的非線性電感性質</li></h2>
+    </header>
+<div style="text-align: center;">
+  <a href="./Image/JJ.png">
+    <img src="./Image/JJ.png" alt="取代文字" style="width: 50%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      描述一個約瑟夫森接面，其材料的內秉性質由 \(H_0\) 描述。在接面兩端施加電壓 \(V\)，超導波函數之間的交互作用以 \(K\) 表示，其運動方程為：
+      \[
+      i\hbar \frac{\partial}{\partial t}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        H_0 - \frac{qV}{2} & K \\
+        K & H_0 + \frac{qV}{2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}.
+      \]
+      當 \(q = -2e\)（古柏對）時，方程變為：
+      \[
+      i\hbar \frac{\partial}{\partial t}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        H_0 + eV & K \\
+        K & H_0 - eV
+      \end{pmatrix}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}.
+      \]
+    </p>
+<details class="dark-background">
+<summary>\(\theta_A, n_A \)完整推導過程</summary>
+<p style="text-align:justify">
+      第一條方程為：
+      \[
+      i\hbar \frac{\partial}{\partial t} (\sqrt{n_A} e^{i\theta_A}) = 
+      \frac{i}{2} \frac{e^{i\theta_A}}{\sqrt{n_A}} \frac{\partial n_A}{\partial t} 
+      - \sqrt{n_A} e^{i\theta_A} \frac{\partial \theta_A}{\partial t}
+      = (H_0 + eV) \sqrt{n_A} e^{i\theta_A} + K\sqrt{n_B} e^{i\theta_B}.
+      \]
+      將實部與虛部分離後得到：
+      \[
+      \frac{i}{2}\hbar \frac{\partial n_A}{\partial t} - n_A \hbar \frac{\partial \theta_A}{\partial t} = 
+      (H_0 + eV)n_A + K\sqrt{n_A n_B} e^{i(\theta_B - \theta_A)}.
+      \]
+      其共軛方程為：
+      \[
+      -\frac{i}{2}\hbar \frac{\partial n_A}{\partial t} - n_A \hbar \frac{\partial \theta_A}{\partial t} = 
+      (H_0 + eV)n_A + K\sqrt{n_A n_B} e^{-i(\theta_B - \theta_A)}.
+      \]
+    </p>
+
+<table border="1" style="width:100%; text-align:center;">
+      <tr>
+        <th>
+將兩式相加可得：
+      \[
+      -2n_A \hbar \frac{\partial \theta_A}{\partial t} = 2(H_0 + eV)n_A + 2K\sqrt{n_A n_B} \cos(\theta_B - \theta_A),
+      \]
+      整理得到 \(\theta_A\) 的方程：
+      \[
+      \hbar \frac{\partial \theta_A}{\partial t} = -(H_0 + eV) - K\sqrt{\frac{n_B}{n_A}} \cos(\theta_B - \theta_A).
+      \]
+      	</th>
+      </tr>
+      <tr>
+        <th>
+   	將兩式相減可得：
+      \[
+      i\hbar \frac{\partial n_A}{\partial t} = 2iK\sqrt{n_A n_B} \sin(\theta_B - \theta_A),
+      \]
+      即：
+      \[
+      \hbar \frac{\partial n_A}{\partial t} = 2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+      \]
+	</th>
+      </tr>
+
+    </table>
+</details>
+
+<details class="dark-background">
+<summary>\(\theta_B, n_B \)完整推導過程</summary>
+    <p style="text-align:justify">
+      第二條方程為：
+      \[
+      i\hbar \frac{\partial}{\partial t} (\sqrt{n_B} e^{i\theta_B}) = 
+      \frac{i}{2} \frac{e^{i\theta_B}}{\sqrt{n_B}} \frac{\partial n_B}{\partial t} 
+      - \sqrt{n_B} e^{i\theta_B} \frac{\partial \theta_B}{\partial t}
+      = K\sqrt{n_A} e^{i\theta_A} + (H_0 - eV)\sqrt{n_B} e^{i\theta_B}.
+      \]
+      拆分後為：
+      \[
+      \frac{i}{2}\hbar \frac{\partial n_B}{\partial t} - n_B \hbar \frac{\partial \theta_B}{\partial t} = 
+      K\sqrt{n_A n_B} e^{-i(\theta_B - \theta_A)} + (H_0 - eV)n_B.
+      \]
+      其共軛方程為：
+      \[
+      -\frac{i}{2}\hbar \frac{\partial n_B}{\partial t} - n_B \hbar \frac{\partial \theta_B}{\partial t} = 
+      K\sqrt{n_A n_B} e^{i(\theta_B - \theta_A)} + (H_0 - eV)n_B.
+      \]
+    </p>
+<table border="1" style="width:100%; text-align:center;">
+      <tr>
+        <th>
+將兩式相加可得：
+      \[
+      -2n_B \hbar \frac{\partial \theta_B}{\partial t} = 2K\sqrt{n_A n_B} \cos(\theta_B - \theta_A) + 2(H_0 - eV)n_B,
+      \]
+      整理得到 \(\theta_B\) 的方程：
+      \[
+      \hbar \frac{\partial \theta_B}{\partial t} = -(H_0 - eV) - K\sqrt{\frac{n_A}{n_B}} \cos(\theta_B - \theta_A).
+      \]
+
+      	</th>
+      </tr>
+      <tr>
+        <th>
+   	將兩式相減可得：
+      \[
+      i\hbar \frac{\partial n_B}{\partial t} = -2iK\sqrt{n_A n_B} \sin(\theta_B - \theta_A),
+      \]
+      即：
+      \[
+      \hbar \frac{\partial n_B}{\partial t} = -2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+      \]
+	</th>
+      </tr>
+
+    </table>
+</details>
+
+    <p style="text-align:justify">
+      整理得出以下方程：
+      <ul>
+        <li>對於 \(\theta_A\)：
+          \[
+          \hbar \frac{\partial \theta_A}{\partial t} = -(H_0 + eV) - K\sqrt{\frac{n_B}{n_A}} \cos(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>對於 \(\theta_B\)：
+          \[
+          \hbar \frac{\partial \theta_B}{\partial t} = -(H_0 - eV) - K\sqrt{\frac{n_A}{n_B}} \cos(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>對於 \(n_A\)：
+          \[
+          \hbar \frac{\partial n_A}{\partial t} = 2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>對於 \(n_B\)：
+          \[
+          \hbar \frac{\partial n_B}{\partial t} = -2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+          \]
+        </li>
+      </ul>
+    </p>
+
+    <p style="text-align:justify">
+      定義相位差 \(\Delta \theta = \theta_B - \theta_A\)，並將前兩個方程相減，可得：
+      \[
+      \hbar \frac{\partial \Delta \theta}{\partial t} = 2eV + \frac{K}{\hbar} \left( \frac{n_B - n_A}{\sqrt{n_A n_B}} \right) \cos\Delta \theta.
+      \]
+      將後兩條方程結合並定義電流 \(I\) 為：
+      \[
+      -\frac{\partial n_A}{\partial t} = \frac{\partial n_B}{\partial t} \equiv \frac{I}{-2e}.
+      \]
+      整理得到：
+      \[
+      I = \frac{4eK}{\hbar} \sqrt{n_A n_B} \sin\Delta \theta \equiv I_c \sin\Delta \theta,
+      \]
+      其中 \(I_c\) 為該約瑟夫森接面的臨界電流。
+    </p>
+
+    <p style="text-align:justify">
+      定義約瑟夫森接面的非線性電感：
+      \[
+      L_J(\Delta \theta) = \left(\frac{2e}{\hbar I_c \cos\Delta \theta}\right)^{-1}.
+      \]
+      電感儲存的能量為：
+      \[
+      E = \int IV dt = \int I_0 \sin\Delta \theta \cdot \frac{\hbar}{q} \frac{\partial \Delta \theta}{\partial t} dt
+      = -\frac{I_0 \hbar}{2e} \cos\Delta \theta \equiv -\frac{I_0 \Phi_0}{2\pi} \cos\Delta \theta,
+      \]
+      其中，磁通量子 \(\Phi_0 = \frac{2\pi\hbar}{2e}\)，並定義：
+      \[
+      E_J = \frac{I_0 \Phi_0}{2\pi}.
+      \]
+    </p>
+  </div>
+</section>
+
+
+<section id="f">
+    <div class="container">
+        <header class="major">
+            <h2><li>雙約瑟夫森節（SQUID）的非線性電感性質</li></h2>
+        </header>
+
+<div style="text-align: center;">
+  <a href="./Image/SQUID.png">
+    <img src="./Image/SQUID.png" alt="取代文字" style="width: 50%; height: auto;">
+  </a>
+</div>
+
+
+        <p style="text-align:justify">
+            將兩組約瑟夫森節 \(J_1\)、\(J_2\) 相組，中間形成一個閉環，通入磁通 \( \Phi_B \) 與電壓 \( V \)。在前一節中，超導函數的相位對閉環的積分需滿足：
+            \[
+            \oint \nabla \theta(r) \cdot d\vec{l} - \frac{q}{\hbar} \Phi_B = 2\pi N
+            \]
+            因為在接面不連續會貢獻 \( \Delta\theta_1 \)、\( \Delta\theta_2 \)，\( q = -2e \)，帶入得：
+            \[
+            \Delta\theta_2 - \Delta\theta_1 + 2\pi \frac{\Phi_B}{\Phi_0} = 2\pi N
+            \]
+            \[
+            \Delta\theta_2 = \Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0} + 2\pi N
+            \]
+        </p>
+        <p style="text-align:justify">
+            當整個 SQUID 通入電流 \( I = I_1 + I_2 \)，並使用前一節約瑟夫森節電流的關係式（這裡考慮對稱的 SQUID，即兩個約瑟夫森節的特性 \( I_c \) 相同），計算得：
+            \[
+            I = I_1 + I_2 = I_0 (\sin\Delta\theta_1 + \sin\Delta\theta_2)
+            \]
+            \[
+            I = I_0 \left[\sin\Delta\theta_1 + \sin\left(\Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0} + 2\pi N\right)\right]
+            \]
+            \[
+            I = I_0 \left[\sin\Delta\theta_1 + \sin\left(\Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0}\right)\right]
+            \]
+            利用三角恆等式化簡：
+            \[
+            I = I_0 \left[2 \sin\left(\frac{\Delta\theta_1 + \Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0}}{2}\right) 
+            \cos\left(\frac{\Delta\theta_1 - \Delta\theta_1 + 2\pi \frac{\Phi_B}{\Phi_0}}{2}\right)\right]
+            \]
+            \[
+            I = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right)
+            \]
+        </p>
+        <p style="text-align:justify">
+            前一節提到約瑟夫森節具有電感的性質，同理我們可以討論 SQUID 的電感性質。將電流對時間微分：
+            \[
+            \dot{I} = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \cos\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right) \dot{\Delta\theta_1}
+            \]
+            而 \( \dot{\Delta\theta_1} \) 與電壓 \( V \) 的關係為：
+            \[
+            V = \frac{\hbar}{2e} \dot{\Delta\theta_1} = \frac{\Phi_0}{2\pi} \dot{\Delta\theta_1}
+            \]
+            帶入後可得電感值：
+            \[
+            L_{\text{SQUID}}(\Delta\theta_1, \Phi_B) = \left[\frac{2\pi}{\Phi_0} \cdot 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) 
+            \cos\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right)\right]^{-1}
+            \]
+        </p>
+        <p style="text-align:justify">
+            可以注意到 \( L_{\text{SQUID}} \) 的值會受到外加磁通 \( \Phi_B \) 的影響，這為後來 Tunable Transmon 調整頻率的關鍵。定義變數 \( \Phi \)：
+            \[
+            \Phi \equiv \frac{\Delta\theta_1}{\pi} \Phi_0 - \Phi_B = \frac{\Phi_0}{\pi} \left(\Delta\theta_1 - \frac{\Phi}{\Phi_0} \pi\right)
+            \]
+            並有：
+            \[
+            \dot{\Phi} = \frac{\Phi_0}{\pi} \dot{\Delta\theta_1}
+            \]
+            電壓 \( V \) 和電流 \( I \) 分別為：
+            \[
+            V = \frac{1}{2} \dot{\Phi}, \quad I = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\frac{\Phi}{\Phi_0} \pi\right)
+            \]
+        </p>
+        <p style="text-align:justify">
+            固定外場 \( \Phi_B \) 下，一組 SQUID 儲存的能量為：
+            \[
+            E = \int IV \, dt = \int \left[2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\frac{\Phi}{\Phi_0} \pi\right) \cdot \frac{1}{2} \dot{\Phi}\right] dt
+            \]
+            化簡得：
+            \[
+            E = I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \int \sin\left(\frac{\Phi}{\Phi_0} \pi\right) d\Phi
+            \]
+            \[
+            E = -\frac{I_0 \Phi_0}{\pi} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \cos\left(\frac{\pi}{\Phi_0} \Phi\right)
+            \]
+        </p>
+    </div>
+</section>
+
+
+<section id="g">
+    <div class="container">
+        <header class="major">
+            <h2><li>Transmon的性質</li></h2>
+        </header>
+<div style="text-align: center;">
+  <a href="./Image/Transmon.png">
+    <img src="./Image/Transmon.png" alt="取代文字" style="width: 98%; height: auto;">
+  </a>
+</div>
+Ref: DOI:10.48550/arXiv.2203.04164
+
+
+        <p style="text-align:justify">
+            前文提及約瑟夫森節具有電感性質，Transmon即是LC電路中的電感替換成約瑟夫森節。本節直接討論 Tunable Transmon，採用 SQUID 當作電感。實務上因為材料製作的不均一性，不同 Transmon 會有不一樣的特性，如果採用 Tunable Transmon，可以透過微調磁通量 \( \Phi_B \) 的方式使 Qubit 性質一致。此外，我們在前面量子化 LC 電路時，\([ \Phi, Q ] = i\hbar\) 是一對正則變量，利用 SQUID 的推導可以很自然地將磁通量 \( \Phi \) 與相位差 \( \Delta\theta \) 做聯繫，即：
+            \[
+            \Phi \equiv \frac{\Delta\theta_1}{\pi} \Phi_0 - \Phi_B
+            \]
+        </p>
+        <p style="text-align:justify">
+            現在我們寫下 Hamiltonian：
+            \[
+            H = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
+            \]
+            \[
+            = \frac{Q^2}{2C} + \frac{\Phi^2}{2L} - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \Phi^4 + \cdots
+            \]
+            其中：
+            \[
+            L = \left(\frac{I_0 \pi}{\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right)\right)^{-1}
+            \]
+        </p>
+        <p style="text-align:justify">
+            現在我們要討論非線性對於能階的改變，前文我們選擇新的變量 \( a \)、\( a^\dagger \)：
+            \[
+            a = \sqrt{\frac{1}{2\hbar} \sqrt{ \frac{L}{C}}} \left(\sqrt{\frac{C}{L}} \Phi + iQ\right), \quad
+            a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{ \frac{L}{C}}} \left(\sqrt{\frac{C}{L}} \Phi - iQ\right)
+            \]
+            反之：
+            \[
+            \Phi = \sqrt{\frac{\hbar}{2 }\sqrt{ \frac{L}{C}}} (a^\dagger + a), \quad
+            Q = i\sqrt{\frac{\hbar}{2} \sqrt{ \frac{C}{L}}} (a^\dagger - a)
+            \]
+           
+        </p>
+ <p style="text-align:justify">
+            將 Hamiltonian 表達式展開為：
+            \[
+            H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4
+            \]
+            化簡後：
+            \[
+            H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4
+            \]
+            該表達式包含線性和非線性項，線性項描述的是量子簡諧振子的能階，而非線性項源自於 Josephson 節對於能階的修正。
+        </p>
+        
+<p style="text-align:justify">
+利用微擾理論，當 \( H = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
+</p>
+
+<p style="text-align:center">
+\[
+\delta E^m = \langle E_0^m | \Delta H | E_0^m \rangle = \langle E_0^m | \left[-\frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4\right] | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+計算如下：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | (a^\dagger + a)^4 | E_0^m \rangle = \langle E_0^m | (aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)^2 | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+展開為：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | aa(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + aa^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)
++ a^\dagger a(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + a^\dagger a^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+因為取期望值，只會留下 \( a, a^\dagger \) 次數相等的項，剩下：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | aaa^\dagger a^\dagger + aa^\dagger aa^\dagger + aa^\dagger a^\dagger a + a^\dagger aaa^\dagger + a^\dagger aa^\dagger a + a^\dagger a^\dagger aa | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+繼續簡化：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | a(a^\dagger a + 1)a^\dagger + aa^\dagger aa^\dagger + (a^\dagger a + 1)a^\dagger a + a^\dagger a(a^\dagger a + 1) + a^\dagger aa^\dagger a + a^\dagger (aa^\dagger - 1)a | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+再整理為：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | aa^\dagger aa^\dagger + aa^\dagger + aa^\dagger aa^\dagger + a^\dagger aa^\dagger a + a^\dagger a + a^\dagger aa^\dagger a + a^\dagger a + a^\dagger aa^\dagger a + a^\dagger aa^\dagger a - a^\dagger a | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+進一步簡化：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | 2aa^\dagger aa^\dagger + aa^\dagger + 4a^\dagger aa^\dagger a + a^\dagger a | E_0^m \rangle
+\]
+\[
+= \langle E_0^m | 2(a^\dagger a + 1)(a^\dagger a + 1) + (a^\dagger a + 1) + 4a^\dagger aa^\dagger a + a^\dagger a | E_0^m \rangle
+\]
+</p>
+
+<p style="text-align:justify">
+最終得到：
+</p>
+
+<p style="text-align:center">
+\[
+\langle E_0^m | 6a^\dagger aa^\dagger a + 6a^\dagger a + 3 | E_0^m \rangle = 6m^2 + 6m + 3
+\]
+</p>
+
+<p style="text-align:justify">
+定義能階差：
+</p>
+
+<p style="text-align:center">
+\[
+\Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 \left\{6[m^2 - (m-1)^2] + 6\right\}
+\]
+</p>
+
+<p style="text-align:center">
+\[
+= \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2 \pi^2}{96C} \frac{e^2}{\pi^2 \hbar^2} \left[6(2m - 1) + 6\right]
+\]
+</p>
+
+<p style="text-align:justify">
+最終得到：
+</p>
+
+<p style="text-align:center">
+\[
+\Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - m\frac{e^2}{8C}
+\]
+</p>
+
+<p style="text-align:justify">
+計算 \( \Delta E^{21} - \Delta E^{10} \)：
+</p>
+
+<p style="text-align:center">
+\[
+\Delta E^{21} - \Delta E^{10} = \left(\frac{\hbar}{\sqrt{LC}} - 2\frac{e^2}{8C}\right) - \left(\frac{\hbar}{\sqrt{LC}} - \frac{e^2}{8C}\right)
+\]
+</p>
+
+<p style="text-align:center">
+\[
+= -\frac{e^2}{8C} \equiv -E_C
+\]
+</p>
+
+<p style="text-align:justify">
+\( E_C \) 表示其非線性效應。
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/Transmon state.png">
+    <img src="./Image/Transmon state.png" alt="取代文字" style="width: 50%; height: auto;">
+  </a>
+</div>
+Ref: DOI:10.1103/RevModPhys.93.025005
+
+
+    </div>
+</section>
+
+
+<section id="app1">
+  <div class="container">
+    <header class="major">
+      <h2><li>附錄：電磁場下薛丁格方程式的機率流</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      帶電荷 \(q\) 的粒子波函數 \(\Psi\) 滿足薛丁格方程式：
+      \[
+      i\hbar \partial_t \Psi = \frac{\hat{p}^2}{2m} \Psi + V\Psi,
+      \]
+      其中動量算符 \(\hat{p}\) 在電磁勢 \((\phi, \mathbf{A})\) 的作用下，表達為（SI 單位）：
+      \[
+      \hat{p} = \frac{\hbar}{i} \nabla - q\mathbf{A}.
+      \]
+      將其代入薛丁格方程式，我們得到：
+      \[
+      i\hbar \partial_t \Psi = \frac{1}{2m} \left( \frac{\hbar}{i} \nabla - q\mathbf{A} \right) \left( \frac{\hbar}{i} \nabla \Psi - q\mathbf{A}\Psi \right) + V\Psi.
+      \]
+      展開後為：
+      \[
+      i\hbar \partial_t \Psi = -\frac{\hbar^2}{2m} \nabla^2 \Psi - \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (\mathbf{A}\Psi) - \frac{q}{2m} \frac{\hbar}{i} \mathbf{A} \cdot \nabla \Psi + \frac{q^2 A^2}{2m} \Psi + \phi\Psi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      共軛方程為：
+      \[
+      -i\hbar \partial_t \Psi^* = -\frac{\hbar^2}{2m} \nabla^2 \Psi^* + \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (\mathbf{A} \Psi^*) + \frac{q}{2m} \frac{\hbar}{i} \mathbf{A} \cdot \nabla \Psi^* + \frac{q^2 A^2}{2m} \Psi^* + \phi \Psi^*.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      將兩式分別乘以 \(\Psi^*\) 和 \(\Psi\)，再相減，得到：
+      \[
+      i\hbar (\Psi^* \partial_t \Psi + \Psi \partial_t \Psi^*) = -\frac{\hbar^2}{2m} (\Psi^* \nabla^2 \Psi - \Psi \nabla^2 \Psi^*) - \frac{q}{2m} \frac{\hbar}{i} \left[ \Psi^* \nabla \cdot (\mathbf{A}\Psi) + \Psi \nabla \cdot (\mathbf{A}\Psi^*) + \Psi^* \mathbf{A} \cdot \nabla \Psi + \Psi \mathbf{A} \cdot \nabla \Psi^* \right].
+      \]
+      簡化後得到：
+      \[
+      i\hbar \partial_t (\Psi^* \Psi) = -\frac{\hbar^2}{2m} \nabla \cdot (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (2\mathbf{A} \Psi^* \Psi).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      除以 \(i\hbar\)，得：
+      \[
+      \partial_t (\Psi^* \Psi) = -\nabla \cdot \left[ \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi \right].
+      \]
+      比較連續性方程式：
+      \[
+      \partial_t \rho + \nabla \cdot \mathbf{J} = 0,
+      \]
+      其中 \(\rho = \Psi^* \Psi\) 為機率密度，可得機率流：
+      \[
+      \mathbf{J} = \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      對於帶電粒子，其電流密度 \(\mathbf{J}_q\) 為：
+      \[
+      \mathbf{J}_q = q \mathbf{J} = q \left[ \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi \right].
+      \]
+      若波函數以粒子密度 \(n(\mathbf{r})\) 和相位 \(\theta(\mathbf{r})\) 表示，即 \(\Psi \sim \sqrt{n(\mathbf{r})} e^{i\theta(\mathbf{r})}\)，則有：
+      \[
+      \mathbf{J}_q = q\frac{\hbar}{m} n(\mathbf{r}) \left[ \nabla \theta(\mathbf{r}) - \frac{q\mathbf{A}}{\hbar} \right].
+      \]
+    </p>
+<div style="text-align: center;">
+  <a href="./Image/LOOP.png">
+    <img src="./Image/LOOP.png" alt="取代文字" style="width: 50%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      在拓樸條件下，根據斯托克斯定理：
+      \[
+      \int \nabla \times \left[ \nabla \theta(\mathbf{r}) - \frac{q\mathbf{A}}{\hbar} \right] \cdot d\mathbf{S} = \int \nabla \times (\nabla \theta(\mathbf{r})) \cdot d\mathbf{S} - \frac{q}{\hbar} \int (\nabla \times \mathbf{A}) \cdot d\mathbf{S},
+      \]
+      簡化為：
+      \[
+      \oint \nabla \theta(\mathbf{r}) \cdot d\mathbf{l} - \frac{q}{\hbar} \Phi_B = \begin{cases} 
+      0, & \text{若環路無孔洞}, \\
+      2\pi N, & \text{若環路有孔洞}.
+      \end{cases}
+      \]
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section id="app2">
+  <div class="container">
+    <header class="major">
+      <h2><li>附錄：微擾理論下的能階修正計算</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      利用微擾理論，當 \( H = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \delta E^m = \langle E_0^m | \Delta H | E_0^m \rangle = \langle E_0^m | \left[-\frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4\right] | E_0^m \rangle
+      \]
+    </p>
+
+    <details class="dark-background">
+      <summary>完整推導過程</summary>
+      <div style="margin-left: 20px;">
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | (a^\dagger + a)^4 | E_0^m \rangle = \langle E_0^m | (aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)^2 | E_0^m \rangle
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          展開為：
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | aa(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + aa^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)
+          \]
+          \[
+          + a^\dagger a(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + a^\dagger a^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) | E_0^m \rangle
+          \]
+        </p>
+
+        <!-- 更多推導步驟 -->
+
+      </div>
+    </details>
+
+    <p style="text-align:justify">
+      定義能階差：
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 \left\{6[m^2 - (m-1)^2] + 6\right\}
+      \]
+    </p>
+
+    <p style="text-align:center">
+      \[
+      = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2 \pi^2}{96C} \frac{e^2}{\pi^2 \hbar^2} \left[6(2m - 1) + 6\right]
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      最終得到：
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - m\frac{e^2}{8C}
+      \]
+    </p>
+  </div>
+</section>
+
+
+
+
+<style>
+  details.dark-background {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  details.dark-background summary {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-radius: 3px;
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<p style="text-align:justify">
+<b>後記</b><br>
+<a href="../career/CV.html">About me</a><br><br><br>
+Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+</p>
+
+
+
+
+
+
+							<!--
+									<ul class="feature-icons">
+										<li class="icon solid fa-code">Write all the code</li>
+										<li class="icon solid fa-cubes">Stack small boxes</li>
+										<li class="icon solid fa-book">Read books and stuff</li>
+										<li class="icon solid fa-coffee">Drink much coffee</li>
+										<li class="icon solid fa-bolt">Lightning bolt</li>
+										<li class="icon solid fa-users">Shadow clone technique</li>
+									</ul>
+								</div>
+							</section>-->
+
+						<!-- Three -->
+							<!--<section id="three">
+								<div class="container">
+									<h3>A Few Accomplishments</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<div class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Possibly broke spacetime</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Terraformed a small moon</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Snapped dark matter in the wild</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>-->
+
+						<!-- Four -->
+							<!-- <section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>-->
+
+						<!-- Five -->
+						<!--
+							<section id="four">
+								<div class="container">
+									<h3>Elements</h3>
+
+									<section>
+										<h4>Text</h4>
+										<p style="text-align:justify">This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+										<hr />
+										<header>
+											<h4>Heading with a Subtitle</h4>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<header>
+											<h5>Heading with a Subtitle</h5>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<h5>Heading Level 5</h5>
+										<h6>Heading Level 6</h6>
+										<hr />
+										<h5>Blockquote</h5>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h5>Preformatted</h5>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+									<section>
+										<h4>Lists</h4>
+										<div class="row">
+											<div class="col-6 col-12-xsmall">
+												<h5>Unordered</h5>
+												<ul>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+												<h5>Alternate</h5>
+												<ul class="alt">
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<h5>Ordered</h5>
+												<ol>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ol>
+												<h5>Icons</h5>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h5>Actions</h5>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Default</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Default</a></li>
+										</ul>
+										<ul class="actions small">
+											<li><a href="#" class="button primary small">Small</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<div class="row">
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+													<li><a href="#" class="button alt">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6 col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+													<li><a href="#" class="button alt small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+													<li><a href="#" class="button alt fit">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+													<li><a href="#" class="button alt small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+									<section>
+										<h4>Table</h4>
+										<h5>Default</h5>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h5>Alternate</h5>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+									<section>
+										<h4>Buttons</h4>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Alternate</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button alt fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Primary</span></li>
+											<li><span class="button disabled">Default</span></li>
+											<li><span class="button alt disabled">Alternate</span></li>
+										</ul>
+									</section>
+
+									<section>
+										<h4>Form</h4>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High Priority</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy of this message</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">I am a human and not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" /></li>
+														<li><input type="reset" value="Reset" class="alt" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+									<section>
+										<h4>Image</h4>
+										<h5>Fit</h5>
+										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
+										<div class="box alt">
+											<div class="row gtr-50 gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h5>Left &amp; Right</h5>
+										<p style="text-align:justify"><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										<p style="text-align:justify"><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									</section>
+
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Footer -->
+					<!--<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>-->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,1650 @@
+<!DOCTYPE HTML>
+<!--
+	Read Only by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SC Qubit</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
+		</script>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<section id="header">
+				<header>
+					<!--<span class="image avatar"><img src="images/photo.png" alt="" /></span>-->
+					<!--<h1 id="logo"><a href="#">水湛Pure Perspective</a></h1>-->
+					<h1 id="logo"><a href="#">SC Qubit</a></h1>
+		
+					<!--<h1 id="logo"><a href="#">Peir-Ru Wang</a></h1>-->
+					<!--<p style="text-align:justify">Physics<br />Materials Science<br />Mechanical Engineering</p>-->
+					<!--<a href="./20240701 resume-AP21-web.pdf"><b>RESUME</b></a>-->
+				</header>
+				<nav id="nav">
+					<ul>
+  <li><a href="#a0" class="active">Basics of Quantum Computing Hardware</a></li>
+  <li><a href="#a">Introduction to Quantum LC Circuits</a></li>
+  <li><a href="#b">Canonical Quantization of LC Circuits</a></li>
+  <li><a href="#c">Interchange Between Kinetic and Potential Energy Terms</a></li>
+  <li><a href="#d">Formalizing the Interchange of Kinetic and Potential Energy in the Lagrangian</a></li>
+  <li><a href="#e">Nonlinear Inductance of Josephson Junctions</a></li>
+  <li><a href="#f">Nonlinear Inductance of a Double Josephson Junction (SQUID)</a></li>
+  <li><a href="#g">Properties of the Transmon</a></li>
+  <li><a href="#app1">Appendix: Probability Current in Schrödinger Equation Under Electromagnetic Fields</a></li>
+  <li><a href="#app2">Appendix: Energy Level Corrections Using Perturbation Theory</a></li>
+</ul>
+
+				</nav>
+				<footer>
+					<!--<ul class="icons">
+						<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						<li><a href="#" class="icon solid fa-linkedin"><span class="label">linkedin</span></a></li>
+					</ul>-->
+				</footer>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+
+						
+								<div class="image main" data-position="center">
+									<img src="./images/IMG_1357.jpg" alt="" />
+								</div> <!--上方封面照片，可以換成秋紅谷-->
+
+
+
+
+								<div class="container">
+
+
+
+<body>
+
+<header class="major">
+
+<h2>SC Qubit</h2>
+</header>
+<p style="text-align:justify">
+\(\to\)<a href="./SCQubit.html"><b>Chinese Version</b></a><br>
+
+
+Update 2024.12.29：New-<a href="#a0">New web</a><br>
+</p>
+<ol>
+
+<section id="a0">
+  <div class="container">
+    <header class="major">
+      <h2><li>Basics of Quantum Computing Hardware</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      Quantum computing demonstrates immense computational potential in specific problems compared to classical computers. However, its hardware faces challenges such as difficulty in control and short operation times. Quantum computing hardware revolves around quantum bits (qubits) as core components, supplemented by driving components to manipulate qubit states and readout components to measure them. Furthermore, due to qubits' susceptibility to external interference, calibration/adjustment components and quantum error correction components are also necessary. In summary, they can be categorized as follows:
+    </p>
+
+    <ul>
+      <li>Qubits</li>
+      <li>Driving components</li>
+      <li>Readout components</li>
+      <li>Calibration components</li>
+      <li>Error correction components</li>
+    </ul>
+
+    <p style="text-align:justify">
+      In fact, current memory systems also include similar hardware divisions, but in quantum computing, these components need to be considered holistically. More specifically, due to interactions between different components, when quantum physics is employed to describe the entire quantum circuit using its Hamiltonian (or Schrödinger equation), the interactions will "modify" the properties of qubits. On one hand, these modifications enable the operation and measurement of qubit information; on the other hand, they cause deviations from ideal states, leading to errors.
+    </p>
+
+    <p style="text-align:justify">
+      This article focuses on superconducting quantum circuits, with the components in quantum circuits categorized as follows (from two perspectives):
+    </p>
+
+    <table style="width: 100%; border-collapse: collapse; text-align: left; border: 1px solid black;">
+      <tr>
+        <th style="border: 1px solid black; padding: 10px;">From a functional perspective</th>
+        <td style="border: 1px solid black; padding: 10px;">
+          1. Qubits (Data storage)<br>
+          2. Driving components: Coupling circuits or LC resonators (for computation)<br>
+          3. Readout components: LC resonators and feedlines<br>
+          4. Calibration components: Flux lines (to adjust qubit frequencies)<br>
+          5. Error correction components: Qubits (used for error correction)
+        </td>
+      </tr>
+      <tr>
+        <th style="border: 1px solid black; padding: 10px;">From a component perspective</th>
+        <td style="border: 1px solid black; padding: 10px;">
+          1. LC Circuits<br>
+          &nbsp;&nbsp;&nbsp;<b>a.</b> LC resonators (linear LC circuits): Used for reading qubit states (readout resonators) and sometimes for indirect coupling between qubits<br>
+          &nbsp;&nbsp;&nbsp;<b>b.</b> Qubits (nonlinear LC circuits): Partly for data storage, partly for error correction<br><br>
+          2. Feedlines: Delivering and receiving external signals<br><br>
+          3. Coupling components:<br>
+          &nbsp;&nbsp;&nbsp;<b>a.</b> Operating and changing qubit states<br>
+          &nbsp;&nbsp;&nbsp;<b>b.</b> Direct coupling between qubits<br>
+          &nbsp;&nbsp;&nbsp;<b>c.</b> Exchanging signals between external sources and components<br><br>
+          4. Flux lines: Adjusting qubit frequencies to ensure qubits operate at specific frequencies
+        </td>
+      </tr>
+    </table>
+
+<div style="text-align: center;">
+  <a href="./Image/SIngle Qubit circuit.png">
+    <img src="./Image/SIngle Qubit circuit.png" alt="Replacement Text" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+    <p style="text-align:justify">
+      arxiv.org/pdf/2106.11352
+      <br>
+      Let's first take a look at the layout of a single qubit. (a) A microscope view of the circuit, (b) the corresponding circuit diagram. This diagram includes a qubit (red transmon), a readout resonator (light blue), and two feedlines separately driving the qubit and the readout resonator. Components are coupled via capacitors. Additionally, a flux line near the qubit generates a magnetic field to adjust the operational frequency of the transmon. (c) The readout resonator, coupled to the qubit, shows spectral shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This spectral shift allows determination of the qubit state.
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/2 qubit 1 resonator.png">
+    <img src="./Image/2 qubit 1 resonator.png" alt="Replacement Text" style="width: 100%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      doi.org/10.1038/nature08121
+      <br>
+      This image shows two qubits (transmons) coupled through a resonator (indirect coupling). Note the text below indicating that the resonator also functions as a coupler between the two qubits.
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/4 qubit.png">
+    <img src="./Image/4 qubit.png" alt="Replacement Text" style="width: 100%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      This image shows four qubits connected via a bus resonator. Each qubit is directly connected to flux lines, and there are readout feedlines on the top-left and bottom-right. Each feedline is connected to two readout resonators, coupling with two qubits simultaneously.
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/5Q.png">
+    <img src="./Image/5Q.png" alt="Replacement Text" style="width: 80%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+      doi.org/10.1038/nature13171
+      <br>
+      This is a schematic of a 5-qubit layout. Here, Z represents flux lines, and XY represents drive lines. The five qubits are directly coupled via capacitors. Each qubit has its own readout resonator, which merges (inductively coupled) into the readout line.
+    </p>
+
+<p style="font-weight: bold; font-size: 1.2em;">Towards Multi-Qubit Modules</p>
+<div style="text-align: center;">
+  <a href="./17 surface.png">
+    <img src="./Image/17 surface.png" alt="Replacement Text" style="width: 43%; height: auto;">
+  </a>
+  <a href="./Starmon.png">
+    <img src="./Image/Starmon.png" alt="Replacement Text" style="width: 55%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+      https://arxiv.org/pdf/1612.08208
+      
+      <br>
+      To achieve quantum computation, many qubits must be operated simultaneously. Due to error correction requirements, additional qubits are needed for this purpose. Below is an experimental 17-qubit quantum chip, arranged in a surface code configuration for quantum error correction. The prototype qubits are shown in pink and red as data qubits, and light blue and green as check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four for qubit coupling, one flux line, one drive line, and one readout resonator. The readout resonators are merged into three feedlines.
+    </p>
+  </div>
+</section>
+
+<section id="a">
+<div class="container">
+<header class="major">
+	<h2><li>Introduction to Quantum LC Circuits</li></h2>
+</header>
+
+<p style="text-align:justify">
+In quantum physics, a harmonic oscillator, after quantization, produces discrete energy levels, which form the foundational concept of qubits in quantum computing. Qubits rely on components exhibiting quantum effects. By using superconductors as quantum materials combined with the concept of LC oscillatory circuits, superconducting qubits can be manufactured. This section will first discuss the quantization process of LC circuits.
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/LC.png">
+    <img src="./Image/LC.png" alt="Replacement Text" style="width: 30%; height: auto;">
+  </a>
+</div>
+
+<p style="text-align:justify">
+A basic \(LC\) oscillatory circuit consists of an inductor \(L\) and a capacitor \(C\). Defining the charge stored in the capacitor as \(Q\), the rate of change of \(Q\) (\(\dot{Q}\)) represents the current in the circuit. The energy stored in the capacitor and inductor can be expressed as:
+\[
+E_C = \frac{Q^2}{2C}, \quad E_L = \frac{L\dot{Q}^2}{2}.
+\]
+We can interpret \(E_L\) as the kinetic energy term \(T\) and \(E_C\) as the potential energy term \(U\), thereby defining the Lagrangian \(\mathcal{L}\):
+\[
+\mathcal{L}(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C}.
+\]
+</p>
+<p style="text-align:justify">
+According to the Euler-Lagrange equation:
+\[
+\frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{Q}} - \frac{\partial \mathcal{L}}{\partial Q} = 0,
+\]
+we obtain:
+\[
+L\ddot{Q} + \frac{Q}{C} = 0 \implies \ddot{Q} + \frac{Q}{LC} = 0,
+\]
+which describes simple harmonic motion with a frequency of \(\omega = \frac{1}{\sqrt{LC}}\).
+</p>
+</div>
+</section>
+
+<section id="b">
+<div class="container">
+<header class="major">
+	<h2><li>Canonical Quantization of LC Circuits</li></h2>
+</header>
+<p style="text-align:justify">
+Canonical quantization is a method for introducing quantum structure into classical systems by replacing the Poisson structure of the Hamiltonian with commutator relations. In the previous section, we derived the Lagrangian. Now, the Hamiltonian can be obtained via the Legendre transform.
+</p>
+
+<p style="text-align:justify">
+The canonical momentum \(\Phi_\#\) is defined as:
+\[
+\Phi_\# \equiv \frac{\partial L}{\partial \dot{Q}} = L\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
+\]
+Here, \(\Phi_\#\) has the same unit as magnetic flux and can be interpreted as the flux inside the inductor. The Hamiltonian \(H(\Phi_\#, Q)\) is defined as:
+\[
+H \equiv \Phi_\# \dot{Q} - L = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
+\]
+</p>
+
+<p style="text-align:justify">
+In a quantum system, canonical coordinates \(q\) and canonical momentum \(p\) satisfy the commutator relation:
+\[
+[x, p] = i\hbar.
+\]
+For the parameters in this paper, the quantization condition becomes:
+\[
+[Q, \Phi_\#] = i\hbar.
+\]
+</p>
+
+<p style="text-align:justify; color:blue;">
+For this discussion, we use \(\Phi_\#\) as the notation because it aligns with the traditional literature where the roles of \(\Phi_\#\) and \(Q\) in the Hamiltonian are symmetric. By convention, this paper reverses the traditional approach and treats flux as the generalized coordinate, denoted as \(\Phi\), while \(Q\) becomes the generalized momentum. Consequently, the quantization condition becomes:
+\[
+[\Phi, Q] = i\hbar,
+\]
+with a sign difference:
+\[
+\Phi = -\Phi_\#.
+\]
+This sign can be further explained by the antisymmetric nature of the Lagrangian.
+</p>
+
+<p style="text-align:justify">
+To proceed, we introduce new variables \(a\) and \(a^\dagger\):
+\[
+a = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( Q + i\sqrt{\frac{C}{L}} \Phi_\# \right), \quad
+a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( Q - i\sqrt{\frac{C}{L}} \Phi_\# \right).
+\]
+Conversely, these can be expressed as:
+\[
+Q = \sqrt{\frac{\hbar}{2} \sqrt{\frac{C}{L}}} (a^\dagger + a), \quad
+\Phi_\# = i\sqrt{\frac{\hbar}{2} \sqrt{\frac{L}{C}}} (a^\dagger - a).
+\]
+</p>
+
+<p style="text-align:justify">
+It can be shown that \([a, a^\dagger] = 1\):
+\[
+[a, a^\dagger] = aa^\dagger - a^\dagger a = \frac{1}{2\hbar} \sqrt{\frac{L}{C}} \left[ Q, \Phi_\# \right] = 1.
+\]
+The Hamiltonian \(H(\Phi_\#, Q)\) can be rewritten as:
+\[
+H = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
+\]
+where \(\omega = \frac{1}{\sqrt{LC}}\). Expanding yields:
+\[
+H = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+\]
+</p>
+
+<p style="text-align:justify">
+Finally, the quantized Hamiltonian is obtained, with each energy level separated by \(\hbar \omega\).
+</p>
+</div>
+</section>
+
+
+<section id="c">
+  <div class="container">
+    <header class="major">
+      <h2><li>Interchange Between Kinetic and Potential Energy Terms</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      In practice, to correctly perform quantization via the commutator relation, it is essential to strictly define the correspondence between \(x, p\); otherwise, sign discrepancies might arise. Continuing from the previous section, we know:
+      \[
+      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial L}{\partial \dot{Q}} = \frac{\partial L}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
+      \]
+      Now, we transform the Lagrangian \(L\) into momentum space.
+    </p>
+
+    <p style="text-align:justify">
+      Define a new Lagrangian \(\bar{L}\) as:
+      \[
+      \bar{L} \equiv L - \frac{d}{dt} (\Phi_\# Q) = L - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
+      \]
+      Expanding this yields:
+      \[
+      \bar{L} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
+      \]
+      Simplifying to:
+      \[
+      \bar{L} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Note that at this point \(L(Q, \dot{Q}) \to \bar{L}(\Phi_\#, \dot{\Phi}_\#)\), and the roles of kinetic and potential energy are interchanged. Additionally, \(\bar{L} = -L\), corresponding to the antisymmetry of the Lagrangian. To absorb this antisymmetry, we define a new variable:
+      \[
+      \Phi = -\Phi_\#.
+      \]
+      This ensures:
+      \[
+      \bar{L}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The corresponding canonical momentum \(\Pi\) (related to \(Q\) based on previous results):
+      \[
+      \Pi \equiv \frac{\partial \bar{L}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The Hamiltonian \(\bar{H}\) is defined as:
+      \[
+      \bar{H} = \Pi\dot{\Phi} - \bar{L} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
+      \]
+      which matches the previous \(H\) exactly. The quantization condition becomes:
+      \[
+      [\Phi, \Pi] = [\Phi, Q] = i\hbar,
+      \]
+      identical to the traditional condition.
+    </p>
+
+    <p style="text-align:justify">
+      Define new variables \(a\) and \(a^\dagger\):
+      \[
+      a = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( \sqrt{\frac{C}{L}} \Phi + iQ \right), \quad
+      a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C}}} \left( \sqrt{\frac{C}{L}} \Phi - iQ \right).
+      \]
+      Conversely:
+      \[
+      \Phi = \sqrt{\frac{\hbar}{2} \sqrt{\frac{L}{C}}} (a^\dagger + a), \quad
+      Q = i\sqrt{\frac{\hbar}{2} \sqrt{\frac{C}{L}}} (a^\dagger - a).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      It is easy to verify \([a, a^\dagger] = 1\):
+      \[
+      [a, a^\dagger] = aa^\dagger - a^\dagger a = \frac{1}{2\hbar} \sqrt{\frac{L}{C}} \left[ \Phi, Q \right] = 1.
+      \]
+      The Hamiltonian \(H(\Phi, Q)\) can be rewritten as:
+      \[
+      H = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
+      \]
+      Given \(\omega = \frac{1}{\sqrt{LC}}\), expanding this yields:
+      \[
+      H = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Finally, we once again obtain the quantized Hamiltonian, where the difference between each energy level is \(\hbar \omega\).
+    </p>
+  </div>
+</section>
+
+<section id="d">
+  <div class="container">
+    <header class="major">
+      <h2><li>Formalizing the Interchange of Kinetic and Potential Energy in the Lagrangian</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      Starting from \(L(\dot{Q}, Q)\), based on the antisymmetry between the kinetic and potential energy in the Lagrangian, we manually introduce a negative sign when defining the canonical momentum \(\Phi\) corresponding to \(\dot{Q}\) to absorb this antisymmetry (otherwise, the resulting Hamiltonian would be negative):
+      \[
+      \Phi \equiv -\frac{\partial L}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial L}{\partial Q}.
+      \]
+      Next, we switch the Lagrangian to the \((\dot{\Phi}, \Phi)\) space, i.e., the momentum-space Lagrangian \(\bar{L}\):
+      \[
+      \bar{L} \equiv L + \frac{d}{dt} (\Phi Q) = L + \dot{\Phi} Q + \Phi \dot{Q}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Using differential techniques, we can prove that \(\bar{L} = \bar{L}(\dot{\Phi}, \Phi)\) is indeed a function of \((\dot{\Phi}, \Phi)\) space:
+      \[
+      d\bar{L} = dL + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial L}{\partial \dot{Q}} d\dot{Q} + \frac{\partial L}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
+      \]
+      Expanding further, since \(-\Phi = \frac{\partial L}{\partial \dot{Q}}\), we have:
+      \[
+      d\bar{L} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The corresponding canonical momentum \(\Pi\) for \(\dot{\Phi}\) is:
+      \[
+      \Pi = \frac{\partial \bar{L}}{\partial \dot{\Phi}} = Q,
+      \]
+      which is the same as the original \(Q\). The corresponding Hamiltonian \(\bar{H}\) is defined as:
+      \[
+      \bar{H} = \Pi \dot{\Phi} - \bar{L} = Q\dot{\Phi} - L - \dot{\Phi} Q - \Phi \dot{Q} = -L - \Phi \dot{Q}.
+      \]
+      The final form is:
+      \[
+      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      This allows us to simplify subsequent derivations by following these steps:
+      <ol>
+        <li>Write down \(L(\dot{Q}, Q)\).</li>
+        <li>Define \(\Phi \equiv -\frac{\partial L}{\partial \dot{Q}}\) and establish the relationship between \(\dot{Q}\) and \(\Phi\).</li>
+        <li>Directly calculate the corresponding Hamiltonian:
+          \[
+          \bar{H}(Q, \Phi) = -L - \Phi \dot{Q},
+          \]
+          substituting \(\dot{Q}\) from the previous relationship.
+        </li>
+        <li>Quantization condition:
+          \[
+          [Q, \Phi] = i\hbar.
+          \]
+        </li>
+      </ol>
+    </p>
+
+    <p style="text-align:justify">
+      This eliminates the need for the cumbersome transformation \(L(\dot{Q}, Q) \to \bar{L}(\dot{\Phi}, \Phi) \to \bar{H}(Q, \Phi)\). Especially when introducing external coupling terms (e.g., in deriving how to drive and read quantum bits, external signals interacting with quantum bits, or coupling between two quantum bits), following the traditional approach would lead to extremely complex intermediate calculations, similar to the momentum shift \(p \to p - eA\) in an electromagnetic field.
+    </p>
+
+    <p style="text-align:justify; color:blue;">
+      Note:
+      \[
+      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q} = -L + \frac{\partial L}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
+      \]
+      \(H(\Phi, Q)\) is the familiar Hamiltonian in classical mechanics. Moreover, \(\bar{H} = H\) reaffirms the symmetry between kinetic and potential energy in the Hamiltonian.
+    </p>
+  </div>
+</section>
+
+<section id="e">
+  <div class="container">
+    <header class="major">
+      <h2><li>Nonlinear Inductance of Josephson Junctions</li></h2>
+    </header>
+    <div style="text-align: center;">
+      <a href="./Image/JJ.png">
+        <img src="./Image/JJ.png" alt="Josephson Junction Diagram" style="width: 50%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      A Josephson junction can be described with its intrinsic properties represented by \(H_0\). When a voltage \(V\) is applied across the junction, the interaction between the superconducting wavefunctions is represented by \(K\). The equation of motion is given as:
+      \[
+      i\hbar \frac{\partial}{\partial t}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        H_0 - \frac{qV}{2} & K \\
+        K & H_0 + \frac{qV}{2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}.
+      \]
+      When \(q = -2e\) (Cooper pairs), the equation becomes:
+      \[
+      i\hbar \frac{\partial}{\partial t}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        H_0 + eV & K \\
+        K & H_0 - eV
+      \end{pmatrix}
+      \begin{pmatrix}
+        \sqrt{n_A} e^{i\theta_A} \\
+        \sqrt{n_B} e^{i\theta_B}
+      \end{pmatrix}.
+      \]
+    </p>
+
+    <details class="dark-background">
+      <summary>Derivation for \(\theta_A, n_A\)</summary>
+      <p style="text-align:justify">
+        The first equation is:
+        \[
+        i\hbar \frac{\partial}{\partial t} (\sqrt{n_A} e^{i\theta_A}) = 
+        \frac{i}{2} \frac{e^{i\theta_A}}{\sqrt{n_A}} \frac{\partial n_A}{\partial t} 
+        - \sqrt{n_A} e^{i\theta_A} \frac{\partial \theta_A}{\partial t}
+        = (H_0 + eV) \sqrt{n_A} e^{i\theta_A} + K\sqrt{n_B} e^{i\theta_B}.
+        \]
+        Separating the real and imaginary parts gives:
+        \[
+        \frac{i}{2}\hbar \frac{\partial n_A}{\partial t} - n_A \hbar \frac{\partial \theta_A}{\partial t} = 
+        (H_0 + eV)n_A + K\sqrt{n_A n_B} e^{i(\theta_B - \theta_A)}.
+        \]
+        Its conjugate equation is:
+        \[
+        -\frac{i}{2}\hbar \frac{\partial n_A}{\partial t} - n_A \hbar \frac{\partial \theta_A}{\partial t} = 
+        (H_0 + eV)n_A + K\sqrt{n_A n_B} e^{-i(\theta_B - \theta_A)}.
+        \]
+      </p>
+
+      <table border="1" style="width:100%; text-align:center;">
+        <tr>
+          <th>
+            Adding the two equations gives:
+            \[
+            -2n_A \hbar \frac{\partial \theta_A}{\partial t} = 2(H_0 + eV)n_A + 2K\sqrt{n_A n_B} \cos(\theta_B - \theta_A),
+            \]
+            yielding the equation for \(\theta_A\):
+            \[
+            \hbar \frac{\partial \theta_A}{\partial t} = -(H_0 + eV) - K\sqrt{\frac{n_B}{n_A}} \cos(\theta_B - \theta_A).
+            \]
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Subtracting the two equations gives:
+            \[
+            i\hbar \frac{\partial n_A}{\partial t} = 2iK\sqrt{n_A n_B} \sin(\theta_B - \theta_A),
+            \]
+            which simplifies to:
+            \[
+            \hbar \frac{\partial n_A}{\partial t} = 2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+            \]
+          </th>
+        </tr>
+      </table>
+    </details>
+
+    <details class="dark-background">
+      <summary>Derivation for \(\theta_B, n_B\)</summary>
+      <p style="text-align:justify">
+        The second equation is:
+        \[
+        i\hbar \frac{\partial}{\partial t} (\sqrt{n_B} e^{i\theta_B}) = 
+        \frac{i}{2} \frac{e^{i\theta_B}}{\sqrt{n_B}} \frac{\partial n_B}{\partial t} 
+        - \sqrt{n_B} e^{i\theta_B} \frac{\partial \theta_B}{\partial t}
+        = K\sqrt{n_A} e^{i\theta_A} + (H_0 - eV)\sqrt{n_B} e^{i\theta_B}.
+        \]
+        Separating this gives:
+        \[
+        \frac{i}{2}\hbar \frac{\partial n_B}{\partial t} - n_B \hbar \frac{\partial \theta_B}{\partial t} = 
+        K\sqrt{n_A n_B} e^{-i(\theta_B - \theta_A)} + (H_0 - eV)n_B.
+        \]
+        Its conjugate equation is:
+        \[
+        -\frac{i}{2}\hbar \frac{\partial n_B}{\partial t} - n_B \hbar \frac{\partial \theta_B}{\partial t} = 
+        K\sqrt{n_A n_B} e^{i(\theta_B - \theta_A)} + (H_0 - eV)n_B.
+        \]
+      </p>
+
+      <table border="1" style="width:100%; text-align:center;">
+        <tr>
+          <th>
+            Adding the two equations gives:
+            \[
+            -2n_B \hbar \frac{\partial \theta_B}{\partial t} = 2K\sqrt{n_A n_B} \cos(\theta_B - \theta_A) + 2(H_0 - eV)n_B,
+            \]
+            which simplifies to:
+            \[
+            \hbar \frac{\partial \theta_B}{\partial t} = -(H_0 - eV) - K\sqrt{\frac{n_A}{n_B}} \cos(\theta_B - \theta_A).
+            \]
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Subtracting the two equations gives:
+            \[
+            i\hbar \frac{\partial n_B}{\partial t} = -2iK\sqrt{n_A n_B} \sin(\theta_B - \theta_A),
+            \]
+            which simplifies to:
+            \[
+            \hbar \frac{\partial n_B}{\partial t} = -2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+            \]
+          </th>
+        </tr>
+      </table>
+    </details>
+
+    <p style="text-align:justify">
+      Combining these results:
+      <ul>
+        <li>For \(\theta_A\):
+          \[
+          \hbar \frac{\partial \theta_A}{\partial t} = -(H_0 + eV) - K\sqrt{\frac{n_B}{n_A}} \cos(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>For \(\theta_B\):
+          \[
+          \hbar \frac{\partial \theta_B}{\partial t} = -(H_0 - eV) - K\sqrt{\frac{n_A}{n_B}} \cos(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>For \(n_A\):
+          \[
+          \hbar \frac{\partial n_A}{\partial t} = 2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+          \]
+        </li>
+        <li>For \(n_B\):
+          \[
+          \hbar \frac{\partial n_B}{\partial t} = -2K\sqrt{n_A n_B} \sin(\theta_B - \theta_A).
+          \]
+        </li>
+      </ul>
+    </p>
+
+    <p style="text-align:justify">
+      Defining the phase difference \(\Delta \theta = \theta_B - \theta_A\) and combining the first two equations, we find:
+      \[
+      \hbar \frac{\partial \Delta \theta}{\partial t} = 2eV + \frac{K}{\hbar} \left( \frac{n_B - n_A}{\sqrt{n_A n_B}} \right) \cos\Delta \theta.
+      \]
+      Combining the last two equations and defining the current \(I\) as:
+      \[
+      -\frac{\partial n_A}{\partial t} = \frac{\partial n_B}{\partial t} \equiv \frac{I}{-2e},
+      \]
+      we obtain:
+      \[
+      I = \frac{4eK}{\hbar} \sqrt{n_A n_B} \sin\Delta \theta \equiv I_c \sin\Delta \theta,
+      \]
+      where \(I_c\) is the critical current of the Josephson junction.
+    </p>
+
+    <p style="text-align:justify">
+      The nonlinear inductance of the Josephson junction is defined as:
+      \[
+      L_J(\Delta \theta) = \left(\frac{2e}{\hbar I_c \cos\Delta \theta}\right)^{-1}.
+      \]
+      The energy stored in the inductance is:
+      \[
+      E = \int IV dt = \int I_0 \sin\Delta \theta \cdot \frac{\hbar}{q} \frac{\partial \Delta \theta}{\partial t} dt
+      = -\frac{I_0 \hbar}{2e} \cos\Delta \theta \equiv -\frac{I_0 \Phi_0}{2\pi} \cos\Delta \theta,
+      \]
+      where the flux quantum is \(\Phi_0 = \frac{2\pi\hbar}{2e}\), and:
+      \[
+      E_J = \frac{I_0 \Phi_0}{2\pi}.
+      \]
+    </p>
+  </div>
+</section>
+
+
+<section id="f">
+  <div class="container">
+    <header class="major">
+      <h2><li>Nonlinear Inductance of a Double Josephson Junction (SQUID)</li></h2>
+    </header>
+
+    <div style="text-align: center;">
+      <a href="./Image/SQUID.png">
+        <img src="./Image/SQUID.png" alt="SQUID Diagram" style="width: 50%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      Two Josephson junctions, \(J_1\) and \(J_2\), are connected to form a closed loop, with a magnetic flux \(\Phi_B\) and voltage \(V\) applied. According to the previous section, the integral of the superconducting wavefunction phase around the loop must satisfy:
+      \[
+      \oint \nabla \theta(r) \cdot d\vec{l} - \frac{q}{\hbar} \Phi_B = 2\pi N.
+      \]
+      Since discontinuities at the junctions contribute \(\Delta\theta_1\) and \(\Delta\theta_2\), and with \(q = -2e\), this becomes:
+      \[
+      \Delta\theta_2 - \Delta\theta_1 + 2\pi \frac{\Phi_B}{\Phi_0} = 2\pi N,
+      \]
+      leading to:
+      \[
+      \Delta\theta_2 = \Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0} + 2\pi N.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      When the entire SQUID loop carries a current \(I = I_1 + I_2\), and using the Josephson current relation from the previous section (assuming a symmetric SQUID with both junctions having the same \(I_c\)), we compute:
+      \[
+      I = I_1 + I_2 = I_0 (\sin\Delta\theta_1 + \sin\Delta\theta_2).
+      \]
+      Substituting \(\Delta\theta_2\):
+      \[
+      I = I_0 \left[\sin\Delta\theta_1 + \sin\left(\Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0} + 2\pi N\right)\right].
+      \]
+      Simplifying (noting that \(N\) is an integer and does not affect the sine function):
+      \[
+      I = I_0 \left[\sin\Delta\theta_1 + \sin\left(\Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0}\right)\right].
+      \]
+      Using trigonometric identities:
+      \[
+      I = I_0 \left[2 \sin\left(\frac{\Delta\theta_1 + \Delta\theta_1 - 2\pi \frac{\Phi_B}{\Phi_0}}{2}\right) 
+      \cos\left(\frac{\Delta\theta_1 - \Delta\theta_1 + 2\pi \frac{\Phi_B}{\Phi_0}}{2}\right)\right].
+      \]
+      This simplifies to:
+      \[
+      I = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      From the previous section, Josephson junctions exhibit inductive properties. Similarly, we can discuss the inductance of the SQUID. Differentiating the current with respect to time gives:
+      \[
+      \dot{I} = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \cos\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right) \dot{\Delta\theta_1}.
+      \]
+      The relationship between \(\dot{\Delta\theta_1}\) and the voltage \(V\) is:
+      \[
+      V = \frac{\hbar}{2e} \dot{\Delta\theta_1} = \frac{\Phi_0}{2\pi} \dot{\Delta\theta_1}.
+      \]
+      Substituting this, we find the inductance:
+      \[
+      L_{\text{SQUID}}(\Delta\theta_1, \Phi_B) = \left[\frac{2\pi}{\Phi_0} \cdot 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) 
+      \cos\left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right)\right]^{-1}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Notice that the value of \(L_{\text{SQUID}}\) is influenced by the external magnetic flux \(\Phi_B\), which is key for tuning the frequency in Tunable Transmons. Defining the variable \(\Phi\):
+      \[
+      \Phi \equiv \frac{\Delta\theta_1}{\pi} \Phi_0 - \Phi_B = \frac{\Phi_0}{\pi} \left(\Delta\theta_1 - \frac{\Phi_B}{\Phi_0} \pi\right),
+      \]
+      with:
+      \[
+      \dot{\Phi} = \frac{\Phi_0}{\pi} \dot{\Delta\theta_1}.
+      \]
+      The voltage \(V\) and current \(I\) are:
+      \[
+      V = \frac{1}{2} \dot{\Phi}, \quad I = 2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\frac{\Phi}{\Phi_0} \pi\right).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      For a fixed external flux \(\Phi_B\), the energy stored in a SQUID is:
+      \[
+      E = \int IV \, dt = \int \left[2I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \sin\left(\frac{\Phi}{\Phi_0} \pi\right) \cdot \frac{1}{2} \dot{\Phi}\right] dt.
+      \]
+      Simplifying gives:
+      \[
+      E = I_0 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \int \sin\left(\frac{\Phi}{\Phi_0} \pi\right) d\Phi.
+      \]
+      Resulting in:
+      \[
+      E = -\frac{I_0 \Phi_0}{\pi} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \cos\left(\frac{\pi}{\Phi_0} \Phi\right).
+      \]
+    </p>
+  </div>
+</section>
+
+<section id="g">
+  <div class="container">
+    <header class="major">
+      <h2><li>Properties of the Transmon</li></h2>
+    </header>
+    <div style="text-align: center;">
+      <a href="./Image/Transmon.png">
+        <img src="./Image/Transmon.png" alt="Transmon Diagram" style="width: 98%; height: auto;">
+      </a>
+    </div>
+    Ref: DOI:10.48550/arXiv.2203.04164
+
+    <p style="text-align:justify">
+      As mentioned previously, Josephson junctions exhibit inductive properties, and the Transmon is a variant of an LC circuit where the inductance is replaced by a Josephson junction. This section directly discusses the Tunable Transmon, where a SQUID is used as the inductance. In practice, due to material inhomogeneity, different Transmons may have different properties. However, by using a Tunable Transmon, the qubit properties can be made consistent by fine-tuning the magnetic flux \(\Phi_B\). Additionally, as we discussed earlier when quantizing the LC circuit, \([ \Phi, Q ] = i\hbar\) are conjugate variables. Using the derivation for the SQUID, we can naturally relate the magnetic flux \(\Phi\) to the phase difference \(\Delta\theta\), i.e.:
+      \[
+      \Phi \equiv \frac{\Delta\theta_1}{\pi} \Phi_0 - \Phi_B.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Now, we write down the Hamiltonian:
+      \[
+      H = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
+      \]
+      \[
+      = \frac{Q^2}{2C} + \frac{\Phi^2}{2L} - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \Phi^4 + \cdots
+      \]
+      where:
+      \[
+      L = \left(\frac{I_0 \pi}{\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right)\right)^{-1}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Next, we discuss how the nonlinearity affects the energy levels. From earlier, we selected new variables \( a \), \( a^\dagger \):
+      \[
+      a = \sqrt{\frac{1}{2\hbar} \sqrt{ \frac{L}{C}}} \left(\sqrt{\frac{C}{L}} \Phi + iQ\right), \quad
+      a^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{ \frac{L}{C}}} \left(\sqrt{\frac{C}{L}} \Phi - iQ\right).
+      \]
+      Conversely:
+      \[
+      \Phi = \sqrt{\frac{\hbar}{2 }\sqrt{ \frac{L}{C}}} (a^\dagger + a), \quad
+      Q = i\sqrt{\frac{\hbar}{2} \sqrt{ \frac{C}{L}}} (a^\dagger - a).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Expanding the Hamiltonian:
+      \[
+      H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4.
+      \]
+      Simplifying:
+      \[
+      H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4.
+      \]
+      This expression contains both linear and nonlinear terms, where the linear terms describe the energy levels of a quantum harmonic oscillator, and the nonlinear terms arise from the Josephson junction's correction to the energy levels.
+    </p>
+
+    <p style="text-align:justify">
+      Using perturbation theory, when \( H = H_0 + \Delta H \), and \( |E_0^m\rangle \to |E^m\rangle \), \( E_0^m \to E^m = E_0^m + \delta E^m \), we know the energy correction \( \delta E^m \) to the energy level \( E_0^m \) is:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \delta E^m = \langle E_0^m | \Delta H | E_0^m \rangle = \langle E_0^m | \left[-\frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4\right] | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Expanding this:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | (a^\dagger + a)^4 | E_0^m \rangle = \langle E_0^m | (aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)^2 | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Expanding further:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | aa(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + aa^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)
+      + a^\dagger a(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + a^\dagger a^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Taking the expectation value, we only keep terms where \( a \) and \( a^\dagger \) appear with equal powers, resulting in:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | aaa^\dagger a^\dagger + aa^\dagger aa^\dagger + aa^\dagger a^\dagger a + a^\dagger aaa^\dagger + a^\dagger aa^\dagger a + a^\dagger a^\dagger aa | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Simplifying further:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | a(a^\dagger a + 1)a^\dagger + aa^\dagger aa^\dagger + (a^\dagger a + 1)a^\dagger a + a^\dagger a(a^\dagger a + 1) + a^\dagger aa^\dagger a + a^\dagger (aa^\dagger - 1)a | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Further simplifying:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | aa^\dagger aa^\dagger + aa^\dagger + aa^\dagger aa^\dagger + a^\dagger aa^\dagger a + a^\dagger a + a^\dagger aa^\dagger a + a^\dagger a + a^\dagger aa^\dagger a + a^\dagger aa^\dagger a - a^\dagger a | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      After further simplification:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | 2aa^\dagger aa^\dagger + aa^\dagger + 4a^\dagger aa^\dagger a + a^\dagger a | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      This simplifies to:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | 2(a^\dagger a + 1)(a^\dagger a + 1) + (a^\dagger a + 1) + 4a^\dagger aa^\dagger a + a^\dagger a | E_0^m \rangle.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Finally, the energy level correction is:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \langle E_0^m | 6a^\dagger aa^\dagger a + 6a^\dagger a + 3 | E_0^m \rangle = 6m^2 + 6m + 3.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The energy difference between levels \(m\) and \(m-1\) is:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 \left\{6[m^2 - (m-1)^2] + 6\right\}.
+      \]
+    </p>
+
+    <p style="text-align:center">
+      \[
+      = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2 \pi^2}{96C} \frac{e^2}{\pi^2 \hbar^2} \left[6(2m - 1) + 6\right].
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Finally, we get:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - m\frac{e^2}{8C}.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Calculating \( \Delta E^{21} - \Delta E^{10} \):
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^{21} - \Delta E^{10} = \left(\frac{\hbar}{\sqrt{LC}} - 2\frac{e^2}{8C}\right) - \left(\frac{\hbar}{\sqrt{LC}} - \frac{e^2}{8C}\right).
+      \]
+    </p>
+
+    <p style="text-align:center">
+      \[
+      = -\frac{e^2}{8C} \equiv -E_C.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      \( E_C \) represents the nonlinear effect.
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/Transmon state.png">
+        <img src="./Image/Transmon state.png" alt="Transmon State Diagram" style="width: 50%; height: auto;">
+      </a>
+    </div>
+    Ref: DOI:10.1103/RevModPhys.93.025005
+  </div>
+</section>
+
+
+<section id="app1">
+  <div class="container">
+    <header class="major">
+      <h2><li>Appendix:Probability Current in Schrödinger Equation Under Electromagnetic Fields</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      The wavefunction \(\Psi\) of a particle with charge \(q\) satisfies the Schrödinger equation:
+      \[
+      i\hbar \partial_t \Psi = \frac{\hat{p}^2}{2m} \Psi + V\Psi,
+      \]
+      where the momentum operator \(\hat{p}\) under the influence of an electromagnetic potential \((\phi, \mathbf{A})\) is expressed as (in SI units):
+      \[
+      \hat{p} = \frac{\hbar}{i} \nabla - q\mathbf{A}.
+      \]
+      Substituting into the Schrödinger equation gives:
+      \[
+      i\hbar \partial_t \Psi = \frac{1}{2m} \left( \frac{\hbar}{i} \nabla - q\mathbf{A} \right) \left( \frac{\hbar}{i} \nabla \Psi - q\mathbf{A}\Psi \right) + V\Psi.
+      \]
+      Expanding this yields:
+      \[
+      i\hbar \partial_t \Psi = -\frac{\hbar^2}{2m} \nabla^2 \Psi - \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (\mathbf{A}\Psi) - \frac{q}{2m} \frac{\hbar}{i} \mathbf{A} \cdot \nabla \Psi + \frac{q^2 A^2}{2m} \Psi + V\Psi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Its conjugate equation is:
+      \[
+      -i\hbar \partial_t \Psi^* = -\frac{\hbar^2}{2m} \nabla^2 \Psi^* + \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (\mathbf{A} \Psi^*) + \frac{q}{2m} \frac{\hbar}{i} \mathbf{A} \cdot \nabla \Psi^* + \frac{q^2 A^2}{2m} \Psi^* + V\Psi^*.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Multiplying the first equation by \(\Psi^*\) and the second equation by \(\Psi\), and subtracting the two, we get:
+      \[
+      i\hbar (\Psi^* \partial_t \Psi + \Psi \partial_t \Psi^*) = -\frac{\hbar^2}{2m} (\Psi^* \nabla^2 \Psi - \Psi \nabla^2 \Psi^*) - \frac{q}{2m} \frac{\hbar}{i} \left[ \Psi^* \nabla \cdot (\mathbf{A}\Psi) + \Psi \nabla \cdot (\mathbf{A}\Psi^*) + \Psi^* \mathbf{A} \cdot \nabla \Psi + \Psi \mathbf{A} \cdot \nabla \Psi^* \right].
+      \]
+      Simplifying:
+      \[
+      i\hbar \partial_t (\Psi^* \Psi) = -\frac{\hbar^2}{2m} \nabla \cdot (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q}{2m} \frac{\hbar}{i} \nabla \cdot (2\mathbf{A} \Psi^* \Psi).
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Dividing by \(i\hbar\), we get:
+      \[
+      \partial_t (\Psi^* \Psi) = -\nabla \cdot \left[ \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi \right].
+      \]
+      Comparing this with the continuity equation:
+      \[
+      \partial_t \rho + \nabla \cdot \mathbf{J} = 0,
+      \]
+      where \(\rho = \Psi^* \Psi\) is the probability density, we identify the probability current as:
+      \[
+      \mathbf{J} = \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi.
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      For charged particles, the current density \(\mathbf{J}_q\) is:
+      \[
+      \mathbf{J}_q = q \mathbf{J} = q \left[ \frac{\hbar}{2mi} (\Psi^* \nabla \Psi - \Psi \nabla \Psi^*) - \frac{q\mathbf{A}}{m} \Psi^* \Psi \right].
+      \]
+      If the wavefunction is expressed in terms of the particle density \(n(\mathbf{r})\) and phase \(\theta(\mathbf{r})\) as \(\Psi \sim \sqrt{n(\mathbf{r})} e^{i\theta(\mathbf{r})}\), then:
+      \[
+      \mathbf{J}_q = q\frac{\hbar}{m} n(\mathbf{r}) \left[ \nabla \theta(\mathbf{r}) - \frac{q\mathbf{A}}{\hbar} \right].
+      \]
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/LOOP.png">
+        <img src="./Image/LOOP.png" alt="Topological Loop Diagram" style="width: 50%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      Under topological conditions, and using Stokes' theorem:
+      \[
+      \int \nabla \times \left[ \nabla \theta(\mathbf{r}) - \frac{q\mathbf{A}}{\hbar} \right] \cdot d\mathbf{S} = \int \nabla \times (\nabla \theta(\mathbf{r})) \cdot d\mathbf{S} - \frac{q}{\hbar} \int (\nabla \times \mathbf{A}) \cdot d\mathbf{S},
+      \]
+      simplifying to:
+      \[
+      \oint \nabla \theta(\mathbf{r}) \cdot d\mathbf{l} - \frac{q}{\hbar} \Phi_B = \begin{cases} 
+      0, & \text{if the loop is without a hole}, \\
+      2\pi N, & \text{if the loop encloses a hole}.
+      \end{cases}
+      \]
+    </p>
+  </div>
+</section>
+
+
+
+<section id="app2">
+  <div class="container">
+    <header class="major">
+      <h2><li>Appendix:Energy Level Corrections Using Perturbation Theory</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      Using perturbation theory, when \( H = H_0 + \Delta H \), and the unperturbed eigenstate and eigenvalue are \( |E_0^m\rangle \) and \( E_0^m \), respectively, the perturbed eigenstate and eigenvalue are \( |E^m\rangle \) and \( E^m = E_0^m + \delta E^m \). The energy correction \(\delta E^m\) is given by:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \delta E^m = \langle E_0^m | \Delta H | E_0^m \rangle = \langle E_0^m | \left[-\frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4\right] | E_0^m \rangle.
+      \]
+    </p>
+
+    <details class="dark-background">
+      <summary>Complete Derivation</summary>
+      <div style="margin-left: 20px;">
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | (a^\dagger + a)^4 | E_0^m \rangle = \langle E_0^m | (aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)^2 | E_0^m \rangle.
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          Expanding this:
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | aa(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + aa^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)
+          \]
+          \[
+          + a^\dagger a(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) + a^\dagger a^\dagger(aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger) | E_0^m \rangle.
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          Taking the expectation value leaves only terms where \( a \) and \( a^\dagger \) appear in equal powers:
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | aaa^\dagger a^\dagger + aa^\dagger aa^\dagger + aa^\dagger a^\dagger a + a^\dagger aaa^\dagger + a^\dagger aa^\dagger a + a^\dagger a^\dagger aa | E_0^m \rangle.
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          Simplifying further:
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | a(a^\dagger a + 1)a^\dagger + aa^\dagger aa^\dagger + (a^\dagger a + 1)a^\dagger a + a^\dagger a(a^\dagger a + 1) + a^\dagger aa^\dagger a + a^\dagger (aa^\dagger - 1)a | E_0^m \rangle.
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          After further simplifications:
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | 2aa^\dagger aa^\dagger + aa^\dagger + 4a^\dagger aa^\dagger a + a^\dagger a | E_0^m \rangle.
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          The final result is:
+        </p>
+
+        <p style="text-align:center">
+          \[
+          \langle E_0^m | 6a^\dagger aa^\dagger a + 6a^\dagger a + 3 | E_0^m \rangle = 6m^2 + 6m + 3.
+          \]
+        </p>
+      </div>
+    </details>
+
+    <p style="text-align:justify">
+      The energy difference between levels \(m\) and \(m-1\) is:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 \left\{6[m^2 - (m-1)^2] + 6\right\}.
+      \]
+    </p>
+
+    <p style="text-align:center">
+      \[
+      = \frac{\hbar}{\sqrt{LC}} - \frac{\hbar^2 \pi^2}{96C} \frac{e^2}{\pi^2 \hbar^2} \left[6(2m - 1) + 6\right].
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Finally, we find:
+    </p>
+
+    <p style="text-align:center">
+      \[
+      \Delta E^m_{m-1} = \frac{\hbar}{\sqrt{LC}} - m\frac{e^2}{8C}.
+      \]
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+<style>
+  details.dark-background {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  details.dark-background summary {
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    padding: 5px;
+    border-radius: 3px;
+  }
+</style>
+
+<p style="text-align:justify">
+<a href="../career/CV.html">About me</a><br><br><br>
+Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+</p>
+
+							<!--
+									<ul class="feature-icons">
+										<li class="icon solid fa-code">Write all the code</li>
+										<li class="icon solid fa-cubes">Stack small boxes</li>
+										<li class="icon solid fa-book">Read books and stuff</li>
+										<li class="icon solid fa-coffee">Drink much coffee</li>
+										<li class="icon solid fa-bolt">Lightning bolt</li>
+										<li class="icon solid fa-users">Shadow clone technique</li>
+									</ul>
+								</div>
+							</section>-->
+
+						<!-- Three -->
+							<!--<section id="three">
+								<div class="container">
+									<h3>A Few Accomplishments</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<div class="features">
+										<article>
+											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Possibly broke spacetime</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Terraformed a small moon</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+											<div class="inner">
+												<h4>Snapped dark matter in the wild</h4>
+												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+											</div>
+										</article>
+									</div>
+								</div>
+							</section>-->
+
+						<!-- Four -->
+							<!-- <section id="four">
+								<div class="container">
+									<h3>Contact Me</h3>
+									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
+									<form method="post" action="#">
+										<div class="row gtr-uniform">
+											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+											<div class="col-12">
+												<ul class="actions">
+													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="reset" value="Reset Form" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</div>
+							</section>-->
+
+						<!-- Five -->
+						<!--
+							<section id="four">
+								<div class="container">
+									<h3>Elements</h3>
+
+									<section>
+										<h4>Text</h4>
+										<p style="text-align:justify">This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+										<hr />
+										<header>
+											<h4>Heading with a Subtitle</h4>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<header>
+											<h5>Heading with a Subtitle</h5>
+											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+										</header>
+										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+										<hr />
+										<h2>Heading Level 2</h2>
+										<h3>Heading Level 3</h3>
+										<h4>Heading Level 4</h4>
+										<h5>Heading Level 5</h5>
+										<h6>Heading Level 6</h6>
+										<hr />
+										<h5>Blockquote</h5>
+										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+										<h5>Preformatted</h5>
+										<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+									</section>
+
+									<section>
+										<h4>Lists</h4>
+										<div class="row">
+											<div class="col-6 col-12-xsmall">
+												<h5>Unordered</h5>
+												<ul>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+												<h5>Alternate</h5>
+												<ul class="alt">
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Sagittis adipiscing lorem eleifend.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ul>
+											</div>
+											<div class="col-6 col-12-xsmall">
+												<h5>Ordered</h5>
+												<ol>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+													<li>Dolor pulvinar etiam magna etiam.</li>
+													<li>Etiam vel felis at lorem sed viverra.</li>
+													<li>Felis enim feugiat dolore viverra.</li>
+												</ol>
+												<h5>Icons</h5>
+												<ul class="icons">
+													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
+												</ul>
+											</div>
+										</div>
+										<h5>Actions</h5>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Default</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Default</a></li>
+										</ul>
+										<ul class="actions small">
+											<li><a href="#" class="button primary small">Small</a></li>
+											<li><a href="#" class="button small">Small</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<div class="row">
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary">Default</a></li>
+													<li><a href="#" class="button">Default</a></li>
+													<li><a href="#" class="button alt">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6 col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small">Small</a></li>
+													<li><a href="#" class="button small">Small</a></li>
+													<li><a href="#" class="button alt small">Small</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary fit">Default</a></li>
+													<li><a href="#" class="button fit">Default</a></li>
+													<li><a href="#" class="button alt fit">Default</a></li>
+												</ul>
+											</div>
+											<div class="col-3 col-6-medium col-12-xsmall">
+												<ul class="actions stacked">
+													<li><a href="#" class="button primary small fit">Small</a></li>
+													<li><a href="#" class="button small fit">Small</a></li>
+													<li><a href="#" class="button alt small fit">Small</a></li>
+												</ul>
+											</div>
+										</div>
+									</section>
+
+									<section>
+										<h4>Table</h4>
+										<h5>Default</h5>
+										<div class="table-wrapper">
+											<table>
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+
+										<h5>Alternate</h5>
+										<div class="table-wrapper">
+											<table class="alt">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Description</th>
+														<th>Price</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>Item One</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Two</td>
+														<td>Vis ac commodo adipiscing arcu aliquet.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Three</td>
+														<td> Morbi faucibus arcu accumsan lorem.</td>
+														<td>29.99</td>
+													</tr>
+													<tr>
+														<td>Item Four</td>
+														<td>Vitae integer tempus condimentum.</td>
+														<td>19.99</td>
+													</tr>
+													<tr>
+														<td>Item Five</td>
+														<td>Ante turpis integer aliquet porttitor.</td>
+														<td>29.99</td>
+													</tr>
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2"></td>
+														<td>100.00</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</section>
+
+									<section>
+										<h4>Buttons</h4>
+										<ul class="actions">
+											<li><a href="#" class="button primary">Primary</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt">Alternate</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary large">Large</a></li>
+											<li><a href="#" class="button">Default</a></li>
+											<li><a href="#" class="button alt small">Small</a></li>
+										</ul>
+										<ul class="actions fit">
+											<li><a href="#" class="button primary fit">Fit</a></li>
+											<li><a href="#" class="button fit">Fit</a></li>
+											<li><a href="#" class="button alt fit">Fit</a></li>
+										</ul>
+										<ul class="actions fit small">
+											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
+											<li><a href="#" class="button fit small">Fit + Small</a></li>
+											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
+										</ul>
+										<ul class="actions">
+											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
+										</ul>
+										<ul class="actions">
+											<li><span class="button primary disabled">Primary</span></li>
+											<li><span class="button disabled">Default</span></li>
+											<li><span class="button alt disabled">Alternate</span></li>
+										</ul>
+									</section>
+
+									<section>
+										<h4>Form</h4>
+										<form method="post" action="#">
+											<div class="row gtr-uniform">
+												<div class="col-6 col-12-xsmall">
+													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+												</div>
+												<div class="col-6 col-12-xsmall">
+													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+												</div>
+												<div class="col-12">
+													<select name="demo-category" id="demo-category">
+														<option value="">- Category -</option>
+														<option value="1">Manufacturing</option>
+														<option value="1">Shipping</option>
+														<option value="1">Administration</option>
+														<option value="1">Human Resources</option>
+													</select>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+													<label for="demo-priority-low">Low Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-normal" name="demo-priority">
+													<label for="demo-priority-normal">Normal Priority</label>
+												</div>
+												<div class="col-4 col-12-medium">
+													<input type="radio" id="demo-priority-high" name="demo-priority">
+													<label for="demo-priority-high">High Priority</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-copy" name="demo-copy">
+													<label for="demo-copy">Email me a copy of this message</label>
+												</div>
+												<div class="col-6 col-12-medium">
+													<input type="checkbox" id="demo-human" name="demo-human" checked>
+													<label for="demo-human">I am a human and not a robot</label>
+												</div>
+												<div class="col-12">
+													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+												</div>
+												<div class="col-12">
+													<ul class="actions">
+														<li><input type="submit" value="Send Message" /></li>
+														<li><input type="reset" value="Reset" class="alt" /></li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</section>
+
+									<section>
+										<h4>Image</h4>
+										<h5>Fit</h5>
+										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
+										<div class="box alt">
+											<div class="row gtr-50 gtr-uniform">
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
+												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
+											</div>
+										</div>
+										<h5>Left &amp; Right</h5>
+										<p style="text-align:justify"><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+										<p style="text-align:justify"><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+									</section>
+
+								</div>
+							</section>
+						-->
+
+					</div>
+
+				<!-- Footer -->
+					<!--<section id="footer">
+						<div class="container">
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</section>-->
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
