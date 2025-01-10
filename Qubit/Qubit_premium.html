@@ -29,7 +29,9 @@
 				</header>
 				<nav id="nav">
 					<ul>
-<li><a href="#a" class="active">如何控制超導量子位元</a></li>
+<li><a href="#p1a" class="active">約瑟夫森節</a></li>
+
+<li><a href="#a">如何控制超導量子位元</a></li>
 						
 
 </ul>
@@ -73,10 +75,69 @@
 <p>
 \(\to\)<a href="./Qubit_premium_en.html">English Version</a><br>
 
-Update 2025.01.06：<a href="#a">主題建立</a><br>
+Update <br>
+2025.01.10：<a href="#a">約瑟夫森節</a><br>
+2025.01.06：<a href="#a">主題建立</a><br>
 
 </p>
 <ol>
+
+
+<section id="p1a">
+  <div class="container">
+    <header class="major">
+      <h2><li>約瑟夫森節</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      以超導製作的量子位元基本上都脫不開約瑟夫森節（Josephson Junction）。約瑟夫森節是一種三明治結構，以兩個超導體中間夾一個非超導態的物質，因為量子效應，超導電流可以透過穿隧效應穿越這層非超導層。常見製作材料為鋁基（Al）或是鈮基（Nb），在基板上鍍一層超導金屬之後，讓表面氧化形成一層薄薄的氧化層（即絕緣非超導層），再鍍上另一層超導金屬，即是一個約瑟夫森節，這種超導-絕緣-超導結構稱為SIS結（Superconductor-Insulator-Superconductor, SIS junction）。
+</p>
+ 
+
+<div style="text-align: center;">
+  <a href="./Image/JJ.jpg">
+    <img src="./Image/JJ.jpg" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+▲（a）SIS約瑟夫森節的示意圖。（b）電子顯微鏡下的鋁基SIS節。（c）鋁的超導溫度\(T_c = 1.2K\)，而鈮的擁有單元素裡面最高的超導溫度\(T_c = 9.2K\)，故如果用鈮來做量子位元可以有比較高的穩定度。可是鈮的氧化物\(Nb_2O_5\)與金屬鈮結構差異過大，難以製作成性能良好的約瑟夫森節，故利用多層的材料\(Nb-Re-Al_2O_3-Al-Nb\)，採用氧化鋁當絕緣層搭配薄薄的\(Re\)、\(Al\)當結構緩衝層。這種緩衝手法再現今半導體製程上也很常出現（異質整合），緩衝層大概約兩三層原子，作為橋接兩個晶格常數不匹配得材料。在量子材料中另一個很常見的量子效應-鄰近效應（Proximity effect），即塊材的波函數會完全進入到薄膜層，使得薄膜的物理性質「變成」塊材的物理性質。在這邊也會因為鈮超導的鄰近效應，使得緩衝層也變為超導性，故這個多層結構也是SIS。<br>
+Ref:10.1557/mrs.2013.229 
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/Nb JJ.png">
+    <img src="./Image/Nb JJ.png" alt="取代文字" style="width: 50%; height: auto;">
+  </a>
+</div>
+ <p style="text-align:justify">
+▲Nb的約瑟夫森節例子<br>
+Ref:David Schuster of Stanford University<br>
+https://www.anl.gov/article/resurrecting-niobium-for-quantum-science<br>
+https://schusterlab.stanford.edu/research.html
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/SCS.png">
+    <img src="./Image/SCS.png" alt="取代文字" style="width: 70%; height: auto;">
+  </a>
+</div>   
+
+
+ <p style="text-align:justify">
+▲量子效應是很脆弱的，事實上約瑟夫森節非常脆弱，要形成良好的絕緣層「並」整合在三明治結構中是非常挑戰的。如果結構中有不良的缺陷，會導致量子位元退相干、產生錯誤。故科學家也不斷的思考不同的解決方案。圖b為一種理論建議，利用收窄的效果，使局部失去超導性，即自然形成一個約瑟夫森節（ScS）。<br>
+Ref:10.1103/PhysRevA.110.012427<br>
+https://quantumzeitgeist.com/superconducting-qubits-get-boost-with-novel-constriction-design/
+</p>
+
+
+    
+  </div>
+</section>
+
+
+
+
+
 
 <section id="a">
   <div class="container">
@@ -149,6 +210,36 @@ Update 2025.01.06：<a href="#a">主題建立</a><br>
 </section>
 
 
+<section id="b">
+  <div class="container">
+    <header class="major">
+      <h2><li>控制誤差1-頻率失諧</li></h2>
+    </header>
+
+   
+
+
+
+<div style="text-align: center;">
+  <a href="./Image/xy_tra.gif">
+    <img src="./Image/xy_tra.gif" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+
+<div style="text-align: center;">
+  <a href="./Image/xy_tra_npi.gif">
+    <img src="./Image/xy_tra_npi.gif" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+<p style="text-align:justify">
+(Coming soon.)
+</p>
+    
+  </div>
+</section>
+
 
 
 <style>
@@ -164,6 +255,12 @@ Update 2025.01.06：<a href="#a">主題建立</a><br>
     background-color: #e0e0e0;
     padding: 5px;
     border-radius: 3px;
+  }
+
+.gray-background {
+      background-color: #f0f0f0;
+      padding: 5px;
+      border-radius: 4px;
   }
 </style>
 
