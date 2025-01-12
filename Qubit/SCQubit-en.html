@@ -37,6 +37,7 @@
   <li><a href="#e">Nonlinear Inductance of Josephson Junctions</a></li>
   <li><a href="#f">Nonlinear Inductance of a Double Josephson Junction (SQUID)</a></li>
   <li><a href="#g">Properties of the Transmon</a></li>
+  <li><a href="#h">Driving an LC Circuit</a></li>
   <li><a href="#app1">Appendix: Probability Current in Schrödinger Equation Under Electromagnetic Fields</a></li>
   <li><a href="#app2">Appendix: Energy Level Corrections Using Perturbation Theory</a></li>
 </ul>
@@ -82,9 +83,17 @@
 \(\to\)<a href="./SCQubit.html"><b>Chinese Version</b></a><br>
 
 
-Update 2024.12.29：New-<a href="#a0">New web</a><br>
+Update <br>
+2025.01.12：New-<a href="#h">Driving an LC Circuit</a><br>
+2024.12.29：New-<a href="#a0">New web</a><br>
 </p>
 <ol>
+
+
+
+
+
+
 
 <section id="a0">
   <div class="container">
@@ -692,6 +701,16 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
       E_J = \frac{I_0 \Phi_0}{2\pi}.
       \]
     </p>
+<div style="text-align: center;">
+  <a href="./Image/LC JJ circuit.png">
+    <img src="./Image/LC JJ circuit.png" alt="取代文字" style="width: 80%; height: auto;">
+  </a>
+</div>
+
+<p style="text-align:justify">
+▲ Transforming a linear \(LC\) circuit into a nonlinear \(LC\) circuit by incorporating the nonlinear inductance of Josephson junctions. \(L_J\) represents the inductance of the Josephson junction.
+
+</p>
   </div>
 </section>
 
@@ -792,6 +811,18 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
       E = -\frac{I_0 \Phi_0}{\pi} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \cos\left(\frac{\pi}{\Phi_0} \Phi\right).
       \]
     </p>
+
+<div style="text-align: center;">
+  <a href="./Image/SQUID transmon.png">
+    <img src="./Image/SQUID transmon.png" alt="取代文字" style="width:60%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+▲An \(LC\) circuit with tunable inductance formed by two Josephson junctions.
+
+</p>
+
+
   </div>
 </section>
 
@@ -998,6 +1029,145 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     Ref: DOI:10.1103/RevModPhys.93.025005
   </div>
 </section>
+
+<section id="h">
+  <div class="container">
+    <header class="major">
+      <h2><li>Driving an LC Circuit</li></h2>
+    </header>
+    
+    <div style="text-align: center;">
+      <a href="./Image/LC drived.png">
+        <img src="./Image/LC drived.png" alt="LC Circuit Driven" style="width: 70%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      Now, let's discuss how to drive an LC circuit and a transmon qubit. By coupling the system to an external voltage source \( V_d \) through a coupling capacitor \( C_d \), the Lagrangian of the system is given by:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      L(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{Q_d^2}{2C_d}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The energy associated with the coupling capacitor \( C_d \) is:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      \frac{Q_d^2}{2C_d} = \frac{C_d (V - V_d)^2}{2} = \frac{C_d \left(\frac{Q}{C} - V_d\right)^2}{2}
+      \]
+      \[
+      = \frac{C_d Q^2}{2C^2} - \frac{C_d Q}{C}V_d + \frac{C_d V_d^2}{2}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Substituting the above expression into the Lagrangian and simplifying, we obtain:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      L_d(\dot{Q}, Q) = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{C_d}{C} \frac{Q^2}{2C} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
+      \]
+      \[
+      = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C_\Sigma} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Here, \( C_\Sigma = \frac{C^2}{C + C_d} \). We define the canonical momentum as:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      \Phi = -\frac{\partial L_d}{\partial \dot{Q}} = -L\dot{Q} \quad \rightarrow \quad \dot{Q} = -\frac{\Phi}{L}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Next, we calculate the Hamiltonian:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      \bar{H}_d = -L - \Phi \dot{Q} = -\frac{L\dot{Q}^2}{2} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d + \frac{\Phi^2}{L}
+      \]
+      \[
+      = \frac{\Phi^2}{2L} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d
+      \]
+    </p>
+
+    <details class="dark-background">
+      <summary>Detailed Derivation</summary>
+      <div style="margin-left: 20px;">
+        <p style="text-align:justify">
+          Proceeding with canonical quantization:
+        </p>
+
+        <p style="text-align: center;">
+          \[
+          \begin{aligned}
+          &a_d = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C_\Sigma}}} \left(\sqrt{\frac{C_\Sigma}{L}} \Phi + iQ\right) \\
+          &a_d^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L}{C_\Sigma}}} \left(\sqrt{\frac{C_\Sigma}{L}} \Phi - iQ\right)
+          \end{aligned}
+          \quad \leftrightarrow \quad
+          \begin{aligned}
+          &\Phi_d = \sqrt{\frac{\hbar}{2} \sqrt{\frac{L}{C_\Sigma}}} (a_d^\dagger + a_d) \\
+          &Q_d = i\sqrt{\frac{\hbar}{2} \sqrt{\frac{C_\Sigma}{L}}} (a_d^\dagger - a_d)
+          \end{aligned}
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          Substituting these expressions, we obtain:
+        </p>
+
+        <p style="text-align: center;">
+          \[
+          = \hbar \sqrt{\frac{1}{LC_\Sigma}} \left( a_d^\dagger a_d + \frac{1}{2} \right) 
+          - \frac{C_d}{C} \sqrt{\frac{\hbar}{2 C_\Sigma \sqrt{LC_\Sigma}}} \cdot i (a_d^\dagger - a_d) V_d
+          \]
+        </p>
+
+        <p style="text-align:justify">
+          Defining the frequency \( \omega_\Sigma = \frac{1}{\sqrt{L C_\Sigma}} \), we have:
+        </p>
+
+        <p style="text-align: center;">
+          \[
+          = \hbar \omega_\Sigma \left( a_d^\dagger a_d + \frac{1}{2} \right) 
+          - C_d V_d \sqrt{\frac{\omega_\Sigma}{2\hbar (C + C_d)}} \cdot i (a_d^\dagger - a_d) 
+          \]
+        </p>
+      </div>
+    </details>
+
+    <p style="text-align:justify">
+      The final result is:
+    </p>
+
+    <p style="text-align: center;">
+      \[
+      H_d = \hbar \omega_\Sigma \left(a_d^\dagger a_d + \frac{1}{2}\right) -  i \Omega (a_d^\dagger - a_d)
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      Here, \( \Omega = C_d V_d \sqrt{\frac{\omega_\Sigma}{2\hbar (C + C_d)}} \) is known as the Rabi frequency.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
 
 
 <section id="app1">
