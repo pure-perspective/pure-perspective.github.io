@@ -1710,7 +1710,7 @@ input, select, textarea {
 	.container {
 		margin: 0 auto;
 		max-width: calc(100% - 6em);
-		width: 75em;
+		width: 100em;
 		img {
 			<!--object-fit:scale-down;-->
 			<!--width:100%-->
@@ -2838,7 +2838,7 @@ input, select, textarea {
 
 	#wrapper {
 		background: #fff;
-		padding-right: 23em;
+		padding-right: 29em;
 	}
 
 /* Main */
@@ -2902,7 +2902,7 @@ input, select, textarea {
 		/* Header */
 
 			#header {
-				width: 15em; <!--改-->
+				width: 21em; <!--改-->
 			}
 
 				#header > header {
