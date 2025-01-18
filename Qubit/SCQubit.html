@@ -38,6 +38,8 @@
   <li><a href="#f">雙約瑟夫森節（SQUID）的非線性電感性質</a></li>
   <li><a href="#g">Transmon的性質</a></li>
   <li><a href="#h">驅動 LC 電路</a></li>
+  <li><a href="#I">雙LC電路耦合</a></li>
+
   <li><a href="#app1">附錄：電磁場下薛丁格方程式的機率流</a></li>
   <li><a href="#app2">附錄：微擾理論下的能階修正計算</a></li>
 						
@@ -51,7 +53,7 @@
 						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="#" class="icon solid fa-linkedin"><span class="label">linkedin</span></a></li>
+						<li><a href="#" class="icon solid fa-\mathcal{L}inkedin"><span class="label">linkedin</span></a></li>
 					</ul>-->
 				</footer>
 			</section>
@@ -85,6 +87,7 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./SCQubit-en.html">English Version</a><br>
 
 Update <br>
+2025.01.18：新增-<a href="#I">雙LC電路耦合</a><br>
 2025.01.12：新增-<a href="#h">驅動 LC 電路</a><br>
 2024.12.29：<a href="#a">主題建立</a><br>
 
@@ -135,7 +138,7 @@ Update <br>
           1. LC 電路<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> LC 共振器（線性 LC 電路）：用作讀取量子位元狀態（readout resonator），有時也可以作為量子位元間耦合（間接耦合）<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元（非線性 LC 電路）：部分作為資料儲存、部分作為糾錯用位元<br><br>
-          2. 饋線（feedline）：外部訊號送入與讀出<br><br>
+          2. 饋線（feed\mathcal{L}ine）：外部訊號送入與讀出<br><br>
           3. 耦合元件：<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> 操作、改變量子位元狀態<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元之間的直接耦合<br>
@@ -155,7 +158,7 @@ Update <br>
     <p style="text-align:justify">
       arxiv.org/pdf/2106.11352
       <br>
-      首先可以先欣賞一下單量子位元的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feedline 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
+      首先可以先欣賞一下單量子位元的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feed\mathcal{L}ine 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
     </p>
 
 <div style="text-align: center;">
@@ -176,7 +179,7 @@ Update <br>
   </a>
 </div>
     <p style="text-align:justify">
-      這張圖是四個 Qubit，中間由 bus resonator 串連耦合四個 Qubit。其中四個接頭直通 Qubit，是 flux-line，另外左上跟右下各有一條 readout feedline I/O，各自連結到兩個 readout resonator 並與 Qubit 耦合（等於說一條 readout feedline 會同時讀取兩個 Qubit）。
+      這張圖是四個 Qubit，中間由 bus resonator 串連耦合四個 Qubit。其中四個接頭直通 Qubit，是 flux-\mathcal{L}ine，另外左上跟右下各有一條 readout feed\mathcal{L}ine I/O，各自連結到兩個 readout resonator 並與 Qubit 耦合（等於說一條 readout feed\mathcal{L}ine 會同時讀取兩個 Qubit）。
     </p>
 
 
@@ -204,7 +207,7 @@ Update <br>
       https://arxiv.org/pdf/1612.08208
       
       <br>
-      要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。下圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，原形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feedline。
+      要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。下圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，原形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feed\mathcal{L}ine。
     </p>
 
     
@@ -265,11 +268,11 @@ Update <br>
     <p style="text-align:justify">
       正則動量 \(\Phi_\#\) 定義為：
       \[
-      \Phi_\# \equiv \frac{\partial L}{\partial \dot{Q}} = L\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
+      \Phi_\# \equiv \frac{\partial \mathcal{L}}{\partial \dot{Q}} = \mathcal{L}\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
       \]
       此處 \(\Phi_\#\) 的單位與磁通量相同，可以視為電感內部的磁通量。Hamiltonian \(H(\Phi_\#, Q)\) 定義為：
       \[
-      H \equiv \Phi_\# \dot{Q} - L = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
+      \mathcal{H} \equiv \Phi_\# \dot{Q} - \mathcal{L} = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
       \]
     </p>
 
@@ -325,12 +328,12 @@ Update <br>
       \]
       我們可以利用 \(a\)、\(a^\dagger\) 重寫 Hamiltonian \(H(\Phi_\#, Q)\)：
       \[
-      H = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
+      \mathcal{H} = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
       \]
       其中 \(\omega = \frac{1}{\sqrt{LC}}\)。
       展開後可得：
       \[
-      H = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \mathcal{H} = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
       \]
     </p>
 
@@ -350,50 +353,50 @@ Update <br>
     <p style="text-align:justify">
       實際上，要正確地透過對易關係（commutator relation）進行量子化，需要嚴格規定 \(x, p\) 的對應關係，否則可能會出現負號上的偏差。承接前一節，我們知道：
       \[
-      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial L}{\partial \dot{Q}} = \frac{\partial L}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
+      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{Q}} = \frac{\partial \mathcal{L}}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
       \]
       現在，我們將 Lagrangian \(L\) 轉換到動量空間。
     </p>
 
     <p style="text-align:justify">
-      定義新的 Lagrangian \(\bar{L}\) 為：
+      定義新的 Lagrangian \(\bar{\mathcal{L}}\) 為：
       \[
-      \bar{L} \equiv L - \frac{d}{dt} (\Phi_\# Q) = L - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
+      \bar{\mathcal{L}} \equiv \mathcal{L} - \frac{d}{dt} (\Phi_\# Q) = \mathcal{L} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
       \]
       展開後可得：
       \[
-      \bar{L} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
+      \bar{\mathcal{L}} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
       \]
       簡化為：
       \[
-      \bar{L} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
+      \bar{\mathcal{L}} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
       \]
     </p>
 
     <p style="text-align:justify">
-      注意，此時 \(L(Q, \dot{Q}) \to \bar{L}(\Phi_\#, \dot{\Phi}_\#)\)，動能與位能的角色互換。同時，有 \(\bar{L} = -L\)，對應於 Lagrangian 的反對稱性。為吸收這一反對稱性，我們定義新的變量：
+      注意，此時 \(\mathcal{L}(Q, \dot{Q}) \to \bar{\mathcal{L}}(\Phi_\#, \dot{\Phi}_\#)\)，動能與位能的角色互換。同時，有 \(\bar{\mathcal{L}} = -\mathcal{L}\)，對應於 Lagrangian 的反對稱性。為吸收這一反對稱性，我們定義新的變量：
       \[
       \Phi = -\Phi_\#.
       \]
       這使得：
       \[
-      \bar{L}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
+      \bar{\mathcal{L}}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
       \]
     </p>
 
     <p style="text-align:justify">
       對應的正則動量 \(\Pi\)（並利用前述結果與 \(Q\) 進行聯繫）：
       \[
-      \Pi \equiv \frac{\partial \bar{L}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
+      \Pi \equiv \frac{\partial \bar{\mathcal{L}}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
       \]
     </p>
 
     <p style="text-align:justify">
-      Hamiltonian \(\bar{H}\) 定義為：
+      Hamiltonian \(\bar{\mathcal{H}}\) 定義為：
       \[
-      \bar{H} = \Pi\dot{\Phi} - \bar{L} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
+      \bar{\mathcal{H}} = \Pi\dot{\Phi} - \bar{\mathcal{L}} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
       \]
-      與先前的 \(H\) 完全一致。此時的量子化條件為：
+      與先前的 \(\mathcal{H}\) 完全一致。此時的量子化條件為：
       \[
       [\Phi, \Pi] = [\Phi, Q] = i\hbar,
       \]
@@ -420,11 +423,11 @@ Update <br>
       \]
       Hamiltonian \(H(\Phi, Q)\) 可改寫為：
       \[
-      H = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
+      \mathcal{H} = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
       \]
       由於 \(\omega = \frac{1}{\sqrt{LC}}\)，展開後可得：
       \[
-      H = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \mathcal{H} = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
       \]
     </p>
 
@@ -443,37 +446,37 @@ Update <br>
     <p style="text-align:justify">
       從 \(L(\dot{Q}, Q)\) 出發，基於 Lagrangian 動能與位能的反對稱性，我們定義對應 \(\dot{Q}\) 的正則動量 \(\Phi\) 時手動加入一個負號，以吸收反對稱性（否則後續的 Hamiltonian 會為負）：
       \[
-      \Phi \equiv -\frac{\partial L}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial L}{\partial Q}.
+      \Phi \equiv -\frac{\partial \mathcal{L}}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial \mathcal{L}}{\partial Q}.
       \]
-      接下來，我們將 Lagrangian 換到 \((\dot{\Phi}, \Phi)\) 空間，即動量空間的 Lagrangian \(\bar{L}\)：
+      接下來，我們將 Lagrangian 換到 \((\dot{\Phi}, \Phi)\) 空間，即動量空間的 Lagrangian \(\bar{\mathcal{L}}\)：
       \[
-      \bar{L} \equiv L + \frac{d}{dt} (\Phi Q) = L + \dot{\Phi} Q + \Phi \dot{Q}.
+      \bar{\mathcal{L}} \equiv \mathcal{L} + \frac{d}{dt} (\Phi Q) = \mathcal{L} + \dot{\Phi} Q + \Phi \dot{Q}.
       \]
     </p>
 
     <p style="text-align:justify">
-      利用微分的方式，可以證明 \(\bar{L} = \bar{L}(\dot{\Phi}, \Phi)\) 是 \((\dot{\Phi}, \Phi)\) 空間的函數：
+      利用微分的方式，可以證明 \(\bar{\mathcal{L}} = \bar{\mathcal{L}}(\dot{\Phi}, \Phi)\) 是 \((\dot{\Phi}, \Phi)\) 空間的函數：
       \[
-      d\bar{L} = dL + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial L}{\partial \dot{Q}} d\dot{Q} + \frac{\partial L}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
+      d\bar{\mathcal{L}} = d\mathcal{L} + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial \mathcal{L}}{\partial \dot{Q}} d\dot{Q} + \frac{\partial \mathcal{L}}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
       \]
-      展開後，因為 \(-\Phi = \frac{\partial L}{\partial \dot{Q}}\)，我們有：
+      展開後，因為 \(-\Phi = \frac{\partial \mathcal{L}}{\partial \dot{Q}}\)，我們有：
       \[
-      d\bar{L} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
+      d\bar{\mathcal{L}} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
       \]
     </p>
 
     <p style="text-align:justify">
       此時，對應 \(\dot{\Phi}\) 的正則動量 \(\Pi\) 為：
       \[
-      \Pi = \frac{\partial \bar{L}}{\partial \dot{\Phi}} = Q,
+      \Pi = \frac{\partial \bar{\mathcal{L}}}{\partial \dot{\Phi}} = Q,
       \]
-      即與原來的 \(Q\) 相同。對應的 Hamiltonian \(\bar{H}\) 定義為：
+      即與原來的 \(Q\) 相同。對應的 Hamiltonian \(\bar{\mathcal{H}}\) 定義為：
       \[
-      \bar{H} = \Pi \dot{\Phi} - \bar{L} = Q\dot{\Phi} - L - \dot{\Phi} Q - \Phi \dot{Q} = -L - \Phi \dot{Q}.
+      \bar{\mathcal{H}} = \Pi \dot{\Phi} - \bar{\mathcal{L}} = Q\dot{\Phi} - \mathcal{L} - \dot{\Phi} Q - \Phi \dot{Q} = -\mathcal{L} - \Phi \dot{Q}.
       \]
       最終形式為：
       \[
-      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q}.
+      \bar{\mathcal{H}}(Q, \Phi) = -\mathcal{L} - \Phi \dot{Q}.
       \]
     </p>
 
@@ -481,10 +484,10 @@ Update <br>
       這樣，我們可以簡化後續的推導，只需遵循以下步驟：
       <ol>
         <li>寫下 \(L(\dot{Q}, Q)\)。</li>
-        <li>定義 \(\Phi \equiv -\frac{\partial L}{\partial \dot{Q}}\)，並得到 \(\dot{Q}\) 與 \(\Phi\) 的關係。</li>
+        <li>定義 \(\Phi \equiv -\frac{\partial \mathcal{L}}{\partial \dot{Q}}\)，並得到 \(\dot{Q}\) 與 \(\Phi\) 的關係。</li>
         <li>直接求出對應的 Hamiltonian：
           \[
-          \bar{H}(Q, \Phi) = -L - \Phi \dot{Q},
+          \bar{\mathcal{H}}(Q, \Phi) = -\mathcal{L} - \Phi \dot{Q},
           \]
           並將 \(\dot{Q}\) 代入前述關係式。
         </li>
@@ -497,15 +500,15 @@ Update <br>
     </p>
 
     <p style="text-align:justify">
-      這樣無需經過繁瑣的轉換 \(L(\dot{Q}, Q) \to \bar{L}(\dot{\Phi}, \Phi) \to \bar{H}(Q, \Phi)\)。特別是在後續引入外力耦合項時（如在推導如何驅動與讀取量子位元時，外部訊號與量子位元交互作用，或是兩個量子位元之間的耦合），如果按照繁瑣的推導，會出現類似於電磁場下的動量 \(p \to p - eA\) 的情況，在中間轉換時極度複雜。
+      這樣無需經過繁瑣的轉換 \(L(\dot{Q}, Q) \to \bar{\mathcal{L}}(\dot{\Phi}, \Phi) \to \bar{\mathcal{H}}(Q, \Phi)\)。特別是在後續引入外力耦合項時（如在推導如何驅動與讀取量子位元時，外部訊號與量子位元交互作用，或是兩個量子位元之間的耦合），如果按照繁瑣的推導，會出現類似於電磁場下的動量 \(p \to p - eA\) 的情況，在中間轉換時極度複雜。
     </p>
 
     <p style="text-align:justify; color:blue;">
       註：注意到：
       \[
-      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q} = -L + \frac{\partial L}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
+      \bar{\mathcal{H}}(Q, \Phi) = -\mathcal{L} - \Phi \dot{Q} = -\mathcal{L} + \frac{\partial \mathcal{L}}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
       \]
-      \(H(\Phi, Q)\) 就是傳統上熟悉的 Hamiltonian。同時，\(\bar{H} = H\) 再一次表明了 Hamiltonian 動能與位能的對稱性。
+      \(H(\Phi, Q)\) 就是傳統上熟悉的 Hamiltonian。同時，\(\bar{\mathcal{H}} = H\) 再一次表明了 Hamiltonian 動能與位能的對稱性。
     </p>
   </div>
 </section>
@@ -860,7 +863,7 @@ Ref: DOI:10.48550/arXiv.2203.04164
         <p style="text-align:justify">
             現在我們寫下 Hamiltonian：
             \[
-            H = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
+            \mathcal{H} = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
             \]
             \[
             = \frac{Q^2}{2C} + \frac{\Phi^2}{2L} - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \Phi^4 + \cdots
@@ -886,17 +889,17 @@ Ref: DOI:10.48550/arXiv.2203.04164
  <p style="text-align:justify">
             將 Hamiltonian 表達式展開為：
             \[
-            H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4
+            \mathcal{H} = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4
             \]
             化簡後：
             \[
-            H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4
+            \mathcal{H} = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4
             \]
             該表達式包含線性和非線性項，線性項描述的是量子簡諧振子的能階，而非線性項源自於 Josephson 節對於能階的修正。
         </p>
         
 <p style="text-align:justify">
-利用微擾理論，當 \( H = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
+利用微擾理論，當 \( \mathcal{H} = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
 </p>
 
 <p style="text-align:center">
@@ -1039,12 +1042,6 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
 
 
-
-
-
-
-
-
 <section id="h">
   <div class="container">
     <header class="major">
@@ -1061,7 +1058,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <p style="text-align: center;">
       \[
-      L(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{Q_d^2}{2C_d}
+      \mathcal{L}_d(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{Q_d^2}{2C_d}
       \]
     </p>
 
@@ -1083,7 +1080,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <p style="text-align: center;">
       \[
-      L_d(\dot{Q}, Q) = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{C_d}{C} \frac{Q^2}{2C} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
+      \mathcal{L}_d(\dot{Q}, Q) = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{C_d}{C} \frac{Q^2}{2C} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
       \]
 \[
 = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C_\Sigma} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
@@ -1096,7 +1093,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <p style="text-align: center;">
       \[
-      \Phi = -\frac{\partial L_d}{\partial \dot{Q}} = -L\dot{Q} \quad \rightarrow \quad \dot{Q} = -\frac{\Phi}{L}
+      \Phi = -\frac{\partial \mathcal{L}_d}{\partial \dot{Q}} = -L\dot{Q} \quad \rightarrow \quad \dot{Q} = -\frac{\Phi}{L}
       \]
     </p>
 
@@ -1106,7 +1103,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <p style="text-align: center;">
       \[
-      \bar{H}_d = -L - \Phi \dot{Q}\]
+      \bar{\mathcal{H}}_d = -\mathcal{L}_d - \Phi \dot{Q}\]
 \[ = -\frac{L\dot{Q}^2}{2} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d + \frac{\Phi^2}{L}\]
 \[
       = \frac{\Phi^2}{2L} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d
@@ -1121,7 +1118,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
  <details class="dark-background">
       <summary>完整推導過程</summary>
-      <div style="margin-left: 20px;">
+      <div style="margin-\mathcal{L}eft: 20px;">
 <p style="text-align:justify">
       接著進行正則量子化：
     </p>
@@ -1186,7 +1183,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <p style="text-align: center;">
       \[
-      H_d = \hbar \omega_\Sigma \left(a_d^\dagger a_d + \frac{1}{2}\right) -  i \Omega (a_d^\dagger - a_d)
+      \bar{\mathcal{H}} _d = \hbar \omega_\Sigma \left(a_d^\dagger a_d + \frac{1}{2}\right) -  i \Omega (a_d^\dagger - a_d)
       \]
     </p>
 
@@ -1199,6 +1196,100 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
 
 
+<section id="I">
+        <div class="container">
+            <header class="major">
+                <h2><li>雙LC電路耦合</li></h2>
+            </header>
+<div style="text-align: center;">
+  <a href="./Image/2_LC.png">
+    <img src="./Image/2_LC.png" alt="取代文字" style="width: 70%; height: auto;">
+  </a>
+</div>
+            <p style="text-align:justify">
+                要量子計算需要位元之間的耦合，耦合會對量子位元的參數產生影響。可以先討論兩個線性 LC 電路透過電容 \( C_g \) 耦合。
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{Q_A^2}{2C_A} - \frac{Q_B^2}{2C_B} - \frac{Q_g^2}{2C_g}
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                耦合電容 \( C_g \) 的帶電 \( Q_g \) 可以代換為 \( Q_A \) 和 \( Q_B \)，利用電容的性質：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                Q_g = C_g (V_A - V_B) = C_g \left( \frac{Q_A}{C_A} - \frac{Q_B}{C_B} \right)
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                將其代入 Lagrangian 並整理得：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) Q_A^2}{2C_A^2} - \frac{(C_B + C_g) Q_B^2}{2C_B^2} + \frac{C_g Q_A}{C_A} \frac{Q_B}{C_B}
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                其中 \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \)，\( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \)。接著定義正則動量：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \Phi_A = -\frac{\partial \mathcal{L}_{2LC}}{\partial \dot{Q}_A} = -\mathcal{L}_A \dot{Q}_A \quad \rightarrow \quad \dot{Q}_A = -\frac{\Phi_A}{L_A}
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                計算 Hamiltonian：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \bar{\mathcal{H}}_{2LC} = \frac{\Phi_A^2}{2L_A} + \frac{Q_A^2}{2C_{\Sigma A}} + \frac{\Phi_B^2}{2L_B} + \frac{Q_B^2}{2C_{\Sigma B}} - \frac{C_g}{C_A C_B} Q_A Q_B
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                正則量子化：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \begin{aligned}
+                &a_{\Sigma A} = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L_A}{C_{\Sigma A}}}} \left(\sqrt{\frac{C_{\Sigma A}}{L_A}} \Phi_A + iQ_A \right) \\
+                &a_{\Sigma A}^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L_A}{C_{\Sigma A}}}} \left(\sqrt{\frac{C_{\Sigma A}}{L_A}} \Phi_A - iQ_A \right)
+                \end{aligned}
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                定義頻率 \( \omega_{\Sigma A} = \frac{1}{\sqrt{L_A C_{\Sigma A}}} \)，\( \omega_{\Sigma B} = \frac{1}{\sqrt{L_B C_{\Sigma B}}} \)：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \bar{\mathcal{H}}_{2LC} = \hbar \omega_{\Sigma A} \left(a_{\Sigma A}^\dagger a_{\Sigma A} + \frac{1}{2}\right) + \hbar \omega_{\Sigma B} \left(a_{\Sigma B}^\dagger a_{\Sigma B} + \frac{1}{2}\right) - \hbar \Omega_g \, i(a_{\Sigma A}^\dagger - a_{\Sigma A}) \, i(a_{\Sigma B}^\dagger - a_{\Sigma B})
+                \]
+            </p>
+
+            <p style="text-align:justify">
+                其中，耦合強度 \( \Omega_g \) 定義為：
+            </p>
+
+            <p style="text-align:center">
+                \[
+                \Omega_g = C_g \sqrt{\frac{\omega_{\Sigma A}}{2(C_A + C_g)}} \sqrt{\frac{\omega_{\Sigma B}}{2(C_B + C_g)}}
+                \]
+            </p>
+        </div>
+    </section>
 
 
 
@@ -1321,7 +1412,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
     </header>
 
     <p style="text-align:justify">
-      利用微擾理論，當 \( H = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
+      利用微擾理論，當 \( \mathcal{H} = H_0 + \Delta H \)， \( |E_0^m\rangle \to |E^m\rangle \)、 \( E_0^m \to E^m = E_0^m + \delta E^m \)，我們知道對能階 \( E_0^m \) 的修正 \( \delta E^m \) 為：
     </p>
 
     <p style="text-align:center">
@@ -1332,7 +1423,7 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
     <details class="dark-background">
       <summary>完整推導過程</summary>
-      <div style="margin-left: 20px;">
+      <div style="margin-\mathcal{L}eft: 20px;">
 
         <p style="text-align:center">
           \[
@@ -1765,8 +1856,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 													</select>
 												</div>
 												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
+													<input type="radio" id="demo-priority-\mathcal{L}ow" name="demo-priority" checked>
+													<label for="demo-priority-\mathcal{L}ow">Low Priority</label>
 												</div>
 												<div class="col-4 col-12-medium">
 													<input type="radio" id="demo-priority-normal" name="demo-priority">

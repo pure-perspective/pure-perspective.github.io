@@ -38,6 +38,7 @@
   <li><a href="#f">Nonlinear Inductance of a Double Josephson Junction (SQUID)</a></li>
   <li><a href="#g">Properties of the Transmon</a></li>
   <li><a href="#h">Driving an LC Circuit</a></li>
+  <li><a href="#I">Coupling Between Two LC Circuits</li>
   <li><a href="#app1">Appendix: Probability Current in Schrödinger Equation Under Electromagnetic Fields</a></li>
   <li><a href="#app2">Appendix: Energy Level Corrections Using Perturbation Theory</a></li>
 </ul>
@@ -50,7 +51,7 @@
 						<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
 						<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="#" class="icon solid fa-linkedin"><span class="label">linkedin</span></a></li>
+						<li><a href="#" class="icon solid fa-\mathcal{L}inkedin"><span class="label">linkedin</span></a></li>
 					</ul>-->
 				</footer>
 			</section>
@@ -85,6 +86,7 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 
 
 Update <br>
+2025.01.18：New-<a href="#I">Coupling Between Two LC Circuits</a><br>
 2025.01.12：New-<a href="#h">Driving an LC Circuit</a><br>
 2024.12.29：New-<a href="#a0">New web</a><br>
 </p>
@@ -128,7 +130,7 @@ Update <br>
         <td style="border: 1px solid black; padding: 10px;">
           1. Qubits (Data storage)<br>
           2. Driving components: Coupling circuits or LC resonators (for computation)<br>
-          3. Readout components: LC resonators and feedlines<br>
+          3. Readout components: LC resonators and feed\mathcal{L}ines<br>
           4. Calibration components: Flux lines (to adjust qubit frequencies)<br>
           5. Error correction components: Qubits (used for error correction)
         </td>
@@ -139,7 +141,7 @@ Update <br>
           1. LC Circuits<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> LC resonators (linear LC circuits): Used for reading qubit states (readout resonators) and sometimes for indirect coupling between qubits<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> Qubits (nonlinear LC circuits): Partly for data storage, partly for error correction<br><br>
-          2. Feedlines: Delivering and receiving external signals<br><br>
+          2. Feed\mathcal{L}ines: Delivering and receiving external signals<br><br>
           3. Coupling components:<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> Operating and changing qubit states<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> Direct coupling between qubits<br>
@@ -158,7 +160,7 @@ Update <br>
     <p style="text-align:justify">
       arxiv.org/pdf/2106.11352
       <br>
-      Let's first take a look at the layout of a single qubit. (a) A microscope view of the circuit, (b) the corresponding circuit diagram. This diagram includes a qubit (red transmon), a readout resonator (light blue), and two feedlines separately driving the qubit and the readout resonator. Components are coupled via capacitors. Additionally, a flux line near the qubit generates a magnetic field to adjust the operational frequency of the transmon. (c) The readout resonator, coupled to the qubit, shows spectral shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This spectral shift allows determination of the qubit state.
+      Let's first take a look at the layout of a single qubit. (a) A microscope view of the circuit, (b) the corresponding circuit diagram. This diagram includes a qubit (red transmon), a readout resonator (light blue), and two feed\mathcal{L}ines separately driving the qubit and the readout resonator. Components are coupled via capacitors. Additionally, a flux line near the qubit generates a magnetic field to adjust the operational frequency of the transmon. (c) The readout resonator, coupled to the qubit, shows spectral shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This spectral shift allows determination of the qubit state.
     </p>
 
 <div style="text-align: center;">
@@ -178,7 +180,7 @@ Update <br>
   </a>
 </div>
     <p style="text-align:justify">
-      This image shows four qubits connected via a bus resonator. Each qubit is directly connected to flux lines, and there are readout feedlines on the top-left and bottom-right. Each feedline is connected to two readout resonators, coupling with two qubits simultaneously.
+      This image shows four qubits connected via a bus resonator. Each qubit is directly connected to flux lines, and there are readout feed\mathcal{L}ines on the top-\mathcal{L}eft and bottom-right. Each feed\mathcal{L}ine is connected to two readout resonators, coupling with two qubits simultaneously.
     </p>
 
 <div style="text-align: center;">
@@ -205,7 +207,7 @@ Update <br>
       https://arxiv.org/pdf/1612.08208
       
       <br>
-      To achieve quantum computation, many qubits must be operated simultaneously. Due to error correction requirements, additional qubits are needed for this purpose. Below is an experimental 17-qubit quantum chip, arranged in a surface code configuration for quantum error correction. The prototype qubits are shown in pink and red as data qubits, and light blue and green as check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four for qubit coupling, one flux line, one drive line, and one readout resonator. The readout resonators are merged into three feedlines.
+      To achieve quantum computation, many qubits must be operated simultaneously. Due to error correction requirements, additional qubits are needed for this purpose. Below is an experimental 17-qubit quantum chip, arranged in a surface code configuration for quantum error correction. The prototype qubits are shown in pink and red as data qubits, and light blue and green as check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four for qubit coupling, one flux line, one drive line, and one readout resonator. The readout resonators are merged into three feed\mathcal{L}ines.
     </p>
   </div>
 </section>
@@ -237,7 +239,7 @@ We can interpret \(E_L\) as the kinetic energy term \(T\) and \(E_C\) as the pot
 \]
 </p>
 <p style="text-align:justify">
-According to the Euler-Lagrange equation:
+According to the Euler-\mathcal{L}agrange equation:
 \[
 \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{Q}} - \frac{\partial \mathcal{L}}{\partial Q} = 0,
 \]
@@ -262,11 +264,11 @@ Canonical quantization is a method for introducing quantum structure into classi
 <p style="text-align:justify">
 The canonical momentum \(\Phi_\#\) is defined as:
 \[
-\Phi_\# \equiv \frac{\partial L}{\partial \dot{Q}} = L\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
+\Phi_\# \equiv \frac{\partial \mathcal{L}}{\partial \dot{Q}} =  \mathcal{L}\dot{Q} \leftrightarrow \dot{Q} = \frac{\Phi_\#}{L}.
 \]
 Here, \(\Phi_\#\) has the same unit as magnetic flux and can be interpreted as the flux inside the inductor. The Hamiltonian \(H(\Phi_\#, Q)\) is defined as:
 \[
-H \equiv \Phi_\# \dot{Q} - L = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
+\mathcal{H} \equiv \Phi_\# \dot{Q} -  \mathcal{L} = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C}.
 \]
 </p>
 
@@ -313,11 +315,11 @@ It can be shown that \([a, a^\dagger] = 1\):
 \]
 The Hamiltonian \(H(\Phi_\#, Q)\) can be rewritten as:
 \[
-H = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
+\mathcal{H} = \frac{\Phi_\#^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar \omega}{4} \left[ - (a^\dagger - a)^2 + (a^\dagger + a)^2 \right],
 \]
 where \(\omega = \frac{1}{\sqrt{LC}}\). Expanding yields:
 \[
-H = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+\mathcal{H} = \frac{\hbar \omega}{2} \left[ a^\dagger a + a^\dagger a + 1 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
 \]
 </p>
 
@@ -337,50 +339,50 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     <p style="text-align:justify">
       In practice, to correctly perform quantization via the commutator relation, it is essential to strictly define the correspondence between \(x, p\); otherwise, sign discrepancies might arise. Continuing from the previous section, we know:
       \[
-      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial L}{\partial \dot{Q}} = \frac{\partial L}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
+      \dot{\Phi}_\# = \frac{d}{dt} \frac{\partial \mathcal{L}}{\partial \dot{Q}} = \frac{\partial \mathcal{L}}{\partial Q} = -\frac{Q}{C} \implies Q = -C\dot{\Phi}_\#.
       \]
       Now, we transform the Lagrangian \(L\) into momentum space.
     </p>
 
     <p style="text-align:justify">
-      Define a new Lagrangian \(\bar{L}\) as:
+      Define a new Lagrangian \(\bar{\mathcal{L}}\) as:
       \[
-      \bar{L} \equiv L - \frac{d}{dt} (\Phi_\# Q) = L - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
+      \bar{\mathcal{L}} \equiv  \mathcal{L} - \frac{d}{dt} (\Phi_\# Q) =  \mathcal{L} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q},
       \]
       Expanding this yields:
       \[
-      \bar{L} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
+      \bar{\mathcal{L}} = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \dot{\Phi}_\# Q - \Phi_\# \dot{Q} = \frac{\Phi_\#^2}{2L} - \frac{C\dot{\Phi}_\#^2}{2} + C\dot{\Phi}_\#^2 - \frac{\Phi_\#^2}{L},
       \]
       Simplifying to:
       \[
-      \bar{L} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
+      \bar{\mathcal{L}} = \frac{C\dot{\Phi}_\#^2}{2} - \frac{\Phi_\#^2}{2L}.
       \]
     </p>
 
     <p style="text-align:justify">
-      Note that at this point \(L(Q, \dot{Q}) \to \bar{L}(\Phi_\#, \dot{\Phi}_\#)\), and the roles of kinetic and potential energy are interchanged. Additionally, \(\bar{L} = -L\), corresponding to the antisymmetry of the Lagrangian. To absorb this antisymmetry, we define a new variable:
+      Note that at this point \(\mathcal{L}(Q, \dot{Q}) \to \bar{\mathcal{L}}(\Phi_\#, \dot{\Phi}_\#)\), and the roles of kinetic and potential energy are interchanged. Additionally, \(\bar{\mathcal{L}} = -\mathcal{L}\), corresponding to the antisymmetry of the Lagrangian. To absorb this antisymmetry, we define a new variable:
       \[
       \Phi = -\Phi_\#.
       \]
       This ensures:
       \[
-      \bar{L}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
+      \bar{\mathcal{L}}(\dot{\Phi}, \Phi) = \frac{C\dot{\Phi}^2}{2} - \frac{\Phi^2}{2L}.
       \]
     </p>
 
     <p style="text-align:justify">
       The corresponding canonical momentum \(\Pi\) (related to \(Q\) based on previous results):
       \[
-      \Pi \equiv \frac{\partial \bar{L}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
+      \Pi \equiv \frac{\partial \bar{\mathcal{L}}}{\partial \dot{\Phi}} = C\dot{\Phi} = -C\dot{\Phi}_\# = Q \implies \dot{\Phi} = \frac{\Pi}{C} = \frac{Q}{C}.
       \]
     </p>
 
     <p style="text-align:justify">
-      The Hamiltonian \(\bar{H}\) is defined as:
+      The Hamiltonian \(\bar{\mathcal{H}} \) is defined as:
       \[
-      \bar{H} = \Pi\dot{\Phi} - \bar{L} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
+      \bar{\mathcal{H}}  = \Pi\dot{\Phi} - \bar{\mathcal{L}} = \frac{\Pi^2}{C} - \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L} = \frac{\Pi^2}{2C} + \frac{\Phi^2}{2L},
       \]
-      which matches the previous \(H\) exactly. The quantization condition becomes:
+      which matches the previous \(\mathcal{H}\) exactly. The quantization condition becomes:
       \[
       [\Phi, \Pi] = [\Phi, Q] = i\hbar,
       \]
@@ -407,11 +409,11 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
       \]
       The Hamiltonian \(H(\Phi, Q)\) can be rewritten as:
       \[
-      H = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
+      \mathcal{H} = \frac{\Phi^2}{2L} + \frac{Q^2}{2C} = \frac{\hbar}{4\sqrt{LC}} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right].
       \]
       Given \(\omega = \frac{1}{\sqrt{LC}}\), expanding this yields:
       \[
-      H = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
+      \mathcal{H} = \frac{\hbar \omega}{4} \left[ (a^\dagger + a)^2 - (a^\dagger - a)^2 \right] = \hbar \omega \left[ a^\dagger a + \frac{1}{2} \right].
       \]
     </p>
 
@@ -430,37 +432,37 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     <p style="text-align:justify">
       Starting from \(L(\dot{Q}, Q)\), based on the antisymmetry between the kinetic and potential energy in the Lagrangian, we manually introduce a negative sign when defining the canonical momentum \(\Phi\) corresponding to \(\dot{Q}\) to absorb this antisymmetry (otherwise, the resulting Hamiltonian would be negative):
       \[
-      \Phi \equiv -\frac{\partial L}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial L}{\partial Q}.
+      \Phi \equiv -\frac{\partial \mathcal{L}}{\partial \dot{Q}} \implies \dot{\Phi} = -\frac{\partial \mathcal{L}}{\partial Q}.
       \]
-      Next, we switch the Lagrangian to the \((\dot{\Phi}, \Phi)\) space, i.e., the momentum-space Lagrangian \(\bar{L}\):
+      Next, we switch the Lagrangian to the \((\dot{\Phi}, \Phi)\) space, i.e., the momentum-space Lagrangian \(\bar{\mathcal{L}}\):
       \[
-      \bar{L} \equiv L + \frac{d}{dt} (\Phi Q) = L + \dot{\Phi} Q + \Phi \dot{Q}.
+      \bar{\mathcal{L}} \equiv  \mathcal{L} + \frac{d}{dt} (\Phi Q) =  \mathcal{L} + \dot{\Phi} Q + \Phi \dot{Q}.
       \]
     </p>
 
     <p style="text-align:justify">
-      Using differential techniques, we can prove that \(\bar{L} = \bar{L}(\dot{\Phi}, \Phi)\) is indeed a function of \((\dot{\Phi}, \Phi)\) space:
+      Using differential techniques, we can prove that \(\bar{\mathcal{L}} = \bar{\mathcal{L}}(\dot{\Phi}, \Phi)\) is indeed a function of \((\dot{\Phi}, \Phi)\) space:
       \[
-      d\bar{L} = dL + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial L}{\partial \dot{Q}} d\dot{Q} + \frac{\partial L}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
+      d\bar{\mathcal{L}} = d\mathcal{L} + d(\dot{\Phi} Q) + d(\Phi \dot{Q}) = \frac{\partial \mathcal{L}}{\partial \dot{Q}} d\dot{Q} + \frac{\partial \mathcal{L}}{\partial Q} dQ + Qd\dot{\Phi} + \dot{\Phi}dQ + \dot{Q}d\Phi + \Phi d\dot{Q}.
       \]
-      Expanding further, since \(-\Phi = \frac{\partial L}{\partial \dot{Q}}\), we have:
+      Expanding further, since \(-\Phi = \frac{\partial \mathcal{L}}{\partial \dot{Q}}\), we have:
       \[
-      d\bar{L} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
+      d\bar{\mathcal{L}} = -\Phi d\dot{Q} - \dot{\Phi} dQ + Q d\dot{\Phi} + \dot{\Phi} dQ + \dot{Q} d\Phi + \Phi d\dot{Q} = Q d\dot{\Phi} + \dot{Q} d\Phi.
       \]
     </p>
 
     <p style="text-align:justify">
       The corresponding canonical momentum \(\Pi\) for \(\dot{\Phi}\) is:
       \[
-      \Pi = \frac{\partial \bar{L}}{\partial \dot{\Phi}} = Q,
+      \Pi = \frac{\partial \bar{\mathcal{L}}}{\partial \dot{\Phi}} = Q,
       \]
-      which is the same as the original \(Q\). The corresponding Hamiltonian \(\bar{H}\) is defined as:
+      which is the same as the original \(Q\). The corresponding Hamiltonian \(\bar{\mathcal{H}} \) is defined as:
       \[
-      \bar{H} = \Pi \dot{\Phi} - \bar{L} = Q\dot{\Phi} - L - \dot{\Phi} Q - \Phi \dot{Q} = -L - \Phi \dot{Q}.
+      \bar{\mathcal{H}}  = \Pi \dot{\Phi} - \bar{\mathcal{L}} = Q\dot{\Phi} -  \mathcal{L} - \dot{\Phi} Q - \Phi \dot{Q} = -\mathcal{L} - \Phi \dot{Q}.
       \]
       The final form is:
       \[
-      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q}.
+      \bar{\mathcal{H}} (Q, \Phi) = -\mathcal{L} - \Phi \dot{Q}.
       \]
     </p>
 
@@ -468,10 +470,10 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
       This allows us to simplify subsequent derivations by following these steps:
       <ol>
         <li>Write down \(L(\dot{Q}, Q)\).</li>
-        <li>Define \(\Phi \equiv -\frac{\partial L}{\partial \dot{Q}}\) and establish the relationship between \(\dot{Q}\) and \(\Phi\).</li>
+        <li>Define \(\Phi \equiv -\frac{\partial \mathcal{L}}{\partial \dot{Q}}\) and establish the relationship between \(\dot{Q}\) and \(\Phi\).</li>
         <li>Directly calculate the corresponding Hamiltonian:
           \[
-          \bar{H}(Q, \Phi) = -L - \Phi \dot{Q},
+          \bar{\mathcal{H}} (Q, \Phi) = -\mathcal{L} - \Phi \dot{Q},
           \]
           substituting \(\dot{Q}\) from the previous relationship.
         </li>
@@ -484,15 +486,15 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     </p>
 
     <p style="text-align:justify">
-      This eliminates the need for the cumbersome transformation \(L(\dot{Q}, Q) \to \bar{L}(\dot{\Phi}, \Phi) \to \bar{H}(Q, \Phi)\). Especially when introducing external coupling terms (e.g., in deriving how to drive and read quantum bits, external signals interacting with quantum bits, or coupling between two quantum bits), following the traditional approach would lead to extremely complex intermediate calculations, similar to the momentum shift \(p \to p - eA\) in an electromagnetic field.
+      This eliminates the need for the cumbersome transformation \(L(\dot{Q}, Q) \to \bar{\mathcal{L}}(\dot{\Phi}, \Phi) \to \bar{\mathcal{H}} (Q, \Phi)\). Especially when introducing external coupling terms (e.g., in deriving how to drive and read quantum bits, external signals interacting with quantum bits, or coupling between two quantum bits), following the traditional approach would lead to extremely complex intermediate calculations, similar to the momentum shift \(p \to p - eA\) in an electromagnetic field.
     </p>
 
     <p style="text-align:justify; color:blue;">
       Note:
       \[
-      \bar{H}(Q, \Phi) = -L - \Phi \dot{Q} = -L + \frac{\partial L}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
+      \bar{\mathcal{H}} (Q, \Phi) = -\mathcal{L} - \Phi \dot{Q} = -\mathcal{L} + \frac{\partial \mathcal{L}}{\partial \dot{Q}} \dot{Q} = H(\Phi, Q).
       \]
-      \(H(\Phi, Q)\) is the familiar Hamiltonian in classical mechanics. Moreover, \(\bar{H} = H\) reaffirms the symmetry between kinetic and potential energy in the Hamiltonian.
+      \(H(\Phi, Q)\) is the familiar Hamiltonian in classical mechanics. Moreover, \(\bar{\mathcal{H}}  = H\) reaffirms the symmetry between kinetic and potential energy in the Hamiltonian.
     </p>
   </div>
 </section>
@@ -849,7 +851,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     <p style="text-align:justify">
       Now, we write down the Hamiltonian:
       \[
-      H = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
+      \mathcal{H} = \frac{Q^2}{2C} + \frac{\Phi_\#^2}{2L} = \frac{Q^2}{2C} + \frac{(I_0 \pi)}{2\Phi_0} \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^2 - \frac{I_0}{24} \left(\frac{\pi}{\Phi_0}\right)^3 \cos\left(\frac{\Phi_B}{\Phi_0} \pi\right) \Phi^4 + \cdots
       \]
       \[
       = \frac{Q^2}{2C} + \frac{\Phi^2}{2L} - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \Phi^4 + \cdots
@@ -876,17 +878,17 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     <p style="text-align:justify">
       Expanding the Hamiltonian:
       \[
-      H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4.
+      \mathcal{H} = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{1}{24L} \left(\frac{\pi}{\Phi_0}\right)^2 \left[i \sqrt{\frac{\hbar}{2\sqrt{L/C}}} (a^\dagger + a)\right]^4.
       \]
       Simplifying:
       \[
-      H = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4.
+      \mathcal{H} = \frac{\hbar}{\sqrt{LC}} \left[a^\dagger a + \frac{1}{2}\right] - \frac{\hbar^2}{96C} \left(\frac{\pi}{\Phi_0}\right)^2 (a^\dagger + a)^4.
       \]
       This expression contains both linear and nonlinear terms, where the linear terms describe the energy levels of a quantum harmonic oscillator, and the nonlinear terms arise from the Josephson junction's correction to the energy levels.
     </p>
 
     <p style="text-align:justify">
-      Using perturbation theory, when \( H = H_0 + \Delta H \), and \( |E_0^m\rangle \to |E^m\rangle \), \( E_0^m \to E^m = E_0^m + \delta E^m \), we know the energy correction \( \delta E^m \) to the energy level \( E_0^m \) is:
+      Using perturbation theory, when \( \mathcal{H} = H_0 + \Delta H \), and \( |E_0^m\rangle \to |E^m\rangle \), \( E_0^m \to E^m = E_0^m + \delta E^m \), we know the energy correction \( \delta E^m \) to the energy level \( E_0^m \) is:
     </p>
 
     <p style="text-align:center">
@@ -1049,7 +1051,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <p style="text-align: center;">
       \[
-      L(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{Q_d^2}{2C_d}
+      \mathcal{L}_d(\dot{Q}, Q) = T - U = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{Q_d^2}{2C_d}
       \]
     </p>
 
@@ -1072,7 +1074,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <p style="text-align: center;">
       \[
-      L_d(\dot{Q}, Q) = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{C_d}{C} \frac{Q^2}{2C} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
+      \mathcal{L}_d(\dot{Q}, Q) = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C} - \frac{C_d}{C} \frac{Q^2}{2C} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
       \]
       \[
       = \frac{L\dot{Q}^2}{2} - \frac{Q^2}{2C_\Sigma} + \frac{C_d}{C} QV_d - \frac{C_d V_d^2}{2}
@@ -1085,7 +1087,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <p style="text-align: center;">
       \[
-      \Phi = -\frac{\partial L_d}{\partial \dot{Q}} = -L\dot{Q} \quad \rightarrow \quad \dot{Q} = -\frac{\Phi}{L}
+      \Phi = -\frac{\partial \mathcal{L}_d}{\partial \dot{Q}} = -L\dot{Q} \quad \rightarrow \quad \dot{Q} = -\frac{\Phi}{L}
       \]
     </p>
 
@@ -1095,7 +1097,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <p style="text-align: center;">
       \[
-      \bar{H}_d = -L - \Phi \dot{Q} = -\frac{L\dot{Q}^2}{2} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d + \frac{\Phi^2}{L}
+      \bar{\mathcal{H}} _d = -\mathcal{L}_d - \Phi \dot{Q} = -\frac{L\dot{Q}^2}{2} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d + \frac{\Phi^2}{L}
       \]
       \[
       = \frac{\Phi^2}{2L} + \frac{Q^2}{2C_\Sigma} - \frac{C_d}{C} QV_d
@@ -1104,7 +1106,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <details class="dark-background">
       <summary>Detailed Derivation</summary>
-      <div style="margin-left: 20px;">
+      <div style="margin-\mathcal{L}eft: 20px;">
         <p style="text-align:justify">
           Proceeding with canonical quantization:
         </p>
@@ -1153,7 +1155,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <p style="text-align: center;">
       \[
-      H_d = \hbar \omega_\Sigma \left(a_d^\dagger a_d + \frac{1}{2}\right) -  i \Omega (a_d^\dagger - a_d)
+      \bar{\mathcal{H}} _d = \hbar \omega_\Sigma \left(a_d^\dagger a_d + \frac{1}{2}\right) -  i \Omega (a_d^\dagger - a_d)
       \]
     </p>
 
@@ -1164,6 +1166,85 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 </section>
 
 
+<section id="I">
+    <div class="container">
+        <header class="major">
+            <h2><li>Coupling Between Two LC Circuits</li></h2>
+        </header>
+        <div style="text-align: center;">
+            <a href="./Image/2_LC.png">
+                <img src="./Image/2_LC.png" alt="Coupled LC Circuits" style="width: 70%; height: auto;">
+            </a>
+        </div>
+        <p style="text-align:justify">
+            Quantum computation requires coupling between qubits, which can influence the parameters of the qubits. Let us first discuss two linear LC circuits coupled through a capacitor \( C_g \).
+        </p>
+        <p style="text-align:center">
+            \[
+            \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{Q_A^2}{2C_A} - \frac{Q_B^2}{2C_B} - \frac{Q_g^2}{2C_g}
+            \]
+        </p>
+        <p style="text-align:justify">
+            The charge \( Q_g \) on the coupling capacitor \( C_g \) can be expressed in terms of \( Q_A \) and \( Q_B \) using the properties of capacitors:
+        </p>
+        <p style="text-align:center">
+            \[
+            Q_g = C_g (V_A - V_B) = C_g \left( \frac{Q_A}{C_A} - \frac{Q_B}{C_B} \right)
+            \]
+        </p>
+        <p style="text-align:justify">
+            Substituting this into the Lagrangian and simplifying:
+        </p>
+        <p style="text-align:center">
+            \[
+            \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) Q_A^2}{2C_A^2} - \frac{(C_B + C_g) Q_B^2}{2C_B^2} + \frac{C_g Q_A}{C_A} \frac{Q_B}{C_B}
+            \]
+        </p>
+        <p style="text-align:justify">
+            Here, \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \) and \( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \). The canonical momentum is defined as:
+        </p>
+        <p style="text-align:center">
+            \[
+            \Phi_A = -\frac{\partial \mathcal{L}_{2LC}}{\partial \dot{Q}_A} = -L_A \dot{Q}_A \quad \rightarrow \quad \dot{Q}_A = -\frac{\Phi_A}{L_A}
+            \]
+        </p>
+        <p style="text-align:justify">
+            The Hamiltonian can then be expressed as:
+        </p>
+        <p style="text-align:center">
+            \[
+            \bar{\mathcal{H}}_{2LC} = \frac{\Phi_A^2}{2L_A} + \frac{Q_A^2}{2C_{\Sigma A}} + \frac{\Phi_B^2}{2L_B} + \frac{Q_B^2}{2C_{\Sigma B}} - \frac{C_g}{C_A C_B} Q_A Q_B
+            \]
+        </p>
+        <p style="text-align:justify">
+            Moving to canonical quantization:
+        </p>
+        <p style="text-align:center">
+            \[
+            \begin{aligned}
+            &a_{\Sigma A} = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L_A}{C_{\Sigma A}}}} \left(\sqrt{\frac{C_{\Sigma A}}{L_A}} \Phi_A + iQ_A \right) \\
+            &a_{\Sigma A}^\dagger = \sqrt{\frac{1}{2\hbar} \sqrt{\frac{L_A}{C_{\Sigma A}}}} \left(\sqrt{\frac{C_{\Sigma A}}{L_A}} \Phi_A - iQ_A \right)
+            \end{aligned}
+            \]
+        </p>
+        <p style="text-align:justify">
+            Defining the frequencies \( \omega_{\Sigma A} = \frac{1}{\sqrt{L_A C_{\Sigma A}}} \) and \( \omega_{\Sigma B} = \frac{1}{\sqrt{L_B C_{\Sigma B}}} \):
+        </p>
+        <p style="text-align:center">
+            \[
+            \bar{\mathcal{H}}_{2LC} = \hbar \omega_{\Sigma A} \left(a_{\Sigma A}^\dagger a_{\Sigma A} + \frac{1}{2}\right) + \hbar \omega_{\Sigma B} \left(a_{\Sigma B}^\dagger a_{\Sigma B} + \frac{1}{2}\right) - \hbar \Omega_g \, i(a_{\Sigma A}^\dagger - a_{\Sigma A}) \, i(a_{\Sigma B}^\dagger - a_{\Sigma B})
+            \]
+        </p>
+        <p style="text-align:justify">
+            The coupling strength \( \Omega_g \) is defined as:
+        </p>
+        <p style="text-align:center">
+            \[
+            \Omega_g = C_g \sqrt{\frac{\omega_{\Sigma A}}{2(C_A + C_g)}} \sqrt{\frac{\omega_{\Sigma B}}{2(C_B + C_g)}}
+            \]
+        </p>
+    </div>
+</section>
 
 
 
@@ -1271,7 +1352,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     </header>
 
     <p style="text-align:justify">
-      Using perturbation theory, when \( H = H_0 + \Delta H \), and the unperturbed eigenstate and eigenvalue are \( |E_0^m\rangle \) and \( E_0^m \), respectively, the perturbed eigenstate and eigenvalue are \( |E^m\rangle \) and \( E^m = E_0^m + \delta E^m \). The energy correction \(\delta E^m\) is given by:
+      Using perturbation theory, when \( \mathcal{H} = H_0 + \Delta H \), and the unperturbed eigenstate and eigenvalue are \( |E_0^m\rangle \) and \( E_0^m \), respectively, the perturbed eigenstate and eigenvalue are \( |E^m\rangle \) and \( E^m = E_0^m + \delta E^m \). The energy correction \(\delta E^m\) is given by:
     </p>
 
     <p style="text-align:center">
@@ -1282,7 +1363,7 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
 
     <details class="dark-background">
       <summary>Complete Derivation</summary>
-      <div style="margin-left: 20px;">
+      <div style="margin-\mathcal{L}eft: 20px;">
         <p style="text-align:center">
           \[
           \langle E_0^m | (a^\dagger + a)^4 | E_0^m \rangle = \langle E_0^m | (aa + aa^\dagger + a^\dagger a + a^\dagger a^\dagger)^2 | E_0^m \rangle.
@@ -1737,8 +1818,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 													</select>
 												</div>
 												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-low" name="demo-priority" checked>
-													<label for="demo-priority-low">Low Priority</label>
+													<input type="radio" id="demo-priority-\mathcal{L}ow" name="demo-priority" checked>
+													<label for="demo-priority-\mathcal{L}ow">Low Priority</label>
 												</div>
 												<div class="col-4 col-12-medium">
 													<input type="radio" id="demo-priority-normal" name="demo-priority">
