@@ -1805,7 +1805,7 @@ input, select, textarea {
 
 	header.major h2 {
 		color: #417cb0;
-		font-size: 3.5em;
+		font-size: 1.5em;
 	}
 
 		header.major h2 + p {
@@ -2894,7 +2894,9 @@ input, select, textarea {
 	@media screen and (max-width: 1680px) {
 
 		/* Basic */
-
+			html, body {
+				overflow-x: scroll; <!--20240702,此行可以改成x有scroll;hidden;-->
+			}
 			body, input, select, textarea {
 				font-size: 13pt;
 			}
