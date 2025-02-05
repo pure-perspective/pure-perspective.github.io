@@ -138,7 +138,7 @@ Update <br>
           1. LC 電路<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> LC 共振器（線性 LC 電路）：用作讀取量子位元狀態（readout resonator），有時也可以作為量子位元間耦合（間接耦合）<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元（非線性 LC 電路）：部分作為資料儲存、部分作為糾錯用位元<br><br>
-          2. 饋線（feed\mathcal{L}ine）：外部訊號送入與讀出<br><br>
+          2. 饋線（feedline）：外部訊號送入與讀出<br><br>
           3. 耦合元件：<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> 操作、改變量子位元狀態<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> 量子位元之間的直接耦合<br>
@@ -158,7 +158,7 @@ Update <br>
     <p style="text-align:justify">
       arxiv.org/pdf/2106.11352
       <br>
-      首先可以先欣賞一下單量子位元的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feed\mathcal{L}ine 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
+      首先可以先欣賞一下單量子位元的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feedline 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
     </p>
 
 <div style="text-align: center;">
@@ -179,7 +179,7 @@ Update <br>
   </a>
 </div>
     <p style="text-align:justify">
-      這張圖是四個 Qubit，中間由 bus resonator 串連耦合四個 Qubit。其中四個接頭直通 Qubit，是 flux-\mathcal{L}ine，另外左上跟右下各有一條 readout feed\mathcal{L}ine I/O，各自連結到兩個 readout resonator 並與 Qubit 耦合（等於說一條 readout feed\mathcal{L}ine 會同時讀取兩個 Qubit）。
+      這張圖是四個 Qubit，中間由 bus resonator 串連耦合四個 Qubit。其中四個接頭直通 Qubit，是 flux-\mathcal{L}ine，另外左上跟右下各有一條 readout feedline I/O，各自連結到兩個 readout resonator 並與 Qubit 耦合（等於說一條 readout feedline 會同時讀取兩個 Qubit）。
     </p>
 
 
@@ -207,7 +207,7 @@ Update <br>
       https://arxiv.org/pdf/1612.08208
       
       <br>
-      要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。下圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，原形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feed\mathcal{L}ine。
+      要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。下圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，圓形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feedline。
     </p>
 
     
@@ -1232,17 +1232,17 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
             <p style="text-align:center">
                 \[
-                \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) Q_A^2}{2C_A^2} - \frac{(C_B + C_g) Q_B^2}{2C_B^2} + \frac{C_g Q_A}{C_A} \frac{Q_B}{C_B}
+                \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) }{2C_A^2} Q_A^2 - \frac{(C_B + C_g) }{2C_B^2}Q_B^2 + \frac{C_g}{C_A C_B} Q_A Q_B
                 \]
             </p>
 
             <p style="text-align:justify">
-                其中 \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \)，\( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \)。接著定義正則動量：
+                其中定義 \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \)，\( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \)。接著定義正則動量：
             </p>
 
             <p style="text-align:center">
                 \[
-                \Phi_A = -\frac{\partial \mathcal{L}_{2LC}}{\partial \dot{Q}_A} = -\mathcal{L}_A \dot{Q}_A \quad \rightarrow \quad \dot{Q}_A = -\frac{\Phi_A}{L_A}
+                \Phi_A = -\frac{\partial \mathcal{L}_{2LC}}{\partial \dot{Q}_A} = -L_A \dot{Q}_A \quad \rightarrow \quad \dot{Q}_A = -\frac{\Phi_A}{L_A}
                 \]
             </p>
 

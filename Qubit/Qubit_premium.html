@@ -34,8 +34,16 @@
 					<ul>
 <li><a href="#p1a" class="active">約瑟夫森節</a></li>
 <li><a href="#p2a">超導量子位元是什麼呢？</a></li>
+<li><a href="#pp3a">淺談超導電路量子位元的種類</a></li>
 <li><a href="#p3a">早年超導量子位元的種類</a></li>
+<li><a href="#p4a">當前主流超導量子位元的種類</a></li>
+<li><a href="#p5">電子顯微鏡下的超導量子位元</a></li>
+<li><a href="#o1">其他種類的Qubit</a></li>
+<li><a href="#c1">超導量子電腦長什麼樣子？</a></li>
+<li><a href="#c2">如何送訊號到量子位元？</a></li>
+<li><a href="#p6">QPU拓墣</a></li>
 <li><a href="#a">如何控制超導量子位元</a></li>
+<li><a href="#b">控制誤差1-頻率失諧</a></li>
 						
 
 </ul>
@@ -81,12 +89,21 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Qubit_premium_en.html">English Version</a><br>
 
 Update <br>
-2025.01.24：<a href="#p3a">早年超導量子位元的種類</a><br>
-2025.01.12：<a href="#p2a">超導量子位元是什麼呢？</a><br>
-2025.01.10：<a href="#p1a">約瑟夫森節</a><br>
-2025.01.06：<a href="#a">主題建立</a><br>
+(11)2025.02.07：<a href="#p6">QPU拓墣</a><br>
+(10)2025.02.06：<a href="#p5">電子顯微鏡下的超導量子位元</a><br>
+(09)2025.02.05：<a href="#o1">其他種類的Qubit</a><br>
+(08)2025.02.04：<a href="#c1">超導量子電腦長什麼樣子？</a><br>
+(07)2025.02.03：<a href="#p4a">當前主流超導量子位元的種類</a><br>
+(06)2025.02.02：<a href="#pp3a">淺談超導電路量子位元的種類</a><br>
+(05)2025.02.01：<a href="#c2">如何送訊號到量子位元？</a><br>
+(04)2025.01.24：<a href="#p3a">早年超導量子位元的種類</a><br>
+(03)2025.01.12：<a href="#p2a">超導量子位元是什麼呢？</a><br>
+(02)2025.01.10：<a href="#p1a">約瑟夫森節</a><br>
+(01)2025.01.06：<a href="#a">主題建立</a><br>
 
 </p>
+
+
 <ol>
 
 
@@ -177,6 +194,66 @@ Ref: 10.1103/RevModPhys.93.025005
   </div>
 </section>
 
+<section id="pp3a">
+  <div class="container">
+    <header class="major">
+      <h2><li>淺談超導電路量子位元的種類</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      以超導為基礎的量子位元可以區分為兩大類：
+<ul>
+<li>以超導電路為基礎，採用約瑟夫森節，有時候稱為人造原子（Artificial Atom），單一Qubit尺寸為約為微米\( \left( \mu m \right) \)等級。本文討論即為此類的Qubit。</li>
+<li>拓墣量子位元，採用超導體為基底，表面放置奈米線，因為鄰近效應的關係，奈米線會被底層的超導體影響成超導性。施加磁場破壞時間反演對稱性，奈米線兩端會形成特殊的Majorana State。未來會有機會討論\(^a\)。</li>
+</ul>
+\(^a\)10.1038/s41586-022-05585-1<br>
+以約瑟夫森節構成的超導電路，可以參考下圖呈現不同名稱的超導Qubit:
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/SC Qubit type 1.png">
+    <img src="./Image/SC Qubit type 1.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+A系列表示組成一個Qubit最基本的單元，箭頭為概念的延伸方向，我自己會分為四大類：
+<ul>
+
+<li>Type A: A1，以單一約瑟夫森節JJ作為量子位元，為較早期的Qubit設計。</li>
+<li>Type B: A2~A8，以電容並聯(C-shunt)一個JJ為基礎。後期為了更進一步增加Qubit的相干時間，朝向並聯大電感、縮小電容，來減緩雜訊的影響。</li>
+<li>Type C: A9~A10，此類Qubit針對其中一側的JJ性質做變化\(^{j}\)，使得其基態相位差不為0。實現的方式可以利用較複雜的電路設計\(^{a,b,c}\)、或是將絕緣層替換為磁性材料\(^{d,i}\)、或是採用s-wave搭配d-wave的異質JJ\(^{g,h}\)。</li>
+<li>Type Hybrid: A11，這類是以超導位元結合自旋量子點（Spin Quantum Dot, Spin QD）的複合\(^{k}\)。此外可以與超流氦形成複合Qubit\(^{e,f}\)、離子井等，可以參考\(^l\)。</li>
+</ul>
+
+\(^a\)10.1038/s41534-019-0231-2<br>
+\(^b\)10.1088/1367-2630/aab7cd<br>
+\(^c\)10.1088/1367-2630/ab09b0<br>
+\(^d\)10.1038/s43246-024-00659-1<br>
+\(^e\)10.1103/PhysRevA.101.012336<br>
+\(^f\)10.1038/s41467-019-13335-7<br>
+<!--\(^g\)10.1088/0953-2048/20/2/S02<br> d wave JJ-->
+\(^g\)10.1109/TASC.2019.2892078<br>
+\(^h\)10.1088/1361-6668/ab7053<br>
+\(^i\)10.1103/PhysRevApplied.8.054028<br>
+\(^j\)10.1088/0953-2048/21/3/034011<br>
+\(^k\)10.1038/s41567-023-02071-x<br>
+\(^l\)arXiv: 1204.2137<br>
+(A8) https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr201209fa2.html
+
+</p>
+
+<p style="text-align:justify" class="dark-background">
+B系列為Type A Qubit搭配控制電路，利用不同控制電路的方式，有不同的名稱，可以參考<a href="#p3a"><早年超導量子位元的種類></a>
+。<br>
+C系列為Type B Qubit搭配控制電路的範例。
+</p>
+    
+
+
+  </div>
+</section>
+
+
 
 <section id="p3a">
   <div class="container">
@@ -194,15 +271,243 @@ Ref: 10.1103/RevModPhys.93.025005
   </a>
 </div>
 <p style="text-align:justify" class="dark-background">
-▲早期的超導量子位元分成三大類：Charge Qubit、Flux Qubit和Phase Qubit。簡易的概念差別在於主要控制Qubit的手段差異：
+▲早期的超導量子位元分成三大類：Charge Qubit、Flux Qubit和Phase Qubit。簡易的概念差別在於主要控制Qubit的手段差異(途中黃色框框)：
 <br>
-\(\to\)用電壓控制:因為電壓可以改變電容的儲電量，故稱為Charge Qubit<br>
-\(\to\)用磁通量控制:磁通量會改變約瑟夫森節的儲能，稱為Flux Qubit<br>
-\(\to\)用感應電流控制:感應電流會改變約瑟夫森節的相位，稱為Phase Qubit<br>
+\(\to\)(a)用電壓控制:因為電壓可以改變電容的儲電量，故稱為Charge Qubit<br>
+\(\to\)(b)用磁通量控制:磁通量會改變約瑟夫森節的儲能，稱為Flux Qubit<br>
+\(\to\)(c)用感應電流控制:感應電流會改變約瑟夫森節的相位，稱為Phase Qubit<br>
 
 <br>
-Ref: DOI: 10.7498/aps.71.20211865 
+Ref: 10.7498/aps.71.20211865 
 </p>
+    
+  </div>
+</section>
+
+
+<section id="p4a">
+  <div class="container">
+    <header class="major">
+      <h2><li>當前主流超導量子位元的種類</li></h2>
+    </header>
+<p style="text-align:justify">
+早期的超導Qubit進一步的演化，可以參看下圖：
+</p>
+<div style="text-align: center;">
+  <a href="./Image/LCJ Qubit.png">
+    <img src="./Image/LCJ Qubit.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+    <p style="text-align:justify">
+早期的超導Qubit容易受到雜訊的影響，需要仰賴外部控制電路來形成能階，外部控制電路常常是大型控制儀器（這裡指的「大型」是相對於微米等級的JJ，讀者可以想像就是日常電腦等級的大小，特徵尺度為公分），如此大型的積體電路就會有許多古典雜訊，會導致量子位元退相干。為了提升保真度(Fidelity)，將一個電容\(C\)並聯，構成所謂的Transmon。此時一個Transmon即構成一個\(LC\)電路，有自身量子化的能階。
+</p>
+
+    <p style="text-align:justify">
+因為Transmon有自身的量子頻率，若要控制Transmon進行量子運算，需要精準的頻率控制與其共振來改變其量子態。當進行大型量子電路發展時，一條控制線或讀取線常會串連多個Qubit，此時如果彼此頻率太相近，會導致訊號影響到頻譜上鄰近的Qubit，是crosstalk的成因之一。調控頻率的方式需從改變電容職值\(C\)或是約瑟夫森節的電感值\(L_J\)做調整，必須從製程上進行參數調控，但要在製程中同時精準控制不同Qubit間的頻率隔離，非常的複雜。加上製成可能造成的誤差，一旦離開製程階段便無法調整，容易造成良率下降。此外，約瑟夫森節實際上會隨時間（每個月甚至每天）偏離原本預設的頻率，這是由於材料異質接面常見的物體，會因為原子移動、缺陷移動等擴散，慢慢改變接面的形狀，一旦頻率偏離過大，整個電路就會失效。故尋找可以「後天調頻」的Transmon顯現其重要性。科學家採用兩個JJ構成的SQUID來構成Tunable Transmon，透過兩個JJ之間的磁通量，可以調控Transmon的頻率。如此一來便可以在量子計算時，同步校正每個Qubit，並達到頻率隔離。構成Tunable Transmon的雙約瑟夫森節可以是相同的（對稱Symmetric）或是不同的（非對稱Asymmetric）。對稱的設計有較大的頻率可調範圍，但相對的就極異受調控磁通量的雜訊；反之對稱的設計雖然頻率可調範圍較小，但頻率的穩定度就較高。
+</p>
+
+
+    <p style="text-align:justify">
+一個Transmon雖然脫離對外部控制儀器的依賴，但因為其加入一個電容\(C\)，電容是利用正負電荷分離來進行儲能，可以想像這是一個微米等級的偶極，極易受到電磁訊號的干擾導致退相干。在電路設計上，常利用電感當作濾波、抗干擾的元件，科學家便從其中一側的約瑟夫森節著手，改成串連許多約瑟夫森節構成一個電感\(L\)，稱為Fluxonium。目前Fluxonium可以達到微秒等級的退相干時間。
+</p>
+
+    <p style="text-align:justify">
+更進一步提升Qubit的穩定度，目前方向是不斷提升電感\(L\)、並減少電容\(C\)，有一系列的發展稱為Blochnium。可以參考下面兩張圖，不同的超導Qubit實際上就是調整\(L\)、\(C\)和\(J\)。
+</p>
+
+
+<div style="text-align: center;">
+  <a href="./Image/SCQ ratio.png">
+    <img src="./Image/SCQ ratio.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+
+
+<p style="text-align:justify" class="dark-background">
+▲此圖右半部說明Transmon和Blochnium概念的對偶，Transmon是「非線性電感」搭配電容，Blochnium可以看成是「非線性電容」搭配電感。<br>
+Ref: 10.1038/s41586-020-2687-9<br>
+Ref: ar5iv.labs.arxiv.org/html/1907.02937
+
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/SCQ.png">
+    <img src="./Image/SCQ.png" alt="取代文字" style="width: 70%; height: auto;">
+  </a>
+</div>
+Ref: 10.1038/s41467-022-34614-w
+
+
+
+  </div>
+</section>
+
+
+<section id="p5">
+  <div class="container">
+    <header class="major">
+      <h2><li>電子顯微鏡下的超導量子位元</li></h2>
+    </header>
+
+<div style="text-align: center;">
+  <a href="./Image/SIngle Qubit circuit.png">
+    <img src="./Image/SIngle Qubit circuit.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+
+    <p style="text-align:justify">
+      arxiv.org/pdf/2106.11352
+      <br>
+      ▲首先可以先欣賞一下Transmon的 layout。（a）顯微鏡底下的電路圖，（b）對應的電路圖，此圖中有一個 Qubit（紅色 Transmon）、一個 readout resonator（天藍色），兩條 feed\mathcal{L}ine 個別驅動（Drive）量子位元與 readout resonator。各元件間利用電容作耦合。另外有一條 Flux line 連到 Qubit 旁，會產生磁場來改變 Transmon 的操作頻率。（c）readout resonator 因為與量子位元耦合，會受到量子位元在 \(|0\rangle\) 或 \(|1\rangle\) 狀態的差異產生頻譜的位移，利用 readout resonator 頻譜的位移的特性來得知量子位元的狀態。
+    </p>
+
+
+
+<div style="text-align: center;">
+  <a href="./Image/Fluxonium.png">
+    <img src="./Image/Fluxonium.png" alt="取代文字" style="width: 60%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+▲從其中一側的約瑟夫森節著手，改成串連許多約瑟夫森節構成一個電感\(L\)，稱為Fluxonium。
+
+<br>Ref: 10.1038/s41467-021-26686-x
+      
+      
+    </p>
+<div style="text-align: center;">
+  <a href="./Image/Blochnium.png">
+    <img src="./Image/Blochnium.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+▲Blochnium可以說是電感進一步串連的Fluxonium。其立體結構非常有趣。
+
+<br>Ref: 10.1038/s41586-020-2687-9<br>
+      
+      
+    </p>
+
+
+
+<div style="text-align: center;">
+  <a href="./Image/JJ Array.png">
+    <img src="./Image/JJ Array.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+▲另一張Fluxonium/Blochnium中的約瑟夫森節陣列蝕刻製程的圖片。此圖可以很明顯地看出捲鬚結構是由一連串的約瑟夫森節串連而成。
+<br>Ref: arxiv: 2411.10396
+      
+    </p>
+
+
+  </div>
+</section>
+
+
+
+<section id="o1">
+  <div class="container">
+    <header class="major">
+      <h2><li>其他種類的Qubit</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/Qubit type.png">
+    <img src="./Image/Qubit type.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+前文提到複合形式的超導量子位元，這邊簡述一些其他的量子位元。量子位元的應用上，一方面要求量子位元要容易控制，一方面也希望量子位元不容易受到雜訊干擾、延長退相干時間。然而目前這兩個需求是衝突的，容易控制意味著易受影響、反之穩定度高意味著難以控制。
+因為不同量子位元的種類有不同的特性，發展在同一個整合不同的量子位元、甚至是複合量子位元，便是一個可行的方向。
+<br>
+Ref: arxiv: 2303.04061
+</p>
+
+<p style="text-align:justify">
+      <strong>(a) 超導量子處理器 (Superconducting Quantum Processor)</strong><br>
+      由約瑟夫森結與電容組成的人工原子陣列，透過微波電子學進行控制。<br>
+      Qubit數量：~100<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 > 99\% \)，2 Qubit Gate \( F_2 > 99\% \)<br>
+      <b>優勢：</b>快速操作、高度可控性與良好可擴展性<br>
+      <b>挑戰：</b>串擾、高冷卻需求、大規模擴展挑戰<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(b) 捕獲離子量子計算 (Trapped Ion Quantum Computing)</strong><br>
+      利用雷射冷卻的原子離子，透過射頻電場捕獲，並用雷射操控。<br>
+      Qubit數量：20–30<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 > 99.9\% \)，2 Qubit Gate \( F_2 > 99\% \)<br>
+      <b>優勢：</b>超長相干時間、高精確度、可重新配置連結<br>
+      <b>挑戰：</b>技術上難以進行大規模整合<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(c) 半導體自旋量子計算 (Semiconductor Spin-Based Quantum Computing)</strong><br>
+      利用半導體量子點中的電子或空穴自旋作為Qubit。<br>
+      Qubit數量：6<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 \approx 99.99\% \)，2 Qubit Gate \( F_2 \approx 99.5\% \)<br>
+      <b>優勢：</b>技術成熟、相干時間長、小占用空間<br>
+      <b>挑戰：</b>需納米級製造精度<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(d) NV 中心量子計算 (NV Center Quantum Computing)</strong><br>
+      在鑽石中的點缺陷，利用電子與核自旋的長相干時間進行運算。<br>
+      Qubit數量：10<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 \approx 99.995\% \)，2 Qubit Gate \( F_2 \approx 99.2\% \)<br>
+      <b>優勢：</b>可在室溫操作、高靈敏度、適用於量子網路<br>
+      <b>挑戰：</b>難以大規模擴展<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(e) 中性原子陣列量子計算 (Neutral Atom Array Quantum Computing)</strong><br>
+      利用光鑷捕獲中性原子，透過 Rydberg 作用控制原子相互作用。<br>
+      Qubit數量：<br>
+      數位處理器：24<br>
+      類比模擬器：289<br>
+      <b>優勢：</b>同時支持數位運算與類比模擬，具良好擴展性<br>
+      <b>挑戰：</b>2 Qubit Gate保真度需提升<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(f) 核磁共振 (NMR) 量子計算</strong><br>
+      使用分子中的核自旋進行運算。<br>
+      Qubit數量：12<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 \approx 99.98\% \)，2 Qubit Gate \( F_2 \approx 99.3\% \)<br>
+      <b>優勢：</b>室溫操作、長相干時間、適用於數位模擬<br>
+      <b>挑戰：</b>難以擴展至大規模系統<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(g) 光量子計算 (Photonic Quantum Computing)</strong><br>
+      透過單光子或電磁場模式的共軛變數來操控量子資訊。<br>
+      Qubit數量：18（具個別控制）、255（九章 3.0）<br>
+      Quantum Gate保真度：
+      Single Qubit Gate \( F_1 \approx 99.84\% \)，2 Qubit Gate \( F_2 \approx 99.69\% \)<br>
+      <b>優勢：</b>抗退相干能力、室溫操作、適用於分佈式計算<br>
+      <b>挑戰：</b>光子-光子閘難以實現<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(h) 拓撲量子計算 (Topological Quantum Computing)</strong><br>
+      基於non-abelian Anyon 的拓撲編碼，透過編織操作進行運算。<br>
+      Qubit數量：實驗中<br>
+      Quantum Gate保真度：N/A<br>
+      <b>優勢：</b>天然拓撲保護機制、大規模糾錯潛力<br>
+      <b>挑戰：</b>尚在發展中<br>
+
     
   </div>
 </section>
@@ -210,6 +515,176 @@ Ref: DOI: 10.7498/aps.71.20211865
 
 
 
+
+
+<section id="c1">
+  <div class="container">
+    <header class="major">
+      <h2><li>超導量子電腦長什麼樣子？</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+完整的超導量子電腦至少需包含：氦3極低溫真空環境、冷卻系統、大量的射頻訊號控制與讀取儀器等，故當前的超導量子電腦非常的巨大。此外，一個量子位元至少需要四條線路：
+<ul>
+<li>控制頻率*1：挑控磁通量的Fluxline。</li>
+<li>控制狀態*1：Driveline。</li>
+<li>讀取狀態*2：Readout line一進一出。</li>
+</ul>
+可以參考下圖：
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/17 surface.png">
+    <img src="./Image/17 surface.png" alt="取代文字" style="width: 43%; height: auto;">
+  </a>
+  <a href="./Image/Starmon.png">
+    <img src="./Image/Starmon.png" alt="取代文字" style="width: 55%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+      https://arxiv.org/pdf/1612.08208
+      
+      <br>
+      ▲要達到量子計算，需要同時操作許多 Qubit，同時因為糾錯的關係，也需要額外的 Qubit 來進行糾錯。上圖是一個 17 位元的實驗性量子晶片，排列方式是一種稱為 surface code（表面碼）的量子糾錯型態，原形為 Qubit，粉色及紅色是 Data Qubit，天藍色及綠色是 Check Qubit。每個 Qubit 都連接 7 條線（暱稱為 Starmon），其中 4 條為 Qubit 間耦合、1 條 Flux line、1 條 Drive line、1 條 Readout resonator。Readout resonator 分別併入到三條 feedline。雖然當前的技術可以將多個Qubit的Readout line整合在一起，透過頻率隔離的技術共用同一條Readout line（所謂Feedline），但我們還需要考慮控制量子位元間交互作用的Resonator，一個100位元的量子電腦原型就需要400條線路從外部送入，故目前常見的超導量子電腦可以看見大量的線路。
+    </p>
+
+<div style="text-align: center;">
+  <a href="./Image/IQM Tunable.png">
+    <img src="./Image/IQM Tunable.png" alt="取代文字" style="width: 60%; height: auto;">
+  </a>
+
+</div>
+<p style="text-align:justify">
+arxiv: 2408.12433<br>
+量子位元間交互作用的Resonator/Coupler可以是可調控的，可進一步調控不同Qubit之間的耦合強度，但亦會增加控制電路的複雜度。
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/IBM Q.jpg">
+    <img src="./Image/IBM Q.jpg" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+Ref: <a href="https://www.forschungsfabrik-mikroelektronik.de/en/focus-topics/next-generation-computing/ibm-q-system-one.html">
+IBM
+</a>
+</p>
+
+
+<div style="text-align: center;">
+  <a href="./Image/Googlw Q.webp">
+    <img src="./Image/Googlw Q.webp" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+Ref: <a href="https://www.newscientist.com/article/2283945-google-demonstrates-vital-step-towards-large-scale-quantum-computers/">
+Google
+</a>
+</p>
+
+
+
+
+<div style="text-align: center;">
+  <a href="./Image/IQCC QC.png">
+    <img src="./Image/IQCC QC.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+Ref: IQCC and Quantum Machines
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/IQM QPU.webp">
+    <img src="./Image/IQM QPU.webp" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+ ▲IQM公司繪製出量子電腦低溫腔內的細節設計圖。<br>
+Ref: <a href="https://www.meetiqm.com/technology/our-approach">
+IQM
+</a>
+
+
+</p>
+
+
+  </div>
+</section>
+
+
+
+<section id="c2">
+  <div class="container">
+    <header class="major">
+      <h2><li>如何送訊號到量子位元？</li></h2>
+    </header>
+<p style="text-align:justify">
+前文介紹量子電腦複雜的硬體設計，本節稍微介紹一下超導電腦控式訊號的線路設計。控制訊號由任意波形產生器(AWG)生成數位訊號，透過數位-類比轉換器(DAC)轉換成類比訊號，通過層層的濾波器送入到量子位元電路中，然後回饋出來的訊號再通過類比-數位轉換器(ADC)換成數位訊號由儀器量測。
+</p>
+<div style="text-align: center;">
+  <a href="./Image/QC structure.png">
+    <img src="./Image/QC structure.png" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+
+</div>
+<p style="text-align:justify">
+      Ref: arxiv: 2303.15547
+</p>
+
+
+<p style="text-align:justify">
+前文圖片中可以見到大量的線路層層穿越低溫腔進入到量子位元中，如此複雜的線路需要精密的設計、降噪、隔熱，容易增加成本和出錯率，造成大型化（scalable）的困難度。以下講解兩種可能的方案，試圖減少穿越的線路。
+</p>
+<div style="text-align: center;">
+  <a href="./Image/Image/Control link.png">
+    <img src="./Image/Control link.png" alt="取代文字" style="width: 70%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+▲光纖方案，（a）是傳統控制線路，（b）採用不同波長的載波混波技術，將控制訊號透過光電轉換器放到對應的載波上，通過光纖束進入到腔體中，再轉換回控制Qubit的控制訊號。
+<br>Ref: DOI: 10.1038/s41586-021-03268-x
+</p>
+
+<div style="text-align: center;">
+  <a href="./Image/Control Bus.png">
+    <img src="./Image/Control Bus.png" alt="取代文字" style="width: 70%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify" class="dark-background">
+▲透過Qubit頻率隔離，並且利用設計過的控制頻譜訊號，使得Qubit之間的控制可以隔離開來，便可通過單一控制線路控制多個Qubit。
+<br>arXiv:2501.10710v1
+</p>
+    
+  </div>
+</section>
+
+
+<section id="p6">
+  <div class="container">
+    <header class="major">
+      <h2><li>QPU拓墣</li></h2>
+    </header>
+<p style="text-align:justify">
+在這邊簡單提一下量子處理器QPU設計。當前量子電路是二維電路，Qubit間的交互作用在電路上常只能與鄰近的Qubit連接。再搭配目前常見的糾錯設計（QEC）是表面碼（Surface code）採用四邊形的設計，所以當前的QPU，每個Qubit僅需四個coupler與鄰近Qubit耦合。製造商IQM亦提供新的QPU設計，試圖加入Computational Resonator，構造出更進階的量子計算方式，未來有機會可以撰文解說。
+</p>
+<div style="text-align: center;">
+  <a href="./Image/IQM QPU Topo.JPG">
+    <img src="./Image/IQM QPU Topo.JPG" alt="取代文字" style="width: 100%; height: auto;">
+  </a>
+</div>
+<p style="text-align:justify">
+
+Ref: <a href="https://www.meetiqm.com/products/iqm-resonance">
+    IQM
+  </a>
+<br>
+Ref: Arxiv: 2408.12433 <br>
+
+</p>
+    
+  </div>
+</section>
 
 
 <section id="a">
@@ -278,7 +753,11 @@ Ref: DOI: 10.7498/aps.71.20211865
 <p style="text-align:justify">
 當然，讀者也許會想說，既然超導Qubit相干時間很短，那脈衝的時長\(T\)越短越好。下一節我們就會提到，越尖的脈衝會引入更多不相關的震動頻率，導致Qubit的操作出現誤差。實務上，如何決定脈衝的時長\(T\)與脈衝的震幅\(A\)，一直是Qubit日常校正的一環。良好的校正會得到優質的量子計算效果，反之，光是誤差就可以導致計算不如古典電腦來的準確。
 </p>
-    
+
+Pulse shape:<br>
+10.1103/PRXQuantum.5.030353<br>
+10.1103/PhysRevLett.116.020501<br>
+
   </div>
 </section>
 

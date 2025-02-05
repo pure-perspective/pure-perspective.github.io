@@ -31,13 +31,20 @@
 				</header>
 				<nav id="nav">
 					<ul>
-<li><a href="#p1a" class="active">Josephson Junction</a></li>
-<li><a href="#p2a">What is a Superconducting Qubit?</a></li>
-<li><a href="#p3a">Early Types of Superconducting Qubits</a></li>
-<li><a href="#a">How to control a Qubit?</a></li>
-						
-
+    <li><a href="#p1a" class="active">Josephson Junction</a></li>
+    <li><a href="#p2a">What is a Superconducting Qubit?</a></li>
+    <li><a href="#pp3a">Overview of Superconducting Circuit Qubit Types</a></li>
+    <li><a href="#p3a">Early Types of Superconducting Qubits</a></li>
+    <li><a href="#p4a">Modern Mainstream Superconducting Qubits</a></li>
+    <li><a href="#p5">Superconducting Qubits under Electron Microscopy</a></li>
+    <li><a href="#o1">Other Types of Qubits</a></li>
+    <li><a href="#c1">What Does a Superconducting Quantum Computer Look Like?</a></li>
+    <li><a href="#c2">How Are Signals Delivered to Qubits?</a></li>
+    <li><a href="#p6">QPU Topology</a></li>
+    <li><a href="#a">How to Control a Superconducting Qubit</a></li>
+    <li><a href="#b">Control Error 1 - Frequency Detuning</a></li>
 </ul>
+
 				</nav>
 				<footer>
 					<!--<ul class="icons">
@@ -80,10 +87,18 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Qubit_premium.html">中文版</a><br>
 
 Update <br>
-2025.01.24：<a href="#p3a">Early Types of Superconducting Qubits</a><br>
-2025.01.12：<a href="#p2a">What is a Superconducting Qubit?</a><br>
-2025.01.10：<a href="#p1a">Josephson Junction</a><br>
-2025.01.06：<a href="#a">New topic create.</a><br>
+(11)2025.02.07：<a href="#p6">QPU Topology</a><br>
+(10)2025.02.06：<a href="#p5">Superconducting Qubits under Electron Microscopy</a><br>
+(09)2025.02.05：<a href="#o1">Other Types of Qubits</a><br>
+(08)2025.02.04：<a href="#c1">What Does a Superconducting Quantum Computer Look Like?</a><br>
+(07)2025.02.03：<a href="#p4a">Modern Mainstream Superconducting Qubits</a><br>
+(06)2025.02.02：<a href="#pp3a">Overview of Superconducting Circuit Qubit Types</a><br>
+(05)2025.02.01：<a href="#c2">How Are Signals Delivered to Qubits?</a><br>
+(04)2025.01.24：<a href="#p3a">Early Types of Superconducting Qubits</a><br>
+(03)2025.01.12：<a href="#p2a">What is a Superconducting Qubit?</a><br>
+(02)2025.01.10：<a href="#p1a">Josephson Junction</a><br>
+(01)2025.01.06：<a href="#a">Topic Establishment</a><br>
+
 
 </p>
 <ol>
@@ -168,6 +183,58 @@ Update <br>
 </section>
 
 
+<section id="pp3a">
+  <div class="container">
+    <header class="major">
+      <h2><li>A Brief Overview of Superconducting Circuit Qubit Types</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      Superconducting-based quantum bits can be classified into two main types:
+      <ul>
+        <li>Qubits based on superconducting circuits using Josephson Junctions, sometimes referred to as artificial atoms. A single qubit size is about the micrometer (\( \mu m \)) scale. This article focuses on this type of qubit.</li>
+        <li>Topological qubits, using superconductors as the substrate, with nanowires placed on the surface. Due to the proximity effect, the nanowires are influenced by the substrate's superconductivity. Applying a magnetic field to break time-reversal symmetry forms special Majorana states at both ends of the nanowires. This topic may be discussed in the future. \(^a\)</li>
+      </ul>
+      \(^a\)10.1038/s41586-022-05585-1<br>
+      Superconducting circuits made of Josephson Junctions can refer to the figure below, showing different superconducting qubit types:
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/SC Qubit type 1.png">
+        <img src="./Image/SC Qubit type 1.png" alt="Superconducting Qubit Types" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      The A series represents the most basic unit to form a single qubit. The arrows indicate the conceptual extension directions. I categorize them into four main types:
+      <ul>
+        <li>Type A: A1 represents a single Josephson Junction (JJ) as a qubit, an earlier qubit design.</li>
+        <li>Type B: A2–A8, based on a single JJ shunted with a capacitor (C-shunt). Later designs aimed to increase coherence time by connecting large inductors in parallel or reducing capacitance to mitigate noise effects.</li>
+        <li>Type C: A9–A10, qubits with modifications on one side of the JJ<sup>j</sup>, making the ground state phase difference non-zero. These can be achieved through complex circuit designs<sup>a,b,c</sup>, replacing the insulating layer with magnetic materials<sup>d,i</sup>, or using s-wave with d-wave heterostructure JJs<sup>g,h</sup>.</li>
+        <li>Type Hybrid: A11, representing superconducting qubits combined with spin quantum dots (Spin Quantum Dot, Spin QD)<sup>k</sup>. Other types include combinations with superfluid helium<sup>e,f</sup>, ion traps, and more.<sup>l</sup></li>
+      </ul>
+      \(^a\)10.1038/s41534-019-0231-2<br>
+      \(^b\)10.1088/1367-2630/aab7cd<br>
+      \(^c\)10.1088/1367-2630/ab09b0<br>
+      \(^d\)10.1038/s43246-024-00659-1<br>
+      \(^e\)10.1103/PhysRevA.101.012336<br>
+      \(^f\)10.1038/s41467-019-13335-7<br>
+      \(^g\)10.1109/TASC.2019.2892078<br>
+      \(^h\)10.1088/1361-6668/ab7053<br>
+      \(^i\)10.1103/PhysRevApplied.8.054028<br>
+      \(^j\)10.1088/0953-2048/21/3/034011<br>
+      \(^k\)10.1038/s41567-023-02071-x<br>
+      \(^l\)arXiv: 1204.2137<br>
+      (A8) https://www.ntt-review.jp/archive/ntttechnical.php?contents=ntr201209fa2.html
+    </p>
+
+    <p style="text-align:justify" class="dark-background">
+      The B series represents examples of Type A qubits paired with control circuits, using different control circuit techniques. More details can be found in <a href="#p3a">Early Types of Superconducting Qubits</a>.<br>
+      The C series represents examples of Type B qubits paired with control circuits.
+    </p>
+  </div>
+</section>
+
+
 <section id="p3a">
   <div class="container">
     <header class="major">
@@ -175,26 +242,373 @@ Update <br>
     </header>
 
     <p style="text-align:justify">
-      Almost all superconducting qubits are based on the Josephson junction, combined with capacitors and inductors. The early types of superconducting qubits are shown below:
+      Almost all superconducting qubits are based on Josephson Junctions, combined with capacitors and inductors. Early superconducting qubits can be categorized as shown in the figure below:
     </p>
 
     <div style="text-align: center;">
       <a href="./Image/Early SCQ.png">
-        <img src="./Image/Early SCQ.png" alt="Early Types of Superconducting Qubits" style="width: 100%; height: auto;">
+        <img src="./Image/Early SCQ.png" alt="Early Superconducting Qubits" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      ▲ Early superconducting qubits are divided into three main types: Charge Qubit, Flux Qubit, and Phase Qubit. The simple conceptual differences lie in the primary methods of controlling the qubits (highlighted in yellow boxes in the figure):
+      <br>
+      \(\to\) (a) Controlled by voltage: Voltage alters the stored charge in the capacitor, referred to as a Charge Qubit.<br>
+      \(\to\) (b) Controlled by magnetic flux: Magnetic flux alters the energy storage in the Josephson Junction, referred to as a Flux Qubit.<br>
+      \(\to\) (c) Controlled by induced current: Induced current alters the phase of the Josephson Junction, referred to as a Phase Qubit.<br>
+      <br>
+      Ref: 10.7498/aps.71.20211865 
+    </p>
+  </div>
+</section>
+
+<section id="p4a">
+  <div class="container">
+    <header class="major">
+      <h2><li>Current Mainstream Types of Superconducting Qubits</li></h2>
+    </header>
+    <p style="text-align:justify">
+      The evolution of early superconducting qubits can be observed in the figure below:
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/LCJ Qubit.png">
+        <img src="./Image/LCJ Qubit.png" alt="Current Superconducting Qubits" style="width: 100%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      Early superconducting qubits were highly susceptible to noise and relied on external control circuits to form energy levels. These external control circuits often consisted of large control instruments (referred to as "large" relative to the micrometer-scale JJ, imagine them being the size of everyday computers, with characteristic dimensions in centimeters). Such large integrated circuits introduced significant classical noise, leading to qubit decoherence. To improve fidelity, a capacitor (\(C\)) was connected in parallel, forming what is known as a Transmon. A single Transmon constitutes an \(LC\) circuit with quantized energy levels.
+    </p>
+
+    <p style="text-align:justify">
+      Because Transmons have their quantum frequencies, precise frequency control and resonance are required to alter their quantum states for quantum computation. When developing large-scale quantum circuits, a single control or readout line often connects multiple qubits. If their frequencies are too similar, signals may interfere with adjacent qubits in the spectrum, causing crosstalk. Frequency adjustments are achieved by altering the capacitance value (\(C\)) or the inductance of the Josephson Junction (\(L_J\)) during fabrication. However, precise control of frequency isolation between qubits during fabrication is extremely challenging. Manufacturing errors can lead to deviations, and once fabrication is complete, adjustments cannot be made, lowering the yield. Moreover, over time (e.g., monthly or daily), the frequency of Josephson Junctions deviates from their original design due to atomic or defect diffusion at the heterogeneous material interface. Once the deviation exceeds a threshold, the entire circuit fails. Thus, the importance of "post-fabrication frequency tuning" for Transmons becomes evident. Scientists use two JJs forming a SQUID to create a Tunable Transmon, where magnetic flux between the two JJs can adjust the Transmon's frequency. This enables synchronization of qubit calibration during computation, achieving frequency isolation. The dual JJs in a Tunable Transmon can be symmetric (identical) or asymmetric (different). Symmetric designs allow a wider tunable frequency range but are more affected by noise in magnetic flux control; asymmetric designs, while having a smaller tunable range, offer higher frequency stability.
+    </p>
+
+    <p style="text-align:justify">
+      While a Transmon eliminates reliance on external control instruments, adding a capacitor (\(C\)) introduces stored energy by separating positive and negative charges. This creates a micrometer-scale dipole, making it highly susceptible to electromagnetic noise, causing decoherence. To mitigate this, scientists focus on one side of the Josephson Junction and replace it with multiple series-connected JJs to form an inductor (\(L\)), called Fluxonium. Fluxonium currently achieves decoherence times in the microsecond range.
+    </p>
+
+    <p style="text-align:justify">
+      Further improvements in qubit stability focus on continuously increasing inductance (\(L\)) and reducing capacitance (\(C\)), leading to developments like Blochnium. The following figures illustrate that different superconducting qubits essentially involve tuning \(L\), \(C\), and \(J\).
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/SCQ ratio.png">
+        <img src="./Image/SCQ ratio.png" alt="SCQ Ratio" style="width: 100%; height: auto;">
       </a>
     </div>
 
     <p style="text-align:justify" class="dark-background">
-      ▲ Early superconducting qubits were categorized into three main types: Charge Qubit, Flux Qubit, and Phase Qubit. The primary difference lies in the method used to control the qubit:
-      <br>
-      \(\to\) **Voltage Control**: Voltage changes the charge stored in the capacitor, leading to the term Charge Qubit.<br>
-      \(\to\) **Magnetic Flux Control**: Magnetic flux alters the energy stored in the Josephson junction, leading to the term Flux Qubit.<br>
-      \(\to\) **Induced Current Control**: Induced current changes the phase of the Josephson junction, leading to the term Phase Qubit.<br>
-      <br>
-      Ref: DOI: <a href="https://doi.org/10.7498/aps.71.20211865">10.7498/aps.71.20211865</a>
+      ▲ The right side of this figure illustrates the duality of the Transmon and Blochnium concepts. The Transmon is a "nonlinear inductor" paired with a capacitor, while Blochnium can be seen as a "nonlinear capacitor" paired with an inductor.<br>
+      Ref: 10.1038/s41586-020-2687-9<br>
+      Ref: ar5iv.labs.arxiv.org/html/1907.02937
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/SCQ.png">
+        <img src="./Image/SCQ.png" alt="SCQ Examples" style="width: 70%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      Ref: 10.1038/s41467-022-34614-w
     </p>
   </div>
 </section>
+
+
+<section id="p5">
+  <div class="container">
+    <header class="major">
+      <h2><li>Superconducting Qubits Under Electron Microscopy</li></h2>
+    </header>
+
+    <div style="text-align: center;">
+      <a href="./Image/SIngle Qubit circuit.png">
+        <img src="./Image/SIngle Qubit circuit.png" alt="Superconducting Qubit Circuit Layout" style="width: 100%; height: auto;">
+      </a>
+    </div>
+
+    <p style="text-align:justify">
+      arxiv.org/pdf/2106.11352
+      <br>
+      ▲ Take a look at the layout of a Transmon. (a) shows the circuit layout under a microscope, and (b) provides the corresponding circuit diagram. In this figure, there is a Qubit (red Transmon), a readout resonator (light blue), and two feedlines, one driving the qubit and the other driving the readout resonator. Components are coupled through capacitors. Additionally, a flux line connected to the Qubit generates a magnetic field to adjust the Transmon's operational frequency. (c) The readout resonator, coupled with the qubit, undergoes frequency shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This frequency shift characteristic of the readout resonator is used to determine the qubit's state.
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/Fluxonium.png">
+        <img src="./Image/Fluxonium.png" alt="Fluxonium Example" style="width: 60%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      ▲ On one side of the Josephson Junction, multiple JJs are connected in series to form an inductor (\(L\)), referred to as Fluxonium.
+      <br>Ref: 10.1038/s41467-021-26686-x
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/Blochnium.png">
+        <img src="./Image/Blochnium.png" alt="Blochnium Example" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      ▲ Blochnium can be viewed as an advanced Fluxonium, with its inductor further constructed by connecting more Josephson Junctions in series. Its three-dimensional structure is intriguing.
+      <br>Ref: 10.1038/s41586-020-2687-9
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/JJ Array.png">
+        <img src="./Image/JJ Array.png" alt="Josephson Junction Array" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      ▲ Another image of Josephson Junction arrays in the etching process for Fluxonium/Blochnium. This clearly shows that the squid-like structure is formed by a series of Josephson Junctions.
+      <br>Ref: arxiv: 2411.10396
+    </p>
+  </div>
+</section>
+
+<section id="o1">
+  <div class="container">
+    <header class="major">
+      <h2><li>Other Types of Qubits</li></h2>
+    </header>
+
+    <div style="text-align: center;">
+      <a href="./Image/Qubit type.png">
+        <img src="./Image/Qubit type.png" alt="Types of Qubits" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      Previous discussions covered composite superconducting qubits. Here, we briefly introduce other types of qubits. In applications, qubits must strike a balance between easy controllability and resistance to noise, extending decoherence time. However, these two demands often conflict; ease of control means greater susceptibility to noise, while higher stability implies difficulty in control. 
+      Developing hybrid systems that integrate different qubit types or composite qubits is a viable direction.
+      <br>
+      Ref: arxiv: 2303.04061
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(a) Superconducting Quantum Processor</strong><br>
+      Composed of artificial atom arrays using Josephson Junctions and capacitors, controlled via microwave electronics.<br>
+      Qubit Count: ~100<br>
+      Quantum Gate Fidelity: 
+      Single Qubit Gate \(F_1 > 99\%\), Two Qubit Gate \(F_2 > 99\%\)<br>
+      <b>Pros:</b> Fast operation, high controllability, excellent scalability<br>
+      <b>Cons:</b> Crosstalk, low-temperature requirement, challenges in large-scale expansion<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(b) Trapped Ion Quantum Computing</strong><br>
+      Utilizing laser-cooled atomic ions, trapped with RF electric fields and manipulated with lasers.<br>
+      Qubit Count: 20–30<br>
+      Quantum Gate Fidelity:
+      Single Qubit Gate \(F_1 > 99.9\%\), Two Qubit Gate \(F_2 > 99\%\)<br>
+      <b>Pros:</b> Long coherence time, high gate precision, reconfigurable qubit links<br>
+      <b>Cons:</b> Difficult to scale up technically<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(c) Semiconductor Spin-Based Quantum Computing</strong><br>
+      Utilizing the electron or hole spin within semiconductor quantum dots as qubits.<br>
+      Qubit Count: 6<br>
+      Quantum Gate Fidelity:
+      Single Qubit Gate \(F_1 \approx 99.99\%\), Two Qubit Gate \(F_2 \approx 99.5\%\)<br>
+      <b>Pros:</b> Mature technology, long coherence time, compact footprint<br>
+      <b>Cons:</b> Requires nanoscale manufacturing precision<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(d) NV Center Quantum Computing</strong><br>
+      Quantum operations using the long coherence time of electron and nuclear spins at point defects in diamonds (NV centers).<br>
+      Qubit Count: 10<br>
+      Quantum Gate Fidelity:
+      Single Qubit Gate \(F_1 \approx 99.995\%\), Two Qubit Gate \(F_2 \approx 99.2\%\)<br>
+      <b>Pros:</b> Room-temperature operation, high sensitivity, suitable for quantum networks<br>
+      <b>Cons:</b> Difficult to scale up<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(e) Neutral Atom Array Quantum Computing</strong><br>
+      Utilizing optical tweezers to trap neutral atoms and controlling interatomic interactions via Rydberg effects.<br>
+      Qubit Count:
+      Digital Processor: 24<br>
+      Analog Simulator: 289<br>
+      <b>Pros:</b> Supports both digital computation and analog simulation, highly scalable<br>
+      <b>Cons:</b> Needs improvement in two-qubit gate fidelity<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(f) NMR Quantum Computing</strong><br>
+      Using nuclear spins in molecules for quantum operations.<br>
+      Qubit Count: 12<br>
+      Quantum Gate Fidelity:
+      Single Qubit Gate \(F_1 \approx 99.98\%\), Two Qubit Gate \(F_2 \approx 99.3\%\)<br>
+      <b>Pros:</b> Room-temperature operation, long coherence time, suitable for digital simulations<br>
+      <b>Cons:</b> Difficult to scale up to large systems<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(g) Photonic Quantum Computing</strong><br>
+      Manipulating quantum information using single photons or conjugate variables of electromagnetic field modes.<br>
+      Qubit Count: 18 (individual control), 255 (Jiuzhang 3.0)<br>
+      Quantum Gate Fidelity:
+      Single Qubit Gate \(F_1 \approx 99.84\%\), Two Qubit Gate \(F_2 \approx 99.69\%\)<br>
+      <b>Pros:</b> Resistance to decoherence, room-temperature operation, suitable for distributed quantum computing<br>
+      <b>Cons:</b> Photon-photon gates are challenging to implement<br>
+    </p>
+
+    <p style="text-align:justify">
+      <strong>(h) Topological Quantum Computing</strong><br>
+      Based on topological encoding using non-Abelian anyons, performing operations through braiding.<br>
+      Qubit Count: Experimental stage<br>
+      Quantum Gate Fidelity: N/A<br>
+      <b>Pros:</b> Intrinsic topological protection, potential for large-scale error correction<br>
+      <b>Cons:</b> Still in development<br>
+    </p>
+  </div>
+</section>
+
+
+<section id="c1">
+  <div class="container">
+    <header class="major">
+      <h2><li>What Does a Superconducting Quantum Computer Look Like?</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      A complete superconducting quantum computer must include a helium-3 ultra-low temperature vacuum environment, a cooling system, and numerous RF signal control and readout instruments. Hence, current superconducting quantum computers are extremely large. Additionally, each qubit requires at least four lines:
+      <ul>
+        <li>Frequency control *1: The flux line for tuning magnetic flux.</li>
+        <li>State control *1: The drive line.</li>
+        <li>State readout *2: One input and one output readout line.</li>
+      </ul>
+      Refer to the diagram below:
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/17 surface.png">
+        <img src="./Image/17 surface.png" alt="Quantum Chip" style="width: 43%; height: auto;">
+      </a>
+      <a href="./Image/Starmon.png">
+        <img src="./Image/Starmon.png" alt="Starmon Design" style="width: 55%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      https://arxiv.org/pdf/1612.08208
+      <br>
+      ▲ Quantum computation requires operating numerous qubits simultaneously, along with additional qubits for error correction. The image above shows a 17-qubit experimental quantum chip arranged in a type of quantum error correction layout called surface code. Pink and red denote data qubits, while light blue and green indicate check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four coupling lines, one flux line, one drive line, and one readout resonator. The readout resonators are integrated into three feedlines. Although current technology allows multiple qubits to share a readout line via frequency isolation, we still need to consider resonators for inter-qubit interaction. A prototype 100-qubit quantum computer requires around 400 external lines, making superconducting quantum computers densely wired.
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/IQM Tunable.png">
+        <img src="./Image/IQM Tunable.png" alt="Tunable Qubit Interaction" style="width: 60%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      arxiv: 2408.12433<br>
+      Resonators or couplers for inter-qubit interactions can be tunable, enabling adjustment of coupling strength between qubits. However, this also increases the complexity of the control circuit.
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/IBM Q.jpg">
+        <img src="./Image/IBM Q.jpg" alt="IBM Quantum Computer" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      Ref: <a href="https://www.forschungsfabrik-mikroelektronik.de/en/focus-topics/next-generation-computing/ibm-q-system-one.html">IBM</a>
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/Googlw Q.webp">
+        <img src="./Image/Googlw Q.webp" alt="Google Quantum Computer" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      Ref: <a href="https://www.newscientist.com/article/2283945-google-demonstrates-vital-step-towards-large-scale-quantum-computers/">Google</a>
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/IQCC QC.png">
+        <img src="./Image/IQCC QC.png" alt="IQCC Quantum Computer" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      Ref: IQCC and Quantum Machines
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/IQM QPU.webp">
+        <img src="./Image/IQM QPU.webp" alt="IQM Quantum Computer Design" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      ▲ IQM illustrates detailed designs of the quantum computer's cryogenic chamber.<br>
+      Ref: <a href="https://www.meetiqm.com/technology/our-approach">IQM</a>
+    </p>
+  </div>
+</section>
+
+<section id="c2">
+  <div class="container">
+    <header class="major">
+      <h2><li>How Are Signals Delivered to Qubits?</li></h2>
+    </header>
+    <p style="text-align:justify">
+      In the previous section, we discussed the complex hardware design of quantum computers. Here, we briefly explain the signal delivery system for controlling superconducting quantum computers. Control signals are generated by arbitrary waveform generators (AWG) as digital signals, converted to analog signals via digital-to-analog converters (DAC), filtered through multiple layers, and then sent to the quantum circuit. Feedback signals are converted back to digital signals using analog-to-digital converters (ADC) for measurement.
+    </p>
+    <div style="text-align: center;">
+      <a href="./Image/QC structure.png">
+        <img src="./Image/QC structure.png" alt="Quantum Computer Signal Delivery" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      Ref: arxiv: 2303.15547
+    </p>
+
+    <p style="text-align:justify">
+      The images above illustrate the complex layers of wiring passing through the cryogenic chamber into the qubits. Designing such intricate wiring while ensuring noise reduction and thermal isolation increases costs and error rates, making scalability challenging. Below are two potential solutions to reduce the number of wires:
+    </p>
+    <div style="text-align: center;">
+      <a href="./Image/Image/Control link.png">
+        <img src="./Image/Control link.png" alt="Fiber Optic Solution" style="width: 70%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      ▲ Fiber optic solution: (a) shows traditional control wiring, while (b) demonstrates the use of wavelength-multiplexed carrier signals. Control signals are sent via fiber optic bundles into the chamber after being converted into corresponding carriers by optical-electrical converters.
+      <br>Ref: DOI: 10.1038/s41586-021-03268-x
+    </p>
+
+    <div style="text-align: center;">
+      <a href="./Image/Control Bus.png">
+        <img src="./Image/Control Bus.png" alt="Control Bus Solution" style="width: 70%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify" class="dark-background">
+      ▲ By isolating qubit frequencies and designing specific control spectrum signals, multiple qubits can be controlled via a single control line.
+      <br>Ref: arXiv:2501.10710v1
+    </p>
+  </div>
+</section>
+
+<section id="p6">
+  <div class="container">
+    <header class="major">
+      <h2><li>QPU Topology</li></h2>
+    </header>
+    <p style="text-align:justify">
+      Here, we briefly discuss QPU (Quantum Processing Unit) design. Current quantum circuits are two-dimensional, with inter-qubit interactions typically limited to neighboring qubits. Coupled with common error correction designs (QEC), such as the surface code, which adopts a square design, each QPU qubit only needs four couplers for neighboring qubits. IQM has also proposed new QPU designs incorporating computational resonators to enable more advanced quantum computing methods. We may write more about this in the future.
+    </p>
+    <div style="text-align: center;">
+      <a href="./Image/IQM QPU Topo.JPG">
+        <img src="./Image/IQM QPU Topo.JPG" alt="IQM QPU Topology" style="width: 100%; height: auto;">
+      </a>
+    </div>
+    <p style="text-align:justify">
+      Ref: <a href="https://www.meetiqm.com/products/iqm-resonance">IQM</a><br>
+      Ref: arXiv: 2408.12433<br>
+    </p>
+  </div>
+</section>
+
+
 
 
 

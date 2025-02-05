@@ -130,7 +130,7 @@ Update <br>
         <td style="border: 1px solid black; padding: 10px;">
           1. Qubits (Data storage)<br>
           2. Driving components: Coupling circuits or LC resonators (for computation)<br>
-          3. Readout components: LC resonators and feed\mathcal{L}ines<br>
+          3. Readout components: LC resonators and feedlines<br>
           4. Calibration components: Flux lines (to adjust qubit frequencies)<br>
           5. Error correction components: Qubits (used for error correction)
         </td>
@@ -141,7 +141,7 @@ Update <br>
           1. LC Circuits<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> LC resonators (linear LC circuits): Used for reading qubit states (readout resonators) and sometimes for indirect coupling between qubits<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> Qubits (nonlinear LC circuits): Partly for data storage, partly for error correction<br><br>
-          2. Feed\mathcal{L}ines: Delivering and receiving external signals<br><br>
+          2. feedlines: Delivering and receiving external signals<br><br>
           3. Coupling components:<br>
           &nbsp;&nbsp;&nbsp;<b>a.</b> Operating and changing qubit states<br>
           &nbsp;&nbsp;&nbsp;<b>b.</b> Direct coupling between qubits<br>
@@ -160,7 +160,7 @@ Update <br>
     <p style="text-align:justify">
       arxiv.org/pdf/2106.11352
       <br>
-      Let's first take a look at the layout of a single qubit. (a) A microscope view of the circuit, (b) the corresponding circuit diagram. This diagram includes a qubit (red transmon), a readout resonator (light blue), and two feed\mathcal{L}ines separately driving the qubit and the readout resonator. Components are coupled via capacitors. Additionally, a flux line near the qubit generates a magnetic field to adjust the operational frequency of the transmon. (c) The readout resonator, coupled to the qubit, shows spectral shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This spectral shift allows determination of the qubit state.
+      Let's first take a look at the layout of a single qubit. (a) A microscope view of the circuit, (b) the corresponding circuit diagram. This diagram includes a qubit (red transmon), a readout resonator (light blue), and two feedlines separately driving the qubit and the readout resonator. Components are coupled via capacitors. Additionally, a flux line near the qubit generates a magnetic field to adjust the operational frequency of the transmon. (c) The readout resonator, coupled to the qubit, shows spectral shifts depending on whether the qubit is in state \(|0\rangle\) or \(|1\rangle\). This spectral shift allows determination of the qubit state.
     </p>
 
 <div style="text-align: center;">
@@ -180,7 +180,7 @@ Update <br>
   </a>
 </div>
     <p style="text-align:justify">
-      This image shows four qubits connected via a bus resonator. Each qubit is directly connected to flux lines, and there are readout feed\mathcal{L}ines on the top-\mathcal{L}eft and bottom-right. Each feed\mathcal{L}ine is connected to two readout resonators, coupling with two qubits simultaneously.
+      This image shows four qubits connected via a bus resonator. Each qubit is directly connected to flux lines, and there are readout feedlines on the top-\mathcal{L}eft and bottom-right. Each feedline is connected to two readout resonators, coupling with two qubits simultaneously.
     </p>
 
 <div style="text-align: center;">
@@ -207,7 +207,7 @@ Update <br>
       https://arxiv.org/pdf/1612.08208
       
       <br>
-      To achieve quantum computation, many qubits must be operated simultaneously. Due to error correction requirements, additional qubits are needed for this purpose. Below is an experimental 17-qubit quantum chip, arranged in a surface code configuration for quantum error correction. The prototype qubits are shown in pink and red as data qubits, and light blue and green as check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four for qubit coupling, one flux line, one drive line, and one readout resonator. The readout resonators are merged into three feed\mathcal{L}ines.
+      To achieve quantum computation, many qubits must be operated simultaneously. Due to error correction requirements, additional qubits are needed for this purpose. Above is an experimental 17-qubit quantum chip, arranged in a surface code configuration for quantum error correction. The  qubits are shown in pink and red circles as data qubits, and light blue and green as check qubits. Each qubit connects to seven lines (nicknamed Starmon), including four for qubit coupling, one flux line, one drive line, and one readout resonator. The readout resonators are merged into three feedlines.
     </p>
   </div>
 </section>
@@ -1197,11 +1197,11 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
         </p>
         <p style="text-align:center">
             \[
-            \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) Q_A^2}{2C_A^2} - \frac{(C_B + C_g) Q_B^2}{2C_B^2} + \frac{C_g Q_A}{C_A} \frac{Q_B}{C_B}
+            \mathcal{L}_{2LC} = \frac{L_A \dot{Q}_A^2}{2} + \frac{L_B \dot{Q}_B^2}{2} - \frac{(C_A + C_g) }{2C_A^2} Q_A^2 - \frac{(C_B + C_g) }{2C_B^2}Q_B^2 + \frac{C_g}{C_A C_B} Q_A Q_B
             \]
         </p>
         <p style="text-align:justify">
-            Here, \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \) and \( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \). The canonical momentum is defined as:
+            Here, define \( C_{\Sigma A} = \frac{C_A^2}{C_A + C_g} \) and \( C_{\Sigma B} = \frac{C_B^2}{C_B + C_g} \). The canonical momentum is defined as:
         </p>
         <p style="text-align:center">
             \[
