@@ -11,8 +11,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
-		</script>
+		<!--<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript"></script>-->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body class="is-preload">
 
@@ -37,6 +39,7 @@
   <li><a href="#e">Nonlinear Inductance of Josephson Junctions</a></li>
   <li><a href="#f">Nonlinear Inductance of a Double Josephson Junction (SQUID)</a></li>
   <li><a href="#g">Properties of the Transmon</a></li>
+  <li><a href="#h0">Computational Science and Two-Level Systems (TLS)</a></li>
   <li><a href="#h">Driving an LC Circuit</a></li>
   <li><a href="#I">Coupling Between Two LC Circuits</li>
   <li><a href="#app1">Appendix: Probability Current in Schrödinger Equation Under Electromagnetic Fields</a></li>
@@ -86,9 +89,12 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 
 
 Update <br>
-2025.01.18：New-<a href="#I">Coupling Between Two LC Circuits</a><br>
-2025.01.12：New-<a href="#h">Driving an LC Circuit</a><br>
-2024.12.29：New-<a href="#a0">New web</a><br>
+
+
+<b>(O04)</b>2025.02.07：New-<a href="#h0">Computational Science and Two-Level Systems (TLS)</a><br>
+<b>(O03)</b>2025.01.18：New-<a href="#I">Coupling Between Two LC Circuits</a><br>
+<b>(O02)</b>2025.01.12：New-<a href="#h">Driving an LC Circuit</a><br>
+<b>(O01)</b>2024.12.29：New-<a href="#a0">New web</a><br>
 </p>
 <ol>
 
@@ -1032,6 +1038,141 @@ Finally, the quantized Hamiltonian is obtained, with each energy level separated
     Ref: DOI:10.1103/RevModPhys.93.025005
   </div>
 </section>
+
+<section id="h0">
+  <div class="container">
+    <header class="major">
+      <h2><li>Computational Science and Two-Level Systems (TLS)</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      The fundamental principle behind modern computers relies on bits for storing information and logic gates for computation. Information is encoded in binary as sequences of 0s and 1s. These bits are manipulated to store information. For example, to store the number 19, its binary representation is 10011. When stored in an 8-bit memory, the state becomes:
+    </p>
+
+    <p style="text-align:justify">
+      \[ \ket{bit_1} \ket{bit_2} \ket{bit_3} \ket{bit_4} \ket{bit_5} \ket{bit_6} \ket{bit_7} \ket{bit_8} \] 
+      changing to:
+      \[ \ket{0} \ket{0} \ket{0} \ket{1} \ket{0} \ket{0} \ket{1} \ket{1} \]
+    </p>
+
+    <p style="text-align:justify">
+      In a quantum harmonic oscillator, the different energy levels \( n \) can be connected using \( a^\dagger \) and \( a \):
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \ket{n+1} = \frac{a^\dagger}{\sqrt{n+1}} \ket{n}, \quad 
+      \ket{n-1} = \frac{a}{\sqrt{n}} \ket{n}, \quad 
+      \ket{n} = \frac{(a^\dagger)^n}{\sqrt{n!}} \ket{0}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      In this case:
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      a^\dagger = 
+      \begin{bmatrix}
+        0 & 1 & 0 & \cdots \\
+        0 & 0 & \sqrt{2} & \cdots \\
+        0 & 0 & 0 & \cdots \\
+        \vdots & \vdots & \vdots & \ddots \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      a =
+      \begin{bmatrix}
+        0 & 0 & 0 & \cdots \\
+        1 & 0 & 0 & \cdots \\
+        0 & \sqrt{2} & 0 & \cdots \\
+        \vdots & \vdots & \vdots & \ddots \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      This represents an infinite-dimensional quantum system. A superconducting qubit uses the Transmon's ground state \( \ket{0} \) (or \( \ket{g} \)) and the first excited state \( \ket{1} \) (or \( \ket{e} \)) as its computational basis. In the two-dimensional framework of quantum computation:
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      a^\dagger \rightarrow \sigma^+ = 
+      \begin{bmatrix}
+        0 & 1 \\
+        0 & 0 \\
+      \end{bmatrix}, \quad
+      a \rightarrow \sigma^- = 
+      \begin{bmatrix}
+        0 & 0 \\
+        1 & 0 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      These lead to the following definitions:
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \sigma_x = \sigma^+ + \sigma^- = 
+      \begin{bmatrix}
+        0 & 1 \\
+        1 & 0 \\
+      \end{bmatrix}, \quad
+      \sigma_y = i \left(\sigma^+ - \sigma^- \right) = 
+      \begin{bmatrix}
+        0 & -i \\
+        i & 0 \\
+      \end{bmatrix}, \quad
+      \sigma_z = \mathbb{I} - 2\sigma^+\sigma^- = 
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & -1 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      These are the famous Pauli matrices. Here are some algebraic relations:
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \{\sigma^-, \sigma^+\} = \sigma^-\sigma^+ + \sigma^+\sigma^- = \mathbb{I} = 
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & 1 \\
+      \end{bmatrix}, \quad
+      [\sigma^-, \sigma^+] = \sigma^-\sigma^+ - \sigma^+\sigma^- = \sigma_z = 
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & -1 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      For \( i, j, k = x, y, z \):
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \sigma_i \sigma_j = \delta_{ij}\mathbb{I} + i\epsilon_{ijk}\sigma_k
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      The Pauli matrices are deeply connected to rotations in three-dimensional space. However, one might wonder: why does a two-level qubit system relate to three-dimensional rotations? This will be discussed in the next section on qubits and the Bloch sphere representation.
+    </p>
+  </div>
+</section>
+
 
 <section id="h">
   <div class="container">

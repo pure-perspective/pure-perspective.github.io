@@ -11,8 +11,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 
-		<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript">
-		</script>
+		<!--<script async="" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML" type="text/javascript"></script>-->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+
 	</head>
 	<body class="is-preload">
 
@@ -37,6 +41,7 @@
   <li><a href="#e">約瑟夫森節的非線性電感性質</a></li>
   <li><a href="#f">雙約瑟夫森節（SQUID）的非線性電感性質</a></li>
   <li><a href="#g">Transmon的性質</a></li>
+  <li><a href="#h0">計算科學與二階系統（TLS）</a></li>
   <li><a href="#h">驅動 LC 電路</a></li>
   <li><a href="#I">雙LC電路耦合</a></li>
 
@@ -87,9 +92,10 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./SCQubit-en.html">English Version</a><br>
 
 Update <br>
-2025.01.18：新增-<a href="#I">雙LC電路耦合</a><br>
-2025.01.12：新增-<a href="#h">驅動 LC 電路</a><br>
-2024.12.29：<a href="#a">主題建立</a><br>
+<b>(O04)</b>2025.02.07：新增-<a href="#h0">計算科學與二階系統（TLS）</a><br>
+<b>(O03)</b>2025.01.18：新增-<a href="#I">雙LC電路耦合</a><br>
+<b>(O02)</b>2025.01.12：新增-<a href="#h">驅動 LC 電路</a><br>
+<b>(O01)</b>2024.12.29：<a href="#a">主題建立</a><br>
 
 </p>
 <ol>
@@ -1037,6 +1043,139 @@ Ref: DOI:10.1103/RevModPhys.93.025005
 
 
     </div>
+</section>
+
+
+<section id="h0">
+  <div class="container">
+    <header class="major">
+      <h2><li>計算科學與二階系統（TLS）</li></h2>
+    </header>
+
+    <p style="text-align:justify">
+      現代電腦運作的原理利用位元進行資訊的儲存、邏輯閘進行運算。資訊會以二進制的編碼表示成0與1的代碼，再將一系列位元依指定的方式變成0或1的狀態，來儲存資訊。例如說，想要儲存19這個數字資訊，換算成二進制表示為10011，這時候可以如果記憶體為八個位元做存儲：
+    </p>
+
+<p style="text-align:justify">
+      \[ \ket{bit_1} \ket{bit_2} \ket{bit_3} \ket{bit_4} \ket{bit_5} \ket{bit_6} \ket{bit_7} \ket{bit_8} \]
+      狀態改變成：
+      \[ \ket{0} \ket{0} \ket{0} \ket{1} \ket{0} \ket{0} \ket{1} \ket{1} \]
+  </p>
+
+    <p style="text-align:justify">
+      在量子簡諧振子中，不同能階 \( n \)，可以用 \( a^\dagger \) 和 \( a \) 來聯繫：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \ket{n+1} = \frac{a^\dagger}{ \sqrt{n+1}} \ket{n}, \quad \ket{n-1} = \frac{a}{ \sqrt{n} }\ket{n}, \quad \ket{n} = \frac{(a^\dagger)^n}{\sqrt{n!}} \ket{0}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      在此情況下：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      a^\dagger = 
+\left(\begin{matrix}
+0 &1 & 0 & \cdots \\
+0 & 0 & \sqrt{2} & \cdots \\
+0 & 0 & 0 & \cdots \\
+\vdots & \vdots & \vdots & \ddots \\
+      \end{matrix}\right)
+      \]
+</p>
+
+    <p style="text-align:justify">
+\[
+      a =
+      \left(\begin{matrix}
+0 & 0 & 0 & \cdots \\
+1 & 0 & 0 & \cdots \\
+0 & \sqrt{2} & 0 & \cdots \\
+\vdots & \vdots & \vdots & \ddots \\
+      \end{matrix}\right)
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      這是一個無窮維的量子系統。一個超導量子位元是取 Transmon 的基態 \( \ket{0} \)（或 \( \ket{g} \)）與第一激發態 \( \ket{1} \)（或 \( \ket{e} \)）作為運算單元。在量子計算的二維框架下：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      a^\dagger \rightarrow \sigma^+ = 
+      \begin{bmatrix}
+      0 & 1 \\
+      0 & 0 \\
+      \end{bmatrix}, \quad
+      a \rightarrow \sigma^- = 
+      \begin{bmatrix}
+      0 & 0 \\
+      1 & 0 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      此時可以定義：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \sigma_x = \sigma^+ + \sigma^- = 
+      \begin{bmatrix}
+      0 & 1 \\
+      1 & 0 \\
+      \end{bmatrix}, \quad
+      \sigma_y = i \left(\sigma^+ - \sigma^- \right)= 
+      \begin{bmatrix}
+      0 & -i \\
+      i & 0 \\
+      \end{bmatrix}, \quad
+      \sigma_z = \mathbb{I} - 2\sigma^+\sigma^- = 
+      \begin{bmatrix}
+      1 & 0 \\
+      0 & -1 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      即是大名鼎鼎的包立矩陣。這邊有一些代數結構：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \{\sigma^-, \sigma^+\} = \sigma^-\sigma^+ + \sigma^+\sigma^- = \mathbb{I} = 
+      \begin{bmatrix}
+      1 & 0 \\
+      0 & 1 \\
+      \end{bmatrix}, \quad
+      [\sigma^-, \sigma^+] = \sigma^-\sigma^+ - \sigma^+\sigma^- = \sigma_z = 
+      \begin{bmatrix}
+      1 & 0 \\
+      0 & -1 \\
+      \end{bmatrix}
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      對於 \( i, j, k = x, y, z \)：
+    </p>
+
+    <p style="text-align:justify">
+      \[
+      \sigma_i \sigma_j = \delta_{ij}\mathbb{I} + i\epsilon_{ijk}\sigma_k
+      \]
+    </p>
+
+    <p style="text-align:justify">
+      包立矩陣與三維空間的旋轉高度相關。但讀者也許想問，為何二維的位元系統會出現三維旋轉呢？下一節將討論所謂的量子位元與布洛赫球表示。
+    </p>
+  </div>
 </section>
 
 
