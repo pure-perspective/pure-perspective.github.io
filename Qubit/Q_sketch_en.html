@@ -36,7 +36,9 @@
 <li><a href="#20250412" class="active">2025.04.12</a></li>
 <li><a href="#20250413">2025.04.13</a></li>
 <li><a href="#20250414">2025.04.14</a></li>
-						
+<li><a href="#20250416">2025.04.16</a></li>
+<li><a href="#20250417">2025.04.17</a></li>
+<li><a href="#20250418">2025.04.18</a></li>		
 
 </ul>
 				</nav>
@@ -81,6 +83,9 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Q_sketch.html">中文版</a><br>
 
 Update <br>
+<b>(S17)</b><a href="#20250418">2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</a><br>
+<b>(S16)</b><a href="#20250417">2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</a><br>
+<b>(S15)</b><a href="#20250416">2025.04.16: About Quantum Signal Amplify</a><br>
 <b>(S14)</b><a href="#20250414">2025.04.14: Transmon-Spin Hybrid Qubit</a><br>
 <b>(S13)</b><a href="#20250413">2025.04.13: Andreev Bound State (2010)</a><br>
 <b>(S12)</b><a href="#20250412">2025.04.12: Hybrid Type of Fluxonium (QuTech, 2021)</a><br>
@@ -180,7 +185,136 @@ Update <br>
 		  </div>
 		</section>
 
-
+		<section id="20250416">
+			<div class="container">
+				<header class="major">
+				<h2><li>2025.04.16: About Quantum Signal Amplification</li></h2>
+				</header>
+		
+				<p style="text-align:justify">
+					This article primarily refers to "A quantum engineer’s guide to superconducting qubits (2019)" \( ^a \).<br>
+					To implement quantum computation, one must measure the quantum state a qubit is in (Readout). In the classical world, measurements generally do not affect the state of the physical system being measured—in physical terms, the Hamiltonian of the measurement is much smaller than the system's Hamiltonian. However, in the quantum world, the energy scale of the measurement signal is often comparable to or even larger than the system’s own energy scale, making it crucial to understand how measurement affects quantum information.
+				</p>
+		
+				<p style="text-align:justify">
+					To avoid excessively disturbing the qubit, superconducting quantum circuits must reduce the energy used for readout. However, weaker signals lead to a lower signal-to-noise ratio (SNR), which often results in noise significantly interfering with the readout process. Therefore, how to "effectively" amplify weak quantum signals becomes a very important issue.
+				</p>
+		
+				<p style="text-align:justify">
+					“Effectively” here means amplifying the signal in a way that is consistent with quantum mechanics and approaches the quantum limit. The concept of amplification can be simply described as:
+					\[
+						s_{in} \to s_{out}=\sqrt{G} * s_{in}
+					\]
+					where \(\sqrt{G}\) is the amplification factor. In the quantum realm, signals are represented as frequency wave packets, and quantization of these wave packets corresponds to photons, which must satisfy the commutator relation of quantum mechanics:
+					\[
+						[a_{\omega},a_{\omega}^\dagger]=1
+					\]
+					where \(a_{\omega},a_{\omega}^\dagger\) represent the annihilation and creation of a photon at frequency \({\omega}\), respectively. If \(a_{\omega_{in}},a_{\omega_{in}}^\dagger\) denote the photon signal before amplification and \(a_{\omega_{out}},a_{\omega_{out}}^\dagger\) after amplification, they must still satisfy the above commutator relation. This leads to:
+					\[
+					a_{\omega_{in}} \to a_{\omega_{out}}=\sqrt{G} * a_{\omega_{in}} \to \textcolor{red}{impossible !}
+					\]
+					which is not physically realizable. Interestingly, in the quantum world, we can achieve amplification by utilizing vacuum fluctuations from another frequency mode, called the Idler mode \(\omega_I\). Denoting this with \(b_{\omega_I},b_{\omega_I}^\dagger\), the quantum amplification process can be expressed as:
+					\[
+					a_{\omega_{in}} \to a_{\omega_{out}}=\sqrt{G} * a_{\omega_{in}}+\sqrt{-1} * b_{\omega_{I}}^\dagger
+					\]
+				</p>
+		
+				<div style="text-align: center;">
+					<a href="./Image/20250416-01.png">
+						<img src="./Image/20250416-01.png" alt="Image Placeholder" style="width: 100%; height: auto;">
+					</a>
+				</div>
+				
+				<p style="text-align:justify">
+					One way to implement effective quantum signal amplification in superconducting circuits is by using a Josephson Parametric Amplifier (JPA), built with Josephson junction elements.
+					According to energy conservation, to amplify a signal’s energy, external energy must be provided (Pump). Two common pumping methods in JPA are Current-Pumped (<a href="#20250417">→ here</a>) and Flux-Pumped (<a href="#20250418">→ here</a>).
+				</p>
+		
+				<p>
+					Ref:<br>
+					\( ^a \) "A quantum engineer’s guide to superconducting qubits (2019)", doi: 10.1063/1.5089550
+				</p>
+			</div>
+		</section>
+		
+		<section id="20250417">
+			<div class="container">
+				<header class="major">
+				<h2><li>2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</li></h2>
+				</header>
+		
+				<p style="text-align:justify">
+					Continuing from the previous section on quantum signal amplification, this article refers to \( ^{a,b} \) to introduce the Current-Pumped JPA.
+				</p>
+		
+				<div style="text-align: center;">
+					<a href="./Image/20250417-01.png">
+						<img src="./Image/20250417-01.png" alt="Image Placeholder" style="width: 50%; height: auto;">
+					</a>
+				</div>
+		
+				<p style="text-align:justify">
+					Above: (a) Josephson junction under microscope, (b) physical principle of a Current-Pumped JPA, (c) principle of a Flux-Pumped JPA. This figure is cited from \( ^a \).
+				</p>
+				
+				<p style="text-align:justify">
+					Using the Josephson relation (see <a href="./SCQubit-en.html">Superconducting Qubits</a>):
+					\[
+						\frac{I\left( \Delta \psi \right)}{I_c}=sin  \Delta \psi
+					\]
+					\[
+						L\left( \Delta \psi \right)=\frac{L_0}{cos \Delta \psi}\to L\left( I \right)= \frac{L_0}{\sqrt{1-\left( \frac{I\left( \Delta \psi \right)}{I_c}\right)^2}}
+					\]
+					The first equation describes how applying a current \(I\) creates a phase difference \(\Delta \psi\) across the superconductors. Substituting into the second shows how the inductance \(L\) depends on the applied current. The Current-Pumped JPA uses an AC current with frequency \(\omega_p\) as the energy source.
+				</p>
+		
+				<div style="text-align: center;">
+					<a href="./Image/20250417-02.png">
+						<img src="./Image/20250417-02.png" alt="Image Placeholder" style="width: 100%; height: auto;">
+					</a>
+				</div>
+				<p style="text-align:justify">
+					The figure above introduces the first implementation of a Current-Pumped JPA. Cited from \( ^b \).
+				</p>
+		
+				<p>
+					Ref:<br>
+					\( ^a \) "Superconducting Parametric Amplifiers: The State of the Art in Josephson Parametric Amplifiers (2020)", Jose Aumentad, doi: 10.1109/MMM.2020.2993476
+					<br>
+					\( ^b \) "Observation of parametric amplification and deamplification in a Josephson parametric amplifier" (1989), 10.1103/PhysRevA.39.2519
+				</p>
+			</div>
+		</section>
+		
+		<section id="20250418">
+			<div class="container">
+				<header class="major">
+				<h2><li>2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</li></h2>
+				</header>
+		
+				<p style="text-align:justify">
+					The previous section introduced the Current-Pumped JPA. This article, also referring to \( ^a \), introduces the Flux-Pumped JPA.
+				</p>
+		
+				<div style="text-align: center;">
+					<a href="./Image/20250418-01.png">
+						<img src="./Image/20250418-01.png" alt="Image Placeholder" style="width: 100%; height: auto;">
+					</a>
+				</div>
+				
+				<p style="text-align:justify">
+					A circuit with two Josephson junctions in parallel is known as a Superconducting Quantum Interference Device (SQUID). Due to the properties of quantum electrodynamics, the quantum wavefunction couples with the electromagnetic gauge field, and the phase around the loop is affected by the magnetic flux.
+					As previously mentioned, the inductance \(L\) depends on the phase, so a device made from a SQUID allows the inductance to be modulated via an external flux line.
+					In this case, we can apply a time-varying magnetic flux at frequency \(\omega_p\) through the flux line to serve as the energy source.
+				</p>
+		
+				<p>
+					Ref:<br>
+					\( ^a \) "Superconducting Parametric Amplifiers: The State of the Art in Josephson Parametric Amplifiers (2020)", Jose Aumentad, doi: 10.1109/MMM.2020.2993476
+				</p>
+			</div>
+		</section>
+		
 
 
 

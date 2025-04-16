@@ -36,6 +36,9 @@
 <li><a href="#20250412" class="active">2025.04.12</a></li>
 <li><a href="#20250413">2025.04.13</a></li>
 <li><a href="#20250414">2025.04.14</a></li>
+<li><a href="#20250416">2025.04.16</a></li>
+<li><a href="#20250417">2025.04.17</a></li>
+<li><a href="#20250418">2025.04.18</a></li>
 						
 
 </ul>
@@ -81,6 +84,9 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Q_sketch_en.html">English Version</a><br>
 
 Update <br>
+<b>(S17)</b><a href="#20250418">2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</a><br>
+<b>(S16)</b><a href="#20250417">2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</a><br>
+<b>(S15)</b><a href="#20250416">2025.04.16: About Quantum Signal Amplify</a><br>
 <b>(S14)</b><a href="#20250414">2025.04.14: Transmon-Spin Hybrid Qubit</a><br>
 <b>(S13)</b><a href="#20250413">2025.04.13: Andreev Bound State (2010)</a><br>
 <b>(S12)</b><a href="#20250412">2025.04.12: Hybrid Type of Fluxonium (QuTech, 2021)</a><br>
@@ -160,47 +166,186 @@ Update <br>
   
   
   
-	  <p style="text-align:justify">
+	<p style="text-align:justify">
 		所謂Andreev反射是發生在非超導/超導接面中。因為超導體的原理是兩個電子形成的Cooper Pair，但是非導體中移動的載子是個別的單一電子，當單一電子從半導體穿隧進入到超導體時必須形成Cooper Pair，電荷守恆的要求下就會反射一個電洞。如果是超導/非超導/超導串接，中間的非超導區域會形成Andreev Bound State。
-	  </p>
-  
-	  <div style="text-align: center;">
-		  <a href="./Image/20250413-01.png">
-		  <img src="./Image/20250413-01.png" alt="取代文字" style="width: 80%; height: auto;">
-		  </a>
-	  </div>
-  
+	</p>
 
+	<div style="text-align: center;">
+		<a href="./Image/20250413-01.png">
+		<img src="./Image/20250413-01.png" alt="取代文字" style="width: 80%; height: auto;">
+		</a>
+	</div>
 
-  10.1038/nphys1811
+	<p>
+		Ref:<br>
+		\(\to\)10.1038/nphys1811
+	</p>
+
+  
 	  
 	</div>
-  </section>
+</section>
 
 
-  <section id="20250414"></section>
+<section id="20250414">
 	<div class="container">
-	  <header class="major">
+		<header class="major">
 		<h2><li>2025.04.14: Transmon-Spin Hybrid Qubit</li></h2>
-	  </header>
-  
-  
-  
-	  <p style="text-align:justify">
+		</header>
+
+
+
+		<p style="text-align:justify">
 		https://www.youtube.com/watch?v=VEFzm_DcQ08
-	  </p>
-  
+		</p>
+
 		<div style="text-align: center;">
 			<a href="./Image/20250412-02.png">
 				<img src="./Image/20250412-02.png" alt="取代文字" style="width: 80%; height: auto;">
 			</a>
 		</div>
-	  
+		
 	</div>
-  </section>
+</section>
+
+<section id="20250416">
+	<div class="container">
+		<header class="major">
+		<h2><li>2025.04.16: About Quantum Signal Amplify</li></h2>
+		</header>
 
 
+		<p style="text-align:justify">
+			本篇主要參考"A quantum engineer’s guide to superconducting qubits (2019)" \( ^a \)。<br>
+			實現量子計算需要透過訊號去量測量子位元處在的量子態(Readout)。古典世界中量測手段基本上不影響被量測古典物理系統的狀態，換成物理的話來說就是量測的Hamiltonian遠小於系統的Hamiltonian。然而，量子世界裡量測訊號的數量級與系統常處在相同、甚至大於系統的能量級，故理解量測對於量子資訊是非常重要的議題。
+		</p>
 
+		<p style="text-align:justify"></p>
+			為了避免過度干擾量子位元，超導量子電路需要降低Readout的能量，但是微弱的訊號會造成過低的訊噪比（s/n ratio, signal/noise ratio），常導致噪訊嚴重干擾整個訊號讀取。故如何將微弱的量子訊號“有效的”放大是非常重要的。
+		</p>
+
+		<p style="text-align:justify"></p>
+			所謂“有效的”放大，是指滿足量子力學的情況下，以逼近量子極限的方式放大訊號。放大的概念簡單的說是如下過程:
+			\[
+				s_{in} \to s_{out}=\sqrt{G} * s_{in}
+			\]
+			\(\sqrt{G}\)是放大參數。量子世界裡訊號是以頻率波包呈現，波包的量子化即是光子，光子必須滿足量子力學中的commutator relation:
+			\[
+				[a_{\omega},a_{\omega}^\dagger]=1
+			\]
+			\(a_{\omega},a_{\omega}^\dagger\)分別是描述消滅、產生一顆頻率為\({\omega}\)光子的過程。如果以\(a_{\omega_{in}},a_{\omega_{in}}^\dagger\)表示放大前的光子訊號、\(a_{\omega_{out}},a_{\omega_{out}}\)表示放大前的光子訊號，都必須滿足前述的commutator relation，導致：
+			\[
+			a_{\omega_{in}} \to a_{\omega_{out}}=\sqrt{G} * a_{\omega_{in}} \to \textcolor{red}{impossible !}
+			\]
+			是無法實現的。有趣的是，量子世界裡我們可以透過其他頻率的真空漲落來實現，稱此頻率為Idler mode \(\omega_I\)，描述的量子符號假設寫為\(b_{\omega_I},b_{\omega_I}^\dagger\)，量子放大的過程可以寫為：
+			\[
+			a_{\omega_{in}} \to a_{\omega_{out}}=\sqrt{G} * a_{\omega_{in}}+\sqrt{-1} * b_{\omega_{I}}^\dagger
+			\]
+		</p>
+
+		<div style="text-align: center;">
+			<a href="./Image/20250416-01.png">
+				<img src="./Image/20250416-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+		</div>
+		
+		<p style="text-align:justify">
+			要在超導量子電路中實踐有效的量子訊號放大，其中一種方式為利用約瑟夫森元件Josephson Junction製作而成的約瑟夫森參數放大器（Josephson Parametric Amplifier, JPA）。
+			根據能量守恆，想要放大訊號的能量，就需要輸入能量來提供額外的能量（Pump）。JPA常見的能量輸入有兩種，Current-Pumped（\(\to\) <a href="#20250417">here</a>）或是Flux-Pumped（\(\to\) <a href="#20250418">here</a>）。
+		</p>
+
+
+		<p>
+			Ref:<br>
+			\( ^a \) "A quantum engineer’s guide to superconducting qubits (2019)", doi: 10.1063/1.5089550
+		</p>
+	</div>
+</section>
+
+
+<section id="20250417">
+	<div class="container">
+		<header class="major">
+		<h2><li>2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</li></h2>
+		</header>
+
+		<p style="text-align:justify">
+			延續前一篇提到量子訊號放大，本文參考\( ^{a,b} \)來介紹 Current-Pumped的JPA。
+		</p>
+
+		<div style="text-align: center;">
+			<a href="./Image/20250417-01.png">
+				<img src="./Image/20250417-01.png" alt="取代文字" style="width: 50%; height: auto;">
+			</a>
+		</div>
+
+		<p style="text-align:justify">
+			上圖(a)約瑟夫森節顯微鏡的圖(b)Current-Pumped JPA的物理原理(c)Flux-Pumped JPA的物理原理。本圖引用自\( ^{a} \)
+		</p>
+		
+		<p style="text-align:justify">
+			利用約瑟夫的特性：(可以參考<a href="./SCQubit.html">超導量子位元)</a>
+			\[
+				\frac{I\left( \Delta \psi \right)}{I_c}=sin  \Delta \psi
+			\]
+			\[
+				L\left( \Delta \psi \right)=\frac{L_0}{cos \Delta \psi}\to L\left( I \right)= \frac{L_0}{\sqrt{1-\left( \frac{I\left( \Delta \psi \right)}{I_c}\right)^2}}
+			\]
+			第一條式子可以想成施加電流\(I\)時，會對兩邊超導體形成\(\Delta \psi\)的相位差，帶入第二條可以理解為透過施加的電流可以控制電感大小\(L\)。
+			Current-Pumped JPA會施加頻率為\(\omega_p\)的交流電，作為能量來源。
+		</p>
+
+
+		<div style="text-align: center;">
+			<a href="./Image/20250417-02.png">
+				<img src="./Image/20250417-02.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+		</div>
+		<p style="text-align:justify">
+			上圖為第一個實踐Current-Pumped JPA的論文介紹。引用自\( ^{b} \)
+		</p>
+	
+
+
+		<p>
+			Ref:<br>
+			\( ^a \) "Superconducting Parametric Amplifiers: The State of the Art in Josephson Parametric Amplifiers (2020)", Jose Aumentad, doi: 10.1109/MMM.2020.2993476
+			<br>
+			\( ^b \) "Observation of parametric amplification and deamplification in a Josephson parametric amplifier" (1989), 10.1103/PhysRevA.39.2519
+		</p>
+	</div>
+</section>
+
+<section id="20250418"></section>
+	<div class="container">
+		<header class="major">
+		<h2><li>2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</li></h2>
+		</header>
+
+		<p style="text-align:justify">
+			前一篇介紹Current-Pumped的JPA，本文一樣參考\( ^{a} \)來介紹 Flux-Pumped的JPA。
+		</p>
+
+
+		<div style="text-align: center;">
+			<a href="./Image/20250418-01.png">
+				<img src="./Image/20250418-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+		</div>
+		
+		<p style="text-align:justify"></p>
+			兩個約瑟夫森節並聯的電路稱作超導干涉元件(SQUID)，此時因為量子電動力學的特性，量子波函數會與電磁規範場（Gauge Field）耦合，閉環的相位會與磁通量有關。
+			前文提及電感值\(L\)會與相位有關，故以SQUID製成的元件可以透過外部的Flux line來調控其電感特性。
+			此時我們可以透過Flux line 來施加頻率為\(\omega_p\)的變動磁通量，作為能量來源。
+		</p>
+
+
+		<p>
+			Ref:<br>
+			\( ^a \) "Superconducting Parametric Amplifiers: The State of the Art in Josephson Parametric Amplifiers (2020)", Jose Aumentad, doi: 10.1109/MMM.2020.2993476
+		</p>
+	</div>
+</section>
 
 
 
@@ -211,416 +356,9 @@ Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文
 </p>
 
 
-
-
-
-
-							<!--
-									<ul class="feature-icons">
-										<li class="icon solid fa-code">Write all the code</li>
-										<li class="icon solid fa-cubes">Stack small boxes</li>
-										<li class="icon solid fa-book">Read books and stuff</li>
-										<li class="icon solid fa-coffee">Drink much coffee</li>
-										<li class="icon solid fa-bolt">Lightning bolt</li>
-										<li class="icon solid fa-users">Shadow clone technique</li>
-									</ul>
-								</div>
-							</section>-->
-
-						<!-- Three -->
-							<!--<section id="three">
-								<div class="container">
-									<h3>A Few Accomplishments</h3>
-									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<div class="features">
-										<article>
-											<a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Possibly broke spacetime</h4>
-												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic02.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Terraformed a small moon</h4>
-												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-											<div class="inner">
-												<h4>Snapped dark matter in the wild</h4>
-												<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-											</div>
-										</article>
-									</div>
-								</div>
-							</section>-->
-
-						<!-- Four -->
-							<!-- <section id="four">
-								<div class="container">
-									<h3>Contact Me</h3>
-									<p style="text-align:justify">Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer non. Adipiscing cubilia elementum integer. Integer eu ante ornare amet commetus.</p>
-									<form method="post" action="#">
-										<div class="row gtr-uniform">
-											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
-											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
-											<div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
-											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
-											<div class="col-12">
-												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
-													<li><input type="reset" value="Reset Form" /></li>
-												</ul>
-											</div>
-										</div>
-									</form>
-								</div>
-							</section>-->
-
-						<!-- Five -->
-						<!--
-							<section id="four">
-								<div class="container">
-									<h3>Elements</h3>
-
-									<section>
-										<h4>Text</h4>
-										<p style="text-align:justify">This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
-										This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
-										This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
-										<hr />
-										<header>
-											<h4>Heading with a Subtitle</h4>
-											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<header>
-											<h5>Heading with a Subtitle</h5>
-											<p style="text-align:justify">Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
-										</header>
-										<p style="text-align:justify">Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
-										<hr />
-										<h2>Heading Level 2</h2>
-										<h3>Heading Level 3</h3>
-										<h4>Heading Level 4</h4>
-										<h5>Heading Level 5</h5>
-										<h6>Heading Level 6</h6>
-										<hr />
-										<h5>Blockquote</h5>
-										<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
-										<h5>Preformatted</h5>
-										<pre><code>i = 0;
-
-while (!deck.isInOrder()) {
-    print 'Iteration ' + i;
-    deck.shuffle();
-    i++;
-}
-
-print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
-									</section>
-
-									<section>
-										<h4>Lists</h4>
-										<div class="row">
-											<div class="col-6 col-12-xsmall">
-												<h5>Unordered</h5>
-												<ul>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-												<h5>Alternate</h5>
-												<ul class="alt">
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Sagittis adipiscing lorem eleifend.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ul>
-											</div>
-											<div class="col-6 col-12-xsmall">
-												<h5>Ordered</h5>
-												<ol>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-													<li>Dolor pulvinar etiam magna etiam.</li>
-													<li>Etiam vel felis at lorem sed viverra.</li>
-													<li>Felis enim feugiat dolore viverra.</li>
-												</ol>
-												<h5>Icons</h5>
-												<ul class="icons">
-													<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-													<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-													<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-													<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-													<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
-													<li><a href="#" class="icon brands fa-tumblr"><span class="label">Tumblr</span></a></li>
-												</ul>
-											</div>
-										</div>
-										<h5>Actions</h5>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Default</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Default</a></li>
-										</ul>
-										<ul class="actions small">
-											<li><a href="#" class="button primary small">Small</a></li>
-											<li><a href="#" class="button small">Small</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<div class="row">
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary">Default</a></li>
-													<li><a href="#" class="button">Default</a></li>
-													<li><a href="#" class="button alt">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6 col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small">Small</a></li>
-													<li><a href="#" class="button small">Small</a></li>
-													<li><a href="#" class="button alt small">Small</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary fit">Default</a></li>
-													<li><a href="#" class="button fit">Default</a></li>
-													<li><a href="#" class="button alt fit">Default</a></li>
-												</ul>
-											</div>
-											<div class="col-3 col-6-medium col-12-xsmall">
-												<ul class="actions stacked">
-													<li><a href="#" class="button primary small fit">Small</a></li>
-													<li><a href="#" class="button small fit">Small</a></li>
-													<li><a href="#" class="button alt small fit">Small</a></li>
-												</ul>
-											</div>
-										</div>
-									</section>
-
-									<section>
-										<h4>Table</h4>
-										<h5>Default</h5>
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-
-										<h5>Alternate</h5>
-										<div class="table-wrapper">
-											<table class="alt">
-												<thead>
-													<tr>
-														<th>Name</th>
-														<th>Description</th>
-														<th>Price</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>Item One</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Two</td>
-														<td>Vis ac commodo adipiscing arcu aliquet.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Three</td>
-														<td> Morbi faucibus arcu accumsan lorem.</td>
-														<td>29.99</td>
-													</tr>
-													<tr>
-														<td>Item Four</td>
-														<td>Vitae integer tempus condimentum.</td>
-														<td>19.99</td>
-													</tr>
-													<tr>
-														<td>Item Five</td>
-														<td>Ante turpis integer aliquet porttitor.</td>
-														<td>29.99</td>
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														<td>100.00</td>
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</section>
-
-									<section>
-										<h4>Buttons</h4>
-										<ul class="actions">
-											<li><a href="#" class="button primary">Primary</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt">Alternate</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary large">Large</a></li>
-											<li><a href="#" class="button">Default</a></li>
-											<li><a href="#" class="button alt small">Small</a></li>
-										</ul>
-										<ul class="actions fit">
-											<li><a href="#" class="button primary fit">Fit</a></li>
-											<li><a href="#" class="button fit">Fit</a></li>
-											<li><a href="#" class="button alt fit">Fit</a></li>
-										</ul>
-										<ul class="actions fit small">
-											<li><a href="#" class="button primary fit small">Fit + Small</a></li>
-											<li><a href="#" class="button fit small">Fit + Small</a></li>
-											<li><a href="#" class="button alt fit small">Fit + Small</a></li>
-										</ul>
-										<ul class="actions">
-											<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button icon solid fa-download">Icon</a></li>
-											<li><a href="#" class="button alt icon solid fa-check">Icon</a></li>
-										</ul>
-										<ul class="actions">
-											<li><span class="button primary disabled">Primary</span></li>
-											<li><span class="button disabled">Default</span></li>
-											<li><span class="button alt disabled">Alternate</span></li>
-										</ul>
-									</section>
-
-									<section>
-										<h4>Form</h4>
-										<form method="post" action="#">
-											<div class="row gtr-uniform">
-												<div class="col-6 col-12-xsmall">
-													<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
-												</div>
-												<div class="col-6 col-12-xsmall">
-													<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
-												</div>
-												<div class="col-12">
-													<select name="demo-category" id="demo-category">
-														<option value="">- Category -</option>
-														<option value="1">Manufacturing</option>
-														<option value="1">Shipping</option>
-														<option value="1">Administration</option>
-														<option value="1">Human Resources</option>
-													</select>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-\mathcal{L}ow" name="demo-priority" checked>
-													<label for="demo-priority-\mathcal{L}ow">Low Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-normal" name="demo-priority">
-													<label for="demo-priority-normal">Normal Priority</label>
-												</div>
-												<div class="col-4 col-12-medium">
-													<input type="radio" id="demo-priority-high" name="demo-priority">
-													<label for="demo-priority-high">High Priority</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-copy" name="demo-copy">
-													<label for="demo-copy">Email me a copy of this message</label>
-												</div>
-												<div class="col-6 col-12-medium">
-													<input type="checkbox" id="demo-human" name="demo-human" checked>
-													<label for="demo-human">I am a human and not a robot</label>
-												</div>
-												<div class="col-12">
-													<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
-												</div>
-												<div class="col-12">
-													<ul class="actions">
-														<li><input type="submit" value="Send Message" /></li>
-														<li><input type="reset" value="Reset" class="alt" /></li>
-													</ul>
-												</div>
-											</div>
-										</form>
-									</section>
-
-									<section>
-										<h4>Image</h4>
-										<h5>Fit</h5>
-										<span class="image fit"><img src="images/banner.jpg" alt="" /></span>
-										<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic03.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic01.jpg" alt="" /></span></div>
-												<div class="col-4"><span class="image fit"><img src="images/pic02.jpg" alt="" /></span></div>
-											</div>
-										</div>
-										<h5>Left &amp; Right</h5>
-										<p style="text-align:justify"><span class="image left"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-										<p style="text-align:justify"><span class="image right"><img src="images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
-									</section>
-
-								</div>
-							</section>
-						-->
-
 					</div>
 
-				<!-- Footer -->
-					<!--<section id="footer">
-						<div class="container">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-							</ul>
-						</div>
-					</section>-->
+				
 
 			</div>
 
