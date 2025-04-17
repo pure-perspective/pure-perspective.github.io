@@ -104,7 +104,7 @@ Update <br>
 
 
 	<p style="text-align:justify">
-		本篇為參考QuTech的演講。<br>
+		本篇為參考QuTech的演講\(^a\)。<br>
 		演講中列舉五種QuTech在研究的量子位元：超導量子位元、自旋量子點量子位元、氮空缺鑽石量子位元（NV center）、Andreev量子位元、和拓墣量子位元。
 	</p>
 
@@ -117,8 +117,8 @@ Update <br>
 	<p style="text-align:justify">
 		有趣的是，除了氮空缺量子位元之外，自旋量子點量子位元、Andreev量子位元、和拓墣量子位元多少都與超導有關。
 		<ul>
-			<li>自旋量子點量子位元操作的溫度\( \leq 1K\)，其操作的電極常進入超導狀態。 </li>
-			<li>Andreev量子位元是利用Andreev反射製作的量子位元。可以參考<a href="#20250413">這邊</a>。</li>
+			<li>自旋量子點量子位元操作的溫度\( \leq 1K\)，其操作的電極常進入超導狀態。可以參考<a href="#20250414">\(\to\)後續文章</a>。</li> </li>
+			<li>Andreev量子位元是利用Andreev反射製作的量子位元。可以參考<a href="#20250413">\(\to\)後續文章</a>。</li>
 			<li>拓墣量子位元常使用奈米線放置在超導體上，利用鄰近效應（Proximity Effect）使奈米線產生超導性，並在端點產生拓墣量子態。</li>
 		</ul>
 		 個別的量子位元各有優缺點，故如果能整合不同的量子位元，有機會截長補短，製作效能更好的量子位元。這邊介紹的就是超導量子位元Fluxonium複合拓墣量子位元。
@@ -135,7 +135,7 @@ Update <br>
 	</div>
 
 	<p style="text-align:justify"></p>
-		這邊採用的拓墣量子位元是\(InAs)\奈米線。
+		這邊採用的拓墣量子位元是\( InAs \)奈米線。
 	</p>
 	<div style="text-align: center;">
 		<a href="./Image/20250412-04.png">
@@ -147,7 +147,7 @@ Update <br>
     
 <p>
 	Ref:<br>
-	\(\to\)Youtube: "Hybrid Devices for Quantum Computing" by Marta Pita @ QuTech, TU Delft, <a href="https://www.youtube.com/watch?v=DWfjBdQMYCI">https://www.youtube.com/watch?v=DWfjBdQMYCI</a> <br>
+	\(^a\)Youtube: "Hybrid Devices for Quantum Computing" by Marta Pita @ QuTech, TU Delft, <a href="https://www.youtube.com/watch?v=DWfjBdQMYCI">https://www.youtube.com/watch?v=DWfjBdQMYCI</a> <br>
 
 	\(\to\)Gate-Tunable Field-Compatible Fluxonium, 2020, <a href="https://doi.org/10.1103/PhysRevApplied.14.064038">10.1103/PhysRevApplied.14.064038</a>
 	</ul>
@@ -178,7 +178,7 @@ Update <br>
 
 	<p>
 		Ref:<br>
-		\(\to\)10.1038/nphys1811
+		\(\to\)"Andreev bound states in supercurrent-carrying carbon nanotubes revealed", 2010, DOI: 10.1038/nphys1811
 	</p>
 
   
@@ -190,20 +190,68 @@ Update <br>
 <section id="20250414">
 	<div class="container">
 		<header class="major">
-		<h2><li>2025.04.14: Transmon-Spin Hybrid Qubit</li></h2>
+		<h2><li>2025.04.14: Transmon-Spin Hybrid Qubit (2024)</li></h2>
 		</header>
-
-
-
-		<p style="text-align:justify">
-		https://www.youtube.com/watch?v=VEFzm_DcQ08
-		</p>
 
 		<div style="text-align: center;">
 			<a href="./Image/20250412-02.png">
 				<img src="./Image/20250412-02.png" alt="取代文字" style="width: 80%; height: auto;">
 			</a>
 		</div>
+
+		<p style="text-align:justify"></p>
+			前幾天由QuTech的演講\(^a\)引出整合不同量子位元的方向。本篇介紹由Transmon整合Spin Qubit的有趣工作。
+		</p>
+		
+		<div style="text-align: center;">
+			<a href="./Image/20250414-01.png">
+				<img src="./Image/20250414-01.png" alt="取代文字" style="width: 80%; height: auto;">
+			</a>
+		</div>
+		<p style="text-align:justify"></p>
+			引用自\(^b\)，因為自旋接面的關係，約瑟夫森節的特性與自旋相關，造成不對稱的特性。
+		</p>
+		
+		<div style="text-align: center;">
+			<a href="./Image/20250414-02.png">
+				<img src="./Image/20250414-02.png" alt="取代文字" style="width: 80%; height: auto;">
+			</a>
+		</div>
+		<p style="text-align:justify"></p>
+			引用自\(^c\)，利用將SQUID其中一側的約瑟夫森節改成自旋接面。可以透過超導電流去讀取自旋位元的狀態。
+			這類研究的想法是因為超導量子位元是目前最容易驅動量子電路，而傳統自旋位元雖然有較長的相干時間，但操控上不若超導量子位元來得容易。
+			故如果利用超導量子電路整合自旋位元，可以利用已經成熟的circuit QED來驅動自旋位元。
+		</p>
+		
+
+		<div style="text-align: center;">
+			<a href="./Image/20250414-04.png">
+				<img src="./Image/20250414-04.png" alt="取代文字" style="width: 80%; height: auto;">
+			</a>
+		</div>
+		<p style="text-align:justify"></p>
+			引用自\(^d\)。前一個研究建立的超導電路與單自旋量子位元，但要實現量子計算，就需要多個量子位元實現交互作用。進一步的實驗實現了利用超導量子電路將兩個不相鄰的自旋量子位元產生可調控的耦合交互作用。
+		</p>
+		<div style="text-align: center;">
+			<a href="./Image/20250414-03.png">
+				<img src="./Image/20250414-03.png" alt="取代文字" style="width: 80%; height: auto;">
+			</a>
+		</div>
+		<p style="text-align:justify"></p>
+			引用自\(^d\)的Supplement。利用超導量子電路將兩個不相鄰的自旋量子位元產生可調控的耦合交互作用實驗中的電路示意圖。
+		</p>
+
+		<p>
+			Ref:
+			<br>
+			\(^a\)Youtube: "Hybrid Devices for Quantum Computing" by Marta Pita @ QuTech, TU Delft, <a href="https://www.youtube.com/watch?v=DWfjBdQMYCI">https://www.youtube.com/watch?v=DWfjBdQMYCI</a>
+			<br>
+			\(^b\) "Talks - Quantum Matter for Quantum Technologies 2024 - Marta PITA-VIDAL, IBM Zurich/TU Delft", <a href="https://www.youtube.com/watch?v=VEFzm_DcQ08">https://www.youtube.com/watch?v=VEFzm_DcQ08</a>
+			<br>
+			\(^c\) "Singlet-Doublet Transitions of a Quantum Dot Josephson Junction Detected in a Transmon Circuit", 2022, DOI: 10.1103/PRXQuantum.3.030311
+			<br>
+			\(^d\) "Strong tunable coupling between two distant superconducting spin qubits", 2024, DOI: 10.1038/s41567-024-02497-x
+		</p>
 		
 	</div>
 </section>
