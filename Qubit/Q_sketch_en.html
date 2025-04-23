@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>量子隨寫</title>
+		<title>Q Sketch</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -38,7 +38,8 @@
 <li><a href="#20250414">2025.04.14</a></li>
 <li><a href="#20250416">2025.04.16</a></li>
 <li><a href="#20250417">2025.04.17</a></li>
-<li><a href="#20250418">2025.04.18</a></li>		
+<li><a href="#20250418">2025.04.18</a></li>	
+<li><a href="#20250423">2025.04.23</a></li>		
 
 </ul>
 				</nav>
@@ -83,6 +84,7 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Q_sketch.html">中文版</a><br>
 
 Update <br>
+<b>(S19)</b><a href="#20250423">2025.04.23: Prepare for Quantum Measurement: Interaction Basis</a><br>
 <b>(S17)</b><a href="#20250418">2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</a><br>
 <b>(S16)</b><a href="#20250417">2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</a><br>
 <b>(S15)</b><a href="#20250416">2025.04.16: About Quantum Signal Amplify</a><br>
@@ -365,6 +367,61 @@ Update <br>
 		</section>
 		
 
+		<section id="20250423">
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.23: Prepare for Quantum Measurement: Interaction Basis</li></h2>
+			  </header>
+		  
+			  <p><i>The interaction basis is the same as the interaction picture in standard textbooks.</i></p>
+		  
+			  <p>
+			  \[
+			  i\hbar \partial_t |\psi_0(t)\rangle = H_0(t) |\psi_0(t)\rangle
+			  \]
+			  \[
+			  |\psi_0(t)\rangle = e^{-\frac{i}{\hbar} \int_0^t H_0(\tau)\,d\tau} |\psi_0(0)\rangle \equiv U_0(t)|\psi_0(0)\rangle
+			  \]
+			  </p>
+		  
+			  <p>
+			  \[
+			  i \partial_t U_0(t) = H_0(t) U_0(t)
+			  \]
+			  \[
+			  -i \partial_t U_0^\dagger(t) = U_0^\dagger(t) H_0(t)
+			  \]
+			  </p>
+		  
+			  <p>
+			  \[
+			  i\hbar \partial_t |\psi(t)\rangle = [H_0(t) + H_a(t)] |\psi(t)\rangle
+			  \]
+			  \[
+			  |\Theta(t)\rangle \equiv U_0^\dagger(t) |\psi(t)\rangle
+			  \]
+			  </p>
+		  
+			  <p>
+			  \[
+			  \begin{aligned}
+			  i\hbar \partial_t |\Theta(t)\rangle 
+			  &= i \partial_t [U_0^\dagger(t) |\psi(t)\rangle] \\
+			  &= i\hbar \partial_t U_0^\dagger(t) * |\psi(t)\rangle + U_0^\dagger(t) * i\hbar \partial_t |\psi(t)\rangle \\
+			  &= -U_0^\dagger(t) H_0(t) * |\psi(t)\rangle + U_0^\dagger(t)[H_0(t) + H_a(t)] |\psi(t)\rangle \\
+			  &= U_0^\dagger(t) H_a(t) |\psi(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) U_0^\dagger(t) |\psi(t)\rangle \\
+			  &= U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+			  \end{aligned}
+			  \]
+			  </p>
+		  
+			  <p>
+			  \[
+			  i\hbar \partial_t |\Theta(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+			  \]
+			  </p>
+			</div>
+		  </section>
 
 
 <p style="text-align:justify">
