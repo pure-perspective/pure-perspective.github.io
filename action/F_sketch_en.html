@@ -250,19 +250,19 @@
 									$$\left(ad_{\hat{T}_a}\right)^b_c=f^b_{ac} $$.
 								</p>
 
-								<p><b>Lie Derivative of vector field on \(\mathbb{R} ^3 \) with respect to Killing vector field induced by \(SO(3)\) group </b>:</p>
+								<p><b>Lie Derivative of vector field on \(M \) with respect to Killing vector field induced by \(G\) group </b>:</p>
 								<p>
-									We denote the induced vector field \(\widetilde{X}_\alpha \in \mathfrak{X}(\mathbb{R}^3) \) coresspond to \(\sigma_\alpha \in \mathfrak{so}(3) \).  
-									In the previous section we can see \(\widetilde{X}_x,\widetilde{X}_y,\widetilde{X}_z\) are non-zero except \( \mathcal{O}=\left(0,0,0\right)\), hence \(\widetilde{X}_x,\widetilde{X}_y,\widetilde{X}_z\) can span the basis of  \(\mathfrak{X}(\mathbb{R}^3)\) outside \(\mathcal{O}\).
+									We denote the induced vector field \(\widetilde{X}_\alpha \in \mathfrak{X}(M) \) coresspond to \(\hat{T}_\alpha \in \mathfrak{g}\) of \(G\).  
+									
 								</p>
 								<p>
-									Let \(V=V^\alpha \widetilde{X}_\alpha \in \mathfrak{X}(\mathbb{R^3})  \),  and \(\widetilde{X}_\theta=\theta^\beta \widetilde{X}_\beta \) is the induced vector field induced by the action of \( G \) acting on \(M\)
-									\( (\theta=\theta^\beta\sigma_\beta \in  \mathfrak{so}(3) )\).
-									Note that \(\theta^\beta\) is a constant functon on \(\mathbb{R}^3\).  
-									Then the Lie derivative of \(V\) with respect to \(\widetilde{X}\) is
-									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \hat{\mathcal{L}}_{\theta^\beta \widetilde{X}_\beta} \left(V^\alpha \widetilde{X}_\alpha\right)=\theta^\beta\left[ \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} V^\alpha\right) \widetilde{X}_\alpha+V^\alpha \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} \widetilde{X}_\alpha\right)  \right]=\theta^\beta\left[ \left(\widetilde{X}_\beta V^\alpha\right) \widetilde{X}_\alpha+V^\alpha \left[\widetilde{X}_\beta,\widetilde{X}_\alpha\right]  \right] $$
+									Let \(V=V^\alpha \partial_\alpha \in \mathfrak{X}(M) \),  and \(\widetilde{X}_\theta=\theta^\beta \widetilde{X}_\beta \) is the induced vector field induced by the action of \( G \) acting on \(M\)
+									\( (\theta=\theta^\beta\hat{T}_\beta \in  \mathfrak{g} )\).
+									Note that \(\theta^\beta\) is a constant functon on \(M\).  
+									Then the Lie derivative of \(V\) with respect to \(\widetilde{X}_\theta\) is
+									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \hat{\mathcal{L}}_{\theta^\beta \widetilde{X}_\beta} \left(V^\alpha \partial_\alpha\right)=\theta^\beta\left[ \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} V^\alpha\right) \partial_\alpha+V^\alpha \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} \partial_\alpha\right)  \right]=\theta^\beta\left[ \left(\widetilde{X}_\beta V^\alpha\right) \partial_\alpha+V^\alpha \left[\widetilde{X}_\beta,\partial_\alpha\right]  \right] $$
 									Using previous result, we have:
-									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \theta^\beta\left[ \left(\frac{i}{\hbar}\hat{L}_\beta V^\alpha\right) \widetilde{X}_\alpha+V^\alpha ad_{\widetilde{X}_\beta}\widetilde{X}_\alpha  \right] = \theta^\beta\left[ \underbrace{\frac{i}{\hbar}\hat{L}_\beta }_{Angular}V^\alpha +V^\alpha \underbrace{ad_{\widetilde{X}_\beta}}_{Spin}  \right]  \widetilde{X}_\alpha $$
+									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \theta^\beta\left[ \left(\frac{i}{\hbar}\hat{L}_\beta V^\alpha\right) \widetilde{X}_\alpha+V^\alpha ad_{\widetilde{X}_\beta}\partial_\alpha  \right] = \theta^\beta\left[ \underbrace{\frac{i}{\hbar}\hat{L}_\beta }_{Angular}V^\alpha +V^\alpha \underbrace{ad_{\widetilde{X}_\beta}}_{Spin}  \right]  \partial_\alpha $$
 									
 								</p>
 
