@@ -1,0 +1,288 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>F Sketch</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+
+        <script>
+            MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                tags: 'ams' // Automatic equation numbering
+              },
+              svg: {
+                fontCache: 'global'
+              }
+            };
+        </script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+        <style>
+            .math-table table, .math-table th, .math-table td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 8px;
+                text-align: center;
+                vertical-align: top;
+            }
+            .math-table th {
+                background-color: #f2f2f2;
+                font-weight: bold;
+            }
+            .math-table table {
+                 width: 100%;
+                 margin-top: 1em;
+                 margin-bottom: 1em;
+            }
+        </style>
+
+    </head>
+    <body class="is-preload">
+
+        <section id="header">
+                <header>
+                    <h1 id="logo"><a href="#"><i>F Sketch</i></a></h1>
+        
+                </header>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#20250421" class="active">2025.04.21</a></li>
+                        <li><a href="#20250423">2025.04.23</a></li>
+                        </ul>
+                </nav>
+                <footer>
+                    
+                </footer>
+            </section>
+
+        <div id="wrapper">
+                <div id="main">
+					<div class="image main" data-position="center">
+						<img src="./images/IMG_1357.jpg" alt="" />
+					</div> <div class="container">
+
+						<header class="major">
+							<h2><i>F Sketch</i></h2>
+						</header>
+						<p>
+						Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
+						Update <br>
+						<b>(S20)</b><a href="#20250423">2025.04.23: Lie Derivative and Spin (Lie algebra)</a><br>
+						<b>(S18)</b><a href="#20250421">2025.04.21: Lie Derivative and Spin</a><br>
+						</p>
+						<ol>
+							</ol>
+
+						<section id="20250421">
+							<div class="container math-table"> <header class="major">
+								<h2><li>2025.04.21: Lie Derivative and Spin</li></h2>
+								</header>
+
+								<p><b><i>SO</i></b> group satisfied
+								$$ \eta^{\alpha\beta} = \Lambda^\alpha_{\ \gamma} \Lambda^\beta_{\ \epsilon} \eta^{\gamma\epsilon} \qquad \Lambda^\alpha_{\ \gamma} = \delta^\alpha_\gamma + \omega^\alpha_{\ \gamma} $$
+								where \( \eta^{\alpha\beta}\) is metric tensor.
+								</p>
+
+								<p><b>Check SO condition</b>:</p>
+
+								<div style="text-align: center;">
+									<table>
+										<thead>
+											<tr>
+												<th><b>Upper index $\eta^{\alpha\beta}$</b></th>
+												<th><b>Lower index $\eta_{\alpha\beta}$</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													$$
+													\begin{aligned}
+													\eta^{\alpha\beta} &= (\delta^\alpha_\gamma + \omega^\alpha_{\ \gamma})
+													(\delta^\beta_\epsilon + \omega^\beta_{\ \epsilon}) \eta^{\gamma\epsilon} \\
+													0 &= \delta^\alpha_\gamma \omega^\beta_{\ \epsilon} \eta^{\gamma\epsilon}
+													+ \omega^\alpha_{\ \gamma} \delta^\beta_\epsilon \eta^{\gamma\epsilon} \\
+													0 &= \omega^\beta_{\ \epsilon} \eta^{\alpha\epsilon}
+													+ \omega^\alpha_{\ \gamma} \eta^{\gamma\beta} \\
+													0 &= \omega^{\alpha\beta} + \omega^{\beta\alpha}
+													\end{aligned}
+													$$
+												</td>
+												<td>
+													$$
+													\begin{aligned}
+													\eta_{\alpha\beta} &= (\delta^\gamma_\alpha + \omega^\gamma_{\ \alpha})
+													(\delta^\epsilon_\beta + \omega^\epsilon_{\ \beta}) \eta_{\gamma\epsilon} \\
+													0 &= \delta^\gamma_\alpha \omega^\epsilon_{\ \beta} \eta_{\gamma\epsilon}
+													+ \omega^\gamma_{\ \alpha} \delta^\epsilon_\beta \eta_{\gamma\epsilon} \\
+													0 &= \omega^\epsilon_{\ \beta} \eta_{\alpha\epsilon}
+													+ \omega^\gamma_{\ \alpha} \eta_{\gamma\beta} \\
+													0 &= \omega_{\alpha\beta} + \omega_{\beta\alpha}
+													\end{aligned}
+													$$
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<p>Let：</p>
+								$$ \delta X = \delta X^\gamma\, \partial_\gamma = (\omega^\gamma_{\ \epsilon} x^\epsilon) \partial_\gamma, \qquad \delta X^\gamma = \omega^\gamma_{\ \epsilon} x^\epsilon $$
+
+								<hr>
+
+								$$ \delta X^\gamma = \omega^\gamma_{\ \epsilon} x^\epsilon $$
+
+								<div style="text-align: center;">
+									<table>
+										<thead>
+											<tr>
+												<th><b>Vector field</b></th>
+												<th><b>1-form field</b></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>$V = V^\alpha(p)\, \partial_\alpha$</td>
+												<td>$W = W_\alpha(p)\, dx^\alpha$</td>
+											</tr>
+											<tr>
+												<td>
+													$$
+													\begin{aligned}
+													(\hat{\mathcal{L}}_{\delta X} V)^\alpha &= {V^\alpha}_{\ ,\gamma} \delta X^\gamma - V^\gamma \delta X^\alpha_{\ ,\gamma} \\
+													&={V^\alpha}_{\ ,\gamma} {\omega^\gamma}_{\epsilon} x^\epsilon - V^\gamma \left({\omega^\alpha}_{\epsilon} x^\epsilon \right)_{,\gamma}
+													\end{aligned}
+													$$
+												</td>
+												<td>
+													$$
+													\begin{aligned}
+													(\hat{\mathcal{L}}_{\delta X} W)_\alpha &= W_{\alpha,\gamma} \delta X^\gamma + W_\gamma \delta X^\gamma_{\ ,\alpha} \\
+													&= W_{\alpha,\gamma} \omega^\gamma_{\ \epsilon} x^\epsilon + W_\gamma \left({\omega^\gamma}_{\epsilon} x^\epsilon \right)_{,\alpha}
+													\end{aligned}
+													$$
+												</td>
+											</tr>
+											<tr>
+												<th colspan="2"><b>Let $(\omega^\alpha_{\epsilon})_{,\gamma} = 0$ (global transformation)</b></th>
+											</tr>
+											<tr>
+												<td>
+													$$
+													\begin{aligned}
+													(\hat{\mathcal{L}}_{\delta X} V)^\alpha
+													&= {V^\alpha}_{,\gamma} {\omega^\gamma}_{\ \epsilon} x^\epsilon - V^\gamma {\omega^\alpha}_{\epsilon} {x^\epsilon}_{,\gamma} \\
+													&= {\omega^\gamma}_{\ \epsilon} x^\epsilon \partial_\gamma V^\alpha - V^\gamma {\omega^\alpha}_{\epsilon} {\delta^\epsilon}_{\gamma} \\
+													&= \omega^{\gamma\epsilon} x_\epsilon \partial_\gamma V^\alpha - {\omega^\alpha}_{\gamma} V^\gamma \\
+													&= \omega^{\gamma\epsilon} \frac{1}{2} \underbrace{(x_\epsilon \partial_\gamma - x_\gamma \partial_\epsilon)}_{\text{Angular}} V^\alpha - \underbrace{{\omega^\alpha}_{\gamma}}_{\text{Spin}} V^\gamma
+													\end{aligned}
+													$$
+												</td>
+												<td>
+													$$
+													\begin{aligned}
+													(\hat{\mathcal{L}}_{\delta X} W)_\alpha
+													&= W_{\alpha,\gamma}{\omega^\gamma}_{\epsilon} x^\epsilon + W_\gamma {\omega^\gamma}_{\epsilon} {x^\epsilon}_{,\alpha} \\
+													&= {\omega^\gamma}_{\epsilon} x^\epsilon \partial_\gamma W_\alpha + W_\gamma {\omega^\gamma}_{\epsilon} {\delta^\epsilon}_{\alpha} \\
+													&= {\omega}^{\gamma\epsilon} x_\epsilon \partial_\gamma W_\alpha + {\omega^\gamma}_{\alpha} W_\gamma \\
+													&= \omega^{\gamma\epsilon} \frac{1}{2} \underbrace{(x_\epsilon \partial_\gamma - x_\gamma \partial_\epsilon)}_{\text{Angular}} W_\alpha + \underbrace{{\omega^\gamma}_{\alpha}}_{\text{Spin}} W_\gamma
+													\end{aligned}
+													$$
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</section>
+
+
+						
+						<section id="20250423">
+							<div class="container math-table"> <header class="major">
+								<h2><li>2025.04.23: Lie Derivative and Spin (Lie algebra)</li></h2>
+								</header>
+
+								<p>Let \(G\) is a Lie group acting on a manifold \(M\), and \(\mathfrak{g}\) is the Lie algebra of \(G\). 
+									Let \( \mathfrak{X}(M) := \Gamma(TM) \) is the set of all (smooth) section on tengent bundle of \(M\).
+								</p>
+
+								<p><b>The induced vector field on \(M\) by \(G\) (Fundamental vector field)</b>:</p>
+
+								<p>
+									Since \( G \) acts on \( M \), the infinitesimal action induces a Lie algebra homomorphism
+									\( \mathfrak{g} \to \mathfrak{X}(M) \),
+									sometimes called the <i>fundamental vector field</i><sup>a</sup>. 
+									More precisely, it is the <i>induced vector field</i> \(\widetilde{X} \in \mathfrak{X}(M) \) on \( M \) induced by the action of \( G \).
+									If \(G=O\left(p,q\right)\) is an orthoganal group, then we called \(\widetilde{X}\) is a Killing vector field.
+								</p>
+
+								<p>
+									For example, let \(G=SO(3)\) and \(\sigma_x,\sigma_y,\sigma_z \in \mathfrak{so} (3) \) are the rotation generator along \(x,y,z\)-axis, respectively. The corresponds indueced vector fields are
+									$$ \sigma_x \to \widetilde{X}_x= z\partial_y-y\partial_z =\frac{i}{\hbar} \hat{L}_x $$
+									$$ \sigma_y \to \widetilde{X}_y= z\partial_x-x\partial_z =\frac{i}{\hbar} \hat{L}_y $$
+									$$ \sigma_z \to \widetilde{X}_z= x\partial_y-y\partial_x =\frac{i}{\hbar} \hat{L}_z $$
+									, respectively. Note that \(\hat{L}_x,\hat{L}_y,\hat{L}_z \) are angular momentum operartors in quantum physics.
+								</p>
+
+
+								<p></p>
+									Furthermore, the Lie derivative \(\hat{\mathcal{L}}_{\widetilde{X}}\) with respect to  \(\widetilde{X} \) is a infinite-dimensional Lie algebra representation of \(\mathfrak{g}\).
+								</p>
+
+
+								<p>
+									\(^a\)Principal Fiber Bundles, Michael Kunzinger, <a href="https://www.mat.univie.ac.at/~mike/teaching/ss20/pfb.pdf">https://www.mat.univie.ac.at/~mike/teaching/ss20/pfb.pdf</a>, (<a href="./Image/pfb.pdf">Backup</a>)
+								</p>
+								
+								<p><b>The adjoint representation of \(\mathfrak{g}\)  </b>:</p>
+								<p>
+									Let \(\hat{T}_a \) is the generator of \(\mathfrak{g}\) and \(f^c_{ab}\) is the structure constant of \(\mathfrak{g}\) defined by \(\left[\hat{T}_a ,\hat{T}_b  \right]=f^c_{ab}\hat{T}_c \).
+									For \(X,Y\in \mathfrak{g} \), the adjoint action of \(X\) on \(Y\) is \(Ad_X Y =\left[X,Y\right]\).
+								</p>
+								<p>
+									The adjoint representation \(ad\) of \(\hat{T}_a \) is 
+									$$\left(ad_{\hat{T}_a}\right)^b_c=f^b_{ac} $$.
+								</p>
+
+								<p><b>Lie Derivative of vector field on \(\mathbb{R} ^3 \) with respect to Killing vector field induced by \(SO(3)\) group </b>:</p>
+								<p>
+									We denote the induced vector field \(\widetilde{X}_\alpha \in \mathfrak{X}(\mathbb{R}^3) \) coresspond to \(\sigma_\alpha \in \mathfrak{so}(3) \).  
+									In the previous section we can see \(\widetilde{X}_x,\widetilde{X}_y,\widetilde{X}_z\) are non-zero except \( \mathcal{O}=\left(0,0,0\right)\), hence \(\widetilde{X}_x,\widetilde{X}_y,\widetilde{X}_z\) can span the basis of  \(\mathfrak{X}(\mathbb{R}^3)\) outside \(\mathcal{O}\).
+								</p>
+								<p>
+									Let \(V=V^\alpha \widetilde{X}_\alpha \in \mathfrak{X}(\mathbb{R^3})  \),  and \(\widetilde{X}_\theta=\theta^\beta \widetilde{X}_\beta \) is the induced vector field induced by the action of \( G \) acting on \(M\)
+									\( (\theta=\theta^\beta\sigma_\beta \in  \mathfrak{so}(3) )\).
+									Note that \(\theta^\beta\) is a constant functon on \(\mathbb{R}^3\).  
+									Then the Lie derivative of \(V\) with respect to \(\widetilde{X}\) is
+									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \hat{\mathcal{L}}_{\theta^\beta \widetilde{X}_\beta} \left(V^\alpha \widetilde{X}_\alpha\right)=\theta^\beta\left[ \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} V^\alpha\right) \widetilde{X}_\alpha+V^\alpha \left(\hat{\mathcal{L}}_{\widetilde{X}_\beta} \widetilde{X}_\alpha\right)  \right]=\theta^\beta\left[ \left(\widetilde{X}_\beta V^\alpha\right) \widetilde{X}_\alpha+V^\alpha \left[\widetilde{X}_\beta,\widetilde{X}_\alpha\right]  \right] $$
+									Using previous result, we have:
+									$$ \hat{\mathcal{L}}_{\widetilde{X}_\theta} V= \theta^\beta\left[ \left(\frac{i}{\hbar}\hat{L}_\beta V^\alpha\right) \widetilde{X}_\alpha+V^\alpha ad_{\widetilde{X}_\beta}\widetilde{X}_\alpha  \right] = \theta^\beta\left[ \underbrace{\frac{i}{\hbar}\hat{L}_\beta }_{Angular}V^\alpha +V^\alpha \underbrace{ad_{\widetilde{X}_\beta}}_{Spin}  \right]  \widetilde{X}_\alpha $$
+									
+								</p>
+
+
+
+							</div>
+						</section>
+						
+						<hr> <p style="text-align:justify">
+						<b>後記</b><br>
+						<a href="../action/Pure-Perspective.html"><b>Index</b></a><br>
+						Contact:<br> <a href="./Image/P01.png"><img src="./Image/P01.png" alt="取代文字" width="auto" height="35">
+						</p>
+					</div> </div> </div> <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/js/jquery.scrollex.min.js"></script>
+            <script src="assets/js/jquery.scrolly.min.js"></script>
+            <script src="assets/js/browser.min.js"></script>
+            <script src="assets/js/breakpoints.min.js"></script>
+            <script src="assets/js/util.js"></script>
+            <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
