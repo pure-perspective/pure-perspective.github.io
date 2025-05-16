@@ -39,7 +39,13 @@
 <li><a href="#20250416">2025.04.16</a></li>
 <li><a href="#20250417">2025.04.17</a></li>
 <li><a href="#20250418">2025.04.18</a></li>	
-<li><a href="#20250423">2025.04.23</a></li>		
+<li><a href="#20250423">2025.04.23</a></li>	
+<li><a href="#20250424">2025.04.24</a></li>
+<li><a href="#20250425">2025.04.25</a></li>
+<li><a href="#20250426">2025.04.26</a></li>
+<li><a href="#20250427">2025.04.27</a></li>
+<li><a href="#20250428">2025.04.28</a></li>
+<li><a href="#20250429">2025.04.29</a></li>	
 
 </ul>
 				</nav>
@@ -84,6 +90,12 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Q_sketch.html">中文版</a><br>
 
 Update <br>
+<b>(S31)</b><a href="#20250429">2025.04.29: Gate-tunable superconducting diode effect in a three-terminal Josephson device</a><br>
+<b>(S29)</b><a href="#20250428">2025.04.28: Wafer Scale \(MgB_2\)</a><br>
+<b>(S27)</b><a href="#20250427">2025.04.27: Sketch on Quantum Error, Error Correction, and Error Protection (II)</a><br>
+<b>(S25)</b><a href="#20250426">2025.04.26: Gatemon (Ge type)</a><br>
+<b>(S23)</b><a href="#20250425">2025.04.25: Gatemon</a><br>
+<b>(S21)</b><a href="#20250424">2025.04.24: Sketch on Quantum Error, Error Correction, and Error Protection (I)</a><br>
 <b>(S19)</b><a href="#20250423">2025.04.23: Prepare for Quantum Measurement: Interaction Basis</a><br>
 <b>(S17)</b><a href="#20250418">2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</a><br>
 <b>(S16)</b><a href="#20250417">2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</a><br>
@@ -395,7 +407,7 @@ Update <br>
 		  
 			  <p>
 			  \[
-			  i\hbar \partial_t |\psi(t)\rangle = [H_0(t) + H_a(t)] |\psi(t)\rangle
+			  i\hbar \partial_t |\psi(t)\rangle = [H_0(t) + H_I(t)] |\psi(t)\rangle
 			  \]
 			  \[
 			  |\Theta(t)\rangle \equiv U_0^\dagger(t) |\psi(t)\rangle
@@ -408,18 +420,202 @@ Update <br>
 			  i\hbar \partial_t |\Theta(t)\rangle 
 			  &= i \partial_t [U_0^\dagger(t) |\psi(t)\rangle] \\
 			  &= i\hbar \partial_t U_0^\dagger(t) * |\psi(t)\rangle + U_0^\dagger(t) * i\hbar \partial_t |\psi(t)\rangle \\
-			  &= -U_0^\dagger(t) H_0(t) * |\psi(t)\rangle + U_0^\dagger(t)[H_0(t) + H_a(t)] |\psi(t)\rangle \\
-			  &= U_0^\dagger(t) H_a(t) |\psi(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) U_0^\dagger(t) |\psi(t)\rangle \\
-			  &= U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+			  &= -U_0^\dagger(t) H_0(t) * |\psi(t)\rangle + U_0^\dagger(t)[H_0(t) + H_I(t)] |\psi(t)\rangle \\
+			  &= U_0^\dagger(t) H_I(t) |\psi(t)\rangle = U_0^\dagger(t) H_I(t) U_0(t) U_0^\dagger(t) |\psi(t)\rangle \\
+			  &= U_0^\dagger(t) H_I(t) U_0(t) |\Theta(t)\rangle
 			  \end{aligned}
 			  \]
 			  </p>
 		  
 			  <p>
 			  \[
-			  i\hbar \partial_t |\Theta(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+			  i\hbar \partial_t |\Theta(t)\rangle = U_0^\dagger(t) H_I(t) U_0(t) |\Theta(t)\rangle
 			  \]
 			  </p>
+			</div>
+		  </section>
+
+
+
+		  <section id="20250424"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.24: Sketch on Quantum Error, Error Correction, and Error Protection (I)</li></h2>
+			  </header>
+			  <p style="text-align:justify">
+				A major bottleneck currently facing quantum computing is the high error rate. In gate-based quantum computers, errors can be broadly classified into single qubit errors and gate errors.
+				This article will first focus on single qubit errors as the foundation for discussion.
+			  </p>
+		  
+			  <p style="text-align:justify">
+				Single qubit errors can be understood from the energy perspective. The evolution of a quantum state obeys the Schrödinger equation:
+		  
+				\[
+				i\hbar \partial_t \ket{\psi\left(t\right)}=\hat{H}\left(t\right)  \ket{\psi\left(t\right)} \leftrightarrow \ket{\psi\left(t\right)}=e^{-\frac{i}{\hbar}\mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t}\right]}\ket{\psi\left(0\right)}
+				\]
+		  
+				Here, \( \mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t} \right]\) denotes a time-ordered integral, because Hamiltonians at different times may not commute:
+				\[
+				\left[\hat{H}\left(t_1\right),\hat{H}\left(t_2\right)\right]\neq 0
+				\]
+				This non-commutativity makes the evolution of quantum systems more complex. If the Hamiltonians commute, the time-ordered integral simplifies to the standard form:
+				\[ \mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t}\right]_{\left[\hat{H}\left(t_1\right),\hat{H}\left(t_2\right)\right]= 0} =\hat{H} * t \leftrightarrow \ket{\psi\left(t\right)}=e^{-\frac{it}{\hbar}\hat{H}}\ket{\psi\left(0\right)} \]
+			  </p>
+			</div>
+		  </section>
+		  
+		  <section id="20250425"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.25: Gatemon</li></h2>
+			  </header>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250425-01.png">
+				  <img src="./Image/20250425-01.png" alt="Image" style="width: 100%; height: auto;">
+				</a>
+			  </div>
+		  
+			  <p>
+				Ref. Gatemons get serious, Nature Nanotechnology (2018), Doi:10.1038/s41565-018-0218-8
+			  </p>
+		  
+			  <p style="text-align:justify">
+				Gatemon is a type of qubit based on superconducting materials, combined with a gate-defined spin qubit-like structure. A gate voltage is applied to the Josephson junction to control the qubit's properties.
+				In the figure above (b.), within the tunable transmon, magnetic flux is applied through a flux line to adjust the effective inductance of the SQUID, thereby tuning the transmon frequency.
+				(c, d) show two different implementations of the Gatemon.
+			  </p>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250425-02.png">
+				  <img src="./Image/20250425-02.png" alt="Image" style="width: 80%; height: auto;">
+				</a>
+			  </div>
+		  
+			  <p>
+				Ref. Superconducting gatemon qubit based on a proximitized two-dimensional electron gas, Nature Nanotechnology (2018), Doi:10.1038/s41565-018-0207-y
+			  </p>
+		  
+			  <p style="text-align:justify">
+				The figure above shows an Al-based Josephson junction used to control a 2DEG (two-dimensional electron gas) formed in InAs.
+			  </p>
+			</div>
+		  </section>
+		  
+		  <section id="20250426"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.26: Gatemon (Ge type)</li></h2>
+			  </header>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250426-01.png">
+				  <img src="./Image/20250426-01.png" alt="Image" style="width: 70%; height: auto;">
+				</a>
+				<br>Ref. Gatemon Qubit on a Germanium Quantum-Well Heterostructure, Nano Letter (2024), Doi:10.1021/acs.nanolett.4c05539
+			  </div>
+		  
+			  <p style="text-align:justify">
+				The above figure shows an Al-based Josephson junction controlling a 2DEG in SiGe (silicon-germanium). SiGe is commonly used in gate-defined spin qubits, as referenced <a href="./20250113-QM-en.html#Gate">here</a>.
+				Thus, Gatemon can be viewed as a hybrid of superconducting circuits and gate-controlled qubit design, exploring novel qubit architectures.
+			  </p>
+			</div>
+		  </section>
+		  
+		  <section id="20250427"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.27: Sketch on Quantum Error, Error Correction, and Error Protection (II)</li></h2>
+			  </header>
+		  
+			  <p style="text-align:justify">
+				The Hamiltonian includes the qubit's internal energy \(\hat{H}_Q\), the external control potential \(\hat{H}^I\), and noise \(\hat{H}_N\):
+				\[
+				\hat{H}\left(t\right)=\hat{H}_Q+\hat{H}^I\left(t\right)+\hat{H}_N\left(t\right)
+				\]
+				In quantum computing, it is common to choose a "rotating frame", which is essentially the interaction basis. This involves selecting a new coordinate system that isolates the interaction and noise terms:
+		  
+				\[
+				  U_Q\left(t\right) = e^{-\frac{i}{\hbar} \mathcal{T}\left[\int_0^t H_Q(\mathscr{t})\,d\mathscr{t} \right]} 
+				\]
+		  
+				\[
+				  \ket{\Theta(t)}=U_Q^\dagger \left(t\right) \ket{\psi(t)}
+				\]
+		  
+				\begin{align}
+				  i\hbar \partial_t \ket{\Theta(t)}&= U_Q^\dagger(t) \left(\hat{H}^I(t) +\hat{H}_N(t) \right) U_Q(t) \ket{\Theta(t)}\\
+				  &\equiv  \left(\check{H}^I(t) +\check{H}_N(t) \right)  \ket{\Theta(t)}
+				\end{align}
+				Here, \( \check{H}^I(t) \equiv U_Q^\dagger(t) \hat{H}^I(t)  U_Q(t) \) indicates we are using the rotating frame (interaction basis), with the notation \(\, \hat{} \to \textcolor{red}{\check{}} \).
+			  </p>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250424-01.png">
+				  <img src="./Image/20250424-01.png" alt="Image" style="width: 100%; height: auto;">
+				</a>
+				<br>Ref. A quantum engineer's guide to superconducting qubits, Appl. Phys. Rev. 6, 021318 (2019), Doi:10.1063/1.5089550
+			  </div>
+			</div>
+		  </section>
+		  
+		  <section id="20250428"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.28: Wafer Scale \(MgB_2\)</li></h2>
+			  </header>
+			  <p style="text-align:justify">
+				As the highest-\(T_c = 40K\) conventional superconductor (explained by BCS theory), \(MgB_2\) is a strong candidate for higher-temperature quantum bit applications.
+				Current common superconducting qubit materials include \(Al, T_c^{Al}=1.2K\) and \(Nb, T_c^{Nb}=9.2K\), which are typically operated at \(10mK\), requiring substantial cooling power.
+				The term "hot qubit" often refers to a qubit that can operate stably at \(1K\), which already significantly reduces the cooling demand.
+				In thin film fabrication, having multiple elements introduces challenges in maintaining correct stoichiometry.
+				Hence, achieving wafer-scale \(MgB_2\) is an important technical milestone.
+			  </p>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250428-01.png">
+				  <img src="./Image/20250428-01.png" alt="Image" style="width: 100%; height: auto;">
+				</a>
+				<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+			  </div>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250428-02.png">
+				  <img src="./Image/20250428-02.png" alt="Image" style="width: 60%; height: auto;">
+				</a>
+				<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+			  </div>
+		  
+			  <p style="text-align:justify">
+				Tuning the critical temperature of superconductors has long fascinated me. During my PhD, I explored theoretical frameworks to understand how \(T_c\) could be modified, which you can read about <a href="../career/Intro-CCC.html">here</a>.
+				The critical temperature of \(MgB_2\) can also be tuned by adjusting the film thickness.
+			  </p>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250428-03.png">
+				  <img src="./Image/20250428-03.png" alt="Image" style="width: 100%; height: auto;">
+				</a>
+				<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+			  </div>
+			</div>
+		  </section>
+		  
+		  <section id="20250429"> 
+			<div class="container">
+			  <header class="major">
+				<h2><li>2025.04.29: Gate-tunable superconducting diode effect in a three-terminal Josephson device</li></h2>
+			  </header>
+		  
+			  <p style="text-align:justify">
+				Non-reciprocal critical current in a Josephson device.
+			  </p>
+		  
+			  <div style="text-align: center;">
+				<a href="./Image/20250429-01.png">
+				  <img src="./Image/20250429-01.png" alt="Image" style="width: 100%; height: auto;">
+				</a>
+				<br>Ref. Gate-tunable superconducting diode effect in a three-terminal Josephson device, Nature Communications (2023), Doi: 10.1038/s41467-023-38856-0
+			  </div>
 			</div>
 		  </section>
 

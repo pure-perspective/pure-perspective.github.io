@@ -40,6 +40,12 @@
 <li><a href="#20250417">2025.04.17</a></li>
 <li><a href="#20250418">2025.04.18</a></li>
 <li><a href="#20250423">2025.04.23</a></li>
+<li><a href="#20250424">2025.04.24</a></li>
+<li><a href="#20250425">2025.04.25</a></li>
+<li><a href="#20250426">2025.04.26</a></li>
+<li><a href="#20250427">2025.04.27</a></li>
+<li><a href="#20250428">2025.04.28</a></li>
+<li><a href="#20250429">2025.04.29</a></li>
 						
 
 </ul>
@@ -85,6 +91,12 @@ Author:<a href="../career/CV.html">Peir-Ru Wang</a><br>
 \(\to\)<a href="./Q_sketch_en.html">English Version</a><br>
 
 Update <br>
+<b>(S31)</b><a href="#20250429">2025.04.29: Gate-tunable superconducting diode effect in a three-terminal Josephson device</a><br>
+<b>(S29)</b><a href="#20250428">2025.04.28: Wafer Scale \(MgB_2\)</a><br>
+<b>(S27)</b><a href="#20250427">2025.04.27: Sketch on Quantum Error, Error Correction, and Error Protection (II)</a><br>
+<b>(S25)</b><a href="#20250426">2025.04.26: Gatemon (Ge type)</a><br>
+<b>(S23)</b><a href="#20250425">2025.04.25: Gatemon</a><br>
+<b>(S21)</b><a href="#20250424">2025.04.24: Sketch on Quantum Error, Error Correction, and Error Protection (I)</a><br>
 <b>(S19)</b><a href="#20250423">2025.04.23: Prepare for Quantum Measurement: Interaction Basis</a><br>
 <b>(S17)</b><a href="#20250418">2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</a><br>
 <b>(S16)</b><a href="#20250417">2025.04.17: About Current-Pumped Josephson Parametric Amplifier (JPA)</a><br>
@@ -95,7 +107,7 @@ Update <br>
 
 
 </p>
-<ol>
+
 
 <section id="20250412">
   <div class="container">
@@ -366,7 +378,7 @@ Update <br>
 	</div>
 </section>
 
-<section id="20250418"></section>
+<section id="20250418">
 	<div class="container">
 		<header class="major">
 		<h2><li>2025.04.18: About Flux-Pumped Josephson Parametric Amplifier (JPA)</li></h2>
@@ -411,7 +423,7 @@ Update <br>
 	  i\hbar \partial_t |\psi_0(t)\rangle = H_0(t) |\psi_0(t)\rangle
 	  \]
 	  \[
-	  |\psi_0(t)\rangle = e^{-\frac{i}{\hbar} \int_0^t H_0(\tau)\,d\tau} |\psi_0(0)\rangle \equiv U_0(t)|\psi_0(0)\rangle
+	  |\psi_0(t)\rangle = e^{-\frac{i}{\hbar} \mathcal{T}\left[\int_0^t H_0(\mathscr{t})\,d\mathscr{t} \right]} |\psi_0(0)\rangle \equiv U_0(t)|\psi_0(0)\rangle
 	  \]
 	  </p>
   
@@ -426,7 +438,7 @@ Update <br>
   
 	  <p>
 	  \[
-	  i\hbar \partial_t |\psi(t)\rangle = [H_0(t) + H_a(t)] |\psi(t)\rangle
+	  i\hbar \partial_t |\psi(t)\rangle = [H_0(t) + H_I(t)] |\psi(t)\rangle
 	  \]
 	  \[
 	  |\Theta(t)\rangle \equiv U_0^\dagger(t) |\psi(t)\rangle
@@ -439,21 +451,238 @@ Update <br>
 	  i\hbar \partial_t |\Theta(t)\rangle 
 	  &= i \partial_t [U_0^\dagger(t) |\psi(t)\rangle] \\
 	  &= i\hbar \partial_t U_0^\dagger(t) * |\psi(t)\rangle + U_0^\dagger(t) * i\hbar \partial_t |\psi(t)\rangle \\
-	  &= -U_0^\dagger(t) H_0(t) * |\psi(t)\rangle + U_0^\dagger(t)[H_0(t) + H_a(t)] |\psi(t)\rangle \\
-	  &= U_0^\dagger(t) H_a(t) |\psi(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) U_0^\dagger(t) |\psi(t)\rangle \\
-	  &= U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+	  &= -U_0^\dagger(t) H_0(t) * |\psi(t)\rangle + U_0^\dagger(t)[H_0(t) + H_I(t)] |\psi(t)\rangle \\
+	  &= U_0^\dagger(t) H_I(t) |\psi(t)\rangle = U_0^\dagger(t) H_I(t) U_0(t) U_0^\dagger(t) |\psi(t)\rangle \\
+	  &= U_0^\dagger(t) H_I(t) U_0(t) |\Theta(t)\rangle
 	  \end{aligned}
 	  \]
 	  </p>
   
 	  <p>
 	  \[
-	  i\hbar \partial_t |\Theta(t)\rangle = U_0^\dagger(t) H_a(t) U_0(t) |\Theta(t)\rangle
+	  i\hbar \partial_t |\Theta(t)\rangle = U_0^\dagger(t) H_I(t) U_0(t) |\Theta(t)\rangle
 	  \]
 	  </p>
 	</div>
   </section>
-  
+
+
+<section id="20250424"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.24: Sketch on Quantum Error, Error Correction, and Error Protection (I)</li></h2>
+	  </header>
+		<p style="text-align:justify">
+			量子計算目前遇到很大的瓶頸是高錯誤率，如果以Gate base量子電腦來說，最簡單錯誤分法可以分成單量子位元錯誤（Single qubit error）和閘控錯誤(Gate error)。
+			這篇先以單量子位元錯誤為討論基礎。
+		</p>
+		
+		<p style="text-align:justify"></p>
+			單量子位元錯誤可以從能量的觀點來看，一個量子態的演化遵守薛丁格方程式：
+			
+			\[
+			i\hbar \partial_t \ket{\psi\left(t\right)}=\hat{H}\left(t\right)  \ket{\psi\left(t\right)} \leftrightarrow \ket{\psi\left(t\right)}=e^{-\frac{i}{\hbar}\mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t}\right]}\ket{\psi\left(0\right)}
+			\]
+			這邊\( \mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t} \right]\)是time order積分，因為不同時刻的Hamiltonian不一定commute，
+			\[
+			\left[\hat{H}\left(t_1\right),\hat{H}\left(t_2\right)\right]\neq 0 
+			\]
+			是量子系統演化比較複雜的部分。如果剛好滿足對易的話，則積分就會回復到常見的形式
+			\[  \mathcal{T}\left[\int^t_0\hat{H}\left(\mathscr{t}\right)d\mathscr{t}\right]_{\left[\hat{H}\left(t_1\right),\hat{H}\left(t_2\right)\right]= 0} =\hat{H} * t \leftrightarrow \ket{\psi\left(t\right)}=e^{-\frac{it}{\hbar}\hat{H}}\ket{\psi\left(0\right)}  \]
+		</p>
+
+
+	</div>
+</section>
+
+
+<section id="20250425"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.25: Gatemon</li></h2>
+	  </header>
+		
+		<div style="text-align: center;">
+			<a href="./Image/20250425-01.png">
+			<img src="./Image/20250425-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+		</div>
+
+
+		<p>
+			Ref. Gatemons get serious, Nature Nanotechnology (2018), Doi:10.1038/s41565-018-0218-8
+		</p>
+
+		<p style="text-align:justify">
+			Gatemon也是一種以超導材料為基礎的量子位元，結合類似Gate-define spin qubit的架構。在約瑟夫森節的部分導入閘控電壓，來控制量子位元的特性。
+			上圖中(b.)在Tunable Transmon中，利用flux line通入磁通量來調整SQUID的等效電感，藉此來調整transomon的頻率。
+			(c,d)則是兩種不同實踐Gatemon的方式。
+		</p>
+
+		<div style="text-align: center;">
+			<a href="./Image/20250425-02.png">
+			<img src="./Image/20250425-02.png" alt="取代文字" style="width: 80%; height: auto;">
+			</a>
+		</div>
+
+		<p>
+			Ref. Superconducting gatemon qubit based on a proximitized two-dimensional electron gas, Nature Nanotechnology (2018), Doi:10.1038/s41565-018-0207-y
+		</p>
+		
+		<p style="text-align:justify"></p>
+			上圖中以\(Al\)基約瑟夫森節，去調控\(InAs\)的2DEG(二維電子氣，2D electron gas)。
+		</p>
+
+
+	</div>
+</section>
+
+
+
+<section id="20250426"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.26: Gatemon (Ge type)</li></h2>
+	  </header>
+		<p style="text-align:justify">
+			
+		</p>
+		<div style="text-align: center;">
+			<a href="./Image/20250426-01.png">
+			<img src="./Image/20250426-01.png" alt="取代文字" style="width: 70%; height: auto;">
+			</a>
+			<br>Ref. Gatemon Qubit on a Germanium Quantum-Well Heterostructure, Nano Letter (2024), Doi:10.1021/acs.nanolett.4c05539
+		</div>
+		<p style="text-align:justify"></p>
+			上圖中以\(Al\)基約瑟夫森節，去調控\(SiGe\)的2DEG(二維電子氣，2D electron gas)。
+			\(SiGe\)在閘控自旋量子位元（Gate-defined spin qubit）很常見，可以參考<a href="./20250113-QM.html#Gate">這邊</a>。
+			故Gatemon可以想像成是以超導量子電路為基礎，搭配閘控量子位元的控制方式，來探詢不同的量子位元設計。
+		</p>
+
+
+	</div>
+</section>
+
+
+<section id="20250427"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.27: Sketch on Quantum Error, Error Correction, and Error Protection (II)</li></h2>
+		</header>
+		<p style="text-align:justify"></p>
+			Hamiltonian包含量子位元自身的能量\(\hat{H}_Q\)、控制產生的外部位能\(\hat{H}^I\)、還有噪音\(\hat{H}_N\):
+			\[
+			\hat{H}\left(t\right)=\hat{H}_Q+\hat{H}^I\left(t\right)+\hat{H}_N\left(t\right)
+			\]
+			在量子計算時，常會選擇“Rotating Frame”，其實就是Interaction Basis，選擇一個新座標只留下交互作用控制項和噪音：
+
+			\[
+				U_Q\left(t\right) = e^{-\frac{i}{\hbar} \mathcal{T}\left[\int_0^t H_Q(\mathscr{t})\,d\mathscr{t} \right]} 
+			\]
+
+			\[
+				\ket{\Theta(t)}=U_Q^\dagger \left(t\right) \ket{\psi(t)}
+			\]
+
+			\begin{align}
+				i\hbar \partial_t \ket{\Theta(t)}&= U_Q^\dagger(t) \left(\hat{H}^I(t) +\hat{H}_N(t) \right) U_Q(t) \ket{\Theta(t)}\\
+				&\equiv  \left(\check{H}^I(t) +\check{H}_N(t) \right)  \ket{\Theta(t)}
+			\end{align}
+			這邊用\( \check{H}^I(t) \equiv U_Q^\dagger(t) \hat{H}^I(t)  U_Q(t) \)表示選擇Rotating Frame（Interaction Basis）\(\, \hat{} \to \textcolor{red}{\check{}} \)。
+		</p>
+
+
+		<p style="text-align:justify">
+			
+		</p>
+		<div style="text-align: center;">
+			<a href="./Image/20250424-01.png">
+			<img src="./Image/20250424-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+			<br>Ref. A quantum engineer's guide to superconducting qubits, Appl. Phys. Rev. 6, 021318 (2019), Doi:10.1063/1.5089550
+		</div>
+		
+	</div>
+</section>
+
+<section id="20250428"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.28: Wafer Scale \(MgB_2\)</li></h2>
+	  </header>
+		<p style="text-align:justify">
+			\(MgB_2\)作為目前傳統超導體（可由BCS理論解釋的超導）最高的臨界溫度\(T_c =40K\)，有機會作為較高溫度的量子位元應用。
+			目前常用的超導量子位元材料\(Al, T_c^{Al}=1.2K\)、\(Nb, T_c^{Nb}=9.2K\)，常操作在\(10mK\)低溫下，需要極大的冷卻功率。
+			當前常說的“Hot Qubit”，實際上是能在\(1K\)穩定操作的量子位元，就已經可以大幅降低冷卻系統的功率。
+			以薄膜製程而言，當元素不只一種時，就容易有元素比例變動的問題需要解決。
+			故研制出大尺寸的\(MgB_2\)也是一個技術上重要的進展。
+		</p>
+		<div style="text-align: center;">
+			<a href="./Image/20250428-01.png">
+			<img src="./Image/20250428-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+			<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+		</div>
+
+		<div style="text-align: center;">
+			<a href="./Image/20250428-02.png">
+			<img src="./Image/20250428-02.png" alt="取代文字" style="width: 60%; height: auto;">
+			</a>
+			<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+		</div>
+		<p style="text-align:justify">
+			改變超導臨界溫度一直是我非常有興趣的題目，我博士期間的研究就是試圖尋找一個框架來理解如何改變臨界溫度，可以參考<a href="../career/Intro-CCC.html">這裡</a>。
+			\(MgB_2\)的臨界溫度亦可以透過薄膜厚度來調整。
+		</p>
+
+		<div style="text-align: center;">
+			<a href="./Image/20250428-03.png">
+			<img src="./Image/20250428-03.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+			<br>Ref. Wafer-Scale MgB2 Superconducting Devices, ACS Nano (2024), Doi:10.1021/acsnano.4c11001
+		</div>
+
+		<p style="text-align:justify"></p>
+			
+		</p>
+
+
+	</div>
+</section>
+
+
+<section id="20250429"> 
+	<div class="container">
+	  <header class="major">
+		<h2><li>2025.04.29: Gate-tunable superconducting diode effect in a three-terminal Josephson device</li></h2>
+	  </header>
+		<p style="text-align:justify">
+			Non-reciprocal critical current in a Josephson device.
+		</p>
+		<div style="text-align: center;">
+			<a href="./Image/20250429-01.png">
+			<img src="./Image/20250429-01.png" alt="取代文字" style="width: 100%; height: auto;">
+			</a>
+			<br>Ref. Gate-tunable superconducting diode effect in a three-terminal Josephson device, Nature Communications (2023), Doi: 10.1038/s41467-023-38856-0
+		</div>
+
+		
+
+		<p style="text-align:justify"></p>
+			
+		</p>
+
+
+	</div>
+</section>
+
+
+
+
+
+
+
+
 
 
 <p style="text-align:justify">
