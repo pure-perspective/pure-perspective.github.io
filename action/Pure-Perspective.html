@@ -737,17 +737,22 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 			<script>
 				const images = [
-					'../action/images/NTHU.JPG',
-					'../action/images/IMG_1357.jpg',
+					'../action/images/40F32907-7FF6-47AB-A4B6-AE625CD00227.PNG',
 					'../action/images/843C4072-5071-419C-B772-37C23D99D990.jpg',
 					'../action/images/9F5DA867-2BDD-41DA-B613-424135562E6F.jpg',
+					'../action/images/NTHU.JPG',
+					'../action/images/IMG_1357.jpg',
 					'../action/images/683DFC54-2CC4-4A90-B1C2-5CA5F14334DF.jpg',
 					'../action/images/565A7EEC-613A-4216-8EF9-3C84B01BBFCC.jpg',
 					'../action/images/82DE4392-B52D-4B1C-A069-9FA335ECBDDB.jpg',
-					'../action/images/76B54632-BE7F-4475-B25E-817F3DD1F353.jpg',
-					'../action/images/40F32907-7FF6-47AB-A4B6-AE625CD00227.PNG'
+					'../action/images/76B54632-BE7F-4475-B25E-817F3DD1F353.jpg'
 				];
-			  
+				
+				images.forEach((src) => {
+					const preloadImg = new Image();
+					preloadImg.src = src;
+				});
+
 				let index = 0;
 				const imgElement = document.querySelector('.image.main img');
 			  
