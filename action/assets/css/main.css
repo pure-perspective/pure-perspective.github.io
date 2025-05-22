@@ -3341,3 +3341,13 @@ input, select, textarea {
 			}
 
 	}
+
+	.image.main img {
+		transition: opacity 0.5s ease-in-out;
+		opacity: 1;
+	  }
+	  
+	  .image.main img.fade-out {
+		opacity: 0;
+	  }
+	  
