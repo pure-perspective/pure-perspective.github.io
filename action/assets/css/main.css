@@ -3342,12 +3342,12 @@ input, select, textarea {
 
 	}
 
-	.image.main img {
+	#hero-img {
 		transition: opacity 0.5s ease-in-out;
 		opacity: 1;
 	  }
 	  
-	  .image.main img.fade-out {
+	  #hero-img.fade-out {
 		opacity: 0;
 	  }
 	  
